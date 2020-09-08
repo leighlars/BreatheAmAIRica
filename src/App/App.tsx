@@ -1,13 +1,12 @@
 import React from 'react';
 import * as ReactDOM from "react-dom";
-import './App.css';
+import './App.scss';
+import Header from '../Header/Header'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h3>Hey there</h3>
-      </header>
+      <Header/>
     </div>
   );
 }

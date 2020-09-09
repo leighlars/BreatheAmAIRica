@@ -17,11 +17,16 @@ header {
       @include headerFont(2em);
       margin: 0;
       margin-left: 2em;
+      text-shadow: 2px 2px black;
+    }
+    img {
+      width: 100%;
     }
     h4  {
       @include headerFont(1.25em);
       margin: 0;
       margin-left: 3em;
+      text-shadow: 2px 2px black;
     }
 }
 }

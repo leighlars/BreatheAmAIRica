@@ -25,7 +25,7 @@ const Search: React.FC = () => {
           className="search-input"
           value={query}
           onChange={() => setQuery}
-          placeholder="Search"
+          placeholder="Search by city"
         />
   )
 }

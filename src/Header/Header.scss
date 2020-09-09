@@ -18,6 +18,7 @@ header {
     .company-logo {
       @include rowDisplay();
       margin-bottom: 5px;
+
       .globe-image {
         width: 2.15em;
       }
@@ -29,8 +30,11 @@ header {
     }
     .tagline  {
       @include headerFont(1.25em);
+      background: -webkit-linear-gradient(right, white, $lightBlue);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
       margin: 0;
-      text-shadow: 2px 2px black;
+      // text-shadow: 2px 2px black;
     }
 }
 }

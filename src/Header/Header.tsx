@@ -6,8 +6,10 @@ const Header: React.FC = () => {
   
   return (
     <header className="header-container">
-      <h1>Weather <br/> 
-        Or Not</h1>
+      <div className='logo-box'>
+        <h1>Weather Or Not</h1> <br />
+        <h4><i>Plan. Research. Experience.</i></h4>
+      </div>
       <Search />
     </header>
   )

@@ -5,12 +5,23 @@ header {
   justify-content: space-between;
   background: $darkBlue;
   color: white;
-  height: 2.25em;
+  height: 5.25em;
   width: 100%;
-  padding: 2%;
   position: fixed;
-  h1 {
-    margin: 0;
-    margin-left: 2em;
-  }
+
+  .logo-box {
+    @include columnDisplay();
+    justify-content: center;
+    text-align: center;
+    h1 {
+      @include headerFont(2em);
+      margin: 0;
+      margin-left: 2em;
+    }
+    h4  {
+      @include headerFont(1.25em);
+      margin: 0;
+      margin-left: 3em;
+    }
+}
 }

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Search from '../Search/Search'
 
 const Header: React.FC = () => {
   
   return (
     <article className="header-container">
-      <h1>Air Quality</h1>
+      <Search />
     </article>
   )
 }

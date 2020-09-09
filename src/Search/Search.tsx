@@ -1,5 +1,37 @@
-import React from "react";
-import * as ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
 import './Search.scss'
+
+
+const Search: React.FC = () => {
+  const [query, setQuery] = useState<string>('')
+  const [debouncedQuery, setDebouncedQuery] = useState<string>(query)
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedQuery(query)
+    }, 750)
+
+    return () => {
+      clearTimeout(timerId);
+    }
+  }, [query])
+
+  useEffect(() => {
+    //async function for fetch call from debounced term and from api
+  })
+
+  return (
+    <article className="search">
+      <div>
+        <input 
+          className="search-input"
+          value={query}
+          onChange={() => setQuery}
+          placeholder="Search"
+        />
+      </div>
+    </article>
+  )
+}
 
 export default Search

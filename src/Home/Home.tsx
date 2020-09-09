@@ -1,5 +1,13 @@
-// import React from "react";
-// import * as ReactDOM from "react-dom";
-// import "./Home.scss";
+import React, { useState, useEffect } from 'react'
+import * as ReactDOM from 'react-dom'
+import './Home.scss'
 
-// export default Home
+const Home: React.FC = () => {
+	return (
+		<section className="top-cities">
+			Top Cities Go Here
+		</section>
+	)
+}
+
+export default Home

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
+$darkBlue: #013578;
+$lightBlue: #33a6f2;
+
+
+@mixin rowDisplay {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  align-items: center;
+}
+
+@mixin columnDisplay {
+  @include rowDisplay();
+  flex-direction: column;
+}
+
+@mixin headerFont($fontSize) {
+  font-family: 'Kumbh Sans', sans-serif;
+  color: white;
+  font-size: $fontSize;
+  margin: 0;
+}
+  

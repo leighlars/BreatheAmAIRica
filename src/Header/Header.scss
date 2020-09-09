@@ -1,1 +1,40 @@
 @import '../styles/_variables.scss';
+
+header {
+  @include rowDisplay();
+  justify-content: space-between;
+  background: $darkBlue;
+  color: white;
+  height: 5.25em;
+  width: 100%;
+  position: fixed;
+
+  .logo-box {
+    @include columnDisplay();
+    justify-content: center;
+    text-align: center;
+    margin-left: 3em;
+
+    .company-logo {
+      @include rowDisplay();
+      margin-bottom: 5px;
+
+      .globe-image {
+        width: 2.15em;
+      }
+      .company-name {
+        @include headerFont(1.65em);
+        margin-left: 10px;
+        text-shadow: 2px 2px black;
+      }
+    }
+    .tagline  {
+      @include headerFont(1.25em);
+      background: -webkit-linear-gradient(right, white, $lightBlue);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+      margin: 0;
+      // text-shadow: 2px 2px black;
+    }
+}
+}

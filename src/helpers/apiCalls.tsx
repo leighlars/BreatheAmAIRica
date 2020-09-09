@@ -17,6 +17,6 @@ export const getLocationData = async (lat: number, long: number) => {
 		const data = await response.json()
 		return data.data
 	} else {
-		throw response
+		throw new Error(response.statusText)
 	}
 }

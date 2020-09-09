@@ -1,5 +1,13 @@
-// import React from "react";
-// import * as ReactDOM from "react-dom";
-// import "./View.scss";
+import React, { useState, useEffect } from 'react'
+import Home from '../Home/Home'
+import './View.scss'
 
-// export default View
+const View: React.FC = () => {
+	return (
+		<main>
+			<Home />
+		</main>
+	)
+}
+
+export default View

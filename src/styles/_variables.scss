@@ -1,0 +1,17 @@
+$darkBlue: #0a46a1;
+$lightBlue: #33a6f2;
+
+
+@mixin rowDisplay {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  align-items: center;
+}
+
+@mixin columnDisplay {
+  @include rowDisplay();
+  flex-direction: column;
+}
+
+  

@@ -1,1 +1,16 @@
 @import '../styles/_variables.scss';
+
+header {
+  @include rowDisplay();
+  justify-content: space-between;
+  background: $darkBlue;
+  color: white;
+  height: 2.25em;
+  width: 100%;
+  padding: 2%;
+  h1 {
+    margin: 0;
+    margin-left: 2em;
+    
+  }
+}

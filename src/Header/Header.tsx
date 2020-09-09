@@ -1,12 +1,15 @@
 import React from 'react'
 import Search from '../Search/Search'
+import './Header.scss'
 
 const Header: React.FC = () => {
   
   return (
-    <article className="header-container">
+    <header className="header-container">
+      <h1>Weather <br/> 
+        Or Not</h1>
       <Search />
-    </article>
+    </header>
   )
 }
 

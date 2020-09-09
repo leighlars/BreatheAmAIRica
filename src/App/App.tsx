@@ -6,17 +6,20 @@ import View from '../View/View'
 import { getCoordinates } from '../helpers/apiCalls'
 
 const App: React.FC = () => {
-	// const [ topCities, setTopCities ] = useState([])
+	const [ topCities, setTopCities ] = useState([])
 
 	useEffect(() => {getTop5Cities()}, [])
 
 	const getTop5Cities = async ():Promise<any> => {
-		const topCities = ['Denver']
-		const topCitiesData = topCities.map(city => {
-			return getCoordinates(city)
-		})
+		const topCities = ['Denver', 'San Francisco']
+		const topCitiesData = Promise.all(topCities.map(city => {
+			// getCoordinates(city)
+		}))
+			.then(data => console.log(data))
 		return topCitiesData
 	}
+
+	// hard code in the top 5 cities with lat and long and only run that through getLocationData on landing
 
   return (
     <div className="App">

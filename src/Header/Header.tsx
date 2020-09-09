@@ -1,13 +1,13 @@
-import './Header.scss'
 import React from 'react'
+import Search from '../Search/Search'
 
-const Header = () => {
+const Header: React.FC = () => {
+  
   return (
-    <header>
-      <h3>Weather Or Not</h3>
-    </header>
+    <article className="header-container">
+      <Search />
+    </article>
   )
 }
-
 
 export default Header

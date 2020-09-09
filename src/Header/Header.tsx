@@ -2,6 +2,7 @@ import React from 'react'
 import Search from '../Search/Search'
 import './Header.scss'
 import globe from '../assets/globe.png'
+import { NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
   
@@ -15,6 +16,12 @@ const Header: React.FC = () => {
         <h2 className='tagline'><i>Plan. Research. Experience.</i></h2>
       </div>
       <Search />
+      <nav>
+        <NavLink to='/about' 
+          className='nav-btns'>
+            About
+        </NavLink>
+      </nav>
     </header>
   )
 }

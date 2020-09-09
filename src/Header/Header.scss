@@ -34,7 +34,19 @@ header {
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
       margin: 0;
-      // text-shadow: 2px 2px black;
     }
-}
+  }
+  
+  nav {
+    margin-right: 3em;
+    .nav-btns {
+      @include headerFont(1em);
+      text-decoration: none;
+      color: white;
+      &:hover {
+        text-shadow: 2px 2px black;
+        color: $lightBlue;
+      }
+    }
+  }
 }

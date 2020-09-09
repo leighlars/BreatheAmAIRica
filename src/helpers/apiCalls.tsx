@@ -9,3 +9,14 @@ export const getCoordinates = async (query: string) => {
 				throw new Error(response.statusText)
 			}
 }
+
+export const getLocationData = async (lat: number, long: number) => {
+	const response = await fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${long}&key=068b5953-ff12-4969-bf21-787d07fe61bf`)
+
+	if (response.ok) {
+		const data = await response.json()
+		return data.data
+	} else {
+		throw response
+	}
+}

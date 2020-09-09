@@ -4,7 +4,7 @@ export const getCoordinates = async (query: string) => {
 	if (response.ok) {
 		const data = await response.json()
 		const coordinates = [data.data[0].latitude, data.data[0].longitude]
-		return coordinates
+		return getLocationData(parseInt(coordinates[0].toFixed(2)), parseInt(coordinates[1].toFixed(2)))
 	} else {
 		throw new Error(response.statusText)
 	}

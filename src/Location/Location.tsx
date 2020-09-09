@@ -1,5 +1,6 @@
 import React from "react";
 import * as ReactDOM from "react-dom";
-import './Search.scss'
+import "./Location.scss";
 
-export default Search
+
+export default Location;

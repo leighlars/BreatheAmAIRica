@@ -24,7 +24,7 @@ const Search: React.FC = () => {
         <input 
           className="search-input"
           value={query}
-          onChange={() => setQuery}
+          onChange={(e) => setQuery(e.target.value)}
           placeholder="Search city, zip, or county"
         />
   )

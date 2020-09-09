@@ -8,21 +8,24 @@ header {
   height: 5.25em;
   width: 100%;
   position: fixed;
-  padding: 2%;
 
   .logo-box {
     @include columnDisplay();
     justify-content: center;
     text-align: center;
     margin-left: 3em;
-    .company-name {
-      @include headerFont(2em);
-      margin: 0;
-      text-shadow: 2px 2px black;
-    }
-    img {
-      margin: auto;
-      width: 2.5em;
+
+    .company-logo {
+      @include rowDisplay();
+      margin-bottom: 5px;
+      .globe-image {
+        width: 2.15em;
+      }
+      .company-name {
+        @include headerFont(1.65em);
+        margin-left: 10px;
+        text-shadow: 2px 2px black;
+      }
     }
     .tagline  {
       @include headerFont(1.25em);

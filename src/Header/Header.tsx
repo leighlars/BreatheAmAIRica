@@ -8,8 +8,10 @@ const Header: React.FC = () => {
   return (
     <header className="header-container">
       <div className='logo-box'>
-        <h1 className='company-name'>Weather Or Not</h1>
-        <img src={globe} alt='Blue geometric globe' />
+        <span className='company-logo'>
+          <img src={globe} alt='Blue geometric globe' className='globe-image' />
+          <h1 className='company-name'>Weather Or Not</h1>
+        </span>
         <h4 className='tagline'><i>Plan. Research. Experience.</i></h4>
       </div>
       <Search />

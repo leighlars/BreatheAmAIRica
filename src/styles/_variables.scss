@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
 $darkBlue: #0a46a1;
 $lightBlue: #33a6f2;
 
@@ -16,7 +16,7 @@ $lightBlue: #33a6f2;
 }
 
 @mixin headerFont($fontSize) {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   color: white;
   font-size: $fontSize;
   margin: 0;

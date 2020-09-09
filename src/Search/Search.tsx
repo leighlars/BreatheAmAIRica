@@ -22,6 +22,7 @@ const Search: React.FC = () => {
 
   return (
         <input 
+          aria-label="search-input"
           className="search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

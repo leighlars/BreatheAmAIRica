@@ -8,14 +8,14 @@ describe('Header', () => {
   })
 
   it('should render logo and search bar in Header', () => {
-    const header = screen.getByRole('heading', {name: 'Weather Or Not'})
+    const logo = screen.getByRole('heading', {name: 'Weather Or Not'})
     const globe = screen.getByRole('img')
     const tagline = screen.getByRole('heading', {name: 'Plan. Research. Experience.'})
     const searchBar = screen.getByPlaceholderText('Search city, zip, or county')
-    expect(header).toBeInTheDocument()
+    expect(logo).toBeInTheDocument()
     expect(globe).toBeInTheDocument()
     expect(tagline).toBeInTheDocument()
-    expect(tagline).toBeInTheDocument()
+    expect(searchBar).toBeInTheDocument()
   })
 
 

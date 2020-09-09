@@ -21,16 +21,12 @@ const Search: React.FC = () => {
   })
 
   return (
-    <article className="search">
-      <div>
         <input 
           className="search-input"
           value={query}
           onChange={() => setQuery}
           placeholder="Search"
         />
-      </div>
-    </article>
   )
 }
 

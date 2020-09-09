@@ -1,1 +1,9 @@
-// @import '../styles/_variables.scss';
+@import '../styles/_variables.scss';
+
+
+.search-input {
+  border-radius: 6px;
+  margin-right: 2em;
+  padding: .5%;
+  font-weight: bold;
+}

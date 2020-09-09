@@ -5,6 +5,8 @@ import Header from '../Header/Header'
 import View from '../View/View'
 import { getCoordinates } from '../helpers/apiCalls'
 
+import { cities } from '../helpers/topCities'
+
 const App: React.FC = () => {
 	const [ topCities, setTopCities ] = useState([])
 

@@ -8,24 +8,25 @@ header {
   height: 5.25em;
   width: 100%;
   position: fixed;
+  padding: 2%;
 
   .logo-box {
     @include columnDisplay();
     justify-content: center;
     text-align: center;
-    h1 {
+    margin-left: 3em;
+    .company-name {
       @include headerFont(2em);
       margin: 0;
-      margin-left: 2em;
       text-shadow: 2px 2px black;
     }
     img {
-      width: 100%;
+      margin: auto;
+      width: 2.5em;
     }
-    h4  {
+    .tagline  {
       @include headerFont(1.25em);
       margin: 0;
-      margin-left: 3em;
       text-shadow: 2px 2px black;
     }
 }

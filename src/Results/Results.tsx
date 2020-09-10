@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { getCoordinates } from '../helpers/apiCalls'
+import Card from '../Card/Card'
 import './Results.scss'
 
-const Results: React.FC = () => {
+interface ResultsProps {
+	searchResults: Array<any>
+}
+
+const Results: React.FC<ResultsProps> = props => {
+	const resultsList = props.searchResults.map(result => {
+		return (
+			<article className="results-info-box" key={result.latitude}>
+				{result.name}
+			</article>
+		)
+	})
 
 	return (
 		<section className="results">
-			Results Go Here
+			{resultsList}
 		</section>
 	)
 }

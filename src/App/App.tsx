@@ -32,10 +32,9 @@ const App: React.FC = () => {
             return <About />;
           }}
         />
-
         <Route
           exact
-          path="/Denver"
+          path="/:location"
           render={({ match }) => {
             return <Location />;
           }}

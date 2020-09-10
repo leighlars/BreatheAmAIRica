@@ -1,4 +1,4 @@
-export const cities = [ 
+export const popularCities = [ 
   {
     name: "Denver" ,
     lat: 39.77,

@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import Card  from '../Card/Card'
 
-import {Link} from 'react-router-dom'
-import { cities } from '../helpers/topCities'
+import { popularCities } from '../helpers/cities'
 
 import './Home.scss'
+
+
 
 const Home: React.FC = () => {
 	const [topCities, setTopCities] = useState([])
 
-	const renderedCities = cities.map((city) => {
+	const renderedCities = popularCities.map((city) => {
 		return (
-			<Link to={`/${city.name}`} className='card-link' style={{ textDecoration: 'none' }}>
-				<article className="card-container" key={city.name}>
-					<h2 className="card-header">{city.name}</h2>
-					<h3 className="card-temp">35&deg;</h3>
-					<p className="card-air">AQI</p>
-					<p className="card-pollen">🐝</p>
-					<p className="card-hazard">🔥</p>
-				</article>
-			</Link>
-  );
+			<Card 
+				city={city.name}
+			/>
+  	);
 	})
 
 	return (

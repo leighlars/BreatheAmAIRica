@@ -1,5 +1,5 @@
-
-const airQualityKey ='DACE2187-D810-4B4B-81E4-45AEBAF087A0'
+const airQualityKey = "DACE2187-D810-4B4B-81E4-45AEBAF087A0"
+const weatherDataKey = "02a1de26e83e798e7595a522e8e4e9d9"
 
 
 export const getCoordinates = (query: string) => {
@@ -8,13 +8,28 @@ export const getCoordinates = (query: string) => {
 		if (response.ok) {
 			return response.json()
 				.then(data => {
-				return [+data.data[0].latitude.toFixed(2), +data.data[0].longitude.toFixed(2)]
+				return data.data
 			})
 		} else {
 			throw response
 		}
 	})
 }
+
+
+export const getWeatherData = async (lat: number, long: number) => {
+  const data = await fetch(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey}`
+  );
+  try {
+    const response = await data;
+    const parseData = await response.json();
+    return parseData;
+  } catch (error) {
+    return error;
+  }
+};
+
 
 export const getAirQualityData = (lat: number, long: number) => {
    return fetch("https://fe-cors-proxy.herokuapp.com", {

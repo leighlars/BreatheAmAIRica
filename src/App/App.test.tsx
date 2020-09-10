@@ -15,7 +15,7 @@ describe('App', () => {
     expect(searchBar).toBeInTheDocument();
   })
 
-  xit('should show various pages when nav links are clicked', () => {
+  it('should show various pages when nav links are clicked', () => {
     // passed on everything but the return to home link at bottom
     const {getByRole} =  render(<MemoryRouter><App/></MemoryRouter>)
     // Home view with cards

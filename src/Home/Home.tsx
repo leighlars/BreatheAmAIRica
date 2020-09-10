@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { getLocationData } from '../helpers/apiCalls'
 import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
 import Card from '../Card/Card'
 
-// export interface HomeProps {
-// 	popularCities: Array<number, string>,
-// 	lowOzoneCities: Array<number, string>,
-// 	lowPollutionCities: Array<number, string>
-// }
+interface HomeProps {
+	popularCities: [],
+	lowOzoneCities: [],
+	lowPollutionCities: []
+}
 
-const Home: React.FC = () => {
-	const [popularCities, setPopularCities] = useState([])
-	const [lowOzoneCities, setOzoneCities] = useState([])
+const Home: React.FC<HomeProps> = props => {
+	const [props.popularCities, setPopularCities] = useState([])
+	const [props.lowOzoneCities, setOzoneCities] = useState([])
 	const [lowPollutionCities, setPollutionCities] = useState([])
 
 	const popularCities = popularCities.map((city: object) => {

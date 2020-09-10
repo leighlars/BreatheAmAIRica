@@ -9,8 +9,8 @@ const Location: React.FC = () => {
 		<section className="location-section">
 			<h2 className='current-city'>Denver</h2>
 			<h3 className='current-region'>Colorado, USA</h3>
-			<div className='current-quick-box'>
-				<h4 className='current-header'>HAPPENING NOW</h4>
+			<div className='info-box'>
+				<h4 className='info-box-header'>HAPPENING NOW</h4>
 				<p className='current-date'><b>Thurs 10</b> | 10:30pm</p>
 				<span className='current-weather'>
 					<div className='current-weather-left'>
@@ -24,8 +24,17 @@ const Location: React.FC = () => {
 					</div>
 
 				</span>
-
 			</div>
+			<div className='info-box air-quality'>
+				<h4 className='info-box-header'>AIR QUALITY</h4>
+			</div>
+			<div className='info-box hourly-forecast'>
+				<h4 className='info-box-header'>HOURLY FORECAST</h4>
+			</div>
+			<div className='info-box weekly-forecast'>
+				<h4 className='info-box-header'>WEEKLY FORECAST</h4>
+			</div>
+
 		</section>
 	)
 }

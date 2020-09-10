@@ -17,14 +17,17 @@
 
   .card-container {
     @include columnDisplay();
-    justify-content: flex-end;
+    // justify-content: flex-end;
     background: white;
     box-shadow: 2px 2px black;
     border-radius: 14px;
-    width: 250px;
-    height: 250px;
-    margin: 1em;
+    width: 225px;
+    height: 225px;
+    margin: 1.5em;
     padding: 2%;
+    &:hover {
+      transform: scale(1.05);
+    }
     
     // display: grid;
     // grid-template-columns: repeat(5, 20%);
@@ -37,11 +40,10 @@
   
   .card-header {
     @include headerFont(1.5em);
-    background: -webkit-radial-gradient($lightBlue, $darkBlue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-shadow: .5px black;
-    // color: $darkBlue;
+    margin-top: 10px;
+    color: $darkBlue;
+    text-shadow: .5px .5px black;
     // grid-row: 1;
     // grid-column: 1/4;
   }

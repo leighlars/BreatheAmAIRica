@@ -11,4 +11,7 @@
   text-align: center;
   box-shadow: 2px 2px black;
   width: 20em;
+  &:hover {
+    border: 2px solid $goldenrod;
+  }
 }

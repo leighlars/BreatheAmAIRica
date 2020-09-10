@@ -60,8 +60,22 @@ const Location: React.FC = () => {
 							</td>
 						</tr>
 						<tr>
-							<td><img src={bee} alt='bee icon for allergies and pollen' className="small-weather-icon"/> <p className='type'>Allergens</p><p className='unit'>Low</p></td>
-							<td className='column-two'><img src={eye} alt='eye icon for visibility' className="small-weather-icon"/> <p className='type'>Visibility</p><p className='unit'>10mi</p></td>
+							<td>
+								<img 
+									src={bee} 
+									alt='bee icon for allergies and pollen' 
+									className="small-weather-icon"/> 
+									<p className='type'>Allergens</p>
+									<p className='unit'>Low</p>
+							</td>
+							<td> 
+								<img 
+									src={eye} 
+									alt='eye icon for visibility' 
+									className="small-weather-icon"/> 
+									<p className='type'>Visibility</p>
+									<p className='unit'>10mi</p>
+							</td>
 						</tr>
 					</tbody>
 				</table>

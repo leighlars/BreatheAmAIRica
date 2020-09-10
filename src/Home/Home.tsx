@@ -13,7 +13,7 @@ const Home: React.FC = () => {
 	const renderedCities = popularCities.map((city) => {
 		return (
 			<Card 
-				city={city.name}
+				name={city.name}
 			/>
   	);
 	})

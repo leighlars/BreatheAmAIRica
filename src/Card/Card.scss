@@ -1,3 +1,5 @@
+@import '../styles/_variables.scss';
+
 .card-container {
     @include columnDisplay();
     justify-content: flex-start;

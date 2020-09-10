@@ -15,7 +15,7 @@ const Home: React.FC = () => {
 				<article className="card-container" key={city.name}>
 					<h2 className="card-header">{city.name}</h2>
 					<h3 className="card-temp">35&deg;</h3>
-					<p className="card-air">API</p>
+					<p className="card-air">AQI</p>
 					<p className="card-pollen">🐝</p>
 					<p className="card-hazard">🔥</p>
 				</article>
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
 				{renderedCities}
 			</div>
 			<article className='home-info-box'>
-				
+
 			</article>
 		</section>
 	)

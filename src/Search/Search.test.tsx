@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, getByPlaceholderText, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Search from './Search'
 
 describe('Search', () => {
@@ -15,8 +15,11 @@ describe('Search', () => {
   })
 
   it("should reflect change in value when data is input in form", () => {
-   const locationInput = screen.getByPlaceholderText("Search city, zip, or county");
+
+   const locationInput = screen.getByRole('textbox', "Search city, zip, or county");
+
    expect(locationInput.value).toBe('');
+
    fireEvent.change(locationInput, { target: { value: "Dallas" } });
    expect(locationInput.value).toBe("Dallas");
   });

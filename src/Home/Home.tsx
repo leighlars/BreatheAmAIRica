@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-
+import {Link} from 'react-router-dom'
 import { getLocationData } from '../helpers/apiCalls'
 import { cities } from '../helpers/topCities'
 
@@ -11,26 +11,23 @@ const Home: React.FC = () => {
 
 	const renderedCities = cities.map((city) => {
 		return (
-		<article
-			className="home-container"
-			key={city.name}
-		>
-			<h3 
-				className="home-header"
-			>
-				{city.name} 🌧
-			</h3>
-			<p className="home-temp">🌡</p>
-			<p className="home-air">😷</p>
-			<p className="home-pollen">🐝</p>
-			<p className="home-hazard">🔥</p>
-		</article>
-		)
+			<Link to={`/${city.name}`}>
+				<article className="card-container" key={city.name}>
+					<h2 className="card-header">{city.name}</h2>
+					<h3 className="card-temp">35&deg;</h3>
+					<p className="card-air">API</p>
+					<p className="card-pollen">🐝</p>
+					<p className="card-hazard">🔥</p>
+				</article>
+			</Link>
+  );
 	})
 
 	return (
 		<section className="home">
+			<div className='top-five-cities'>
 				{renderedCities}
+			</div>
 		</section>
 	)
 }

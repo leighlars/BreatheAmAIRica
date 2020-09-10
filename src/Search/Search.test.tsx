@@ -9,7 +9,9 @@ describe('Search', () => {
 
   it('should render a search bar', () => {
     const search = screen.getByPlaceholderText('Search city, zip, or county')
+    const magGlass = screen.getByAltText('magnifying glass search icon')
     expect(search).toBeInTheDocument()
+    expect(magGlass).toBeInTheDocument()
   })
 
   it("should reflect change in value when data is input in form", () => {

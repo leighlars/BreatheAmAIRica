@@ -37,9 +37,7 @@ header {
     }
     .tagline  {
       @include headerFont(1.25em);
-      background: -webkit-linear-gradient(right, white, $lightBlue);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
+      color: $goldenrod;
       margin: 0;
     }
   }
@@ -58,7 +56,7 @@ header {
       text-shadow: 2px 2px black;
       &:hover {
         text-shadow: 2px 2px black;
-        color: $lightBlue;
+        color: $goldenrod;
       }
     }
   }

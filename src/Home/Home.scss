@@ -1,48 +1,64 @@
+@import '../styles/_variables.scss';
+
+
 .home {
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  @include columnDisplay();
+  padding: 2%;
+  width: 70vw;
+  overflow: none;
   
-  &-container {
-    border: 3px blue solid;
-    border-radius: 15px;
-    width: 250px;
-    height: 250px;
-    margin: 2rem;
-    padding: 4px;
-
-  
-    display: grid;
-    grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(5, 20%);
+  .top-five-cities {
+    @include rowDisplay();
+    overflow: scroll;
+    width: 80vw;
+    margin: 0;
   }
 
-  &-header {
-    font-size: 1.5em;
-    grid-row: 1;
-    grid-column: 1/4;
+  .card-container {
+      @include columnDisplay();
+      justify-content: flex-start;
+      background: white;
+      box-shadow: 2px 2px black;
+      border-radius: 14px;
+      width: 225px;
+      height: 225px;
+      margin: 1.5em;
+      padding: 2%;
+      &:hover {
+        transform: scale(1.05);
+        border: 2px solid $goldenrod;
+      }
+
+    
+    .card-header {
+      @include headerFont(1.5em);
+      text-shadow: .5px black;
+      color: $darkBlue;
+      margin: 10px;
+      text-shadow: .5px .5px black;
+    }
+    .card-temp {
+      @include headerFont(1.5em);
+      color: $darkBlue;
+      margin-top: .5em;
+    }
+
+    p {
+      @include textFont(1em);
+      color: black;
+      font-weight: bold;
+    }
+  }
+  .home-info-box {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 3px 3px black; 
+    margin: 20px auto;
+    padding: 2%;
+    
+    width: 50vw;
   }
 
-  &-temp {
-    grid-row: 1;
-    grid-column: 5;
-  }
-  
-  &-air {
-    grid-row: 4;
-    grid-column: 5;
-  }
-
-  &-pollen {
-    grid-row: 3;
-    grid-column: 5;
-  }
-
-  &-hazard {
-    grid-row: 4;
-    grid-column: 1/3;
-  }
 }
 
 

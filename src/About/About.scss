@@ -4,12 +4,6 @@
   @include columnDisplay();
   padding: 2%;
   width: 70vw;
-
-  img {
-    border-radius: 14px;
-    width: 30vw;
-    margin: 20px auto;
-  }
 }
 
 .intro-text {
@@ -23,12 +17,63 @@
     color: $darkBlue;
     text-align: center;
     text-shadow: .5px .5px black;
+    margin-bottom: 10px;
   }
   p {
     @include textFont(18px);
     text-align: justify;
   } 
 }
+
+.legends {
+  @include rowDisplay();
+  width: 70vw;
+  .aq-image {
+    border-radius: 14px;
+    width: 30vw;
+    margin: 20px auto;
+  }
+  
+    table {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 3px 3px black; 
+      margin: 20px;
+      width: 35vw;
+      padding: 2%;
+      margin: 0 auto;
+    }  
+    thead {
+      @include headerFont(1.5em);
+      color: $darkBlue;
+      margin: 10px;
+    }
+    tr {
+      @include rowDisplay();
+      justify-content: space-between;
+     td {
+       @include rowDisplay();
+       p {
+         @include textFont(1em);
+         color: $darkBlue;
+         margin: 0 10px;
+       }
+       .unit {
+         text-align: left;
+         margin: 0;
+         font-weight: bold;
+       }
+     } 
+    }
+    .small-weather-icon {
+        width: 2vw;
+        margin: 0;
+      }
+  }
+
+
+
+
 
 .credits {
   @include rowDisplay();

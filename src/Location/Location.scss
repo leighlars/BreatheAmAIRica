@@ -1,0 +1,99 @@
+@import '../styles/_variables.scss';
+
+.location-section {
+  @include columnDisplay();
+  padding: 2%;
+  width: 80vw;
+  .current-city {
+    @include headerFont(4.5em);
+    width: 100%;
+    text-align: left;
+    text-shadow: 2px 2px black;
+  }
+  .current-region {
+    @include headerFont(1.25em);
+    width: 100%;
+    text-align: left;
+    text-shadow: 2px 2px black;
+  }
+
+  .info-box { 
+    background: white;
+    border-radius: 14px;
+    box-shadow: 3px 3px black; 
+    margin: 20px auto;
+    padding: 2%;
+    width: 50vw;
+   
+    .info-box-header {
+      @include headerFont(.75em);
+      color: $darkBlue;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .current-date {
+      @include textFont(1em);
+      color: $darkBlue;
+      margin: 0;
+    }
+
+    .current-weather {
+      @include rowDisplay();
+      justify-content: space-between;
+      .current-weather-left {
+        @include rowDisplay();
+
+        .current-temp {
+          @include headerFont(3.5em);
+          color: $darkBlue;
+          margin-top: 5px;
+        }
+        .large-weather-icon {
+          width: 4.5vw;
+          margin: 0;
+        }
+      }
+      .current-weather-right {
+        @include columnDisplay();
+        align-items: flex-end;
+        width: 150px;
+        .current-weather-right-top, .current-weather-right-bottom {
+          @include rowDisplay();
+          margin: 0;
+          p {
+            @include textFont(1.25em);
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+      .small-weather-icon {
+        width: 1.75vw;
+        margin: 0;
+      }
+
+    table {
+      margin: 0 auto;
+    }  
+    tr {
+      @include rowDisplay();
+      justify-content: space-between;
+      width: 600px;
+     td {
+       @include rowDisplay();
+       p {
+         @include textFont(1.15em);
+         color: $darkBlue;
+         margin: 0 10px;
+       }
+       .unit {
+         text-align: left;
+         margin: 0;
+         font-weight: bold;
+       }
+     } 
+    }
+
+
+  }
+}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
+import Results from "../Results/Results"
 import Location from "../Location/Location"
 
 import './App.scss'
@@ -19,29 +20,32 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Route
-          exact
-          path="/"
+          exact path="/"
           render={() => {
-            return <Home />;
+            return <Home />
           }}
         />
         <Route
-          exact
-          path="/about"
+          exact path="/about"
           render={() => {
-            return <About />;
+            return <About />
           }}
         />
         <Route
-          exact
-          path="/:location"
+          exact path="/:location"
           render={({ match }) => {
-            return <Location />;
+            return <Location />
+          }}
+        />
+        <Route
+          exact path="/results"
+          render={() => {
+            return <Results />
           }}
         />
       </main>
     </div>
-  );
+  )
 }
 
 export default App

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Route } from "react-router-dom";
 import Home from '../Home/Home'
 import About from '../About/About'
 import './View.scss'
-import { Route } from "react-router-dom";
 
 
 const View: React.FC = () => {

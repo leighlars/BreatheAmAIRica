@@ -1,15 +1,3 @@
-// export const getCoordinates = async (query: string) => {
-// 	const response = await fetch(`http://api.positionstack.com/v1/forward?access_key=e17943cbd88c595c58c3c6ae1840fc33&query=${query}`)
-
-// 	if (response.ok) {
-// 		const data = await response.json()
-// 		const coordinates = [data.data[0].latitude, data.data[0].longitude]
-// 		return getLocationData(parseInt(coordinates[0].toFixed(2)), parseInt(coordinates[1].toFixed(2)))
-// 	} else {
-// 		throw new Error(response.statusText)
-// 	}
-// }
-
 export const getCoordinates = (query: string) => {
 	return fetch(`http://api.positionstack.com/v1/forward?access_key=e17943cbd88c595c58c3c6ae1840fc33&query=${query}`)
 	.then(response => {
@@ -31,7 +19,7 @@ export const getLocationData = (lat: number, long: number) => {
 				return response.json()
 					.then(data => {
 						console.log(data.data)
-						return data.data
+						return data.data.current.pollution.aqius
 					})
 			} else {
 				throw response

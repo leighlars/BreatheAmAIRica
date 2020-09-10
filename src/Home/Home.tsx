@@ -1,39 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
+import React from 'react'
+import { popCities, ozoneCities, pollutionCities } from '../helpers/cities'
 import './Home.scss'
 import Card from '../Card/Card'
 
-interface HomeProps {
-	popularCities: [],
-	lowOzoneCities: [],
-	lowPollutionCities: []
-}
 
-const Home: React.FC<HomeProps> = props => {
-	const [props.popularCities, setPopularCities] = useState([])
-	const [props.lowOzoneCities, setOzoneCities] = useState([])
-	const [lowPollutionCities, setPollutionCities] = useState([])
+const Home: React.FC = () => {
 
-	const popularCities = popularCities.map((city: object) => {
-		return (</Card city={props.city}>);
+	const popularCities = popCities.map((city: any) => {
+		return (<Card city={city} />);
 	})
 
-	const ozoneCities = lowOzoneCities.map((city: object) => {
-		return (</Card city={props.city}>);
+	const lowOzoneCities = ozoneCities.map((city: any) => {
+		return (<Card city={city} />);
 	})
 	
-	const pollutionCities = lowPollutionCities.map((city: object) => {
-		return (</Card city={props.city}>);
+	const lowPollutionCities = pollutionCities.map((city: any) => {
+		return (<Card city={city} />);
 	})
 
 	return (
 		<section className="home">
+			<h2 className='carousel-header'>Popular Cities</h2>
 			<div className='card-carousel'>
 				{popularCities}
 			</div>
+			<h2 className='carousel-header'>Low Ozone Cities</h2>
 			<div className='card-carousel'>
 				{lowOzoneCities}
 			</div>
+			<h2 className='carousel-header'>Low Pollution Cities</h2>
 			<div className='card-carousel'>
 				{lowPollutionCities}
 			</div>

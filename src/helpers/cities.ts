@@ -1,83 +1,113 @@
-export const popularCities = [
+export const popCities = [
  {
   name: "Denver",
-  lat: 39.7794,
-  long: -105.00523,
- },
+  temp: 55,
+  aqi: 40,
+  pollen: 0,
+  fire: 'Wildfire Smog Present'
+},
  {
   name: "San Francisco",
-  lat: 37.7658,
-  long: -122.3978,
- },
+  temp: 80,
+  aqi: 100,
+  pollen: 3,
+  fire: 'Wildfire Smog Present'
+},
  {
   name: "Miami",
-  lat: 25.7947,
-  long: -80.2156,
- },
+  temp: 90,
+  aqi: 20,
+  pollen: 0,
+  fire: 'None'
+},
  {
   name: "Houston",
-  lat: 29.9011,
-  long: -95.3261,
- },
+  temp: 80,
+  aqi: 80,
+  pollen: 3,
+  fire: 'None'
+},
  {
   name: "New York City",
-  lat: 40.694401,
-  long: -73.928596,
- },
+  temp: 80,
+  aqi: 0,
+  pollen: 0,
+  fire: 'None'
+},
 ];
 
-export const lowOzoneCities = [
+export const ozoneCities = [
  {
-  name: "Anchorage, AK",
-  lat: 61.2181,
-  long: -149.9003,
- },
+  name: "Anchorage",
+  temp: 40,
+  aqi: 10,
+  pollen: 2,
+  fire: 'None'
+},
  {
-  name: "Savannah, GA",
-  lat: 32.0809,
-  long: -81.0912,
- },
+  name: "Savannah",
+  temp: 90,
+  aqi: 20,
+  pollen: 7,
+  fire: 'None'
+},
  {
-  name: "Destin, FL",
-  lat: 30.3935,
-  long: -86.4958,
- },
+  name: "Destin",
+  temp: 90,
+  aqi: 30,
+  pollen: 2,
+  fire: 'None'
+},
  {
-  name: "Honolulu, HI",
-  lat: 21.3069,
-  long: -157.8583,
- },
+  name: "Honolulu",
+  temp: 87,
+  aqi: 10,
+  pollen: 2,
+  fire: 'None'
+},
  {
-  name: "Casper, WY",
-  lat: 42.8501,
-  long: -106.3252,
- },
+  name: "Casper",
+  temp: 55,
+  aqi: 30,
+  pollen: 0,
+  fire: 'Wildfire Smog Present'
+},
 ];
 
-export const lowPollutionCities = [
+export const pollutionCities = [
  {
-  name: "Hot Springs, AR",
-  lat: 34.5037,
-  long: -93.0552,
- },
+  name: "Hot Springs",
+  temp: 82,
+  aqi: 10,
+  pollen: 0,
+  fire: "None"
+},
  {
-  name: "Colorado Springs, CO",
-  lat: 38.8339,
-  long: -104.8214,
- },
+  name: "Colorado Springs",
+  temp: 45,
+  aqi: 10,
+  pollen: 0,
+  fire: 'Wildfire Smog Present'
+},
  {
-  name: "Bellingham, WA",
-  lat: 48.7519,
-  long: -122.4787,
- },
+  name: "Bellingham",
+  temp: 45,
+  aqi: 10,
+  pollen: 0,
+  fire: "None"
+},
  {
-  name: "Albuquerque, NM",
-  lat: 35.0844,
-  long: -106.6504,
- },
+  name: "Albuquerque",
+  temp: 87,
+  aqi: 10,
+  pollen: 0,
+  fire: 'Wildfire Smog Present'
+},
  {
   name: "Portland, ME",
-  lat: 43.6591,
-  long: -70.2568,
- },
+  temp: 74,
+  aqi: 10,
+  pollen: 0,
+  fire: "None"
+},
 ];

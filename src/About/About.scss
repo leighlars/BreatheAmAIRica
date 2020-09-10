@@ -4,14 +4,19 @@
   @include columnDisplay();
   padding: 2%;
   width: 70vw;
-  height: 90vh;
+
   img {
+    border-radius: 14px;
     width: 60vw;
+    margin: 20px auto;
   }
 }
 
 .intro-text {
-  margin: 0 auto;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 3px 3px black; 
+  margin: 20px auto;
   padding: 2%;
   h2 {
     @include headerFont(30px);
@@ -27,6 +32,9 @@
 
 .credits {
   @include rowDisplay();
+  background: white;
+  border-radius: 14px;
+  box-shadow: 3px 3px black; 
   justify-content: center;
   flex-wrap: wrap;
   width: 50%;

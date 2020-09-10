@@ -6,7 +6,8 @@ import Card from './Card';
 
 
 describe('Card Component', () => {
-  it('should display to page correctly', () => {
+
+  it('should display correctly', () => {
     render(
       <MemoryRouter>
         <Card

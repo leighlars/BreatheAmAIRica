@@ -11,27 +11,45 @@ import wind from '../assets/wind.png'
 // should we break this out into different components?
 // feel free to break up lines of text for readability, i'm getting tired
 
-const Location: React.FC = () => {
+interface LocationProps {
+		date?: string,
+		day?: string,
+		time?: number,
+		city?: string;
+		state?: string,
+		country?: string,
+		temp?: number,
+		aqi?: number,
+		uvIndex?: number,
+		visibility?: number,
+		wind?: number,
+		windDirection?: string,
+		precipitation?: number,
+		allergyLevel?: number,
+		discussion?: string,
+  }
+
+const Location: React.FC<LocationProps> = (props) => {
 	return (
 		<section className="location-section">
-			<h2 className='current-city'>Denver</h2>
-			<h3 className='current-region'>Colorado, USA</h3>
+			<h2 className='current-city'>{props.city}</h2>
+			<h3 className='current-region'>{props.state}, {props.country}</h3>
 			<div className='info-box'>
 				<h4 className='info-box-header'>HAPPENING NOW</h4>
-				<p className='current-date'><b>Thurs 10</b> | 10:30pm</p>
+				<p className='current-date'><b>{props.day} {props.date}</b> | {props.time}</p>
 				<article className='current-weather'>
 					<div className='current-weather-left'>
-						<h5 className='current-temp'>35&deg;</h5>
+						<h5 className='current-temp'>{props.temp}&deg;</h5>
 						<img src={cloudyNight} alt='clouds covering moon for current sky' className='large-weather-icon'/>
 					</div>
 					<div className='current-weather-right'>
 						<span className='current-weather-right-top'>
 							<img src={wind} alt='wind icon for wind speed direction' className='small-weather-icon'/> 
-							<p className='current-wind'>10 mph / NW</p>
+							<p className='current-wind'>{props.wind} mph / {props.windDirection}</p>
 						</span>
 						<span className='current-weather-right-bottom'>
 							<img src={waterdrop} alt='rain droplet icon for precipitation' className='small-weather-icon'/> 
-							<p className='current-precipitation'>10%</p>
+							<p className='current-precipitation'>{props.precipitation}</p>
 						</span>
 					</div>
 
@@ -48,7 +66,7 @@ const Location: React.FC = () => {
 								alt='lungs icon for air quality' 
 								className="small-weather-icon"/> 
 								<p className='type'>Air Quality Index</p>
-								<p className='unit'>28</p>
+								<p className='unit'>{props.aqi}</p>
 							</td>
 							<td>
 								<img 
@@ -56,7 +74,7 @@ const Location: React.FC = () => {
 									alt='sun icon for UV index' 
 									className="small-weather-icon"/> 
 									<p className='type'>UV Index</p>
-									<p className='unit'>0 of 10</p>
+									<p className='unit'>{props.uvIndex} of 10</p>
 							</td>
 						</tr>
 						<tr>
@@ -66,7 +84,7 @@ const Location: React.FC = () => {
 									alt='bee icon for allergies and pollen' 
 									className="small-weather-icon"/> 
 									<p className='type'>Allergens</p>
-									<p className='unit'>Low</p>
+									<p className='unit'>{props.allergyLevel}</p>
 							</td>
 							<td> 
 								<img 
@@ -74,7 +92,7 @@ const Location: React.FC = () => {
 									alt='eye icon for visibility' 
 									className="small-weather-icon"/> 
 									<p className='type'>Visibility</p>
-									<p className='unit'>10mi</p>
+									<p className='unit'>{props.visibility}mi</p>
 							</td>
 						</tr>
 					</tbody>

@@ -9,11 +9,15 @@ import Location from "../Location/Location"
 
 import './App.scss'
 
-import { getAirQualityData } from '../helpers/apiCalls'
+import { getCoordinates } from '../helpers/apiCalls'
 
 const App: React.FC = () => {
-	const [ topCities, setTopCities ] = useState([])
+	const [ searchResults, setSearchResults ] = useState([])
 
+	const getSearchResults = async () => {
+		const returnedResults = await getCoordinates('Denver')
+		setSearchResults(returnedResults)
+	}
 
   return (
     <div className="App">
@@ -40,7 +44,11 @@ const App: React.FC = () => {
         <Route
           exact path="/results"
           render={() => {
-            return <Results />
+            return (
+							<Results
+								searchResults={searchResults}
+							/>
+						)
           }}
         />
       </main>

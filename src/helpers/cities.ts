@@ -26,6 +26,58 @@ export const popularCities = [
   }
 ]
 
-export const lowOzoneCities = []
+export const lowOzoneCities = [
+  {
+    name: "Anchorage, AK", 
+    lat: 61.21, 
+    long: -149.90
+  }, 
+  {
+    name: "Savannah, GA",
+    lat: '', 
+    long: ''
+  }, 
+  {
+    name: "Destin, FL",
+    lat: '', 
+    long: ''
+  }, 
+  {
+    name: "Honolulu, HI",
+    lat: '', 
+    long: '' 
+  }, 
+  {
+    name: "Casper, WY",
+    lat: '', 
+    long: ''
+  }
+  ]
 
-export const lowPollutionCities = []
+export const lowPollutionCities = [
+  {
+    name: "Hot Springs, AR",
+    lat: '', 
+    long: ''
+  }, 
+  {
+    name: "Colorado Springs, CO",
+    lat: '', 
+    long: ''
+  }, 
+  {
+    name: "Bellingham, WA",
+    lat: '', 
+    long: ''
+  },
+  {   
+    name: "Albuquerque, NM",
+    lat: '', 
+    long: ''
+  },
+  {
+    name: "Portland, ME",
+    lat: '', 
+    long: ''
+  }
+]

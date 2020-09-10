@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import { getLocationData } from '../helpers/apiCalls'
-import { popularCities } from '../helpers/cities'
-import { lowOzoneCities } from '../helpers/cities'
-import { lowPollutionCities } from '../helpers/cities'
+import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
 
 export interface HomeProps {

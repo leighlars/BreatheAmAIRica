@@ -7,3 +7,11 @@
   background: linear-gradient(0deg, rgba(51,138,242,0.9808298319327731) 13%, rgba(23,79,174,1) 41%, rgba(1,53,120,1) 59%);
   height: 100%;
 }
+
+main {
+  @include columnDisplay();
+  padding: 0;
+  width: 100%;
+  overflow: scroll;
+  margin-top: 10em;
+}

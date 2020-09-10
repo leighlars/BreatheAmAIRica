@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <div className='logo-box'>
         <span className='company-logo'>
           <img src={globe} alt='Blue geometric globe' className='globe-image' />
-          <h1 className='company-name'>Weather Or Not</h1>
+          <h1 className='company-name'>Goin SomewhAIR?</h1>
         </span>
         <h2 className='tagline'><i>Plan. Research. Experience.</i></h2>
       </div>

@@ -11,6 +11,8 @@ import Card from '../Card/Card'
 // 	lowPollutionCities: Array<number, string>
 // }
 
+
+
 const Home: React.FC = () => {
 	const [popularCities, setPopularCities] = useState([])
 	const [lowOzoneCities, setOzoneCities] = useState([])

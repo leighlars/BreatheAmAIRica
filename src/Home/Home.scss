@@ -16,7 +16,7 @@
 
   .card-container {
       @include columnDisplay();
-      // justify-content: flex-end;
+      justify-content: flex-start;
       background: white;
       box-shadow: 2px 2px black;
       border-radius: 14px;
@@ -28,24 +28,14 @@
         transform: scale(1.05);
         border: 2px solid $goldenrod;
       }
-      
-      // display: grid;
-      // grid-template-columns: repeat(5, 20%);
-      // grid-template-rows: repeat(5, 20%);
-    
 
-    .card-link {
-        text-decoration: none;
-    }
     
     .card-header {
       @include headerFont(1.5em);
       text-shadow: .5px black;
-      margin-top: 10px;
       color: $darkBlue;
+      margin: 10px;
       text-shadow: .5px .5px black;
-      // grid-row: 1;
-      // grid-column: 1/4;
     }
     .card-temp {
       @include headerFont(1.5em);

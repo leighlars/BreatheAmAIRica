@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
 	const renderedCities = cities.map((city) => {
 		return (
-			<Link to={`/${city.name}`} className='card-link'>
+			<Link to={`/${city.name}`} className='card-link' style={{ textDecoration: 'none' }}>
 				<article className="card-container" key={city.name}>
 					<h2 className="card-header">{city.name}</h2>
 					<h3 className="card-temp">35&deg;</h3>

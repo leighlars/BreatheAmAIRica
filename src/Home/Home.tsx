@@ -28,6 +28,9 @@ const Home: React.FC = () => {
 			<div className='top-five-cities'>
 				{renderedCities}
 			</div>
+			<article className='home-info-box'>
+				
+			</article>
 		</section>
 	)
 }

@@ -10,74 +10,65 @@
   .top-five-cities {
     @include rowDisplay();
     overflow: scroll;
-    padding: 1%;
     width: 80vw;
     margin: 0;
   }
 
   .card-container {
-    @include columnDisplay();
-    // justify-content: flex-end;
-    background: white;
-    box-shadow: 2px 2px black;
-    border-radius: 14px;
-    width: 225px;
-    height: 225px;
-    margin: 1.5em;
-    padding: 2%;
-    &:hover {
-      transform: scale(1.05);
+      @include columnDisplay();
+      // justify-content: flex-end;
+      background: white;
+      box-shadow: 2px 2px black;
+      border-radius: 14px;
+      width: 225px;
+      height: 225px;
+      margin: 1.5em;
+      padding: 2%;
+      &:hover {
+        transform: scale(1.05);
+        border: 2px solid $goldenrod;
+      }
+      
+      // display: grid;
+      // grid-template-columns: repeat(5, 20%);
+      // grid-template-rows: repeat(5, 20%);
+    
+
+    .card-link {
+        text-decoration: none;
     }
     
-    // display: grid;
-    // grid-template-columns: repeat(5, 20%);
-    // grid-template-rows: repeat(5, 20%);
+    .card-header {
+      @include headerFont(1.5em);
+      text-shadow: .5px black;
+      margin-top: 10px;
+      color: $darkBlue;
+      text-shadow: .5px .5px black;
+      // grid-row: 1;
+      // grid-column: 1/4;
+    }
+    .card-temp {
+      @include headerFont(1.5em);
+      color: $darkBlue;
+      margin-top: .5em;
+    }
+
+    p {
+      @include textFont(1em);
+      color: black;
+      font-weight: bold;
+    }
+  }
+  .home-info-box {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 3px 3px black; 
+    margin: 20px auto;
+    padding: 2%;
+    
+    width: 50vw;
   }
 
-  .card-link {
-      text-decoration: none;
-  }
-  
-  .card-header {
-    @include headerFont(1.5em);
-    text-shadow: .5px black;
-    margin-top: 10px;
-    color: $darkBlue;
-    text-shadow: .5px .5px black;
-    // grid-row: 1;
-    // grid-column: 1/4;
-  }
-  .card-temp {
-    @include headerFont(1.5em);
-    color: $darkBlue;
-    margin-top: .5em;
-  }
-
-  p {
-    @include textFont(1em);
-    color: black;
-    font-weight: bold;
-  }
-
-  .card-temp {
-    // grid-row: 1;
-    // grid-column: 5;
-  }
-  
-  .card-air {
-    // grid-row: 4;
-    // grid-column: 5;
-  }
-
-  .card-pollen {
-    // grid-row: 3;
-    // grid-column: 5;
-  }
-
-  .card-hazard {
-    // grid-row: 4;
-    // grid-column: 1/3;
-  }
 }
 
 

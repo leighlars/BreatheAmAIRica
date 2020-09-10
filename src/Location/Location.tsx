@@ -2,6 +2,10 @@ import React from 'react'
 import './Location.scss'
 import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
+import eye from '../assets/eye.png'
+import sun from '../assets/sun.png'
+import bee from "../assets/bee.png";
+import lungs from '../assets/lungs.png'
 import raindrop from '../assets/liquid.png'
 
 const Location: React.FC = () => {
@@ -12,7 +16,7 @@ const Location: React.FC = () => {
 			<div className='info-box'>
 				<h4 className='info-box-header'>HAPPENING NOW</h4>
 				<p className='current-date'><b>Thurs 10</b> | 10:30pm</p>
-				<span className='current-weather'>
+				<article className='current-weather'>
 					<div className='current-weather-left'>
 						<h5 className='current-temp'>35&deg;</h5>
 						<img src={cloudyNight} alt='clouds covering moon' className='large-weather-icon'/>
@@ -23,10 +27,37 @@ const Location: React.FC = () => {
 						<p className='current-precipitation'>10%</p>
 					</div>
 
-				</span>
+				</article>
 			</div>
 			<div className='info-box air-quality'>
 				<h4 className='info-box-header'>AIR QUALITY</h4>
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<img 
+								src={lungs} 
+								alt='lungs icon for air quality' 
+								className="small-weather-icon"/> 
+								<p className='type'>Air Quality Index</p>
+								<p className='unit'>28</p>
+							</td>
+							<td>
+								<img 
+									src={sun} 
+									alt='sun icon for UV index' 
+									className="small-weather-icon"/> 
+									<p className='type'>UV Index</p>
+									<p className='unit'>0 of 10</p>
+							</td>
+						</tr>
+						<hr />
+						<tr>
+							<td><img src={bee} alt='bee icon for allergies and pollen' className="small-weather-icon"/> <p className='type'>Allergens</p><p className='unit'>Low</p></td>
+							<td className='column-two'><img src={eye} alt='eye icon for visibility' className="small-weather-icon"/> <p className='type'>Visibility</p><p className='unit'>10mi</p></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 			<div className='info-box hourly-forecast'>
 				<h4 className='info-box-header'>HOURLY FORECAST</h4>

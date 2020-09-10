@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from 'react'
-
 import {Link} from 'react-router-dom'
 import { getLocationData } from '../helpers/apiCalls'
-import { cities } from '../helpers/topCities'
-
+import { popularCities } from '../helpers/cities'
+import { lowOzoneCities } from '../helpers/cities'
+import { lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
 
-const Home: React.FC = () => {
-	const [topCities, setTopCities] = useState([])
+export interface HomeProps {
+	popularCities: array,
+	lowOzoneCities: array,
+	lowPollutionCities: array
+}
 
-	const renderedCities = cities.map((city) => {
-		return (
-			<Link to={`/${city.name}`} className='card-link' style={{ textDecoration: 'none' }}>
-				<article className="card-container" key={city.name}>
-					<h2 className="card-header">{city.name}</h2>
-					<h3 className="card-temp">35&deg;</h3>
-					<p className="card-air">AQI</p>
-					<p className="card-pollen">🐝</p>
-					<p className="card-hazard">🔥</p>
-				</article>
-			</Link>
-  );
+const Home: React.FC = () => {
+	const [popularCities, setPopularCities] = useState([])
+
+	const popularCities = popularCities.map((city) => {
+		return (</Card props={city}>);
+	})
+
+	const ozoneCities = ozoneCities.map((city) => {
+		return (</Card props={city}>);
+	})
+	
+	const pollutionCities = pollutionCities.map((city) => {
+		return (</Card props={city}>);
 	})
 
 	return (
 		<section className="home">
-			<div className='top-five-cities'>
-				{renderedCities}
+			<div className='card-carousel'>
+				{popularCities}
+				{ozoneCities}
+				{pollutionCities}
 			</div>
 			<article className='home-info-box'>
 

@@ -1,4 +1,4 @@
-export const cities = [ 
+export const popularCities = [ 
   {
     name: "Denver" ,
     lat: 39.77,
@@ -25,3 +25,7 @@ export const cities = [
     long: -73.92,
   }
 ]
+
+export const lowOzoneCities = []
+
+export const lowPollutionCities = []

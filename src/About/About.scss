@@ -4,22 +4,23 @@
   @include columnDisplay();
   padding: 2%;
   width: 70vw;
+  height: 90vh;
   img {
-    width: 70%;
+    width: 60vw;
   }
 }
 
 .intro-text {
   margin: 0 auto;
-  padding: 1%;
-  width: 90vh;
+  padding: 2%;
   h2 {
-    @include headerFont(1.7em);
+    @include headerFont(30px);
     color: $darkBlue;
     text-align: center;
+    text-shadow: .5px .5px black;
   }
   p {
-    @include textFont(1em);
+    @include textFont(18px);
     text-align: justify;
   } 
 }

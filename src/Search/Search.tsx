@@ -8,22 +8,12 @@ const Search: React.FC = () => {
 	const [debouncedQuery, setDebouncedQuery] = useState<string>(query)
 	const [result, setResult] = useState<number>(0)
 
-  // useEffect(() => {
-  //   const timerId = setTimeout(() => {
-  //     setDebouncedQuery(query)
-  //   }, 750)
-
-  //   return () => {
-  //     clearTimeout(timerId);
-  //   }
-  // }, [query])
-
 	useEffect(() => {
 		getSearchInputData()
 	}, [debouncedQuery])
 
 	const getSearchInputData = async () => {
-		const data = await getCoordinates('denver')
+		const data = await getCoordinates('San Francisco')
 		const locationData = await getAirQualityData(data[0], data[1])
 		setResult(locationData)
 	}

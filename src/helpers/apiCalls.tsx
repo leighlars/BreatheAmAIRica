@@ -30,7 +30,7 @@ export const getLocationData = (lat: number, long: number) => {
 		if (response.ok) {
 			response.json()
 				.then(data => {
-					console.log(data)
+					return data
 				})
 		} else {
 			throw response

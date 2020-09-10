@@ -5,8 +5,6 @@ import Header from '../Header/Header'
 import View from '../View/View'
 import { getCoordinates } from '../helpers/apiCalls'
 
-import { cities } from '../helpers/topCities'
-
 const App: React.FC = () => {
 	const [ topCities, setTopCities ] = useState([])
 
@@ -14,10 +12,12 @@ const App: React.FC = () => {
 
 	const getTop5Cities = async ():Promise<any> => {
 		const topCities = ['Denver', 'San Francisco']
-		const topCitiesData = Promise.all(topCities.map(city => {
-			// getCoordinates(city)
-		}))
-			.then(data => console.log(data))
+		const topCitiesData = Promise.all(
+      topCities.map((city) => {
+        // getCoordinates(city)
+      })
+    ).then((data) => console.log(data));
+			console.log(topCitiesData)
 		return topCitiesData
 	}
 

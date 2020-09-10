@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { getLocationData } from '../helpers/apiCalls'
 import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
+import Card from '../Card/Card'
 
 // export interface HomeProps {
 // 	popularCities: Array<number, string>,

@@ -1,5 +1,5 @@
-const airQualityKey ='DACE2187-D810-4B4B-81E4-45AEBAF087A0'
 
+const airQualityKey ='DACE2187-D810-4B4B-81E4-45AEBAF087A0'
 
 
 export const getCoordinates = (query: string) => {
@@ -31,17 +31,17 @@ export const getLocationData = (lat: number, long: number) => {
 		})
 }
 
-export const getAirQuality = async (lat: number, long: number) => {
-	const url = `http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=${lat}&longitude=${long}&date=2020-09-10&distance=25&API_KEY=${airQualityKey}`;
-	try {	
-		const getData = await fetch(url)
-		const parseData = await getData.json()
-		
-		return parseData;
 
-	} catch (error) {
-		return error
-	}
+export const getAirQualityData = () => {
+	fetch("https://fe-cors-proxy.herokuapp.com", {
+    headers: {
+      "Target-URL":
+        "http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2020-09-10&distance=25&API_KEY=DACE2187-D810-4B4B-81E4-45AEBAF087A0",
+    },
+  })
+    .then((response) => response.json())
+    .then((airData) => console.log(airData))
+    .catch((error) => console.error(error));
 }
 
-// http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2020-09-10&distance=25&API_KEY=DACE2187-D810-4B4B-81E4-45AEBAF087A0
+

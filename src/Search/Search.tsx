@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getCoordinates, getLocationData } from '../helpers/apiCalls'
+import { getCoordinates, getAirQualityData } from '../helpers/apiCalls'
 import './Search.scss'
 import magGlass from '../assets/search.png'
 
@@ -24,7 +24,7 @@ const Search: React.FC = () => {
 
 	const getSearchInputData = async () => {
 		const data = await getCoordinates('denver')
-		const locationData = await getLocationData(data[0], data[1])
+		const locationData = await getAirQualityData(data[0], data[1])
 		setResult(locationData)
 	}
 

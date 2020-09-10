@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
 import {Link} from 'react-router-dom'
-import { getLocationData } from '../helpers/apiCalls'
 import { cities } from '../helpers/topCities'
 
 import './Home.scss'

@@ -14,36 +14,33 @@ const App: React.FC = () => {
 	const [ topCities, setTopCities ] = useState([])
 
 
-getAirQualityData()
-
-
   return (
     <div className="App">
       <Header />
-			<main>
-				<Route
-					exact
-					path="/"
-					render={() => {
-						return <Home />;
-					}}
-				/>
-				<Route
-					exact
-					path="/about"
-					render={() => {
-						return <About />;
-					}}
-				/>
+      <main>
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return <Home />;
+          }}
+        />
+        <Route
+          exact
+          path="/about"
+          render={() => {
+            return <About />;
+          }}
+        />
 
-				<Route
-					exact
-					path="/Denver"
-					render={({ match }) => {
-						return <Location />;
-					}}
-				/>
-			</main>
+        <Route
+          exact
+          path="/Denver"
+          render={({ match }) => {
+            return <Location />;
+          }}
+        />
+      </main>
     </div>
   );
 }

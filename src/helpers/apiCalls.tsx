@@ -16,32 +16,18 @@ export const getCoordinates = (query: string) => {
 	})
 }
 
-export const getLocationData = (lat: number, long: number) => {
-	return fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${long}&key=068b5953-ff12-4969-bf21-787d07fe61bf`)
-		.then(response => {
-			if (response.ok) {
-				return response.json()
-					.then(data => {
-						console.log(data.data)
-						return data.data.current.pollution.aqius
-					})
-			} else {
-				throw response
-			}
-		})
-}
-
-
-export const getAirQualityData = () => {
-	fetch("https://fe-cors-proxy.herokuapp.com", {
+export const getAirQualityData = (lat: number, long: number) => {
+   return fetch("https://fe-cors-proxy.herokuapp.com", {
     headers: {
       "Target-URL":
-        "http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2020-09-10&distance=25&API_KEY=DACE2187-D810-4B4B-81E4-45AEBAF087A0",
+        `http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=${lat}&longitude=${long}&API_KEY=${airQualityKey}`,
     },
   })
     .then((response) => response.json())
-    .then((airData) => console.log(airData))
+    .then((airData) => {
+			return airData;
+		})
     .catch((error) => console.error(error));
-}
+};
 
 

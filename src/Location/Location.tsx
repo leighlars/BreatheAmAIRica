@@ -6,7 +6,10 @@ import eye from '../assets/eye.png'
 import sun from '../assets/sun.png'
 import bee from "../assets/bee.png";
 import lungs from '../assets/lungs.png'
-import raindrop from '../assets/liquid.png'
+import wind from '../assets/wind.png'
+// import raindrop from '../assets/liquid.png'
+// should we break this out into different components?
+// feel free to break up lines of text for readability, i'm getting tired
 
 const Location: React.FC = () => {
 	return (
@@ -19,12 +22,17 @@ const Location: React.FC = () => {
 				<article className='current-weather'>
 					<div className='current-weather-left'>
 						<h5 className='current-temp'>35&deg;</h5>
-						<img src={cloudyNight} alt='clouds covering moon' className='large-weather-icon'/>
+						<img src={cloudyNight} alt='clouds covering moon for current sky' className='large-weather-icon'/>
 					</div>
 					<div className='current-weather-right'>
-						
-						<img src={waterdrop} alt='raindroplets' className='small-weather-icon'/> 
-						<p className='current-precipitation'>10%</p>
+						<span className='current-weather-right-top'>
+							<img src={wind} alt='wind icon for wind speed direction' className='small-weather-icon'/> 
+							<p className='current-wind'>10 mph / NW</p>
+						</span>
+						<span className='current-weather-right-bottom'>
+							<img src={waterdrop} alt='rain droplet icon for precipitation' className='small-weather-icon'/> 
+							<p className='current-precipitation'>10%</p>
+						</span>
 					</div>
 
 				</article>

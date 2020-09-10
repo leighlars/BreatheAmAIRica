@@ -8,15 +8,15 @@ const Search: React.FC = () => {
 	const [debouncedQuery, setDebouncedQuery] = useState<string>(query)
 	const [result, setResult] = useState<number>(0)
 
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedQuery(query)
-    }, 750)
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => {
+  //     setDebouncedQuery(query)
+  //   }, 750)
 
-    return () => {
-      clearTimeout(timerId);
-    }
-  }, [query])
+  //   return () => {
+  //     clearTimeout(timerId);
+  //   }
+  // }, [query])
 
 	useEffect(() => {
 		getSearchInputData()

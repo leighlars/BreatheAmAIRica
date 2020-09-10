@@ -54,11 +54,16 @@
         }
       }
       .current-weather-right {
-        @include rowDisplay();
-
-        p {
-          @include textFont(1.25em);
-          margin-left: 5px;
+        @include columnDisplay();
+        align-items: flex-end;
+        width: 150px;
+        .current-weather-right-top, .current-weather-right-bottom {
+          @include rowDisplay();
+          margin: 0;
+          p {
+            @include textFont(1.25em);
+            margin-left: 5px;
+          }
         }
       }
     }

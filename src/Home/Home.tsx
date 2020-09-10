@@ -4,13 +4,13 @@ import { getLocationData } from '../helpers/apiCalls'
 import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
 
-export interface HomeProps {
-	popularCities: [] {name: string, lat: number, long: number},
-	lowOzoneCities: [] {name: string, lat: number, long: number},
-	lowPollutionCities: [] {name: string, lat: number, long: number}
-}
+// export interface HomeProps {
+// 	popularCities: Array<number, string>,
+// 	lowOzoneCities: Array<number, string>,
+// 	lowPollutionCities: Array<number, string>
+// }
 
-const Home: React.FC<HomeProps> = props => {
+const Home: React.FC = () => {
 	const [popularCities, setPopularCities] = useState([])
 	const [lowOzoneCities, setOzoneCities] = useState([])
 	const [lowPollutionCities, setPollutionCities] = useState([])

@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from '../Search/Search'
 import './Header.scss'
-import globe from '../assets/globe.png'
+import america from '../assets/america.png'
 import { NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <div className='top-header'>
       <div className='logo-box'>
         <span className='company-logo'>
-          <img src={globe} alt='Blue geometric globe' className='globe-image' />
+          <img src={america} alt='Blue map of USA' className='map-icon' />
           <h1 className='company-name'>Breathe AmAIRica</h1>
         </span>
         <h2 className='tagline'><i>Plan. Research. Experience.</i></h2>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+
 import { getLocationData } from '../helpers/apiCalls'
 import { cities } from '../helpers/topCities'
 
@@ -8,32 +9,27 @@ import './Home.scss'
 const Home: React.FC = () => {
 	const [topCities, setTopCities] = useState([])
 
-	useEffect(() => {
-		const getCityData = async () => {
-			const {city}: any = cities.map(city => {
-				getLocationData(city.lat, city.long)
-			})
-			setTopCities(city)
-		}
-		getCityData()
-
-		console.log(topCities)
-	},[topCities])
-
 	const renderedCities = cities.map((city) => {
 		return (
-		<article>
-			<p>
+		<article
+			className="home-container"
+			key={city.name}
+		>
+			<h3 
+				className="home-header"
+			>
 				{city.name} 🌧
-			</p>
+			</h3>
+			<p className="home-temp">🌡</p>
+			<p className="home-air">😷</p>
+			<p className="home-pollen">🐝</p>
+			<p className="home-hazard">🔥</p>
 		</article>
 		)
 	})
 
-
-
 	return (
-		<section className="top-cities">
+		<section className="home">
 				{renderedCities}
 		</section>
 	)

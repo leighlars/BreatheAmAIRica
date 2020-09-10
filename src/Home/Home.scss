@@ -1,0 +1,51 @@
+.home {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  &-container {
+    border: 3px blue solid;
+    border-radius: 15px;
+    width: 250px;
+    height: 250px;
+    margin: 2rem;
+    padding: 4px;
+
+  
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+  }
+
+  &-header {
+    font-size: 1.5em;
+    grid-row: 1;
+    grid-column: 1/4;
+  }
+
+  &-temp {
+    grid-row: 1;
+    grid-column: 5;
+  }
+  
+  &-air {
+    grid-row: 4;
+    grid-column: 5;
+  }
+
+  &-pollen {
+    grid-row: 3;
+    grid-column: 5;
+  }
+
+  &-hazard {
+    grid-row: 4;
+    grid-column: 1/3;
+  }
+}
+
+
+
+
+

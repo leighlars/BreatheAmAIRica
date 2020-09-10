@@ -26,14 +26,19 @@ export const getCoordinates = (query: string) => {
 
 export const getLocationData = (lat: number, long: number) => {
 	return fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${long}&key=068b5953-ff12-4969-bf21-787d07fe61bf`)
-	.then(response => {
-		if (response.ok) {
-			response.json()
-				.then(data => {
-					return data
-				})
-		} else {
-			throw response
-		}
-	})
+		.then(response => response.json())
+		.catch(error => new Error('Api sucks'))
+		
+		
+		
+	// 	{
+	// 	if (response.ok) {
+	// 		response.json()
+	// 			.then(data => {
+	// 				console.log(data)
+	// 			})
+	// 	} else {
+	// 		throw response
+	// 	}
+	// })
 }

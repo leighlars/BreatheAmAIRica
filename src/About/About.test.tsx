@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, getByPlaceholderText } from "@testing-library/react";
+import { render, screen, getByAltText} from "@testing-library/react";
 import About from "./About";
 import { MemoryRouter } from "react-router-dom";
 

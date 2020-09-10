@@ -3,4 +3,6 @@
 main {
   @include columnDisplay();
   margin-top: 7em;
+  background: white;
+  overflow: scroll;
 }

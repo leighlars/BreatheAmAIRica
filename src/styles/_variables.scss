@@ -21,4 +21,11 @@ $lightBlue: #33a6f2;
   font-size: $fontSize;
   margin: 0;
 }
+
+@mixin textFont($fontSize) {
+  font-family: 'Kumbh Sans', sans-serif;
+  color: black;
+  font-size: $fontSize;
+  text-align: justify;
+}
   

@@ -2,11 +2,25 @@
 
 .about-section {
   @include columnDisplay();
+  padding: 2%;
+  width: 70vw;
   img {
-    width: 60%;
+    width: 80%;
   }
+}
+
+.intro-text {
+  margin: 0 auto;
+  padding: 1%;
+  width: 90vh;
   h2 {
-    @include headerFont(1.3em);
+    @include headerFont(1.7em);
     color: $darkBlue;
+    text-align: center;
   }
+  p {
+    @include textFont(1em);
+    text-align: justify;
+  }
+  
 }

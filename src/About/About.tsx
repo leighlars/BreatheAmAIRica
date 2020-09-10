@@ -38,6 +38,7 @@ const About: React.FC = () => {
       alt="table of Air Quality information from EPA.gov"
      />
      <table>
+      <thead>Icon Legend</thead> 
       <tbody>
        <tr>
         <td>

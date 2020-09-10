@@ -40,8 +40,14 @@
       box-shadow: 3px 3px black; 
       margin: 20px;
       width: 35vw;
+      padding: 2%;
       margin: 0 auto;
     }  
+    thead {
+      @include headerFont(1.5em);
+      color: $darkBlue;
+      margin: 10px;
+    }
     tr {
       @include rowDisplay();
       justify-content: space-between;

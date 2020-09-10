@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
+import About from '../About/About'
 import Home from '../Home/Home'
 import Location from '../Location/Location'
 import './View.scss'
+
 
 const View: React.FC = () => {
 	return (
@@ -14,7 +16,13 @@ const View: React.FC = () => {
 				}}
 			/>
 			<Route
-				exact path="/:location"
+				exact path='/about'
+				render={() => {
+					return <About/>
+				}} />
+				<Route 
+				exact 
+				path="/:location"
 				render={({ match }) => {
 					return <Location />
 				}}

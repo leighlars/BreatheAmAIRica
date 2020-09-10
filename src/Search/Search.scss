@@ -2,14 +2,13 @@
 
 
 .search-input {
-  border-radius: 6px;
+  border-radius: 14px;
   border: none;
-  // border-left: 2px solid $lightBlue;
-  // border-top: 2px solid $lightBlue;
-  margin-right: 3em;
   padding: .5%;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
+  margin-right: 3em;
+  text-align: center;
   box-shadow: 2px 2px black;
-  width: 13em;
+  width: 20em;
 }

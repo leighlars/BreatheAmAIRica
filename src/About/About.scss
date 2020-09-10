@@ -1,0 +1,48 @@
+@import '../styles/_variables.scss';
+
+.about-section {
+  @include columnDisplay();
+  padding: 2%;
+  width: 70vw;
+
+  img {
+    border-radius: 14px;
+    width: 30vw;
+    margin: 20px auto;
+  }
+}
+
+.intro-text {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 3px 3px black; 
+  margin: 20px auto;
+  padding: 2%;
+  h2 {
+    @include headerFont(30px);
+    color: $darkBlue;
+    text-align: center;
+    text-shadow: .5px .5px black;
+  }
+  p {
+    @include textFont(18px);
+    text-align: justify;
+  } 
+}
+
+.credits {
+  @include rowDisplay();
+  @include textFont(1em);
+  background: white;
+  border-radius: 14px;
+  box-shadow: 3px 3px black; 
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50%;
+  a {
+    margin: 5px;
+  }
+  p {
+    margin: 0;
+  }
+}

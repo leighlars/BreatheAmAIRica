@@ -1,13 +1,20 @@
 @import '../styles/_variables.scss';
 
 header {
-  @include rowDisplay();
+  @include columnDisplay();
   justify-content: space-between;
   background: $darkBlue;
   color: white;
-  height: 5.25em;
+  height: 7em;
   width: 100%;
   position: fixed;
+}
+  .top-header {
+    @include rowDisplay();
+    padding: 0;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
 
   .logo-box {
     @include columnDisplay();
@@ -34,7 +41,24 @@ header {
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
       margin: 0;
-      // text-shadow: 2px 2px black;
     }
+  }
 }
-}
+  
+  nav {
+    @include rowDisplay();
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0;
+    background: #00295d;
+    .nav-btns {
+      @include headerFont(1em);
+      text-decoration: none;
+      color: white;
+      text-shadow: 2px 2px black;
+      &:hover {
+        text-shadow: 2px 2px black;
+        color: $lightBlue;
+      }
+    }
+  }

@@ -7,7 +7,7 @@
 
   img {
     border-radius: 14px;
-    width: 60vw;
+    width: 30vw;
     margin: 20px auto;
   }
 }
@@ -32,14 +32,17 @@
 
 .credits {
   @include rowDisplay();
+  @include textFont(1em);
   background: white;
   border-radius: 14px;
   box-shadow: 3px 3px black; 
   justify-content: center;
   flex-wrap: wrap;
   width: 50%;
-  @include textFont(1em);
   a {
     margin: 5px;
+  }
+  p {
+    margin: 0;
   }
 }

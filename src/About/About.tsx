@@ -1,6 +1,6 @@
 import './About.scss'
 import React, { useState, useEffect } from "react";
-import aqtable from '../assets/aqtable2.jpeg'
+import aqtable from '../assets/ap3.jpg'
 
 const About: React.FC = () => {
   return (
@@ -22,11 +22,12 @@ const About: React.FC = () => {
     />
     <span className="credits">
      <p>App Developed by:</p>
-     <br />
+     <br/>
      <a href="https://github.com/ErinUntermeyer">Erin Untermeyer</a>
      <a href="https://github.com/JoshSevy">Josh Sevy</a>
-     <a href="https://github.com/leighlars">Leigh Larson</a> <br /> <br />
+     <a href="https://github.com/leighlars">Leigh Larson</a>
      <p>Data Sources:</p>
+     <br/>
      <a href="https://www.iqair.com/us/">IQAir</a>{" "}
      <a href="https://openweathermap.org/">Open Weather Map</a>
     </span>

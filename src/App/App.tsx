@@ -21,18 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header/>
-			<Route
-				exact path="/"
-				render={() => {
-					return <View />
-				}}
-			/>
-			<Route
-				exact path='/about'
-				render={() => {
-					return <View/>
-				}} 
-			/>
+			<View />
     </div>
   )
 }

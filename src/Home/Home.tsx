@@ -5,36 +5,39 @@ import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/ci
 import './Home.scss'
 
 export interface HomeProps {
-	popularCities: array,
-	lowOzoneCities: array,
-	lowPollutionCities: array
+	popularCities: [] {name: string, lat: number, long: number},
+	lowOzoneCities: [] {name: string, lat: number, long: number},
+	lowPollutionCities: [] {name: string, lat: number, long: number}
 }
 
-const Home: React.FC = () => {
+const Home: React.FC<HomeProps> = props => {
 	const [popularCities, setPopularCities] = useState([])
+	const [lowOzoneCities, setOzoneCities] = useState([])
+	const [lowPollutionCities, setPollutionCities] = useState([])
 
-	const popularCities = popularCities.map((city) => {
-		return (</Card props={city}>);
+	const popularCities = popularCities.map((city: object) => {
+		return (</Card city={props.city}>);
 	})
 
-	const ozoneCities = ozoneCities.map((city) => {
-		return (</Card props={city}>);
+	const ozoneCities = lowOzoneCities.map((city: object) => {
+		return (</Card city={props.city}>);
 	})
 	
-	const pollutionCities = pollutionCities.map((city) => {
-		return (</Card props={city}>);
+	const pollutionCities = lowPollutionCities.map((city: object) => {
+		return (</Card city={props.city}>);
 	})
 
 	return (
 		<section className="home">
 			<div className='card-carousel'>
 				{popularCities}
-				{ozoneCities}
-				{pollutionCities}
 			</div>
-			<article className='home-info-box'>
-
-			</article>
+			<div className='card-carousel'>
+				{lowOzoneCities}
+			</div>
+			<div className='card-carousel'>
+				{lowPollutionCities}
+			</div>
 		</section>
 	)
 }

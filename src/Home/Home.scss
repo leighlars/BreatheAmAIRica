@@ -11,7 +11,7 @@
     @include rowDisplay();
     overflow: scroll;
     padding: 1%;
-    width: 90vw;
+    width: 80vw;
     margin: 0;
   }
 
@@ -25,17 +25,21 @@
     height: 250px;
     margin: 1em;
     padding: 2%;
-  
+    
     // display: grid;
     // grid-template-columns: repeat(5, 20%);
     // grid-template-rows: repeat(5, 20%);
   }
 
+  .card-link {
+      text-decoration: none;
+  }
+  
   .card-header {
     @include headerFont(1.5em);
     background: -webkit-radial-gradient($lightBlue, $darkBlue);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-shadow: .5px black;
     // color: $darkBlue;
     // grid-row: 1;

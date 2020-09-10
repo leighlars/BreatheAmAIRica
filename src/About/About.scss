@@ -23,6 +23,7 @@
     color: $darkBlue;
     text-align: center;
     text-shadow: .5px .5px black;
+    margin-bottom: 10px;
   }
   p {
     @include textFont(18px);

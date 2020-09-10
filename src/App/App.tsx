@@ -8,9 +8,12 @@ import Location from "../Location/Location"
 
 import './App.scss'
 
+import { getAirQuality } from '../helpers/apiCalls'
 
 const App: React.FC = () => {
 	const [ topCities, setTopCities ] = useState([])
+
+	getAirQuality(39.0509, 121.4453)
 
   return (
     <div className="App">

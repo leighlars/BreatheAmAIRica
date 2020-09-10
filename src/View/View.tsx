@@ -19,8 +19,10 @@ const View: React.FC = () => {
 				exact path='/about'
 				render={() => {
 					return <About/>
-				}} 
-				exact path="/:location"
+				}} />
+				<Route 
+				exact 
+				path="/:location"
 				render={({ match }) => {
 					return <Location />
 				}}

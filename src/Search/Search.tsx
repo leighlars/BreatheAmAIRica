@@ -5,7 +5,7 @@ import './Search.scss'
 const Search: React.FC = () => {
   const [query, setQuery] = useState<string>('')
 	const [debouncedQuery, setDebouncedQuery] = useState<string>(query)
-	const [result, setResult] = useState()
+	const [result, setResult] = useState<number>(0)
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -24,7 +24,7 @@ const Search: React.FC = () => {
 	const getSearchInputData = async () => {
 		const data = await getCoordinates('denver')
 		const locationData = await getLocationData(data[0], data[1])
-		setResult(locationData.current.pollution.aqius)
+		setResult(locationData)
 	}
 
   return (

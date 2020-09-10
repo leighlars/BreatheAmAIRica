@@ -1,0 +1,12 @@
+@import '../styles/_variables.scss';
+
+.about-section {
+  @include columnDisplay();
+  img {
+    width: 60%;
+  }
+  h2 {
+    @include headerFont(1.3em);
+    color: $darkBlue;
+  }
+}

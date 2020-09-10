@@ -43,6 +43,7 @@ header {
       @include headerFont(1em);
       text-decoration: none;
       color: white;
+      margin: 5px;
       &:hover {
         text-shadow: 2px 2px black;
         color: $lightBlue;

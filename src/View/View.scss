@@ -1,1 +1,6 @@
 @import '../styles/_variables.scss';
+
+main {
+  @include columnDisplay();
+  margin-top: 7em;
+}

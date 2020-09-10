@@ -17,9 +17,17 @@ const Header: React.FC = () => {
       </div>
       <Search />
       <nav>
+        <NavLink to='/' 
+          className='nav-btns'>
+            Home
+        </NavLink>
         <NavLink to='/about' 
           className='nav-btns'>
             About
+        </NavLink>
+        <NavLink to='/saved-cities' 
+          className='nav-btns'>
+            My Cities
         </NavLink>
       </nav>
     </header>

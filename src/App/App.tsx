@@ -27,6 +27,12 @@ const App: React.FC = () => {
 					return <View />
 				}}
 			/>
+			<Route
+				exact path='/about'
+				render={() => {
+					return <View/>
+				}} 
+			/>
     </div>
   )
 }

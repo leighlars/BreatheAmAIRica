@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from 'react'
-
 import {Link} from 'react-router-dom'
 import { getLocationData } from '../helpers/apiCalls'
-import { cities } from '../helpers/topCities'
-
+import { popularCities, lowOzoneCities, lowPollutionCities } from '../helpers/cities'
 import './Home.scss'
+import Card from '../Card/Card'
+
+// export interface HomeProps {
+// 	popularCities: Array<number, string>,
+// 	lowOzoneCities: Array<number, string>,
+// 	lowPollutionCities: Array<number, string>
+// }
 
 const Home: React.FC = () => {
-	const [topCities, setTopCities] = useState([])
+	const [popularCities, setPopularCities] = useState([])
+	const [lowOzoneCities, setOzoneCities] = useState([])
+	const [lowPollutionCities, setPollutionCities] = useState([])
 
-	const renderedCities = cities.map((city) => {
-		return (
-			<Link to={`/${city.name}`} className='card-link' style={{ textDecoration: 'none' }}>
-				<article className="card-container" key={city.name}>
-					<h2 className="card-header">{city.name}</h2>
-					<h3 className="card-temp">35&deg;</h3>
-					<p className="card-air">AQI</p>
-					<p className="card-pollen">🐝</p>
-					<p className="card-hazard">🔥</p>
-				</article>
-			</Link>
-  );
+	const popularCities = popularCities.map((city: object) => {
+		return (</Card city={props.city}>);
+	})
+
+	const ozoneCities = lowOzoneCities.map((city: object) => {
+		return (</Card city={props.city}>);
+	})
+	
+	const pollutionCities = lowPollutionCities.map((city: object) => {
+		return (</Card city={props.city}>);
 	})
 
 	return (
 		<section className="home">
-			<div className='top-five-cities'>
-				{renderedCities}
+			<div className='card-carousel'>
+				{popularCities}
 			</div>
-			<article className='home-info-box'>
-
-			</article>
+			<div className='card-carousel'>
+				{lowOzoneCities}
+			</div>
+			<div className='card-carousel'>
+				{lowPollutionCities}
+			</div>
 		</section>
 	)
 }

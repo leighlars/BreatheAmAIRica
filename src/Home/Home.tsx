@@ -11,37 +11,75 @@ import covid from '../assets/covid.png'
 
 const Home: React.FC = () => {
 	const seasonalArticles = [
-		<a href='https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html'>
-			<div className='news-card'>
-				<img src={covid} alt='image of COVID virus' className='article-img'/>
-				<div className="news-title-overlay"><h4>COVID & US Travel</h4></div>
-			</div>
-		</a>,
-		<a href='https://weather.com/safety/wildfires/video/when-and-how-to-evacuate-during-a-wildfire'>
-			<div className='news-card'>
-				<img src={wildfire} alt='forest burning in wildfire' className='article-img'/>
-				<div className="news-title-overlay"><h4>Wildfire Preparedness</h4></div>
-			</div>
-		</a>,
-		<a href='https://www.outsideonline.com/2390286/how-to-drive-in-snow'>
-			<div className='news-card'>
-				<img src={snowDriving} alt='cars in traffic in snowy conditions' className='article-img'/>
-				<div className="news-title-overlay"><h4>Snowy Driving</h4></div>
-			</div>	
-		</a>,
-		<a href='https://travel.usnews.com/rankings/best-beaches-in-the-usa/'>
-			<div className='news-card'>
-				<img src={beach} alt='scenic beach under sunny blue skies' className='article-img'/>
-				<div className="news-title-overlay"><h4>Best US Beaches</h4></div>
-			</div>
-		</a>,
-		<a href='https://www.ready.gov/hurricanes'>
-			<div className='news-card'>
-				<img src={hurricane} alt='satellite image of hurricane eye' className='article-img'/>
-				<div className="news-title-overlay"><h4>Hurricane Preparedness</h4></div>
-			</div>
-		</a>
-	]
+  <a
+   href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
+   target="_blank"
+  >
+   <div className="news-card">
+    <img src={covid} alt="image of COVID virus" className="article-img" />
+    <div className="news-title-overlay">
+     <h4>COVID & US Travel</h4>
+    </div>
+   </div>
+  </a>,
+  <a
+   href="https://weather.com/safety/wildfires/video/when-and-how-to-evacuate-during-a-wildfire"
+   target="_blank"
+  >
+   <div className="news-card">
+    <img
+     src={wildfire}
+     alt="forest burning in wildfire"
+     className="article-img"
+    />
+    <div className="news-title-overlay">
+     <h4>Wildfire Preparedness</h4>
+    </div>
+   </div>
+  </a>,
+  <a
+   href="https://www.outsideonline.com/2390286/how-to-drive-in-snow"
+   target="_blank"
+  >
+   <div className="news-card">
+    <img
+     src={snowDriving}
+     alt="cars in traffic in snowy conditions"
+     className="article-img"
+    />
+    <div className="news-title-overlay">
+     <h4>Snowy Driving</h4>
+    </div>
+   </div>
+  </a>,
+  <a
+   href="https://travel.usnews.com/rankings/best-beaches-in-the-usa/"
+   target="_blank"
+  >
+   <div className="news-card">
+    <img
+     src={beach}
+     alt="scenic beach under sunny blue skies"
+     className="article-img"
+    />
+    <div className="news-title-overlay">
+     <h4>Best US Beaches</h4>
+    </div>
+   </div>
+  </a>,
+  <a href="https://www.ready.gov/hurricanes" target="_blank">
+   <div className="news-card">
+    <img
+     src={hurricane}
+     alt="satellite image of hurricane eye"
+     className="article-img"
+    />
+    <div className="news-title-overlay">
+     <h4>Hurricane Preparedness</h4>
+    </div>
+   </div>
+  </a>,
+ ];
 
 	const popularCities = popCities.map((city: any) => {
 		return (<Card city={city} />);

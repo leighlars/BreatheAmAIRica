@@ -10,10 +10,10 @@ const Results: React.FC<ResultsProps> = props => {
 	const noResults = 'I\'m sorry, there are no results. Please try again!'
 
 	const americanResults = props.searchResults.filter((result) => {
-		return result.country === 'United States'
+		return result.country === "United States";
 	}); 
 
-	const noRepeatedInfo = (label: string) => {
+	const noDupCardInfo = (label: string) => {
   return label.split(",").splice(1, 2).join(",");
  };
 
@@ -22,7 +22,7 @@ const Results: React.FC<ResultsProps> = props => {
 		return (
 			<article className="results-container" key={result.latitude}>
 				<h2 className="card-header">{result.name}</h2>
-				<h3 className="card-label">{noRepeatedInfo(result.label)}</h3>
+				<h3 className="card-label">{noDupCardInfo(result.label)}</h3>
 				{/* <p>Country: {result.country}</p> */}
 				{/* <p>Continent: {result.continent}</p> */}
 				<p>Latitude: {result.latitude}</p>

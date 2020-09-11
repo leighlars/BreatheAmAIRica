@@ -31,8 +31,10 @@
     border: 2px solid $lightBlue;
     border-radius: 14px;
     height: 225px;
+    max-width: 255px;
     margin: 1.5em;
     padding: 2%;
+    overflow-y: scroll;
     &:hover {
       transform: scale(1.05);
       border: 2px solid $goldenrod;

@@ -30,13 +30,13 @@ describe('Results', () => {
 	it('Should render results from search', () => {
 		// unable to get the test suite working with TS as of now
 
-		// const { getByText } = render(
-		// 	<MemoryRouter>
-		// 		<Results
-		// 			searchResults={[]}
-		// 		/>
-		// 	</MemoryRouter>
-		// )
+		const { getByText } = render(
+			<MemoryRouter>
+				<Results
+					searchResults={[]}
+				/>
+			</MemoryRouter>
+		)
 	})
 
 })

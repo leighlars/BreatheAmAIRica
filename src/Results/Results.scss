@@ -9,13 +9,17 @@
   
   .results-info-box {
     @include rowDisplay();
-    overflow: scroll;
+    flex-wrap: wrap;
     width: 90vw;
-    margin: 0;
+    margin: 0 auto;
   }
 
 	h1 {
-		@include headerFont(2em);
+    @include headerFont(1.5em);
+    width: 100%;
+    text-shadow: 2px 2px black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 	}
 }
 
@@ -34,11 +38,13 @@
     }
 
     .card-header {
-      @include headerFont(1.5em);
+      @include headerFont(1.45em);
+      text-transform: uppercase;
+      letter-spacing: 2px;
       text-shadow: .5px black;
+      text-align: center;
       color: $darkBlue;
       margin: 10px;
-			text-shadow: .5px .5px black;
 			width: 240px;
 		}
 		

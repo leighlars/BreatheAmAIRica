@@ -11,10 +11,29 @@ export const getAllData = async (query: string) => {
     coordinates[0].longitude
   );
 
-  return data = {
-    airQuality: airQualityData.catagory.name,
-    date:
-  }
+
+  console.log(weatherData)
+  
+
+  const data: any = {
+    id: weatherData.current.weather.id || Date.now(),
+    airQualityLevel: airQualityData.Catagory.Name,
+    aqi: airQualityData.AQI,
+    date: airQualityData.DateForecast,
+    airQualityNote: airQualityData.Discussion || "",
+    state: airQualityData.StateCode,
+    feelsLike: {
+      fahrenheit: (weatherData.current.temp - 273.15 * 1.8) + 32,
+      celcius: weatherData.current.temp - 273.15,
+    },
+    humidity: weatherData.current.humidity,
+    visibility: weatherData.current.visibility,
+    weatherDetail: weatherData.current.weather.description,
+    windDirection: weatherData.current.wind_deg,
+    windSpeed: weatherData.current.wind_speed,
+
+
+  };
 }
 
 // Air Q API

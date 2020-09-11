@@ -37,7 +37,7 @@ const App: React.FC = () => {
           }}
         />
         {/* <Route
-          exact path="/:location"
+          exact path="/:Location"
           render={({ match }) => {
             return <Location />
           }}

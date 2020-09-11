@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Location.scss'
 import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
@@ -30,6 +30,7 @@ interface LocationProps {
   }
 
 const Location: React.FC<LocationProps> = (props) => {
+	
 	return (
 		<section className="location-section">
 			<h2 className='current-city'>{props.city}</h2>

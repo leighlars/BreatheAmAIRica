@@ -10,8 +10,15 @@ import './App.scss'
 
 import { getAirQualityData } from '../helpers/apiCalls'
 
+import { getAllData } from '../helpers/dataCleaner'
+
 const App: React.FC = () => {
-	const [ topCities, setTopCities ] = useState([])
+  const [ topCities, setTopCities ] = useState([])
+  
+  // getAllData('denver')
+  
+
+	
 
 
   return (

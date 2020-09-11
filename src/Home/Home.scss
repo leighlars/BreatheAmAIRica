@@ -5,13 +5,17 @@
   @include columnDisplay();
   padding: 2%;
   width: 70vw;
-  overflow: none;
+  overflow: hidden;
   
   .top-five-cities {
     @include rowDisplay();
     overflow: scroll;
     width: 80vw;
     margin: 0;
+
+  &::-webkit-scrollbar {
+  display: none;
+}
   }
 
   

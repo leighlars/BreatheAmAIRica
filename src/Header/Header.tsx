@@ -14,24 +14,24 @@ const Header: React.FC = () => {
           <img src={america} alt='Blue map of USA' className='map-icon' />
           <h1 className='company-name'>Breathe AmAIRica</h1>
         </span>
-        <h2 className='tagline'><i>Plan. Research. Experience.</i></h2>
-      </div>
-      <Search />
+        <h2 className='tagline'><i>Plan. Go. Breathe.</i></h2>
       </div>
       <nav>
         <NavLink to='/' 
           className='nav-btns'>
-            Home
+            HOME
         </NavLink>
         <NavLink to='/about' 
           className='nav-btns'>
-            About
+            ABOUT
         </NavLink>
-        <NavLink to='/saved-cities' 
+        {/* <NavLink to='/saved-cities' 
           className='nav-btns'>
             My Cities
-        </NavLink>
+        </NavLink> */}
       </nav>
+      </div>
+      <Search />
     </header>
   )
 }

@@ -20,15 +20,15 @@ const Home: React.FC = () => {
 
 	return (
 		<section className="home">
-			<h2 className='carousel-header'>Popular Cities</h2>
+			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
 				{popularCities}
 			</div>
-			<h2 className='carousel-header'>Low Ozone Cities</h2>
+			<h2 className='carousel-header'>Lowest Ozone Cities</h2>
 			<div className='card-carousel'>
 				{lowOzoneCities}
 			</div>
-			<h2 className='carousel-header'>Low Pollution Cities</h2>
+			<h2 className='carousel-header'>Lowest Pollution Cities</h2>
 			<div className='card-carousel'>
 				{lowPollutionCities}
 			</div>

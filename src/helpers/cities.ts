@@ -4,14 +4,14 @@ export const popCities = [
   temp: 55,
   aqi: 40,
   pollen: 0,
-  fire: 'Wildfire Smog Present'
+  fire: 'High'
 },
  {
   name: "San Francisco",
   temp: 80,
   aqi: 100,
   pollen: 3,
-  fire: 'Wildfire Smog Present'
+  fire: 'High'
 },
  {
   name: "Miami",
@@ -70,7 +70,7 @@ export const ozoneCities = [
   temp: 55,
   aqi: 30,
   pollen: 0,
-  fire: 'Wildfire Smog Present'
+  fire: 'High'
 },
 ];
 
@@ -87,7 +87,7 @@ export const pollutionCities = [
   temp: 45,
   aqi: 10,
   pollen: 0,
-  fire: 'Wildfire Smog Present'
+  fire: 'High'
 },
  {
   name: "Bellingham",
@@ -101,7 +101,7 @@ export const pollutionCities = [
   temp: 87,
   aqi: 10,
   pollen: 0,
-  fire: 'Wildfire Smog Present'
+  fire: 'High'
 },
  {
   name: "Portland, ME",

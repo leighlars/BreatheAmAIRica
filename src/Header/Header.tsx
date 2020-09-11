@@ -4,7 +4,11 @@ import './Header.scss'
 import america from '../assets/america.png'
 import { NavLink } from 'react-router-dom'
 
-const Header: React.FC = () => {
+interface HeaderProps {
+	getSearchResults: Function
+}
+
+const Header: React.FC<HeaderProps> = props => {
   
   return (
     <header className="header-container">
@@ -16,7 +20,9 @@ const Header: React.FC = () => {
         </span>
         <h2 className='tagline'>Plan. Go. Breathe.</h2>
       </div>
-        <Search />
+        <Search 
+        getSearchResults={props.getSearchResults}
+        />
       <nav>
         <NavLink to='/' 
           className='nav-btns'>

@@ -27,18 +27,22 @@ header {
     .company-logo {
       @include rowDisplay();
       justify-content: flex-end;
+      width: 350px;
 
       .map-icon {
         width: 3.5em;
         margin-right: 10px;
       }
-      .company-name {
+      .company-name, .last-letters, .air-text {
         @include headerFont(1.65em);
         margin: 0;
         font-family: 'Red Rose', cursive;
         text-shadow: 2px 2px black;
-        width: 250px;
       }
+          .air-text {
+            color: $lightBlue;
+            text-transform: uppercase;
+          }
     }
     .tagline  {
       @include headerFont(1em);

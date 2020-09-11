@@ -16,7 +16,7 @@ const Home: React.FC = () => {
    target="_blank"
   >
    <div className="news-card">
-    <img src={covid} alt="image of COVID virus" className="article-img" />
+    <img src={covid} alt="COVID virus" />
     <div className="news-title-overlay">
      <h4>COVID & US Travel</h4>
     </div>
@@ -30,7 +30,6 @@ const Home: React.FC = () => {
     <img
      src={wildfire}
      alt="forest burning in wildfire"
-     className="article-img"
     />
     <div className="news-title-overlay">
      <h4>Wildfires & Respiration</h4>
@@ -44,8 +43,7 @@ const Home: React.FC = () => {
    <div className="news-card">
     <img
      src={altitude}
-     alt="cars in traffic in snowy conditions"
-     className="article-img"
+     alt="person hiking in mountains"
     />
     <div className="news-title-overlay">
      <h4>Altitude Acclimation Tips</h4>
@@ -60,7 +58,6 @@ const Home: React.FC = () => {
     <img
      src={beach}
      alt="scenic beach under sunny blue skies"
-     className="article-img"
     />
     <div className="news-title-overlay">
      <h4>Best US Beaches</h4>
@@ -71,8 +68,7 @@ const Home: React.FC = () => {
    <div className="news-card">
     <img
      src={roadTrip}
-     alt="satellite image of hurricane eye"
-     className="article-img"
+     alt="1970s Volkswagen van and desert landscape"
     />
     <div className="news-title-overlay">
      <h4>USA Road Trip Routes</h4>
@@ -99,11 +95,11 @@ const Home: React.FC = () => {
 			<div className='card-carousel'>
 				{popularCities}
 			</div>
-			<h2 className='carousel-header'>Lowest Ozone</h2>
+			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
 				{lowOzoneCities}
 			</div>
-			<h2 className='carousel-header'>Lowest Pollution</h2>
+			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
 				{lowPollutionCities}
 			</div>

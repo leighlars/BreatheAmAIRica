@@ -10,6 +10,10 @@ interface SearchProps {
 const Search: React.FC<SearchProps> = props => {
 	const [ query, setQuery ] = useState<string>('')
 
+	const clearInput = () => {
+		setQuery('')
+	}
+
   return (
 		<div className="search-bar">
 			<input 
@@ -25,7 +29,7 @@ const Search: React.FC<SearchProps> = props => {
 					src={magGlass}
 					alt="magnifying glass search icon"
 					className="search-icon"
-					onClick={(e) => props.getSearchResults(query)}
+					onClick={(e) => props.getSearchResults(query, clearInput)}
 				/>
 			</Link>
 		</div>

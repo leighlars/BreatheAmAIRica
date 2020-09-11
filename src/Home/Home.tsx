@@ -13,7 +13,8 @@ const Home: React.FC = () => {
 	const newsCards = [
   <a
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
-   target="_blank"
+	 target="_blank"
+	 rel="noopener noreferrer"
   >
    <div className="news-card">
     <img src={covid} alt="COVID virus" />
@@ -24,7 +25,8 @@ const Home: React.FC = () => {
   </a>,
   <a
    href="https://www.cdc.gov/nceh/features/wildfires/index.html"
-   target="_blank"
+	 target="_blank"
+	 rel="noopener noreferrer"
   >
    <div className="news-card">
     <img
@@ -38,7 +40,8 @@ const Home: React.FC = () => {
   </a>,
   <a
    href="https://www.active.com/outdoors/articles/5-tips-for-successful-altitude-acclimation"
-   target="_blank"
+	 target="_blank"
+	 rel="noopener noreferrer"
   >
    <div className="news-card">
     <img
@@ -52,7 +55,8 @@ const Home: React.FC = () => {
   </a>,
   <a
    href="https://travel.usnews.com/rankings/best-beaches-in-the-usa/"
-   target="_blank"
+	 target="_blank"
+	 rel="noopener noreferrer"
   >
    <div className="news-card">
     <img
@@ -64,7 +68,11 @@ const Home: React.FC = () => {
     </div>
    </div>
   </a>,
-  <a href="https://www.roadtripusa.com/" target="_blank">
+	<a
+	 href="https://www.roadtripusa.com/"
+	 target="_blank"
+	 rel="noopener noreferrer"
+	>
    <div className="news-card">
     <img
      src={roadTrip}
@@ -78,15 +86,15 @@ const Home: React.FC = () => {
  ];
 
 	const popularCities = popCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 
 	const lowOzoneCities = ozoneCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 	
 	const lowPollutionCities = pollutionCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 
 	return (

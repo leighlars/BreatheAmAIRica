@@ -13,9 +13,10 @@ import { getCoordinates } from '../helpers/apiCalls'
 const App: React.FC = () => {
 	const [ searchResults, setSearchResults ] = useState([])
 
-	const getSearchResults = async (query: string) => {
+	const getSearchResults = async (query: string, clearInput: Function) => {
 		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
+		clearInput()
 	}
 
   return (

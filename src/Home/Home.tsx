@@ -4,13 +4,13 @@ import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
 import beach from "../assets/beach.jpg";
-import snowDriving from "../assets/snow-driving.jpg";
-import hurricane from "../assets/hurricane.jpg";
+import altitude from "../assets/altitude.jpg";
+import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
 
 
 const Home: React.FC = () => {
-	const seasonalArticles = [
+	const newsCards = [
   <a
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
    target="_blank"
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
    </div>
   </a>,
   <a
-   href="https://weather.com/safety/wildfires/video/when-and-how-to-evacuate-during-a-wildfire"
+   href="https://www.cdc.gov/nceh/features/wildfires/index.html"
    target="_blank"
   >
    <div className="news-card">
@@ -33,22 +33,22 @@ const Home: React.FC = () => {
      className="article-img"
     />
     <div className="news-title-overlay">
-     <h4>Wildfire Preparedness</h4>
+     <h4>Wildfires & Respiration</h4>
     </div>
    </div>
   </a>,
   <a
-   href="https://www.outsideonline.com/2390286/how-to-drive-in-snow"
+   href="https://www.active.com/outdoors/articles/5-tips-for-successful-altitude-acclimation"
    target="_blank"
   >
    <div className="news-card">
     <img
-     src={snowDriving}
+     src={altitude}
      alt="cars in traffic in snowy conditions"
      className="article-img"
     />
     <div className="news-title-overlay">
-     <h4>Snowy Driving</h4>
+     <h4>Altitude Acclimation Tips</h4>
     </div>
    </div>
   </a>,
@@ -67,15 +67,15 @@ const Home: React.FC = () => {
     </div>
    </div>
   </a>,
-  <a href="https://www.ready.gov/hurricanes" target="_blank">
+  <a href="https://www.roadtripusa.com/" target="_blank">
    <div className="news-card">
     <img
-     src={hurricane}
+     src={roadTrip}
      alt="satellite image of hurricane eye"
      className="article-img"
     />
     <div className="news-title-overlay">
-     <h4>Hurricane Preparedness</h4>
+     <h4>USA Road Trip Routes</h4>
     </div>
    </div>
   </a>,
@@ -107,9 +107,9 @@ const Home: React.FC = () => {
 			<div className='card-carousel'>
 				{lowPollutionCities}
 			</div>
-			<h2 className='carousel-header'>Travel Preparedness</h2>
+			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>
-				{seasonalArticles}
+				{newsCards}
 			</div>
 		</section>
 	)

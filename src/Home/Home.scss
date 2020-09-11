@@ -5,10 +5,11 @@
   @include columnDisplay();
   padding: 2%;
   width: 70vw;
-  margin: 2em;
   
   .carousel-header {
-    @include headerFont(2em);
+    @include headerFont(1.25em);
+    letter-spacing: 3px;
+    text-transform: uppercase;
     width: 75vw;
     text-shadow: 2px 2px black;
   }

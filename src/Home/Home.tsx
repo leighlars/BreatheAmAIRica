@@ -24,11 +24,11 @@ const Home: React.FC = () => {
 			<div className='card-carousel'>
 				{popularCities}
 			</div>
-			<h2 className='carousel-header'>Lowest Ozone Cities</h2>
+			<h2 className='carousel-header'>Lowest Ozone</h2>
 			<div className='card-carousel'>
 				{lowOzoneCities}
 			</div>
-			<h2 className='carousel-header'>Lowest Pollution Cities</h2>
+			<h2 className='carousel-header'>Lowest Pollution</h2>
 			<div className='card-carousel'>
 				{lowPollutionCities}
 			</div>

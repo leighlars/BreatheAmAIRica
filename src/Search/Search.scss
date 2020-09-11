@@ -3,7 +3,6 @@
 
 .search-bar {
   @include rowDisplay();
-  margin-right: 3em;
   padding: 2px;
   &:hover {
     border: 2px solid $goldenrod;

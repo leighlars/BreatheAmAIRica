@@ -4,13 +4,13 @@
     @include columnDisplay();
     justify-content: center;
     background: #e6e6e6;
-    border: 3px solid $goldenrod;
     box-shadow: 2px 2px black;
     border-radius: 14px;
     width: 225px;
     height: 220px;
     margin: 1.5em;
     &:hover {
+      border: 3px solid $goldenrod;
       transform: scale(1.05);
     }
 
@@ -18,7 +18,6 @@
       @include headerFont(1.75em);
       text-shadow: .5px black;
       color: $darkBlue;
-      text-shadow: .5px .5px black;
       text-align: center;
     }
     .card-temp {

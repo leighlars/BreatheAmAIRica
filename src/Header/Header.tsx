@@ -14,8 +14,9 @@ const Header: React.FC = () => {
           <img src={america} alt='Blue map of USA' className='map-icon' />
           <h1 className='company-name'>Breathe AmAIRica</h1>
         </span>
-        <h2 className='tagline'><i>Plan. Go. Breathe.</i></h2>
+        {/* <h2 className='tagline'><i>Plan. Go. Breathe.</i></h2> */}
       </div>
+        <Search />
       <nav>
         <NavLink to='/' 
           className='nav-btns'>
@@ -31,7 +32,6 @@ const Header: React.FC = () => {
         </NavLink> */}
       </nav>
       </div>
-      <Search />
     </header>
   )
 }

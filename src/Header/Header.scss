@@ -1,11 +1,12 @@
 @import '../styles/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&display=swap');
 
 header {
   @include columnDisplay();
   justify-content: space-between;
   background: #00295d;
   color: white;
-  height: 7em;
+  height: 5em;
   width: 100%;
   position: fixed;
   z-index: 3;
@@ -30,9 +31,11 @@ header {
 
       .map-icon {
         width: 3.5em;
+        margin-right: 10px;
       }
       .company-name {
         @include headerFont(1.65em);
+        font-family: 'Red Rose', cursive;
         text-shadow: 2px 2px black;
         width: 250px;
       }

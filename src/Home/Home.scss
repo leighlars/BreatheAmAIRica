@@ -21,18 +21,39 @@
     width: 80vw;
     margin-bottom: 10px;
     overflow-y: hidden;
-    img {
+  }
+
+   .news-card {
+      @include columnDisplay();
+      justify-content: flex-start;
       box-shadow: 2px 2px black;
       border-radius: 14px;
       width: 225px;
-      height: 220px;
+      height: 215px;
       margin: 1.5em;
-    &:hover {
-      border: 3px solid $goldenrod;
-      transform: scale(1.05);
-    }
-    }
-  }
+      position: relative;
+      img {
+        margin-left: 7px;
+        width: 225px;
+        height: 180px;
+        border-radius: 14px 14px 0 0;
+      }
+      .news-title-overlay {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        margin: 0;
+        h4 {
+          @include headerFont(1em);
+          color: white;
+        }
+      }
+
+      &:hover {
+        border: 3px solid $goldenrod;
+        transform: scale(1.05);
+      }
+   } 
   
 
 }

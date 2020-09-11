@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
@@ -13,9 +13,10 @@ import { getCoordinates } from '../helpers/apiCalls'
 const App: React.FC = () => {
 	const [ searchResults, setSearchResults ] = useState([])
 
-	const getSearchResults = async (query: string) => {
+	const getSearchResults = async (query: string, clearInput: Function) => {
 		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
+		clearInput()
 	}
 
   return (

@@ -16,15 +16,16 @@ const Card: React.FC<CardProps> = (props) => {
   return (
    <Link
     to={`/${props.city.name}`}
-    className="card-link"
+    className="card-link-wrapper"
     style={{ textDecoration: "none" }}
    >
     <article className="card-container" key={props.city.name}>
      <h2 className="card-header">{props.city.name}</h2>
-     <h3 className="card-temp">{props.city.temp}&deg;</h3>
-     <p className="card-air">
-      <b>AQI</b> {props.city.aqi}
-     </p>
+     <div className='card-air-temp'>
+      <h3 className="card-temp">{props.city.temp}&deg;F</h3>
+      <h3 className="card-air"><b>{props.city.aqi}</b> </h3> 
+      <p>AQI</p>
+     </div>
      <p className="card-pollen">
       <b>Pollen</b> {props.city.pollen}
      </p>

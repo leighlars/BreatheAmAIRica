@@ -15,22 +15,32 @@
     }
 
     .card-header {
-      @include headerFont(1.25em);
+      @include headerFont(1.45em);
       text-shadow: .5px black;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: $darkBlue;
       text-align: center;
+      margin: 10px;
     }
-    .card-temp {
-      @include headerFont(1.5em);
-      color: $darkBlue;
-      margin-top: .5em;
-    }
-
     p {
       @include textFont(1em);
       color: black;
       margin: 5px;
     }
+    .card-air-temp {
+      @include rowDisplay();
+      align-items: flex-end;
+      .card-temp, .card-air {
+        @include headerFont(1.25em);
+        color: $darkBlue;
+        margin-left: 10px;
+      }
+      p {
+        @include textFont(.75em);
+        color: $darkBlue;
+        margin: 0;
+      }
+    }
+
   }

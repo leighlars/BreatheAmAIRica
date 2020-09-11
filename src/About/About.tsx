@@ -1,5 +1,5 @@
 import './About.scss'
-import React, { useState, useEffect } from "react";
+import React from "react";
 import aqtable from '../assets/ap3.jpg'
 import cloudyNight from "../assets/02n.png";
 import waterdrop from "../assets/water-drop.png";
@@ -38,29 +38,30 @@ const About: React.FC = () => {
      </p>
      <a
       href="https://www.stateoftheair.org/city-rankings/compare-your-air.html"
-      target="_blank"
+			target="_blank"
+			rel="noopener noreferrer"
       className="compare-link"
      >
       Compare Your Air
      </a>
      <span className="info-links">
-      <a href="https://www.cdc.gov/" target="_blank">
+		 <a href="https://www.cdc.gov/" target="_blank" rel="noopener noreferrer">
        CDC
       </a>
       ||
-      <a href="https://www.roadtripusa.com/" target="_blank">
+      <a href="https://www.roadtripusa.com/" target="_blank" rel="noopener noreferrer">
        Road Trip USA
       </a>
       ||
-      <a href="https://www.active.com/outdoors/articles" target="_blank">
+      <a href="https://www.active.com/outdoors/articles" target="_blank" rel="noopener noreferrer">
        Active
       </a>
       ||
-      <a href="https://travel.usnews.com/" target="_blank">
+      <a href="https://travel.usnews.com/" target="_blank" rel="noopener noreferrer">
        Travel US News
       </a>
       ||
-      <a href="https://www.stateoftheair.org/" target="_blank">
+      <a href="https://www.stateoftheair.org/" target="_blank" rel="noopener noreferrer">
        Lung Association of America
       </a>
      </span>
@@ -201,20 +202,20 @@ const About: React.FC = () => {
     </div>
     <span className="credits">
      <p>App Developed by:</p>
-     <a href="https://github.com/ErinUntermeyer" target="_blank">
+	   <a href="https://github.com/ErinUntermeyer" target="_blank" rel="noopener noreferrer">
       Erin Untermeyer
      </a>
-     <a href="https://github.com/JoshSevy" target="_blank">
+		 <a href="https://github.com/JoshSevy" target="_blank" rel="noopener noreferrer">
       Josh Sevy
      </a>
-     <a href="https://github.com/leighlars" target="_blank">
+		 <a href="https://github.com/leighlars" target="_blank" rel="noopener noreferrer">
       Leigh Larson
      </a>
      <p>Sources:</p>
-     <a href="https://www.airnow.gov/" target="_blank">
+		 <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">
       AirNow API
      </a>{" "}
-     <a href="https://openweathermap.org/" target="_blank">
+		 <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">
       Open Weather Map API
      </a>
     </span>

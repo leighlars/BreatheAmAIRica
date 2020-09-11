@@ -2,38 +2,49 @@ import { getCoordinates, getWeatherData, getAirQualityData} from './apiCalls';
 
 
 export const getAllData = async (query: string) => {
-  const coordinates = await getCoordinates(query)
+  const data: any = {}
+
+  const coordinates: any = await getCoordinates(query)
+
   const weatherData = await getWeatherData(
     coordinates[0].latitude, 
     coordinates[0].longitude)
-  const airQualityData = await getAirQualityData(
-    coordinates[0].latitude,
-    coordinates[0].longitude
-  );
+    .then(weather => {
+      data.id = weather.current.weather[0].id
+      data.humidity = weather.current.humidity
+      data.visibility = weather.current.visibility
+      data.weatherDetail = weather.current.weather[0].description
+      data.windDirection = weather.current.wind_deg
+      data.windSpeed = weather.current.wind_speed
+      
+    })
 
 
-  console.log(weatherData)
+  // const airQualityData: {} = await getAirQualityData(
+  //   coordinates[0].latitude,
+  //   coordinates[0].longitude
+  // ).then(airData => data.push(airData))
+
   
+  
+    // id: weatherData.current.weather.id || Date.now(),
+    // airQualityLevel: airQualityData.Catagory.Name,
+    // aqi: airQualityData.AQI,
+    // date: airQualityData.DateForecast,
+    // airQualityNote: airQualityData.Discussion || "",
+    // state: airQualityData.StateCode,
+    // feelsLike: {
+    //   fahrenheit: (weatherData.current.temp - 273.15 * 1.8) + 32,
+    //   celcius: weatherData.current.temp - 273.15,
+    // },
+    // humidity: weatherData.current.humidity,
+    // visibility: weatherData.current.visibility,
+    // weatherDetail: weatherData.current.weather.description,
+    // windDirection: weatherData.current.wind_deg,
+    // windSpeed: weatherData.current.wind_speed,
 
-  const data: any = {
-    id: weatherData.current.weather.id || Date.now(),
-    airQualityLevel: airQualityData.Catagory.Name,
-    aqi: airQualityData.AQI,
-    date: airQualityData.DateForecast,
-    airQualityNote: airQualityData.Discussion || "",
-    state: airQualityData.StateCode,
-    feelsLike: {
-      fahrenheit: (weatherData.current.temp - 273.15 * 1.8) + 32,
-      celcius: weatherData.current.temp - 273.15,
-    },
-    humidity: weatherData.current.humidity,
-    visibility: weatherData.current.visibility,
-    weatherDetail: weatherData.current.weather.description,
-    windDirection: weatherData.current.wind_deg,
-    windSpeed: weatherData.current.wind_speed,
-
-
-  };
+ 
+  console.log(data)
 }
 
 // Air Q API
@@ -54,27 +65,27 @@ export const getAllData = async (query: string) => {
 
 //Weather Api
 // current:
-// clouds: 75
-// dew_point: 275.29
-// dt: 1599784636
-// feels_like: 279.61
-// humidity: 57
-// pressure: 1025
-// sunrise: 1599741419
-// sunset: 1599787003
-// temp: 283.43
-// visibility: 10000
-// weather: Array(1)
-// 0:
-// description: "broken clouds"
-// icon: "04d"
-// id: 803
-// main: "Clouds"
+  // clouds: 75
+  // dew_point: 275.29
+  // dt: 1599784636
+  // feels_like: 279.61
+  // humidity: 57
+  // pressure: 1025
+  // sunrise: 1599741419
+  // sunset: 1599787003
+  // temp: 283.43
+  // visibility: 10000
+//      weather: Array(1)
+//      0:
+//      description: "broken clouds"
+//      icon: "04d"
+//      id: 803
+//      main: "Clouds"
 // __proto__: Object
 // length: 1
 // __proto__: Array(0)
-// wind_deg: 110
-// wind_speed: 3.1
+  // wind_deg: 110
+  // wind_speed: 3.1
 // __proto__: Object
 // daily: Array(8)
 // 0:

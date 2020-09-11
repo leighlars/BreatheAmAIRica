@@ -14,14 +14,16 @@ import { getCoordinates } from '../helpers/apiCalls'
 const App: React.FC = () => {
 	const [ searchResults, setSearchResults ] = useState([])
 
-	const getSearchResults = async () => {
-		const returnedResults = await getCoordinates('Denver')
+	const getSearchResults = async (query: string) => {
+		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
 	}
 
   return (
     <div className="App">
-      <Header />
+      <Header
+				getSearchResults={getSearchResults}
+			/>
       <main>
         <Route
           exact path="/"
@@ -35,12 +37,12 @@ const App: React.FC = () => {
             return <About />
           }}
         />
-        <Route
+        {/* <Route
           exact path="/:location"
           render={({ match }) => {
             return <Location />
           }}
-        />
+        /> */}
         <Route
           exact path="/results"
           render={() => {

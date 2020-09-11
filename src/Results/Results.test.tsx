@@ -59,4 +59,16 @@ describe('Results', () => {
 		expect(heading2).toBeInTheDocument()
 	})
 
+	it('Should render message if there are no search results', () => {
+		render(
+			<MemoryRouter>
+				<Results searchResults={[]} />
+			</MemoryRouter>
+		)
+
+		const message = screen.getByText(/i\'m sorry, there are no results. please try again!/i)
+
+		expect(message).toBeInTheDocument()
+	})
+
 })

@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { getCoordinates, getAirQualityData } from '../helpers/apiCalls'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Search.scss'
 import magGlass from '../assets/search.png'
 
-const Search: React.FC = () => {
-  const [query, setQuery] = useState<string>('')
-	const [debouncedQuery, setDebouncedQuery] = useState<string>(query)
-	const [result, setResult] = useState<number>(0)
+interface SearchProps {
+	getSearchResults: Function
+}
 
-	useEffect(() => {
-		getSearchInputData()
-	}, [debouncedQuery])
-
-	const getSearchInputData = async () => {
-		const data = await getCoordinates('San Francisco')
-		const locationData = await getAirQualityData(data[0], data[1])
-		setResult(locationData)
-	}
+const Search: React.FC<SearchProps> = props => {
+	const [query, setQuery] = useState<string>('')
 
   return (
 		<div className="search-bar">
@@ -27,9 +19,16 @@ const Search: React.FC = () => {
 				onChange={(e) => setQuery(e.target.value)}
 				placeholder="Search city, zip, or county"
 			/>
-			<img src={magGlass} alt='magnifying glass search icon' className='search-icon'/>
+			<Link to="/results">
+				<input
+					type="image"
+					src={magGlass}
+					alt="magnifying glass search icon"
+					className="search-icon"
+					onClick={(e) => props.getSearchResults(query)}
+				/>
+			</Link>
 		</div>
-
   )
 }
 

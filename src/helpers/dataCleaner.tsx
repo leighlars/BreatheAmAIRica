@@ -4,18 +4,57 @@ import { getCoordinates, getWeatherData, getAirQualityData} from './apiCalls';
 export const getAllData = async (query: string) => {
   const data: any = {}
 
+  const kelvinToFahrenheit = (kelvin: number) => {
+    return (kelvin - 273.15) * 1.8 + 32
+  }
+
+  const kelvinToCelcius = (kelvin: number) => {
+    return kelvin - 273.15;
+  }
+
+  const windDirection = (deg: number) => {
+    let direction: string = ''
+    if (deg > 337.5 || deg < 22.6) {
+      direction = 'N'
+    }
+    if (deg > 22.5 || deg < 67.6) {
+      direction = 'NE'
+    }
+    if (deg > 67.5 || deg < 112.6) {
+      direction = "E";
+    }
+    if (deg > 112.5 || deg < 157.6) {
+      direction = "SE";
+    }
+    if (deg > 157.5 || deg < 202.6) {
+      direction = "S";
+    }
+    if (deg > 202.5 || deg < 247.6) {
+      direction = "SW";
+    }
+    if (deg > 247.5 || deg < 292.6) {
+      direction = "W";
+    }
+    if (deg > 292.5 || deg < 337.6) {
+      direction = "NW";
+    }
+    return direction;
+  }
+
   const coordinates: any = await getCoordinates(query)
 
   const weatherData = await getWeatherData(
     coordinates[0].latitude, 
     coordinates[0].longitude)
     .then(weather => {
-      data.id = weather.current.weather[0].id
-      data.humidity = weather.current.humidity
-      data.visibility = weather.current.visibility
-      data.weatherDetail = weather.current.weather[0].description
-      data.windDirection = weather.current.wind_deg
-      data.windSpeed = weather.current.wind_speed
+      data.id = weather.current.weather[0].id || Date.now()
+      data.current.humidity = weather.current.humidity || 'no data'
+      data.current.visibility = weather.current.visibility || 'no data'
+      data.current.weatherDetail = weather.current.weather[0].description || 'no data'
+      data.current.windDirection = weather.current.wind_deg || 'no data'
+      data.current.windSpeed = weather.current.wind_speed || 'no data'
+      data.current.uvi = weather.current.uvi
+
       
     })
 

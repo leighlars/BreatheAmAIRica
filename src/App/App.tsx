@@ -4,44 +4,58 @@ import React, { useState, useEffect } from 'react'
 import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
+import Results from "../Results/Results"
 import Location from "../Location/Location"
 
 import './App.scss'
 
-import { getAirQualityData } from '../helpers/apiCalls'
+import { getCoordinates } from '../helpers/apiCalls'
 
 const App: React.FC = () => {
-	const [ topCities, setTopCities ] = useState([])
+	const [ searchResults, setSearchResults ] = useState([])
 
+	const getSearchResults = async (query: string) => {
+		const returnedResults = await getCoordinates(query)
+		setSearchResults(returnedResults)
+	}
 
   return (
     <div className="App">
-      <Header />
+      <Header
+				getSearchResults={getSearchResults}
+			/>
       <main>
         <Route
-          exact
-          path="/"
+          exact path="/"
           render={() => {
-            return <Home />;
+            return <Home />
           }}
         />
         <Route
-          exact
-          path="/about"
+          exact path="/about"
           render={() => {
-            return <About />;
+            return <About />
           }}
         />
-        <Route
-          exact
-          path="/:location"
+        {/* <Route
+          exact path="/:location"
           render={({ match }) => {
-            return <Location />;
+            return <Location />
+          }}
+        /> */}
+        <Route
+          exact path="/results"
+          render={() => {
+            return (
+							<Results
+								searchResults={searchResults}
+							/>
+						)
           }}
         />
       </main>
     </div>
-  );
+  )
 }
 
 export default App

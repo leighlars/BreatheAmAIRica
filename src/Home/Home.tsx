@@ -78,15 +78,15 @@ const Home: React.FC = () => {
  ];
 
 	const popularCities = popCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 
 	const lowOzoneCities = ozoneCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 	
 	const lowPollutionCities = pollutionCities.map((city: any) => {
-		return (<Card city={city} />);
+		return (<Card city={city} key={city.name}/>);
 	})
 
 	return (

@@ -1,14 +1,13 @@
 import { Route } from "react-router-dom"
 import React, { useState, useEffect } from 'react'
-
 import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
 import Results from "../Results/Results"
-import Location from "../Location/Location"
-
+// import Location from "../Location/Location"
 import './App.scss'
 
+// import { getAirQualityData } from '../helpers/apiCalls'
 import { getCoordinates } from '../helpers/apiCalls'
 
 const App: React.FC = () => {

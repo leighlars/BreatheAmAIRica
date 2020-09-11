@@ -22,14 +22,48 @@ const About: React.FC = () => {
   return (
    <section className="about-section">
     <span className="intro-text">
-     <h2>Plan. Research. Experience.</h2>
+     <h2>Plan. Go. Breathe.</h2>
      <p>
-      At <b>Weather or Not</b>, we know how important it is to you and your
-      loved ones to have accurate weather and air quality information. <br />{" "}
+      At <b>Breathe AmAIRica</b>, we know how important it is for you and your
+      loved ones to have accurate weather and air quality information.
       <br />
-      Our data is updated every 10-60 minutes, giving you the most updated
-      conditions to help you plan for your enjoyment and peace of mind.
+      <br/>
+      Whether you're planning a trip or relocating across the country, or just a walk around the block with your dog, <br/>
+      our data is updated every 10-60 minutes, giving you the most updated conditions to help you plan your next activity. 
+      <br />
+      <br />
+      Please review the listed charts for optimal site navigation. <br />
+      If you seek more information on health, safety, or travel, please follow
+      the links below to the appropriate websites.
      </p>
+     <a
+      href="https://www.stateoftheair.org/city-rankings/compare-your-air.html"
+      target="_blank"
+      className="compare-link"
+     >
+      Compare Your Air
+     </a>
+     <span className="info-links">
+      <a href="https://www.cdc.gov/" target="_blank">
+       CDC
+      </a>
+      ||
+      <a href="https://www.roadtripusa.com/" target="_blank">
+       Road Trip USA
+      </a>
+      ||
+      <a href="https://www.active.com/outdoors/articles" target="_blank">
+       Active
+      </a>
+      ||
+      <a href="https://travel.usnews.com/" target="_blank">
+       Travel US News
+      </a>
+      ||
+      <a href="https://www.stateoftheair.org/" target="_blank">
+       Lung Association of America
+      </a>
+     </span>
     </span>
     <div className="legends">
      <img
@@ -38,7 +72,7 @@ const About: React.FC = () => {
       alt="table of Air Quality information from EPA.gov"
      />
      <table>
-      <thead>Icon Legend</thead> 
+      <thead>Icon Legend</thead>
       <tbody>
        <tr>
         <td>
@@ -167,14 +201,22 @@ const About: React.FC = () => {
     </div>
     <span className="credits">
      <p>App Developed by:</p>
-     <br />
-     <a href="https://github.com/ErinUntermeyer">Erin Untermeyer</a>
-     <a href="https://github.com/JoshSevy">Josh Sevy</a>
-     <a href="https://github.com/leighlars">Leigh Larson</a>
-     <p>Data Sources:</p>
-     <br />
-     <a href="https://www.iqair.com/us/">IQAir</a>{" "}
-     <a href="https://openweathermap.org/">Open Weather Map</a>
+     <a href="https://github.com/ErinUntermeyer" target="_blank">
+      Erin Untermeyer
+     </a>
+     <a href="https://github.com/JoshSevy" target="_blank">
+      Josh Sevy
+     </a>
+     <a href="https://github.com/leighlars" target="_blank">
+      Leigh Larson
+     </a>
+     <p>Sources:</p>
+     <a href="https://www.airnow.gov/" target="_blank">
+      AirNow API
+     </a>{" "}
+     <a href="https://openweathermap.org/" target="_blank">
+      Open Weather Map API
+     </a>
     </span>
    </section>
   );

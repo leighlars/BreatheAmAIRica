@@ -9,18 +9,29 @@ const Results: React.FC<ResultsProps> = props => {
 
 	const noResults = 'I\'m sorry, there are no results. Please try again!'
 
-	const resultsList = props.searchResults.map(result => {
+	const americanResults = props.searchResults.filter((result) => {
+		return result.country === "United States";
+	}); 
+
+	const noDupCardInfo = (label: string) => {
+  return label.split(",").splice(1, 2).join(",");
+ };
+
+	const resultsList = americanResults.map(result => {
+
 		return (
 			<article className="results-container" key={result.latitude}>
 				<h2 className="card-header">{result.name}</h2>
-				<h3 className="card-label">{result.label}</h3>
-				<p>Country: {result.country}</p>
-				<p>Continent: {result.continent}</p>
+				<h3 className="card-label">{noDupCardInfo(result.label)}</h3>
+				{/* <p>Country: {result.country}</p> */}
+				{/* <p>Continent: {result.continent}</p> */}
 				<p>Latitude: {result.latitude}</p>
 				<p>Longitude: {result.longitude}</p>
 			</article>
 		)
 	})
+
+	
 
 	return (
 		<section className="results">

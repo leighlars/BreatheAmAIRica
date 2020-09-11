@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from '../Search/Search'
 import './Header.scss'
-import globe from '../assets/globe.png'
+import america from '../assets/america.png'
 import { NavLink } from 'react-router-dom'
 
 interface HeaderProps {
@@ -15,29 +15,29 @@ const Header: React.FC<HeaderProps> = props => {
       <div className='top-header'>
       <div className='logo-box'>
         <span className='company-logo'>
-          <img src={globe} alt='Blue geometric globe' className='globe-image' />
-          <h1 className='company-name'>Goin SomewhAIR?</h1>
+          <img src={america} alt='Blue map of USA' className='map-icon' />
+          <h1 className='company-name'>Breathe Am</h1><h1 className='air-text'>air</h1><h1 className='last-letters'>ica</h1>
         </span>
-        <h2 className='tagline'><i>Plan. Research. Experience.</i></h2>
+        <h2 className='tagline'>Plan. Go. Breathe.</h2>
       </div>
-      <Search
-				getSearchResults={props.getSearchResults}
-			/>
-      </div>
+        <Search 
+        getSearchResults={props.getSearchResults}
+        />
       <nav>
         <NavLink to='/' 
           className='nav-btns'>
-            Home
+            HOME
         </NavLink>
         <NavLink to='/about' 
           className='nav-btns'>
-            About
+            ABOUT
         </NavLink>
-        <NavLink to='/saved-cities' 
+        {/* <NavLink to='/saved-cities' 
           className='nav-btns'>
             My Cities
-        </NavLink>
+        </NavLink> */}
       </nav>
+      </div>
     </header>
   )
 }

@@ -38,8 +38,10 @@
       text-shadow: .5px black;
       color: $darkBlue;
       margin: 10px;
-      text-shadow: .5px .5px black;
-    }
+			text-shadow: .5px .5px black;
+			width: 240px;
+		}
+		
     .card-label {
       @include headerFont(1em);
       color: $darkBlue;

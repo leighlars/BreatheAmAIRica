@@ -8,7 +8,7 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = props => {
-	const [query, setQuery] = useState<string>('')
+	const [ query, setQuery ] = useState<string>('')
 
   return (
 		<div className="search-bar">

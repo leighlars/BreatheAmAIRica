@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import Card from '../Card/Card'
+import React from 'react'
 import './Results.scss'
 
 interface ResultsProps {
@@ -7,6 +6,7 @@ interface ResultsProps {
 }
 
 const Results: React.FC<ResultsProps> = props => {
+
 	const resultsList = props.searchResults.map(result => {
 		return (
 			<article className="results-container" key={result.latitude}>
@@ -23,6 +23,8 @@ const Results: React.FC<ResultsProps> = props => {
 	return (
 		<section className="results">
 			<h1>Search Results:</h1>
+			{props.searchResults.length === 0 &&
+			<h1>I'm sorry, there are no results. Please try again!</h1>}
 			<div className="results-info-box">
 				{resultsList}
 			</div>

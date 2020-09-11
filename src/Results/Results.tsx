@@ -7,6 +7,8 @@ interface ResultsProps {
 
 const Results: React.FC<ResultsProps> = props => {
 
+	const noResults = 'I\'m sorry, there are no results. Please try again!'
+
 	const resultsList = props.searchResults.map(result => {
 		return (
 			<article className="results-container" key={result.latitude}>
@@ -23,8 +25,7 @@ const Results: React.FC<ResultsProps> = props => {
 	return (
 		<section className="results">
 			<h1>Search Results:</h1>
-			{props.searchResults.length === 0 &&
-			<h1>I'm sorry, there are no results. Please try again!</h1>}
+			{props.searchResults.length === 0 && <h1>{noResults}</h1>}
 			<div className="results-info-box">
 				{resultsList}
 			</div>

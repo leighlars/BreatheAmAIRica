@@ -15,8 +15,10 @@
     }
 
     .card-header {
-      @include headerFont(1.75em);
+      @include headerFont(1.25em);
       text-shadow: .5px black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       color: $darkBlue;
       text-align: center;
     }

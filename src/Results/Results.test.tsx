@@ -4,7 +4,7 @@ import Results from './Results';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Results', () => {
-	let searchResults
+	let searchResults: Array<{}>, worldResults: Array<{}>
 
 	beforeEach(() => {
 		searchResults = [
@@ -24,19 +24,39 @@ describe('Results', () => {
 				'continent': 'North America',
 				'label': 'Miami, FL, USA'
 			}
+		],
+		worldResults = [
+			{
+				'latitude': 40,
+				'longitude': -110,
+				'name': 'Denver',
+				'country': 'United States',
+				'continent': 'North America',
+				'label': 'Denver, CO, USA'
+			},
+			{
+				'latitude': 48,
+				'longitude': 3,
+				'name': 'Paris',
+				'country': 'France',
+				'continent': 'Europe',
+				'label': 'Paris, France'
+			}
 		]
 	})
 
 	it('Should render results from search', () => {
-		// unable to get the test suite working with TS as of now
+		render(
+			<MemoryRouter>
+				<Results searchResults={searchResults} />
+			</MemoryRouter>
+		)
+		
+		const heading1 = screen.getByText(/denver/i)
+		const heading2 = screen.getByText(/miami/i)
 
-		// const { getByText } = render(
-		// 	<MemoryRouter>
-		// 		<Results
-		// 			searchResults={[]}
-		// 		/>
-		// 	</MemoryRouter>
-		// )
+		expect(heading1).toBeInTheDocument()
+		expect(heading2).toBeInTheDocument()
 	})
 
 })

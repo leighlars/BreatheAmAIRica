@@ -1,3 +1,4 @@
+import { KeyObject } from 'crypto';
 import { getCoordinates, getWeatherData, getAirQualityData} from './apiCalls';
 
 
@@ -23,6 +24,7 @@ export const getAllData = async (query: string) => {
     if (deg > 202.5 && deg < 247.6) direction = "SW"
     if (deg > 247.5 && deg < 292.6) direction = "W"
     if (deg > 292.5 && deg < 337.6) direction = "NW"
+    if(deg > 360 || deg < 0) direction = 'N/A'
 
     return direction;
   }
@@ -96,15 +98,19 @@ export const getAllData = async (query: string) => {
       data.current.windDirection = weather.current.wind_deg || 'no data'
       data.current.windSpeed = weather.current.wind_speed || 'no data'
       data.current.uvi = weather.current.uvi
-
-      
+      data.sevenDay = weather.daily
     })
 
 
-  // const airQualityData: {} = await getAirQualityData(
-  //   coordinates[0].latitude,
-  //   coordinates[0].longitude
-  // ).then(airData => data.push(airData))
+  const airQualityData: {} = await getAirQualityData(
+    coordinates[0].latitude,
+    coordinates[0].longitude
+  ).then(airData => {
+    data.state = stateName(airData[0].StateCode) || 'N/A'
+    data.aqi[0] = airData[0].aqi
+    data.airNotes = airData[0].Discussion || 'no data'
+    data.airCatagoryLevel = airData[0].Catagory.Name
+  })
 
   
   

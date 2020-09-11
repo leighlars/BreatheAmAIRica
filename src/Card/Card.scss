@@ -3,7 +3,7 @@
 .card-container {
     @include columnDisplay();
     justify-content: center;
-    background: #e6e6e6;
+    background: white;
     box-shadow: 2px 2px black;
     border: 2px solid $lightBlue;
     border-radius: 14px;

@@ -1,29 +1,38 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Results.scss'
 
 interface ResultsProps {
 	searchResults: Array<any>
+	getMatchDetails: Function
 }
 
 const Results: React.FC<ResultsProps> = props => {
 	const noResults = 'I\'m sorry, there are no results. Please try again!'
 	
 	const americanResults = props.searchResults.filter((result) => {
-		return result.country === "United States"
+		return result.country === 'United States'
 	})
 
 	const noDupCardInfo = (label: string) => {
-  return label.split(",").splice(1, 2).join(",")
+  return label.split(',').splice(1, 2).join(',')
  }
 
 	const resultsList = americanResults.map(result => {
 		return (
-			<article className="results-container" key={result.latitude}>
-				<h2 className="card-header">{result.name}</h2>
-				<h3 className="card-label">{noDupCardInfo(result.label)}</h3>
-				<p>Latitude: {result.latitude}</p>
-				<p>Longitude: {result.longitude}</p>
-			</article>
+			<Link
+				to={`/results/${result.name}`}
+				style={{ textDecoration: "none" }}
+				key={result.latitude}
+				onClick={() => props.getMatchDetails([result.latitude, result.longitude], result.locality, result.region)}
+			>
+				<article className="results-container" key={result.latitude}>
+					<h2 className="card-header">{result.name}</h2>
+					<h3 className="card-label">{noDupCardInfo(result.label)}</h3>
+					<p>Latitude: {result.latitude}</p>
+					<p>Longitude: {result.longitude}</p>
+				</article>
+			</Link>
 		)
 	})
 

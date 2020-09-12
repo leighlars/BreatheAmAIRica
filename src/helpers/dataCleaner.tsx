@@ -1,7 +1,8 @@
 import { getCoordinates, getWeatherData, getAirQualityData} from './apiCalls';
 
 
-export const getAllData = async (query: string) => {
+// export const getAllData = async (query: string) => {
+export const getAllData = async (lat: number, long: number) => {
   const data: any = {};
 
   // const kelvinToFahrenheit = (kelvin: number) => {
@@ -46,24 +47,28 @@ export const getAllData = async (query: string) => {
   //   return direction;
   // }
 
-  const coordinates: any = await getCoordinates(query);
+  // const coordinates: any = await getCoordinates(query);
 
-  const weatherData = await getWeatherData(
-    coordinates[0].latitude,
-    coordinates[0].longitude
-  );
+  // const weatherData = await getWeatherData(
+  //   coordinates[0].latitude,
+  //   coordinates[0].longitude
+  // );
 
-  const airQualityData = await getAirQualityData(
-    coordinates[0].latitude,
-    coordinates[0].longitude
-  );
+  // const airQualityData = await getAirQualityData(
+  //   coordinates[0].latitude,
+  //   coordinates[0].longitude
+	// );
+	
+  const weatherData = await getWeatherData(lat, long);
+
+  const airQualityData = await getAirQualityData(lat, long);
 
   data.currentAir = airQualityData[5];
-  data.locationData = coordinates[0];
+	// data.locationData = coordinates[0];
   data.currentWeather = weatherData.current;
   data.weeklyWeather = weatherData.daily;  
-
-  // console.log(data)
+	
+  console.log(data)
   return data;
 }
 

@@ -2,14 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Card.scss'
 import clearDay from '../assets/01d.png'
+import clearNight from "../assets/01n.png";
+import cloudyDay from "../assets/02d.png";
+import cloudyNight from "../assets/02n.png";
+import lightClouds from "../assets/03d.png";
+import rain from "../assets/09d.png";
+import sunnyStorms from "../assets/10n.png";
+import thunderstorm from "../assets/11d.png";
+import snow from "../assets/13d.png";
+
 
 interface CardProps {
   city: {
     name: string, 
     temp: number,
     aqi: number,
-    pollen: number,
-    fire: string
+    uvi: number,
+    icon: string
   }
 }
 
@@ -103,6 +112,28 @@ const Card: React.FC<CardProps> = (props) => {
    }
   };
 
+  const weatherIcon = (icon: string) => {
+    if (icon === '01d') {
+      return (<img src={clearDay} alt="Sun shining" />);
+    } else if (icon === "01n") {
+     return <img src={clearNight} alt="Sun shining" />;
+    } else if (icon === "02d") {
+     return <img src={cloudyDay} alt="Sun shining" />;
+    } else if (icon === "02n") {
+     return <img src={cloudyNight} alt="Sun shining" />;
+    } else if (icon === "03d") {
+     return <img src={lightClouds} alt="Sun shining" />;
+    } else if (icon === "09d") {
+     return <img src={rain} alt="Sun shining" />;
+    } else if (icon === "10d") {
+     return <img src={sunnyStorms} alt="Sun shining" />;
+    } else if (icon === "11d") {
+     return <img src={thunderstorm} alt="Sun shining" />;
+    } else if (icon === "13n") {
+     return <img src={snow} alt="Sun shining" />;
+    }
+  }
+
 
   return (
    <Link
@@ -120,7 +151,7 @@ const Card: React.FC<CardProps> = (props) => {
       {uvIndex(2)}
       <p className="unit">UVI</p>
      </div>
-     <img src={clearDay} alt="Sun shining" />
+     {weatherIcon("01n")}
     </article>
    </Link>
   );

@@ -21,6 +21,7 @@ export const getWeatherData = async (lat: number, long: number) => {
   const data = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey}`
   )
+ 
   try {
     const response = await data
     const parseData = await response.json()

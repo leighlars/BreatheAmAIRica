@@ -10,6 +10,7 @@ import covid from '../assets/covid.png'
 
 
 const Home: React.FC = () => {
+
 	const newsCards = [
   <a
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"

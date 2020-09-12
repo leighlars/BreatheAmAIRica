@@ -13,7 +13,13 @@ import snow from "../assets/13d.png";
 
 
 interface CardProps {
-  city: any
+  city: {
+    name: string,
+    temp: number,
+    aqi: number,
+    uvi: number,
+    icon: string
+  }
 }
 
 const Card: React.FC<CardProps> = (props) => {

@@ -43,6 +43,11 @@ export const getAirQualityData = (lat: number, long: number) => {
     .catch((error) => console.error(error))
 }
 
+export const getHomeData = (query: string) => {
+
+}
+// temp(data.weather.current.temp), aqi(data.), uvi(data.weather.current.uvi), name(query), icon(current.weather.icon)
+
 //tester
 // export const getTestData = async () => {
 // 	const data = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')

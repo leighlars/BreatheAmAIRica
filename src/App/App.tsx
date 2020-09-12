@@ -15,7 +15,7 @@ import { getAllData } from '../helpers/dataCleaner'
 const App: React.FC = () => {
   const [ topCities, setTopCities ] = useState([])
   
-  getAllData('denver')
+  // getAllData('denver')
   
 
   return (

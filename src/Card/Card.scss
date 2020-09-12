@@ -11,6 +11,7 @@
     height: 220px;
     margin: 1.5em;
     img {
+      margin-top: .5em;
       width: 4em;
     }
     &:hover {
@@ -23,53 +24,48 @@
       text-shadow: .5px black;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: $darkBlue;
+      color: $lightBlue;
       text-align: center;
       margin: 10px;
-    }
-    p {
-      @include textFont(1em);
-      color: black;
-      margin: 5px;
+      text-shadow: .5px .5px black;
     }
     .card-air-temp {
       @include rowDisplay();
       align-items: flex-end;
-      h3{
+      h3 {
         @include headerFont(1.25em);
-        color: $darkBlue;
         margin-left: 10px;
+        text-shadow: 1px 1px black;
       }
-      p {
+      .unit {
         @include textFont(.75em);
         color: $darkBlue;
         margin: 0;
       }
+      .card-temp {
+        color: $darkBlue;
+        text-shadow: .5px .5px black;
+      }
+      .card-low {
+        color: lightgreen;
+      }
+  
+      .card-moderate {
+        color: yellow;
+      }
+  
+      .card-high {
+        color: orange;
+      }
+  
+      .card-very-high {
+        color: red;
+      }
+  
+      .card-extreme {
+        color: purple;
+      }
     }
 
-    .card-uvi-low {
-      background: lightgreen;
-      color: white;
-    }
-
-    .card-uvi-moderate {
-      background: yellow;
-      color: white;
-    }
-
-    .card-uvi-high {
-      background: orange;
-      color: white; 
-    }
-
-    .card-uvi-very-high {
-      background: red;
-      color: white;
-    }
-
-    .card-uvi-extreme {
-      background: purple;
-      color: white;
-    }
 
   }

@@ -38,7 +38,7 @@ const Location: React.FC = ({locationData, currentWeather, weeklyWeather, curren
 	
 	return (
 		<section className="location-section">
-			<h2 className='current-city'>{locationsData.locality}</h2>
+			<h2 className='current-city'>{locationData.locality}</h2>
 			<h3 className='current-region'>{locationData.region}, {locationData.country_code}</h3>
 			<div className='info-box'>
 				<h4 className='info-box-header'>HAPPENING NOW</h4>

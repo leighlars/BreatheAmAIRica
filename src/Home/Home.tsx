@@ -1,5 +1,4 @@
-import React from 'react'
-import { popCities, ozoneCities, pollutionCities } from '../helpers/cities'
+import React, {useState} from 'react'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
@@ -7,26 +6,30 @@ import beach from "../assets/beach.jpg";
 import altitude from "../assets/altitude.jpg";
 import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
-import { getCoordinates } from "../helpers/apiCalls";
-
+import { getAllData } from "../helpers/dataCleaner";
 
 const Home: React.FC = () => {
 
-  const cities = async () => {
+  const getHomeCityData = async () => {
     const homeCities = [
       'Denver', 'New York City', 'Miami', 'San Francisco', 'Houston', 
       'Anchorage', 'Savannah', 'Destin', 'Honolulu', 'Casper',
       'Hot Springs', 'Colorado Springs', 'Bellingham', 'Albuquerque', 'Boston'
     ]
-    const returnedCities = await homeCities.map(city => {
-      return getCoordinates(city)
+
+    const returnedCities = await homeCities.map((city: any) => {
+      return getAllData(city)
     })
 
     return returnedCities.map((city: any) => {
-      return (<Card city={city} key={city.name}/>)
-    })
-
+     return <Card city={city} key={city.name} />;
+    });
+   
   }
+
+    
+  
+
 
 
 	const newsCards = [
@@ -104,31 +107,19 @@ const Home: React.FC = () => {
   </a>,
  ];
 
-	const popularCities = popCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-
-	const lowOzoneCities = ozoneCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-	
-	const lowPollutionCities = pollutionCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-
 	return (
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{popularCities}
+				{getHomeCityData()}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
-				{lowOzoneCities}
+				{/* {lowOzoneCities} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-				{lowPollutionCities}
+				{/* {lowPollutionCities} */}
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>

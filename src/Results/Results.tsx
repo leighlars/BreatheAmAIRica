@@ -4,6 +4,7 @@ import './Results.scss'
 
 interface ResultsProps {
 	searchResults: Array<any>
+	getMatchCoordinates: Function
 }
 
 const Results: React.FC<ResultsProps> = props => {
@@ -23,6 +24,7 @@ const Results: React.FC<ResultsProps> = props => {
 				to={`/results/${result.name}`}
 				style={{ textDecoration: "none" }}
 				key={result.latitude}
+				onClick={() => props.getMatchCoordinates([result.latitude, result.longitude])}
 			>
 				<article className="results-container" key={result.latitude}>
 					<h2 className="card-header">{result.name}</h2>

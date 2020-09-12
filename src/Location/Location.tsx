@@ -12,7 +12,7 @@ import wind from '../assets/wind.png'
 // feel free to break up lines of text for readability, i'm getting tired
 
 import { getAllData } from '../helpers/dataCleaner'
-import { getTestData } from '../helpers/apiCalls'
+// import { getTestData } from '../helpers/apiCalls'
 
 // interface LocationProps {
 // 		date?: string,

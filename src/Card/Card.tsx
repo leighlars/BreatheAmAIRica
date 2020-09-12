@@ -15,8 +15,8 @@ import snow from "../assets/13d.png";
 interface CardProps {
   city: {
     temp: number,
-    aqi: number,
-    uvi: number,
+    aqi: number | undefined,
+    uvi: number | undefined,
     icon: string
   }
   name: string
@@ -55,7 +55,13 @@ const Card: React.FC<CardProps> = (props) => {
        <b>{uvi}</b>
       </h3>
      );
-    } 
+    } else {
+      return (
+       <h3 className="card-extreme">
+        <b>N/A</b>
+       </h3>
+      );
+    }
   }
 
   const aqIndex = (aqi: number) => {
@@ -90,6 +96,11 @@ const Card: React.FC<CardProps> = (props) => {
       </h3>
      );
     } 
+    else {
+      return (<h3 className="card-extreme">
+       <b>N/A</b>
+      </h3>);
+    }
   }
 
   const temp = (temp: number) => {
@@ -137,21 +148,21 @@ const Card: React.FC<CardProps> = (props) => {
 
   return (
    <Link
-    to={`/${props.city.name}`}
+    to={`/${props.name}`}
     className="card-link-wrapper"
     style={{ textDecoration: "none" }}
    >
-    <article className="card-container" key={props.city.locationData.name}>
-     <h2 className="card-header">{props.city.locationData.name}</h2>
+    <article className="card-container" key={props.name}>
+     <h2 className="card-header">{props.name}</h2>
      <div className="card-air-temp">
-      {temp(props.city.currentWeather.temp)}
+      {temp(props.city.temp)}
       <p className="unit">&deg;F</p>
       {aqIndex(props.city.aqi)}
       <p className="unit">AQI</p>
-      {uvIndex(props.city.currentWeather.uvi)}
+      {uvIndex(props.city.uvi)}
       <p className="unit">UVI</p>
      </div>
-     {weatherIcon(props.city.currentWeather.weather.icon)}
+     {weatherIcon(props.city.icon)}
     </article>
    </Link>
   );

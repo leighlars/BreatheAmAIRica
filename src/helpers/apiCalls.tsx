@@ -43,7 +43,17 @@ export const getAirQualityData = (lat: number, long: number) => {
     .catch((error) => console.error(error))
 }
 
-export const getHomeData = (query: string) => {
+export const getHomeData = async (lat: number, long: number) => {
+  const data: any = {};
+  const weather = await getWeatherData(lat, long)
+  const aq = await getAirQualityData(lat, long)
+  data.temp = weather.current.temp
+  data.aqi = aq.AQI
+  data.uvi = weather.current.uvi
+  data.icon = data.current.weather.icon
+
+  console.log(data);
+  return data;
 
 }
 // temp(data.weather.current.temp), aqi(data.), uvi(data.weather.current.uvi), name(query), icon(current.weather.icon)

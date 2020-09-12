@@ -7,40 +7,24 @@ import altitude from "../assets/altitude.jpg";
 import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
 import { getAllData } from "../helpers/dataCleaner";
+import {getHomeData} from '../helpers/apiCalls'
+import { homeCities }  from '../helpers/cities'
 
-const Home: React.FC = () => {
-  const [homeCities, setHomeCities] = useState([]);
+export interface HomeProps {
+  query: string
+}
 
-  const getHomeCityData = async () => {
-    setHomeCities([
-     "Denver",
-     "New York City",
-     "Miami",
-     "San Francisco",
-     "Houston",
-     "Anchorage",
-     "Savannah",
-     "Destin",
-     "Honolulu",
-     "Casper",
-     "Hot Springs",
-     "Colorado Springs",
-     "Bellingham",
-     "Albuquerque",
-     "Boston",
-    ]);
+const Home: React.FC<HomeProps> = props => {
 
-
-
-    // ^^^ coordinates instead of city name
-
-    const returnedCities = await homeCities.map((city: any) => {
-      getAllData(city)
-      return <Card city={city} key={city.name} />;
+  const cityDetails = () => {
+    const getCityData = homeCities.map((city: any) => {
+      const cityInfo = getHomeData(city.lat, city.long)
+      return <Card city={cityInfo} name={props.query} key={city.name} />;
     })
     
-    return returnedCities
+    return getCityData
   }
+  
 
 	const newsCards = [
   <a
@@ -121,7 +105,7 @@ const Home: React.FC = () => {
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{/* {getHomeCityData().slice(0,5)} */}
+				{/* {cityDetails().slice(0,5)} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
@@ -129,7 +113,7 @@ const Home: React.FC = () => {
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-				{/* {lowPollutionCities} */}
+				{/* {getHomeCityData().slice(0,5)}*/}
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>

@@ -14,12 +14,12 @@ import snow from "../assets/13d.png";
 
 interface CardProps {
   city: {
-    name: string,
     temp: number,
     aqi: number,
     uvi: number,
     icon: string
   }
+  name: string
 }
 
 const Card: React.FC<CardProps> = (props) => {
@@ -137,7 +137,7 @@ const Card: React.FC<CardProps> = (props) => {
 
   return (
    <Link
-    to={`/${props.city.locationData.name}`}
+    to={`/${props.city.name}`}
     className="card-link-wrapper"
     style={{ textDecoration: "none" }}
    >

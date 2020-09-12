@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Location.scss'
 import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
@@ -10,6 +10,8 @@ import wind from '../assets/wind.png'
 // import raindrop from '../assets/liquid.png'
 // should we break this out into different components?
 // feel free to break up lines of text for readability, i'm getting tired
+
+import { getAllData } from '../helpers/dataCleaner'
 
 interface LocationProps {
 		date?: string,
@@ -29,28 +31,31 @@ interface LocationProps {
 		discussion?: string,
   }
 
-const Location: React.FC<LocationProps> = (props) => {
+const Location: React.FC = ({locationData, currentWeather, weeklyWeather, currentAir}) => {
+	const [allData, setAllData] = useState()
+
+	// setAllData(getAllData('denver'))
 	
 	return (
 		<section className="location-section">
-			<h2 className='current-city'>{props.city}</h2>
-			<h3 className='current-region'>{props.state}, {props.country}</h3>
+			<h2 className='current-city'>{locationsData.locality}</h2>
+			<h3 className='current-region'>{locationData.region}, {locationData.country_code}</h3>
 			<div className='info-box'>
 				<h4 className='info-box-header'>HAPPENING NOW</h4>
-				<p className='current-date'><b>{props.day} {props.date}</b> | {props.time}</p>
+				<p className='current-date'>{Date.now().toLocaleString()}</p>
 				<article className='current-weather'>
 					<div className='current-weather-left'>
-						<h5 className='current-temp'>{props.temp}&deg;</h5>
+						<h5 className='current-temp'>{currentWeather.temp}&deg;</h5>
 						<img src={cloudyNight} alt='clouds covering moon for current sky' className='large-weather-icon'/>
 					</div>
 					<div className='current-weather-right'>
 						<span className='current-weather-right-top'>
 							<img src={wind} alt='wind icon for wind speed direction' className='small-weather-icon'/> 
-							<p className='current-wind'>{props.wind} mph / {props.windDirection}</p>
+							<p className='current-wind'>{currentWeather.wind_speed} mph / {currentWeather.wind_direction}</p>
 						</span>
 						<span className='current-weather-right-bottom'>
 							<img src={waterdrop} alt='rain droplet icon for precipitation' className='small-weather-icon'/> 
-							<p className='current-precipitation'>{props.precipitation}</p>
+							<p className='current-precipitation'>{(currentWeather.precipitation) ? currentWeather.precipitation : 0}</p>
 						</span>
 					</div>
 
@@ -67,7 +72,7 @@ const Location: React.FC<LocationProps> = (props) => {
 								alt='lungs icon for air quality' 
 								className="small-weather-icon"/> 
 								<p className='type'>Air Quality Index</p>
-								<p className='unit'>{props.aqi}</p>
+								<p className='unit'>{currentAir.AQI}</p>
 							</td>
 							<td>
 								<img 
@@ -75,7 +80,7 @@ const Location: React.FC<LocationProps> = (props) => {
 									alt='sun icon for UV index' 
 									className="small-weather-icon"/> 
 									<p className='type'>UV Index</p>
-									<p className='unit'>{props.uvIndex} of 10</p>
+									<p className='unit'>{currentWeather.uvi} of 10</p>
 							</td>
 						</tr>
 						<tr>
@@ -85,7 +90,7 @@ const Location: React.FC<LocationProps> = (props) => {
 									alt='bee icon for allergies and pollen' 
 									className="small-weather-icon"/> 
 									<p className='type'>Allergens</p>
-									<p className='unit'>{props.allergyLevel}</p>
+									<p className='unit'>no allergy data yet!</p>
 							</td>
 							<td> 
 								<img 
@@ -93,7 +98,7 @@ const Location: React.FC<LocationProps> = (props) => {
 									alt='eye icon for visibility' 
 									className="small-weather-icon"/> 
 									<p className='type'>Visibility</p>
-									<p className='unit'>{props.visibility}mi</p>
+									<p className='unit'>{currentWeather.visibility / 5280}mi</p>
 							</td>
 						</tr>
 					</tbody>

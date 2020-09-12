@@ -4,17 +4,19 @@ import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
 import Results from "../Results/Results"
-// import Location from "../Location/Location"
+import Location from "../Location/Location"
 import './App.scss'
 
 // import { getAirQualityData } from '../helpers/apiCalls'
 import { getCoordinates } from '../helpers/apiCalls'
 import { getAllData } from "../helpers/dataCleaner"
 
+
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ locationData, setLocationData ] = useState({})
 
+  const data = {};
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
@@ -39,12 +41,17 @@ const App: React.FC = () => {
             return <About />
           }}
         />
-        {/* <Route
+        <Route
           exact path="/:Location"
           render={({ match }) => {
-            return <Location />
+            return <Location 
+                      locationData={data}
+                      currentWeather={data}
+                      weeklyWeather={data}
+                      currentAir={data}
+                  />
           }}
-        /> */}
+        />
         <Route
           exact path="/results"
           render={() => {

@@ -1,23 +1,23 @@
   export interface LocationProps {
   locationData: {
-    locality: string,
-    region: string,
-    country_code: string,
+    locality?: string,
+    region?: string,
+    country_code?: string,
   },
   currentWeather: {
     dt?: number,
     sunrise?: number,
     sunset?: number,
-    feels_like: number,
-    temp: number,
+    feels_like?: number,
+    temp?: number,
     dew_point?: number,
     clouds?: number,
-    humidity: number,
-    wind_speed: number,
-    wind_deg: number,
-    uvi: number,
-    visibility: number,
-    weather: [
+    humidity?: number,
+    wind_speed?: number,
+    wind_deg?: number,
+    uvi?: number,
+    visibility?: number,
+    weather?: [
         {
         description?: string,
         main?: string,
@@ -25,32 +25,32 @@
         },
       ],
   },
-  weeklyWeather?:{
-    daily:[
+  weeklyWeather:{
+    daily?:[
       {
-      dt: number,
-      sunrise: number,
-      sunset: number,
-      temp: {
-          day: number,
-          min: number,
-          max: number,
-          night: number,
-          eve: number,
-          morn: number,
+      dt?: number,
+      sunrise?: number,
+      sunset?: number,
+      temp?: {
+          day?: number,
+          min?: number,
+          max?: number,
+          night?: number,
+          eve?: number,
+          morn?: number,
       },
-      feels_like: {
-          day: number,
-          night: number,
-          eve: number,
-          morn: number
+      feels_like?: {
+          day?: number,
+          night?: number,
+          eve?: number,
+          morn?: number
       },
       pressure?: number,
       humidity: number,
       dew_point?: number,
-      wind_speed: number,
-      wind_deg: number,
-      weather: [
+      wind_speed?: number,
+      wind_deg?: number,
+      weather?: [
         {
             id?: number,
             main?: string,
@@ -67,6 +67,6 @@
     ],
   },
   currentAir: {
-    AQI: number,
+    AQI?: number,
   }
 }

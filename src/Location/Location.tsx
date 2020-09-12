@@ -17,10 +17,7 @@ import { LocationProps } from '../helpers/locationProps'
 
 
 const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: LocationProps) => {
-	const [allData, setAllData] = useState()
 
-	// setAllData(getAllData('denver'))
-	
 	return (
 		<section className="location-section">
 			<h2 className='current-city'>{locationData.locality}</h2>
@@ -83,7 +80,7 @@ const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: Loc
 									alt='eye icon for visibility' 
 									className="small-weather-icon"/> 
 									<p className='type'>Visibility</p>
-									<p className='unit'>{currentWeather.visibility / 5280}mi</p>
+									<p className='unit'>{(25000 / 5280).toFixed(1)}mi</p>
 							</td>
 						</tr>
 					</tbody>

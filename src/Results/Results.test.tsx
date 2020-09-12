@@ -1,7 +1,10 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Results from './Results';
-import { MemoryRouter } from 'react-router-dom';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import Results from './Results'
+import { MemoryRouter } from 'react-router-dom'
+import { getCoordinates } from '../helpers/apiCalls'
+import { mocked } from 'ts-jest/utils'
+jest.mock('../helpers/apiCalls')
 
 describe('Results', () => {
 	let searchResults: Array<{}>, worldResults: Array<{}>
@@ -45,15 +48,18 @@ describe('Results', () => {
 		]
 	})
 
-	it('Should render results from search', () => {
-		render(
+	it('Should render results from search', async () => {
+		mocked(getCoordinates).mockImplementation(() =>
+			Promise.resolve(searchResults)
+		)
+		const { findByText } = render(
 			<MemoryRouter>
 				<Results searchResults={searchResults} />
 			</MemoryRouter>
 		)
 		
-		const heading1 = screen.getByText(/denver/i)
-		const heading2 = screen.getByText(/miami/i)
+		const heading1 = await findByText(/denver/i)
+		const heading2 = await findByText(/miami/i)
 
 		expect(heading1).toBeInTheDocument()
 		expect(heading2).toBeInTheDocument()

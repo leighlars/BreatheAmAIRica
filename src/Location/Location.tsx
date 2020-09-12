@@ -18,6 +18,34 @@ import { LocationProps } from '../helpers/locationProps'
 
 const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: LocationProps) => {
 
+
+	// const renderWeeklyForecast =  
+	// 	weeklyWeather.daily.map((day => {
+	// 		return (weeklyWeather.daily)? 
+	// 		<article key={day.weather.id}className="daily-weather">
+	// 			<h3 className="daily-weather-highlight">
+	// 				{day.temp.min}F/{day.temp.max}F
+	// 			</h3>
+	// 			<p className="daily-weather-icon">
+	// 				<span>{day.weather.icon}</span>
+	// 			</p>
+	// 			{/* <p className="daily-weather-minmax">{time method to check time and return temp off time need to do the same bellow for feels like}</p> */}
+	// 			<p className="daily-weather-feelslike">
+	// 			add time checker to display feels like
+	// 			</p>
+	// 			<p className="daily-pressure">{day.pressure}</p>
+	// 			<p className="daily-humidity">{day.humidity}</p>
+	// 			<p className="daily-wind">
+	// 				{/* need functionality to evaluate wind direction */}
+	// 				{day.wind_speed}   {day.wind_deg}
+	// 			</p>
+	// 			<p>{day.uvi} {day.clouds}</p>
+	// 			{/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
+	// 		</article>
+	// 		: null
+	// 	}))
+
+
 	return (
 		<section className="location-section">
 			<h2 className='current-city'>{locationData.locality}</h2>
@@ -91,8 +119,8 @@ const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: Loc
 			</div>
 			<div className='info-box weekly-forecast'>
 				<h4 className='info-box-header'>WEEKLY FORECAST</h4>
+				{/* {renderWeeklyForecast} */}
 			</div>
-
 		</section>
 	)
 }

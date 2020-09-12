@@ -7,10 +7,10 @@ import { mocked } from 'ts-jest/utils'
 jest.mock('../helpers/apiCalls')
 
 describe('Results', () => {
-	let searchResults: Array<{}>, worldResults: Array<{}>
+	let mockedSearchResults: Array<{}>, mockedWorldResults: Array<{}>
 
 	beforeEach(() => {
-		searchResults = [
+		mockedSearchResults = [
 			{
 				'latitude': 40,
 				'longitude': -110,
@@ -28,7 +28,7 @@ describe('Results', () => {
 				'label': 'Miami, FL, USA'
 			}
 		],
-		worldResults = [
+		mockedWorldResults = [
 			{
 				'latitude': 40,
 				'longitude': -110,
@@ -50,11 +50,11 @@ describe('Results', () => {
 
 	it('Should render results from search', async () => {
 		mocked(getCoordinates).mockImplementation(() =>
-			Promise.resolve(searchResults)
+			Promise.resolve(mockedSearchResults)
 		)
 		const { findByText } = render(
 			<MemoryRouter>
-				<Results searchResults={searchResults} />
+				<Results searchResults={mockedSearchResults} />
 			</MemoryRouter>
 		)
 		
@@ -77,14 +77,17 @@ describe('Results', () => {
 		expect(message).toBeInTheDocument()
 	})
 
-	it('Should filter only results from United States', () => {
-		render(
+	it('Should filter only results from United States', async () => {
+		mocked(getCoordinates).mockImplementation(() =>
+			Promise.resolve(mockedSearchResults)
+		)
+		const { findByText } = render(
 			<MemoryRouter>
-				<Results searchResults={worldResults} />
+				<Results searchResults={mockedSearchResults} />
 			</MemoryRouter>
 		)
 
-		const heading1 = screen.getByText(/denver/i)
+		const heading1 = await findByText(/denver/i)
 		const heading2 = screen.queryByText(/paris/i)
 
 		expect(heading1).toBeInTheDocument()

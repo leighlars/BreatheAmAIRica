@@ -4,31 +4,27 @@ import Home from "../Home/Home"
 import Header from '../Header/Header'
 import About from "../About/About"
 import Results from "../Results/Results"
-// import Location from "../Location/Location"
+import Location from "../Location/Location"
 import './App.scss'
 
-// import { getAirQualityData } from '../helpers/apiCalls'
 import { getCoordinates } from '../helpers/apiCalls'
-import { getAllData } from "../helpers/dataCleaner"
+// import { getAllData } from "../helpers/dataCleaner"
 
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
-  const [ locationData, setLocationData ] = useState({})
+  const [ query, setQuery ] = useState('')
+  // const [ locationData, setLocationData ] = useState({})
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
+		setQuery(query)
 		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
 		clearInput()
   }
-  
-  
- 
 
   return (
     <div className="App">
-      <Header
-				getSearchResults={getSearchResults}
-			/>
+      <Header getSearchResults={getSearchResults} />
       <main>
         <Route
           exact path="/"
@@ -42,20 +38,16 @@ const App: React.FC = () => {
             return <About />
           }}
         />
-        {/* <Route
-          exact path="/:Location"
+        <Route
+          exact path="/results/:query"
           render={({ match }) => {
-            return <Location />
+            return <Location query={match.params.query} />
           }}
-        /> */}
+        />
         <Route
           exact path="/results"
           render={() => {
-            return (
-							<Results
-								searchResults={searchResults}
-							/>
-						)
+            return <Results searchResults={searchResults} />
           }}
         />
       </main>

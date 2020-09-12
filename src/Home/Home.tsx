@@ -7,10 +7,27 @@ import beach from "../assets/beach.jpg";
 import altitude from "../assets/altitude.jpg";
 import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
+import { getCoordinates } from "../helpers/apiCalls";
 
 
 const Home: React.FC = () => {
-  const cities = []
+
+  const cities = async () => {
+    const homeCities = [
+      'Denver', 'New York City', 'Miami', 'San Francisco', 'Houston', 
+      'Anchorage', 'Savannah', 'Destin', 'Honolulu', 'Casper',
+      'Hot Springs', 'Colorado Springs', 'Bellingham', 'Albuquerque', 'Boston'
+    ]
+    const returnedCities = await homeCities.map(city => {
+      return getCoordinates(city)
+    })
+
+    return returnedCities.map((city: any) => {
+      return (<Card city={city} key={city.name}/>)
+    })
+
+  }
+
 
 	const newsCards = [
   <a

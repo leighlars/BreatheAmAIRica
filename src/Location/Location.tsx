@@ -15,7 +15,7 @@ const Location: React.FC = () => {
 	return (
 		<section className="location-section">
 			<h2 className='current-city'>Denver</h2>
-			<h3 className='current-region'>Colorado, USA</h3>
+			<h3 className='current-region'>Colorado</h3>
 			<div className='info-box'>
 				<h4 className='info-box-header'>HAPPENING NOW</h4>
 				<p className='current-date'><b>Thurs 10</b> | 10:30pm</p>

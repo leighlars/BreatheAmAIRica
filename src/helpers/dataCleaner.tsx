@@ -63,7 +63,7 @@ export const getAllData = async (query: string) => {
   data.currentWeather = weatherData.current;
   data.weeklyWeather = weatherData.daily;  
 
-  console.log(data)
+  // console.log(data)
   return data;
 }
 

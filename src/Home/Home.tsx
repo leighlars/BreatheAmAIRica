@@ -9,28 +9,38 @@ import covid from '../assets/covid.png'
 import { getAllData } from "../helpers/dataCleaner";
 
 const Home: React.FC = () => {
+  const [homeCities, setHomeCities] = useState([]);
 
   const getHomeCityData = async () => {
-    const homeCities = [
-      'Denver', 'New York City', 'Miami', 'San Francisco', 'Houston', 
-      'Anchorage', 'Savannah', 'Destin', 'Honolulu', 'Casper',
-      'Hot Springs', 'Colorado Springs', 'Bellingham', 'Albuquerque', 'Boston'
-    ]
+    setHomeCities([
+     "Denver",
+     "New York City",
+     "Miami",
+     "San Francisco",
+     "Houston",
+     "Anchorage",
+     "Savannah",
+     "Destin",
+     "Honolulu",
+     "Casper",
+     "Hot Springs",
+     "Colorado Springs",
+     "Bellingham",
+     "Albuquerque",
+     "Boston",
+    ]);
+
+
+
+    // ^^^ coordinates instead of city name
 
     const returnedCities = await homeCities.map((city: any) => {
-      return getAllData(city)
+      getAllData(city)
+      return <Card city={city} key={city.name} />;
     })
-
-    return returnedCities.map((city: any) => {
-     return <Card city={city} key={city.name} />;
-    });
-   
-  }
-
     
-  
-
-
+    return returnedCities
+  }
 
 	const newsCards = [
   <a
@@ -111,11 +121,11 @@ const Home: React.FC = () => {
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{getHomeCityData()}
+				{/* {getHomeCityData().slice(0,5)} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
-				{/* {lowOzoneCities} */}
+				{/* {getHomeCityData().slice(0,5)} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>

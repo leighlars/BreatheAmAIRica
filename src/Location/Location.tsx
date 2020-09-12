@@ -19,10 +19,9 @@ import { LocationProps } from '../helpers/locationProps'
 const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: LocationProps) => {
 
 
-	// const renderWeeklyForecast =  
+	// const renderWeeklyForecast = 
 	// 	weeklyWeather.daily.map((day => {
-	// 		return (weeklyWeather.daily)? 
-	// 		<article key={day.weather.id}className="daily-weather">
+	// 		return <article key={day.weather.id}className="daily-weather">
 	// 			<h3 className="daily-weather-highlight">
 	// 				{day.temp.min}F/{day.temp.max}F
 	// 			</h3>
@@ -41,8 +40,7 @@ const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: Loc
 	// 			</p>
 	// 			<p>{day.uvi} {day.clouds}</p>
 	// 			{/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
-	// 		</article>
-	// 		: null
+	// 		</article> 
 	// 	}))
 
 
@@ -119,7 +117,7 @@ const Location = ({locationData, currentWeather, weeklyWeather, currentAir}: Loc
 			</div>
 			<div className='info-box weekly-forecast'>
 				<h4 className='info-box-header'>WEEKLY FORECAST</h4>
-				{/* {renderWeeklyForecast} */}
+				{/* {(renderWeeklyForecast)?{renderWeeklyForecast}: null} */}
 			</div>
 		</section>
 	)

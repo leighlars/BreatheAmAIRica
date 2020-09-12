@@ -8,19 +8,22 @@ import Location from "../Location/Location"
 import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
-// import { getAllData } from "../helpers/dataCleaner"
 
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState('')
-  // const [ locationData, setLocationData ] = useState({})
+	const [ matchCoordinates, setMatchCoordinates ] = useState<Array<number>>([])
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
 		const returnedResults = await getCoordinates(query)
 		setSearchResults(returnedResults)
 		clearInput()
-  }
+	}
+	
+	const getMatchCoordinates = (coordinates: []) => {
+		setMatchCoordinates(coordinates)
+	}
 
   return (
     <div className="App">
@@ -38,16 +41,22 @@ const App: React.FC = () => {
             return <About />
           }}
         />
-        <Route
-          exact path="/results/:query"
-          render={({ match }) => {
-            return <Location query={match.params.query} />
-          }}
-        />
+				<Route
+					exact path="/results/:query"
+					render={({ match }) => {
+						return <Location
+							query={match.params.query}
+							matchCoordinates={matchCoordinates}
+						/>
+					}}
+				/>
         <Route
           exact path="/results"
           render={() => {
-            return <Results searchResults={searchResults} />
+						return <Results
+							searchResults={searchResults}
+							getMatchCoordinates={getMatchCoordinates}
+						/>
           }}
         />
       </main>

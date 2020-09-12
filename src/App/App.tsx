@@ -9,11 +9,13 @@ import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
 
+
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState('')
 	const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
 
+  const data = {};
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
 		const returnedResults = await getCoordinates(query)

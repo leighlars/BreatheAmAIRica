@@ -12,7 +12,7 @@ import { getCoordinates } from '../helpers/apiCalls'
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState('')
-	const [ matchCoordinates, setMatchCoordinates ] = useState<Array<number>>([])
+	const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
@@ -21,8 +21,8 @@ const App: React.FC = () => {
 		clearInput()
 	}
 	
-	const getMatchCoordinates = (coordinates: []) => {
-		setMatchCoordinates(coordinates)
+	const getMatchDetails = (coordinates: [], locality: string, region: string) => {
+		setMatchDetails([coordinates, locality, region])
 	}
 
   return (
@@ -46,7 +46,7 @@ const App: React.FC = () => {
 					render={({ match }) => {
 						return <Location
 							query={match.params.query}
-							matchCoordinates={matchCoordinates}
+							matchDetails={matchDetails}
 						/>
 					}}
 				/>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
           render={() => {
 						return <Results
 							searchResults={searchResults}
-							getMatchCoordinates={getMatchCoordinates}
+							getMatchDetails={getMatchDetails}
 						/>
           }}
         />

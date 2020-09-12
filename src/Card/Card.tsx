@@ -10,15 +10,15 @@ import rain from "../assets/09d.png";
 import sunnyStorms from "../assets/10n.png";
 import thunderstorm from "../assets/11d.png";
 import snow from "../assets/13d.png";
+// data icon names !== file names
 
-
-interface CardProps {
+export interface CardProps {
   city: {
     temp: number,
-    aqi: number | undefined,
-    uvi: number | undefined,
+    aqi: any,
+    uvi: any,
     icon: string
-  }
+}
   name: string
 }
 

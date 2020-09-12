@@ -71,4 +71,18 @@ describe('Results', () => {
 		expect(message).toBeInTheDocument()
 	})
 
+	it('Should filter only results from United States', () => {
+		render(
+			<MemoryRouter>
+				<Results searchResults={worldResults} />
+			</MemoryRouter>
+		)
+
+		const heading1 = screen.getByText(/denver/i)
+		const heading2 = screen.queryByText(/paris/i)
+
+		expect(heading1).toBeInTheDocument()
+		expect(heading2).not.toBeInTheDocument()
+	})
+
 })

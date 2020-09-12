@@ -20,8 +20,9 @@ const Results: React.FC<ResultsProps> = props => {
 	const resultsList = americanResults.map(result => {
 		return (
 			<Link
-				to={`/${result.name}`}
+				to={`/results/${result.name}`}
 				style={{ textDecoration: "none" }}
+				key={result.latitude}
 			>
 				<article className="results-container" key={result.latitude}>
 					<h2 className="card-header">{result.name}</h2>

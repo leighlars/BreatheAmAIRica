@@ -67,7 +67,7 @@ export const ozoneCities = [
 },
  {
   name: "Casper",
-  temp: 55,
+  temp: 30,
   aqi: 30,
   pollen: 0,
   fire: 'High'
@@ -105,7 +105,7 @@ export const pollutionCities = [
 },
  {
   name: "Portland, ME",
-  temp: 74,
+  temp: 67,
   aqi: 10,
   pollen: 0,
   fire: "None"

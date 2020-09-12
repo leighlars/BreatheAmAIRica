@@ -10,6 +10,7 @@ import covid from '../assets/covid.png'
 
 
 const Home: React.FC = () => {
+  const cities = []
 
 	const newsCards = [
   <a

@@ -19,10 +19,15 @@
     box-shadow: 2px 2px black;
     width: 18em;
   }
+  
+  Link {
+    border: none;
+  }
+
   .search-icon {
     background: white;
     width: 2.1em;
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 14px 14px 0;
 		box-shadow: 2px 2px black;
 		margin-top: .2em;
   }

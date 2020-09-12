@@ -83,6 +83,26 @@ const Card: React.FC<CardProps> = (props) => {
     } 
   }
 
+  const temp = (temp: number) => {
+   if (temp <= 32) {
+    return (
+     <h3 className="card-extreme"><b>{temp}</b></h3>
+    );
+   } else if (temp >= 33 && temp <= 59) {
+    return (
+     <h3 className="card-moderate"><b>{temp}</b></h3>
+    );
+   } else if (temp >= 60 && temp <= 80) {
+    return (
+     <h3 className="card-high"><b>{temp}</b></h3>
+    );
+   } else if (temp >= 80) {
+    return (
+     <h3 className="card-very-high"><b>{temp}</b></h3>
+    );
+   }
+  };
+
 
   return (
    <Link
@@ -92,14 +112,15 @@ const Card: React.FC<CardProps> = (props) => {
    >
     <article className="card-container" key={props.city.name}>
      <h2 className="card-header">{props.city.name}</h2>
-     <div className='card-air-temp'>
-      <h3 className="card-temp">{props.city.temp}&deg;F</h3>
-      {aqIndex(200)}
-      <p className='unit'>AQI</p>
+     <div className="card-air-temp">
+      {temp(props.city.temp)}
+      <p className="unit">&deg;F</p>
+      {aqIndex(props.city.aqi)}
+      <p className="unit">AQI</p>
       {uvIndex(2)}
-      <p className='unit'>UVI</p>
+      <p className="unit">UVI</p>
      </div>
-     <img src={clearDay} alt='Sun shining' />
+     <img src={clearDay} alt="Sun shining" />
     </article>
    </Link>
   );

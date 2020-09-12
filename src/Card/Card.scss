@@ -2,35 +2,46 @@
 
 .card-container {
     @include columnDisplay();
-    justify-content: flex-start;
+    justify-content: center;
     background: white;
     box-shadow: 2px 2px black;
+    border: 2px solid $lightBlue;
     border-radius: 14px;
     width: 225px;
-    height: 225px;
+    height: 220px;
     margin: 1.5em;
-    padding: 2%;
     &:hover {
+      border: 3px solid $goldenrod;
       transform: scale(1.05);
-      border: 2px solid $goldenrod;
     }
 
     .card-header {
-      @include headerFont(1.5em);
+      @include headerFont(1.45em);
       text-shadow: .5px black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       color: $darkBlue;
+      text-align: center;
       margin: 10px;
-      text-shadow: .5px .5px black;
     }
-    .card-temp {
-      @include headerFont(1.5em);
-      color: $darkBlue;
-      margin-top: .5em;
-    }
-
     p {
       @include textFont(1em);
       color: black;
-      font-weight: bold;
+      margin: 5px;
     }
+    .card-air-temp {
+      @include rowDisplay();
+      align-items: flex-end;
+      .card-temp, .card-air {
+        @include headerFont(1.25em);
+        color: $darkBlue;
+        margin-left: 10px;
+      }
+      p {
+        @include textFont(.75em);
+        color: $darkBlue;
+        margin: 0;
+      }
+    }
+
   }

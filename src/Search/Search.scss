@@ -3,7 +3,6 @@
 
 .search-bar {
   @include rowDisplay();
-  margin-right: 3em;
   padding: 2px;
   &:hover {
     border: 2px solid $goldenrod;
@@ -12,7 +11,8 @@
   .search-input {
     border-radius: 14px 0 0 14px;
     border: none;
-    padding: .5%;
+    background: white;
+    padding: 1%;
     font-weight: bold;
     font-size: 18px;
     text-align: center;
@@ -22,8 +22,9 @@
   .search-icon {
     background: white;
     padding: 1.5%;
-    width: .9em;
+    width: 2em;
     border-radius: 0 14px 14px 0;
-    box-shadow: 2px 2px black;
+		box-shadow: 2px 2px black;
+		margin-top: .37em;
   }
 }

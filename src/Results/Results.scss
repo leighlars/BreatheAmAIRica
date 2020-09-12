@@ -1,0 +1,71 @@
+@import '../styles/_variables.scss';
+
+
+.results {
+  @include columnDisplay();
+  padding: 2%;
+  width: 70vw;
+  overflow: none;
+  
+  .results-info-box {
+    @include rowDisplay();
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+	h1 {
+    @include headerFont(1.5em);
+    width: 100%;
+    text-shadow: 2px 2px black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+	}
+}
+
+.results-container {
+    @include columnDisplay();
+    justify-content: flex-start;
+    background: white;
+    box-shadow: 2px 2px black;
+    border: 2px solid $lightBlue;
+    border-radius: 14px;
+    height: 225px;
+    max-width: 255px;
+    margin: 1.5em;
+    padding: 2%;
+    overflow-y: scroll;
+    &:hover {
+      transform: scale(1.05);
+      border: 2px solid $goldenrod;
+    }
+
+    .card-header {
+      @include headerFont(1.45em);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: .5px black;
+      text-align: center;
+      color: $darkBlue;
+      margin: 10px;
+			width: 240px;
+		}
+		
+    .card-label {
+      @include headerFont(1em);
+      color: $darkBlue;
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+
+    p {
+      @include textFont(1em);
+      color: black;
+			font-weight: bold;
+			margin-top: .5em;
+    }
+  }
+
+
+
+

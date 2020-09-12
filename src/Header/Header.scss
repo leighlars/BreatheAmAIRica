@@ -1,13 +1,15 @@
 @import '../styles/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&display=swap');
 
 header {
   @include columnDisplay();
   justify-content: space-between;
-  background: $darkBlue;
+  background: #00295d;
   color: white;
-  height: 7em;
+  height: 6em;
   width: 100%;
   position: fixed;
+  z-index: 3;
 }
   .top-header {
     @include rowDisplay();
@@ -24,33 +26,45 @@ header {
 
     .company-logo {
       @include rowDisplay();
-      margin-bottom: 5px;
+      justify-content: flex-end;
+      width: 350px;
 
-      .globe-image {
-        width: 2.15em;
+      .map-icon {
+        width: 3.5em;
+        margin-right: 10px;
       }
-      .company-name {
+      .company-name, .last-letters, .air-text {
         @include headerFont(1.65em);
-        margin-left: 10px;
+        margin: 0;
+        font-family: 'Red Rose', cursive;
         text-shadow: 2px 2px black;
       }
+          .air-text {
+            color: $lightBlue;
+            text-transform: uppercase;
+          }
     }
     .tagline  {
-      @include headerFont(1.25em);
+      @include headerFont(1em);
       color: $goldenrod;
+      text-transform: uppercase;
+      letter-spacing: 3px;
       margin: 0;
+      margin-left: 50px;
     }
   }
 }
   
   nav {
     @include rowDisplay();
+    padding: .5%;
     justify-content: space-evenly;
-    width: 100%;
+    width: 14em;
     margin: 0;
-    background: #00295d;
+    margin-right: 3em;
     .nav-btns {
       @include headerFont(1em);
+      letter-spacing: 3px;
       text-decoration: none;
       color: white;
       text-shadow: 2px 2px black;

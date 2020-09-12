@@ -22,15 +22,15 @@ export const getCoordinates = (query: string) => {
 export const getWeatherData = async (lat: number, long: number) => {
   const data = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey}`
-  );
+  )
   try {
-    const response = await data;
-    const parseData = await response.json();
-    return parseData;
+    const response = await data
+    const parseData = await response.json()
+    return parseData
   } catch (error) {
-    return error;
+    return error
   }
-};
+}
 
 
 export const getAirQualityData = (lat: number, long: number) => {
@@ -42,11 +42,9 @@ export const getAirQualityData = (lat: number, long: number) => {
   })
     .then((response) => response.json())
     .then((airData) => {
-			return airData;
+			return airData
 		})
-    .catch((error) => {
-			throw error
-		});
-};
+    .catch((error) => console.error(error))
+}
 
 

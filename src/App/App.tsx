@@ -21,9 +21,6 @@ const App: React.FC = () => {
 		clearInput()
   }
   
-  
- 
-
   return (
     <div className="App">
       <Header

@@ -28,5 +28,4 @@ describe('Search', () => {
 		fireEvent.click(magGlass)
 		expect(getSearchResults).toBeCalledTimes(1)
 	})
-
 })

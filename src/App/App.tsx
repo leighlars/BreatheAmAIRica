@@ -43,7 +43,8 @@ const App: React.FC<DetailsProps> = () => {
         <Route
           exact path="/"
           render={() => {
-            return <Home />
+            return <Home 
+            query={query}/>
           }}
         />
         <Route

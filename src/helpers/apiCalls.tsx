@@ -45,6 +45,20 @@ export const getAirQualityData = (lat: number, long: number) => {
     .catch((error) => console.error(error))
 }
 
+export const getHomeData = async (lat: number, long: number) => {
+  const data: any = {};
+  const weather = await getWeatherData(lat, long)
+  const aq = await getAirQualityData(lat, long)
+  data.temp = +((weather.current.temp - 273.15) * 1.8 + 32).toFixed(0)
+  data.aqi = aq.AQI
+  data.uvi = +(Math.round(weather.current.uvi)).toFixed(0)
+  data.icon = weather.current.weather[0].icon
+
+  // console.log(data);
+  return data;
+}
+// temp(data.weather.current.temp), aqi(data.), uvi(data.weather.current.uvi), name(query), icon(current.weather.icon)
+
 //tester
 // export const getTestData = async () => {
 // 	const data = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')

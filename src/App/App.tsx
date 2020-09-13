@@ -8,7 +8,7 @@ import Location from "../Location/Location"
 import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
-import { getAllData } from "../helpers/dataCleaner"
+import { getAllData } from "../helpers/dataFilter"
 import { DetailsProps } from '../helpers/detailsdefinitions'
 
 

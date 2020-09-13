@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import WeeklyData from '../WeeklyData/WeeklyData'
-import CurrentData from '../CurrentData/CurrentData'
 import './Location.scss'
 import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
@@ -12,22 +11,24 @@ import wind from '../assets/wind.png'
 
 
 
-import { getAllData } from '../helpers/dataCleaner'
+import { getAllData } from '../helpers/dataFilter'
 
 import { DetailsProps } from '../helpers/detailsdefinitions'
 import { getWeatherData } from '../helpers/apiCalls'
 // import raindrop from '../assets/liquid.png'
 // should we break this out into different components?
 // feel free to break up lines of text for readability, i'm getting tired
+const degToDirection = (deg: number) => {
+const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+	const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
+	return directions[index]
+}
 
+const kelvinToFah = (k: number) => {
+
+}
 
 const Location: React.FC<any> = props => {
-	// const [ current, setCurrent ] = useState<any>()
-
-
-	// useEffect(() => {
-	// 	setCurrent(props.detailsData)
-	// })
 
 	return (
     <section className="location-section">
@@ -37,7 +38,7 @@ const Location: React.FC<any> = props => {
           <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
           <div className="info-box">
             <h4 className="info-box-header">HAPPENING NOW</h4>
-            <p className="current-date">{Date.now().toLocaleString()}</p>
+            <p className="current-date">{new Date().toLocaleTimeString()}</p>
             <article className="current-weather">
               <div className="current-weather-left">
                 <h5 className="current-temp">
@@ -58,7 +59,7 @@ const Location: React.FC<any> = props => {
                   />
                   <p className="current-wind">
                     {props.detailsData.currentWeather.wind_speed} mph /{" "}
-                    {props.detailsData.currentWeather.wind_deg}
+                    {degToDirection(props.detailsData.currentWeather.wind_deg)}
                   </p>
                 </span>
                 <span className="current-weather-right-bottom">

@@ -24,10 +24,10 @@ const App: React.FC = () => {
 		clearInput()
 	}
 	
-	const getMatchDetails = (coordinates: [], locality: string, region: string) => {
-		setMatchDetails([coordinates, locality, region])
+	const getMatchDetails = (latitude: number, longitude: number, locality: string, region: string) => {
+		setMatchDetails([latitude, longitude, locality, region])
   }
-  
+  console.log(matchDetails)
 
   return (
     <div className="App">

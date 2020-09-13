@@ -19,13 +19,13 @@ import { getWeatherData } from '../helpers/apiCalls'
 // should we break this out into different components?
 // feel free to break up lines of text for readability, i'm getting tired
 const degToDirection = (deg: number) => {
-const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+	const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
 	const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
 	return directions[index]
 }
 
-const kelvinToFah = (k: number) => {
-
+const kelvinToFahren = (k: number) => {
+	return Math.floor((k - 273.15) * 1.8 + 32);
 }
 
 const Location: React.FC<any> = props => {
@@ -42,7 +42,7 @@ const Location: React.FC<any> = props => {
             <article className="current-weather">
               <div className="current-weather-left">
                 <h5 className="current-temp">
-                  {props.detailsData.currentWeather.temp}&deg;
+                  {kelvinToFahren(props.detailsData.currentWeather.temp)}&deg;
                 </h5>
                 <img
                   src={cloudyNight}
@@ -68,57 +68,44 @@ const Location: React.FC<any> = props => {
                     alt="rain droplet icon for precipitation"
                     className="small-weather-icon"
                   />
-                  <p className="current-precipitation">{"Coming Soon"}</p>
+									<p className="current-precipitation">
+										{(props.detailsData.currentWeather.rain)? 
+										props.detailsData.currentWeather.rain['1h'] : 0}
+									</p>
                 </span>
               </div>
             </article>
           </div>
           <div className="info-box air-quality">
             <h4 className="info-box-header">AIR QUALITY</h4>
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src={lungs}
-                      alt="lungs icon for air quality"
-                      className="small-weather-icon"
-                    />
-                    <p className="type">Air Quality Index</p>
-                    <p className="unit">{}</p>
-                  </td>
-                  <td>
-                    <img
-                      src={sun}
-                      alt="sun icon for UV index"
-                      className="small-weather-icon"
-                    />
-                    <p className="type">UV Index</p>
-                    <p className="unit">{props.detailsData.currentWeather.uvi} of 10</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src={bee}
-                      alt="bee icon for allergies and pollen"
-                      className="small-weather-icon"
-                    />
-                    <p className="type">Allergens</p>
-                    <p className="unit">no allergy data yet!</p>
-                  </td>
-                  <td>
-                    <img
-                      src={eye}
-                      alt="eye icon for visibility"
-                      className="small-weather-icon"
-                    />
-                    <p className="type">Visibility</p>
-                    <p className="unit">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+							<img
+								src={lungs}
+								alt="lungs icon for air quality"
+								className="small-weather-icon"
+							/>
+							<p className="type">Air Quality Index</p>
+							<p className="unit">{'AQI'}</p>
+							<img
+								src={sun}
+								alt="sun icon for UV index"
+								className="small-weather-icon"
+							/>
+							<p className="type">UV Index</p>
+							<p className="unit">{props.detailsData.currentWeather.uvi} of 10</p>
+							<img
+								src={bee}
+								alt="bee icon for allergies and pollen"
+								className="small-weather-icon"
+							/>
+							<p className="type">Allergens</p>
+							<p className="unit">Coming Soon!</p>
+							<img
+								src={eye}
+								alt="eye icon for visibility"
+								className="small-weather-icon"
+							/>
+							<p className="type">Visibility</p>
+							<p className="unit">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi</p>
           </div>
           <div className="info-box hourly-forecast">
             <h4 className="info-box-header">HOURLY FORECAST</h4>

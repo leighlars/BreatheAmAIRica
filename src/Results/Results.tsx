@@ -24,7 +24,7 @@ const Results: React.FC<ResultsProps> = props => {
 				to={`/results/${result.name}`}
 				style={{ textDecoration: "none" }}
 				key={result.latitude}
-				onClick={() => props.getMatchDetails([result.latitude, result.longitude], result.locality, result.region)}
+				onClick={() => props.getMatchDetails(result.latitude, result.longitude, result.locality, result.region)}
 			>
 				<article className="results-container" key={result.latitude}>
 					<h2 className="card-header">{result.name}</h2>

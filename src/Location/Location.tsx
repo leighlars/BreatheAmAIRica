@@ -81,31 +81,31 @@ const Location: React.FC<any> = props => {
 							<img
 								src={lungs}
 								alt="lungs icon for air quality"
-								className="small-weather-icon"
+								className="small-lungs-icon"
 							/>
-							<p className="type">Air Quality Index</p>
-							<p className="unit">{'AQI'}</p>
+							<p className="type-aqi">Air Quality Index</p>
+							<p className="unit-aqi">{'AQI'}</p>
 							<img
 								src={sun}
 								alt="sun icon for UV index"
-								className="small-weather-icon"
+								className="small-sun-icon"
 							/>
-							<p className="type">UV Index</p>
-							<p className="unit">{props.detailsData.currentWeather.uvi} of 10</p>
+							<p className="type-uvi">UV Index</p>
+							<p className="unit-uvi">{props.detailsData.currentWeather.uvi} of 10</p>
 							<img
 								src={bee}
 								alt="bee icon for allergies and pollen"
-								className="small-weather-icon"
+								className="small-bee-icon"
 							/>
-							<p className="type">Allergens</p>
-							<p className="unit">Coming Soon!</p>
+							<p className="type-allergy">Allergens</p>
+							<p className="unit-allergy">Coming Soon!</p>
 							<img
 								src={eye}
 								alt="eye icon for visibility"
-								className="small-weather-icon"
+								className="small-eye-icon"
 							/>
-							<p className="type">Visibility</p>
-							<p className="unit">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi</p>
+							<p className="type-visibility">Visibility</p>
+							<p className="unit-visibility">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi</p>
           </div>
           <div className="info-box hourly-forecast">
             <h4 className="info-box-header">HOURLY FORECAST</h4>

@@ -31,4 +31,10 @@ $goldenrod: #edcc71;
   text-align: justify;
   margin: 0;
 }
+
+@mixin smallIcon {
+  width: 46%;
+  margin: 0;
+  align-self: center;
+}
   

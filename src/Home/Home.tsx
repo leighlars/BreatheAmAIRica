@@ -10,6 +10,16 @@ import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
 
 export interface HomeProps {
+  query: string
+}
+
+const Home: React.FC<HomeProps> = props => {
+  const [allCityData, setAllCityData] = useState<Array<any>>([])
+  const [string, setString] = useState('')
+
+
+
+export interface HomeProps {
 	query: string
 }
 
@@ -106,31 +116,18 @@ const Home: React.FC<HomeProps> = props => {
   </a>,
  ];
 
-	// const popularCities = popCities.map((city: any) => {
-	// 	return (<Card city={city} key={city.name}/>);
-	// })
-
-	// const lowOzoneCities = ozoneCities.map((city: any) => {
-	// 	return (<Card city={city} key={city.name}/>);
-	// })
-	
-	// const lowPollutionCities = pollutionCities.map((city: any) => {
-	// 	return (<Card city={city} key={city.name}/>);
-	// })
-
 	return (
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{/* {popularCities} */}
+        {/* {cityDetails()} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
-				{/* {lowOzoneCities} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-				{/* {lowPollutionCities} */}
+
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>

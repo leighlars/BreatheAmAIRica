@@ -4,12 +4,16 @@
     @include columnDisplay();
     justify-content: center;
     background: white;
-    box-shadow: 2px 2px black;
+    box-shadow: 2px 2px 5px black;
     border: 2px solid $lightBlue;
     border-radius: 14px;
-    width: 225px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     margin: 1.5em;
+    img {
+      margin-top: .5em;
+      width: 4em;
+    }
     &:hover {
       border: 3px solid $goldenrod;
       transform: scale(1.05);
@@ -23,25 +27,45 @@
       color: $darkBlue;
       text-align: center;
       margin: 10px;
-    }
-    p {
-      @include textFont(1em);
-      color: black;
-      margin: 5px;
+      text-shadow: .5px .5px black;
     }
     .card-air-temp {
       @include rowDisplay();
       align-items: flex-end;
-      .card-temp, .card-air {
-        @include headerFont(1.25em);
-        color: $darkBlue;
+      h3 {
+        @include headerFont(1.45em);
         margin-left: 10px;
+        text-shadow: 1px 1px black;
       }
-      p {
+      .unit {
         @include textFont(.75em);
         color: $darkBlue;
         margin: 0;
       }
+      .card-temp {
+        color: $darkBlue;
+        text-shadow: .5px .5px black;
+      }
+      .card-low {
+        color: #41ab5b;
+      }
+  
+      .card-moderate {
+        color: $goldenrod;
+      }
+  
+      .card-high {
+        color: #db6307;
+      }
+  
+      .card-very-high {
+        color: #d12a46;
+      }
+  
+      .card-extreme {
+        color: #7c04bd;
+      }
     }
+
 
   }

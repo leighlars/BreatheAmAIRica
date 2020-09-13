@@ -28,8 +28,8 @@ const About: React.FC = () => {
       loved ones to have accurate weather and air quality information.
       <br />
       <br/>
-      Whether you're planning a trip or relocating across the country, or just a walk around the block with your dog, <br/>
-      our data is updated every 10-60 minutes, giving you the most updated conditions to help you plan your next activity. 
+      Our data is updated every 10-60 minutes, giving you the most up-to-date conditions to plan your local or destination activity. 
+
       <br />
       <br />
       Please review the listed charts for optimal site navigation. <br />

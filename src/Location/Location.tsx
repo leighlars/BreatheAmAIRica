@@ -21,6 +21,17 @@ import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
 const Location = (props: any) => {
+  const [ time, setTime ] = useState<string>()
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 998);
+
+    return () => {
+      clearTimeout(timerId);
+    } 
+  }, [time])
 
 	return (
     <section className="location-section">
@@ -30,7 +41,7 @@ const Location = (props: any) => {
           <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
           <div className="info-box">
             <h4 className="info-box-header">HAPPENING NOW</h4>
-            <p className="current-date">{new Date().toLocaleTimeString()}</p>
+            <p className="current-date">{time}</p>
             <article className="current-weather">
               <div className="current-weather-left">
                 <h5 className="current-temp">

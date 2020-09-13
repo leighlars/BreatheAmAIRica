@@ -1,14 +1,14 @@
-import { Route } from "react-router-dom"
+import { Route } from 'react-router-dom'
 import React, { useState } from 'react'
-import Home from "../Home/Home"
+import Home from '../Home/Home'
 import Header from '../Header/Header'
-import About from "../About/About"
-import Results from "../Results/Results"
-import Location from "../Location/Location"
+import About from '../About/About'
+import Results from '../Results/Results'
+import Location from '../Location/Location'
 import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
-import { getAllData } from "../helpers/dataFilter"
+import { getAllData } from '../helpers/dataFilter'
 import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
@@ -43,8 +43,7 @@ const App: React.FC<DetailsProps> = () => {
         <Route
           exact path="/"
           render={() => {
-            return <Home 
-            query={query}/>
+            return <Home />
           }}
         />
         <Route

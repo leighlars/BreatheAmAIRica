@@ -34,7 +34,8 @@ const App: React.FC = () => {
         <Route
           exact path="/"
           render={() => {
-            return <Home />
+            return <Home 
+            query={query}/>
           }}
         />
         <Route

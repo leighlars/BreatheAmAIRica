@@ -1,5 +1,4 @@
-import React from 'react'
-import { popCities, ozoneCities, pollutionCities } from '../helpers/cities'
+import React, {useState, useEffect} from 'react'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
@@ -7,9 +6,45 @@ import beach from "../assets/beach.jpg";
 import altitude from "../assets/altitude.jpg";
 import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
+import {getHomeData} from '../helpers/apiCalls'
+import { homeCities }  from '../helpers/cities'
+
+export interface HomeProps {
+  query: string
+}
+
+const Home: React.FC<HomeProps> = props => {
+  const [allCityData, setAllCityData] = useState<Array<any>>([])
+  const [string, setString] = useState('')
 
 
-const Home: React.FC = () => {
+
+
+  const cityDetails = async () => {
+    const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
+      return await getHomeData(city.lat, city.long)
+    })
+    const cityData =  await Promise.all(getCityData)
+    setAllCityData(cityData)
+    console.log(allCityData);
+  }
+  
+  // const jsxCities = () => {
+  //   // return cityData.map(
+  //    (city: { temp: number; aqi: any; uvi: any; icon: string }) => {
+  //     return <Card city={city} name={props.query} key={props.query} />;
+  //    }
+  //   }
+  // }
+
+  useEffect(()=> {
+    setString("hello"); 
+    cityDetails()
+    console.log(string)
+    console.log(allCityData)
+  }, [])
+  
+
 	const newsCards = [
   <a
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
@@ -85,31 +120,18 @@ const Home: React.FC = () => {
   </a>,
  ];
 
-	const popularCities = popCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-
-	const lowOzoneCities = ozoneCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-	
-	const lowPollutionCities = pollutionCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
-
 	return (
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{popularCities}
+        {/* {cityDetails()} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
-				{lowOzoneCities}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-				{lowPollutionCities}
+
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>

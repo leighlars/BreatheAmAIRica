@@ -13,6 +13,9 @@ import wind from '../assets/wind.png'
 
 import { getAllData } from '../helpers/dataCleaner'
 
+import { getTestData } from '../helpers/apiCalls'
+
+
 
 interface LocationProps {
 	// getMatchedData: Function

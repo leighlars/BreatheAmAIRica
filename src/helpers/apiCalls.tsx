@@ -1,7 +1,7 @@
-const airQualityKey = 'essor';
-// "DACE2187-D810-4B4B-81E4-45AEBAF087A0"
-const weatherDataKey = 'rseitn';
-//  "02a1de26e83e798e7595a522e8e4e9d9";
+const airQualityKey = "DACE2187-D810-4B4B-81E4-45AEBAF087A0";
+
+const weatherDataKey = "02a1de26e83e798e7595a522e8e4e9d9";
+
 // "346025de560bd5d671b73a88bec2fce6"
 
 export const getCoordinates = (query: string) => {

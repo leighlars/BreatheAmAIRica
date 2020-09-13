@@ -8,14 +8,15 @@ import Location from "../Location/Location"
 import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
+import { getAllData } from "../helpers/dataCleaner"
 
 
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState('')
-	const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
+  const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
+  
 
-  const data = {};
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
 		const returnedResults = await getCoordinates(query)
@@ -25,7 +26,8 @@ const App: React.FC = () => {
 	
 	const getMatchDetails = (coordinates: [], locality: string, region: string) => {
 		setMatchDetails([coordinates, locality, region])
-	}
+  }
+  
 
   return (
     <div className="App">

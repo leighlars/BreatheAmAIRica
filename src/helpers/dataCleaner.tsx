@@ -11,6 +11,7 @@ export const getAllData = async (lat: number, long: number) => {
 
   // const kelvinToCelcius = (kelvin: number) => {
   //   return kelvin - 273.15;
+  
   // }
 
   // const windDirection = (deg: number) => {
@@ -61,9 +62,9 @@ export const getAllData = async (lat: number, long: number) => {
 	
   const weatherData = await getWeatherData(lat, long);
 
-  const airQualityData = await getAirQualityData(lat, long);
+  // const airQualityData = await getAirQualityData(lat, long);
 
-  data.currentAir = airQualityData[5];
+  // data.currentAir = airQualityData[5];
 	// data.locationData = coordinates[0];
   data.currentWeather = weatherData.current;
   data.weeklyWeather = weatherData.daily;  

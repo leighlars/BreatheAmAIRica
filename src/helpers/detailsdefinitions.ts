@@ -1,12 +1,7 @@
   export interface DetailsProps {
-    query?: string;
-    matchDetails?: any[];
-    locationData?: {
-      locality?: string;
-      region?: string;
-      country_code?: string;
-    };
-    currentWeather: {
+    query?: string,
+    matchDetails?: [number, number, string, string];
+    currentWeather?: {
       dt?: number;
       sunrise?: number;
       sunset?: number;
@@ -27,7 +22,7 @@
         }
       ];
     };
-    weeklyWeather: {
+    weeklyWeather?: {
       daily?: [
         {
           dt?: number;
@@ -68,7 +63,9 @@
         }
       ];
     };
-    currentAir: {
+    currentAir?: {
       AQI?: number;
     };
+  
+  
   }

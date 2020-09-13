@@ -12,10 +12,10 @@ import { getAllData } from "../helpers/dataFilter"
 import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
-const App: React.FC = () => {
+const App: React.FC<DetailsProps> = () => {
   const [ searchResults, setSearchResults ] = useState([])
-  const [ query, setQuery ] = useState('')
-  const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
+  const [ query, setQuery ] = useState<string>()
+  const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
   const [ detailsData, setDetailsData ] = useState<DetailsProps>()
   
 
@@ -56,7 +56,6 @@ const App: React.FC = () => {
 					exact path="/results/:query"
 					render={({ match }) => {
 						return <Location
-							query={match.params.query}
               matchDetails={matchDetails}
               detailsData={detailsData}
 						/>

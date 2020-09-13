@@ -18,17 +18,17 @@ import { getWeatherData } from '../helpers/apiCalls'
 // import raindrop from '../assets/liquid.png'
 // should we break this out into different components?
 // feel free to break up lines of text for readability, i'm getting tired
-const degToDirection = (deg: number) => {
+const degToDirection = (deg: number):string => {
 	const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
 	const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
 	return directions[index]
 }
 
-const kelvinToFahren = (k: number) => {
+const kelvinToFahren = (k: number):number => {
 	return Math.floor((k - 273.15) * 1.8 + 32);
 }
 
-const Location: React.FC<any> = props => {
+const Location = (props: any) => {
 
 	return (
     <section className="location-section">
@@ -112,9 +112,9 @@ const Location: React.FC<any> = props => {
           </div>
           <div className="info-box weekly-forecast">
             <h4 className="info-box-header">WEEKLY FORECAST</h4>
-            <WeeklyData 
-						weeklyData={props.weeklyData}
-					/>
+            {/* <WeeklyData 
+						weeklyForcast={props.weeklyData}
+					/> */}
           </div>
         </>
       ) : (

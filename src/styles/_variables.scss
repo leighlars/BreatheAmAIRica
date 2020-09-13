@@ -3,6 +3,8 @@
 $darkBlue: #013578;
 $lightBlue: #33a6f2;
 $goldenrod: #edcc71;
+$black: #000000;
+$white: #ffffff;
 
 
 @mixin rowDisplay {
@@ -19,14 +21,14 @@ $goldenrod: #edcc71;
 
 @mixin headerFont($fontSize) {
   font-family: 'Kumbh Sans', sans-serif;
-  color: white;
+  color: $white;
   font-size: $fontSize;
   margin: 0;
 }
 
 @mixin textFont($fontSize) {
   font-family: 'PT Sans', sans-serif;
-  color: black;
+  color: $black;
   font-size: $fontSize;
   text-align: justify;
   margin: 0;

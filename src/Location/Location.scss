@@ -36,6 +36,7 @@
       @include textFont(1em);
       color: $darkBlue;
       margin: 0;
+      font-weight: bold;
     }
 
     .current-weather {
@@ -173,5 +174,11 @@
       color: $darkBlue;
       font-weight: bold;
     }
+  }
+
+  .loading {
+    color: $white;
+    font-weight: bold;
+    font-size: 2rem;
   }
 }

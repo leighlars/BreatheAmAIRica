@@ -1,5 +1,6 @@
-import React from 'react'
-import { popCities, ozoneCities, pollutionCities } from '../helpers/cities'
+import React, { useState, useEffect } from 'react'
+import { homeCities } from '../helpers/cities'
+import { getHomeData, getTestData } from '../helpers/apiCalls'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
@@ -8,8 +9,28 @@ import altitude from "../assets/altitude.jpg";
 import roadTrip from "../assets/roadTrip.jpeg";
 import covid from '../assets/covid.png'
 
+export interface HomeProps {
+	query: string
+}
 
-const Home: React.FC = () => {
+const Home: React.FC<HomeProps> = props => {
+	const cityDetails = async () => {
+		const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
+			return await getTestData()
+		})
+		const cityData = await Promise.all(getCityData)
+		makeCards(cityData)
+		return cityData
+	}
+
+	const makeCards = (data: Array<any>) => {
+		console.log(data)
+	}
+
+	// useEffect(() => {
+	// 	cityDetails()
+	// }, [])
+
 	const newsCards = [
   <a
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
@@ -85,35 +106,35 @@ const Home: React.FC = () => {
   </a>,
  ];
 
-	const popularCities = popCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
+	// const popularCities = popCities.map((city: any) => {
+	// 	return (<Card city={city} key={city.name}/>);
+	// })
 
-	const lowOzoneCities = ozoneCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
+	// const lowOzoneCities = ozoneCities.map((city: any) => {
+	// 	return (<Card city={city} key={city.name}/>);
+	// })
 	
-	const lowPollutionCities = pollutionCities.map((city: any) => {
-		return (<Card city={city} key={city.name}/>);
-	})
+	// const lowPollutionCities = pollutionCities.map((city: any) => {
+	// 	return (<Card city={city} key={city.name}/>);
+	// })
 
 	return (
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-				{popularCities}
+				{/* {popularCities} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
-				{lowOzoneCities}
+				{/* {lowOzoneCities} */}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-				{lowPollutionCities}
+				{/* {lowPollutionCities} */}
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>
-				{newsCards}
+				{/* {newsCards} */}
 			</div>
 		</section>
 	)

@@ -55,14 +55,13 @@ export const getHomeData = async (lat: number, long: number) => {
 }
 
 //tester
-// export const getTestData = async () => {
-// 	const data = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-// 	try {
-// 		const response = await data
-// 		const parseData = await response.json()
-// 		console.log(parseData)
-// 		return parseData
-// 	} catch (error) {
-// 		return error
-// 	}
-// }
+export const getTestData = async () => {
+	const data = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+	try {
+		const response = await data
+		const parseData = await response.json()
+		return parseData
+	} catch (error) {
+		return error
+	}
+}

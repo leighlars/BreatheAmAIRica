@@ -9,12 +9,14 @@ import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
 import { getAllData } from "../helpers/dataCleaner"
+import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState('')
   const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
+  const [ detailsData, setDetailsData ] = useState<DetailsProps>()
   
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
@@ -27,7 +29,12 @@ const App: React.FC = () => {
 	const getMatchDetails = (latitude: number, longitude: number, locality: string, region: string) => {
 		setMatchDetails([latitude, longitude, locality, region])
   }
-  console.log(matchDetails)
+
+  const getAllDetailsData = async (lat: number, long: number) => {
+    const data = await getAllData(lat, long)
+    setDetailsData(data)
+  }
+  console.log(detailsData)
 
   return (
     <div className="App">
@@ -50,7 +57,8 @@ const App: React.FC = () => {
 					render={({ match }) => {
 						return <Location
 							query={match.params.query}
-							matchDetails={matchDetails}
+              matchDetails={matchDetails}
+              detailsData={detailsData}
 						/>
 					}}
 				/>
@@ -59,7 +67,8 @@ const App: React.FC = () => {
           render={() => {
 						return <Results
 							searchResults={searchResults}
-							getMatchDetails={getMatchDetails}
+              getMatchDetails={getMatchDetails}
+              getAllDetailsData={getAllDetailsData}
 						/>
           }}
         />

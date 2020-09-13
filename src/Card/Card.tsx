@@ -152,7 +152,6 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
-
   return (
    <Link
     to={`/${props.name}`}

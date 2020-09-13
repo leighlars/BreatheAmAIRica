@@ -4,9 +4,9 @@ import { getHomeData } from '../helpers/dataFilter'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
-import beach from "../assets/beach.jpg";
-import altitude from "../assets/altitude.jpg";
-import roadTrip from "../assets/roadTrip.jpeg";
+import beach from '../assets/beach.jpg';
+import altitude from '../assets/altitude.jpg';
+import roadTrip from '../assets/roadTrip.jpeg';
 import covid from '../assets/covid.png'
 
 const Home: React.FC = () => {
@@ -124,20 +124,20 @@ const Home: React.FC = () => {
 
 	return (
 		<section className="home">
-			<h2 className='carousel-header'>Popular Destinations</h2>
-			<div className='card-carousel'>
+			<h2 className="carousel-header">Popular Destinations</h2>
+			<div className="card-carousel">
         {cardList.slice(0, 5)}
 			</div>
-			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
-			<div className='card-carousel'>
+			<h2 className="carousel-header">Lowest Ozone Pollution</h2>
+			<div className="card-carousel">
 				{cardList.slice(5, 10)}
 			</div>
-			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
-			<div className='card-carousel'>
+			<h2 className="carousel-header">Lowest Particle Pollution</h2>
+			<div className="card-carousel">
 				{cardList.slice(10, 15)}
 			</div>
-			<h2 className='carousel-header'>Pertinent Readings</h2>
-			<div className='card-carousel'>
+			<h2 className="carousel-header">Pertinent Readings</h2>
+			<div className="card-carousel">
 				{newsCards}
 			</div>
 		</section>

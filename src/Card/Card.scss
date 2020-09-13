@@ -35,6 +35,7 @@
       h3 {
         @include headerFont(1.45em);
         margin-left: 10px;
+        margin-right: 3px;
         text-shadow: 1px 1px black;
       }
       .unit {

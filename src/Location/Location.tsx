@@ -73,7 +73,7 @@ const Location = (props: any) => {
                   />
 									<p className="current-precipitation">
 										{(props.detailsData.currentWeather.rain)? 
-										props.detailsData.currentWeather.rain['1h'] : 0}
+										props.detailsData.currentWeather.rain['1h'] : 0} %
 									</p>
                 </span>
               </div>

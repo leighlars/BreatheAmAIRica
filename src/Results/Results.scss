@@ -4,11 +4,11 @@
 .results {
   @include columnDisplay();
   padding: 2%;
-  width: 70vw;
   overflow: none;
   
   .results-info-box {
     @include rowDisplay();
+    justify-content: center;
     flex-wrap: wrap;
     width: 90vw;
     margin: 0 auto;
@@ -30,8 +30,8 @@
     box-shadow: 2px 2px black;
     border: 2px solid $lightBlue;
     border-radius: 14px;
-    height: 225px;
-    max-width: 255px;
+    // height: 150px;
+    max-width: 285px;
     margin: 1.5em;
     padding: 2%;
     overflow-y: scroll;
@@ -47,7 +47,7 @@
       text-shadow: .5px black;
       text-align: center;
       color: $darkBlue;
-      margin: 10px;
+      margin-top: 15px;
 			width: 240px;
 		}
 		

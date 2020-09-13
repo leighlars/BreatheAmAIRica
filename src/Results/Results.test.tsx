@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
 import Results from './Results'
+import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { getCoordinates } from '../helpers/apiCalls'
 import { mocked } from 'ts-jest/utils'

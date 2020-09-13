@@ -1,21 +1,32 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import Home from './Home';
+import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { mocked } from 'ts-jest/utils'
+import { getHomeData } from '../helpers/apiCalls'
+jest.mock('../helpers/apiCalls')
 
 describe('Home', () => {
 
-  it('should render 5 city cards', () => {
-    // these test will change with fetched data, just covering bases
-    const {getAllByRole, getByRole, getAllByText} = render(<MemoryRouter><Home/></MemoryRouter>)
-    const topCards = getAllByRole('link')
-    const cityName = getByRole('heading', {name: 'Denver'})
-    const temp = getAllByText('35', {exact: false})
-    const aqi = getAllByText('AQI')
-    expect(topCards).toHaveLength(5)
-    expect(cityName).toBeInTheDocument()
-    expect(temp).toHaveLength(5)
-    expect(aqi).toHaveLength(5)
+  it('should render 15 cards upon load', async () => {
+		mocked(getHomeData).mockImplementation(() => 
+			Promise.resolve({
+				aqi: 1,
+				icon: '01d',
+				temp: 76,
+				uvi: 1
+			})
+		)
+		const { findByText, findAllByText } = render(<MemoryRouter><Home /></MemoryRouter>)
+		const title1 = await findByText(/denver/i)
+		const aqi = await findAllByText(/AQI/i)
+		const title6 = await findByText(/anchorage/i)
+		const title11 = await findByText(/hot springs/i)
+		expect(title1).toBeInTheDocument()
+		expect(aqi[0]).toBeInTheDocument()
+		expect(aqi[14]).toBeInTheDocument()
+		expect(title6).toBeInTheDocument()
+		expect(title11).toBeInTheDocument()
   })
 
   // it('should fire event when card is clicked', () => {

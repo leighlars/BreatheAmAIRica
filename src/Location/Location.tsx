@@ -98,7 +98,7 @@ const Location: React.FC<any> = props => {
 								className="small-bee-icon"
 							/>
 							<p className="type-allergy">Allergens</p>
-							<p className="unit-allergy">Coming Soon!</p>
+							<p className="unit-allergy">2.0</p>
 							<img
 								src={eye}
 								alt="eye icon for visibility"

@@ -1,6 +1,12 @@
 import React from 'react'
 
-const WeeklyData = () => {
+
+interface WeeklyDataProps {
+  // getMatchedData: Function
+  weeklyData: any[];
+}
+
+const WeeklyData: React.FC<WeeklyDataProps> = (props) => {
   return (
     null
   )

@@ -29,9 +29,15 @@ describe('Home', () => {
 		expect(title11).toBeInTheDocument()
   })
 
-  // it('should fire event when card is clicked', () => {
-  //   // ???? it's a link to the location page, is this a testable event?
-	// })
+  it('should display location page when card is clicked', () => {
+		// mock getHomeData
+		// render Home
+		// locate card
+		// mock fetching the location data
+		// fire click event on card
+		// locate items on the location page
+		// expect them to be in the document
+	})
 	
 	it('should display 4 horizontal scrolls with info cards', () => {
 		const { getByRole } = render(<MemoryRouter><Home /></MemoryRouter>)

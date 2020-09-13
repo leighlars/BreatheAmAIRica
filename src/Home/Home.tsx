@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { homeCities } from '../helpers/cities'
-import { getHomeData, getTestData } from '../helpers/apiCalls'
+import { getHomeData } from '../helpers/apiCalls'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
@@ -14,32 +14,34 @@ export interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = props => {
-  const [allCityData, setAllCityData] = useState<Array<any>>([])
-  const [string, setString] = useState('')
+	const [ cardList, setCardList ] = useState<Array<any>>([])
 
-
-
-export interface HomeProps {
-	query: string
-}
-
-const Home: React.FC<HomeProps> = props => {
 	const cityDetails = async () => {
 		const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
-			return await getTestData()
+			return await getHomeData(city.lat, city.long)
 		})
 		const cityData = await Promise.all(getCityData)
 		makeCards(cityData)
-		return cityData
 	}
 
 	const makeCards = (data: Array<any>) => {
-		console.log(data)
+		const cardList = data.map(city => {
+			return (
+				<Card
+					temp={city.temp}
+					aqi={city.aqi}
+					uvi={city.uvi}
+					icon={city.icon}
+					name={props.query}
+				/>
+			)
+		})
+		setCardList(cardList)
 	}
 
-	// useEffect(() => {
-	// 	cityDetails()
-	// }, [])
+	useEffect(() => {
+		cityDetails()
+	}, [])
 
 	const newsCards = [
   <a
@@ -120,18 +122,19 @@ const Home: React.FC<HomeProps> = props => {
 		<section className="home">
 			<h2 className='carousel-header'>Popular Destinations</h2>
 			<div className='card-carousel'>
-        {/* {cityDetails()} */}
+        {cardList.slice(0, 5)}
 			</div>
 			<h2 className='carousel-header'>Lowest Ozone Pollution</h2>
 			<div className='card-carousel'>
+				{cardList.slice(5, 10)}
 			</div>
 			<h2 className='carousel-header'>Lowest Particle Pollution</h2>
 			<div className='card-carousel'>
-
+				{cardList.slice(10, 15)}
 			</div>
 			<h2 className='carousel-header'>Pertinent Readings</h2>
 			<div className='card-carousel'>
-				{/* {newsCards} */}
+				{newsCards}
 			</div>
 		</section>
 	)

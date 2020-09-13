@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { homeCities } from '../helpers/cities'
-import { getHomeData } from '../helpers/apiCalls'
+import { getHomeData } from '../helpers/dataFilter'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'

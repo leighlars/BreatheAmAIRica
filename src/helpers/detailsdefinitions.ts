@@ -1,4 +1,4 @@
-  export interface LocationProps {
+  export interface DetailsProps {
   locationData: {
     locality?: string,
     region?: string,

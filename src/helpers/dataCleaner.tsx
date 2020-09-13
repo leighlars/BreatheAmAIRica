@@ -11,7 +11,7 @@ export const getAllData = async (lat: number, long: number) => {
 
   // const kelvinToCelcius = (kelvin: number) => {
   //   return kelvin - 273.15;
-  
+
   // }
 
   // const windDirection = (deg: number) => {

@@ -10,7 +10,7 @@ import {getHomeData} from '../helpers/apiCalls'
 import { homeCities }  from '../helpers/cities'
 
 export interface HomeProps {
-  query: string
+  query?: string
 }
 
 const Home: React.FC<HomeProps> = props => {

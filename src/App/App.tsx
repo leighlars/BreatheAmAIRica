@@ -8,14 +8,17 @@ import Location from "../Location/Location"
 import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
+import { getAllData } from "../helpers/dataFilter"
+import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
-const App: React.FC = () => {
+const App: React.FC<DetailsProps> = () => {
   const [ searchResults, setSearchResults ] = useState([])
-  const [ query, setQuery ] = useState('')
-	const [ matchDetails, setMatchDetails ] = useState<Array<any>>([])
+  const [ query, setQuery ] = useState<string>()
+  const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
+  const [ detailsData, setDetailsData ] = useState<DetailsProps>()
+  
 
-  const data = {};
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
 		const returnedResults = await getCoordinates(query)
@@ -23,9 +26,15 @@ const App: React.FC = () => {
 		clearInput()
 	}
 	
-	const getMatchDetails = (coordinates: [], locality: string, region: string) => {
-		setMatchDetails([coordinates, locality, region])
-	}
+	const getMatchDetails = (latitude: number, longitude: number, locality: string, region: string) => {
+		setMatchDetails([latitude, longitude, locality, region])
+  }
+
+  const getAllDetailsData = async (lat: number, long: number) => {
+    const data = await getAllData(lat, long)
+    setDetailsData(data)
+  }
+  console.log(detailsData)
 
   return (
     <div className="App">
@@ -48,8 +57,8 @@ const App: React.FC = () => {
 					exact path="/results/:query"
 					render={({ match }) => {
 						return <Location
-							query={match.params.query}
-							matchDetails={matchDetails}
+              matchDetails={matchDetails}
+              detailsData={detailsData}
 						/>
 					}}
 				/>
@@ -58,7 +67,8 @@ const App: React.FC = () => {
           render={() => {
 						return <Results
 							searchResults={searchResults}
-							getMatchDetails={getMatchDetails}
+              getMatchDetails={getMatchDetails}
+              getAllDetailsData={getAllDetailsData}
 						/>
           }}
         />

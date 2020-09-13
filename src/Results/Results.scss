@@ -5,6 +5,7 @@
   @include columnDisplay();
   padding: 2%;
   overflow: none;
+  height: 100vh;
   
   .results-info-box {
     @include rowDisplay();

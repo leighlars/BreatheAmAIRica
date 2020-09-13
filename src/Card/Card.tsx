@@ -163,8 +163,8 @@ const Card: React.FC<CardProps> = (props) => {
      <div className="card-air-temp">
       {temp(props.temp)}
       <p className="unit">&deg;F</p>
-      {aqIndex(props.aqi)}
-      <p className="unit">AQI</p>
+      {/* {aqIndex(props.aqi)}
+      <p className="unit">AQI</p> */}
       {uvIndex(props.uvi)}
       <p className="unit">UVI</p>
      </div>

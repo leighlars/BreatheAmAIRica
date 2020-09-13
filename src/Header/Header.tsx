@@ -32,10 +32,6 @@ const Header: React.FC<HeaderProps> = props => {
           className='nav-btns'>
             ABOUT
         </NavLink>
-        {/* <NavLink to='/saved-cities' 
-          className='nav-btns'>
-            My Cities
-        </NavLink> */}
       </nav>
       </div>
     </header>

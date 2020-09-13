@@ -33,6 +33,7 @@ const Home: React.FC<HomeProps> = props => {
 					uvi={city.uvi}
 					icon={city.icon}
 					name={props.query}
+					key={city.temp}
 				/>
 			)
 		})
@@ -48,6 +49,7 @@ const Home: React.FC<HomeProps> = props => {
    href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"
 	 target="_blank"
 	 rel="noopener noreferrer"
+	 key="1"
   >
    <div className="news-card">
     <img src={covid} alt="COVID virus" />
@@ -60,6 +62,7 @@ const Home: React.FC<HomeProps> = props => {
    href="https://www.cdc.gov/nceh/features/wildfires/index.html"
 	 target="_blank"
 	 rel="noopener noreferrer"
+	 key="2"
   >
    <div className="news-card">
     <img
@@ -75,6 +78,7 @@ const Home: React.FC<HomeProps> = props => {
    href="https://www.active.com/outdoors/articles/5-tips-for-successful-altitude-acclimation"
 	 target="_blank"
 	 rel="noopener noreferrer"
+	 key="3"
   >
    <div className="news-card">
     <img
@@ -90,6 +94,7 @@ const Home: React.FC<HomeProps> = props => {
    href="https://travel.usnews.com/rankings/best-beaches-in-the-usa/"
 	 target="_blank"
 	 rel="noopener noreferrer"
+	 key="4"
   >
    <div className="news-card">
     <img
@@ -105,6 +110,7 @@ const Home: React.FC<HomeProps> = props => {
 	 href="https://www.roadtripusa.com/"
 	 target="_blank"
 	 rel="noopener noreferrer"
+	 key="5"
 	>
    <div className="news-card">
     <img

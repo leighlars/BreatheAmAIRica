@@ -56,6 +56,7 @@ const App: React.FC<DetailsProps> = () => {
 					exact path="/results/:query"
 					render={({ match }) => {
 						return <Location
+							query={match.params.query}
               matchDetails={matchDetails}
               detailsData={detailsData}
 						/>

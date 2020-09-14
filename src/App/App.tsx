@@ -33,7 +33,6 @@ const App: React.FC<DetailsProps> = () => {
     const data = await getAllData(lat, long)
     setDetailsData(data)
   }
-  console.log(detailsData)
 
   return (
     <div className="App">

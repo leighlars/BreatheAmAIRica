@@ -139,7 +139,7 @@ const Card: React.FC<CardProps> = (props) => {
      return <img src={cloudyDay} alt="Cloudy Day Icon" />;
     } else if (icon === "03n" || icon === "02n") {
      return <img src={cloudyNight} alt="Cloudy Night Icon" />;
-    } else if (icon === "04n") {
+    } else if (icon === "03d") {
      return <img src={lightClouds} alt="Light Clouds Icon" />;
     } else if (icon === "04d") {
      return <img src={doubleCloud} alt="Double Clouds Icon" />;

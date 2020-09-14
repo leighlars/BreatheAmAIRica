@@ -10,13 +10,19 @@
     width: 200px;
     height: 200px;
     margin: 1.5em;
+    padding: 2%;
     img {
-      margin-top: .5em;
+      // margin-top: .5em;
       width: 4em;
     }
     &:hover {
       border: 3px solid $goldenrod;
       transform: scale(1.05);
+    }
+    
+      .aqi {
+      @include rowDisplay();
+      margin: 0;
     }
 
     .card-header {
@@ -35,6 +41,7 @@
       h3 {
         @include headerFont(1.45em);
         margin-left: 10px;
+        margin-right: 3px;
         text-shadow: 1px 1px black;
       }
       .unit {

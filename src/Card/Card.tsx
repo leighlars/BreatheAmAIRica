@@ -11,13 +11,15 @@ import rain from '../assets/09d.png'
 import daySunnyStorm from '../assets/10d.png'
 import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
+import thunderRain from '../assets/11n.png'
+
 import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
-// data icon names !== file names
 
 export interface CardProps {
 	temp: number,
-	aqi: any,
+  aqi: any,
+  aqiCat: any,
 	uvi: any,
 	icon: string
   name: string
@@ -65,39 +67,43 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
-  const aqIndex = (aqi: number) => {
-    if (aqi <= 50) {
+  const aqiDeterminer = (aqi:number, aqiCat:string) => {
+    return aqi === -1 ? aqiCat : aqi
+  }
+
+  const aqIndex = (aqi: number, aqiCat:string) => {
+    const aqiIndex = aqiDeterminer(aqi, aqiCat)
+    if (aqiIndex <= 50 || aqiIndex === 'Good') {
      return (
       <h3 className="card-low">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 51 && aqi <= 100) {
+    } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === 'Moderate') {
      return (
       <h3 className="card-moderate">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 151 && aqi <= 200) {
+    } else if ((aqiIndex >= 151 && aqiIndex <= 200) || aqiIndex === 'Unhealthy') {
      return (
       <h3 className="card-high">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 201 && aqi <= 300) {
+    } else if ((aqiIndex >= 201 && aqiIndex <= 300) || 'Very Unhealthy') {
      return (
       <h3 className="card-very-high">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 301) {
+    } else if (aqiIndex >= 301 || 'Hazardous') {
      return (
       <h3 className="card-extreme">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } 
-    else {
+    }  else {
       return (<h3 className="card-extreme">
        <b>N/A</b>
       </h3>)
@@ -126,35 +132,38 @@ const Card: React.FC<CardProps> = (props) => {
 
   const weatherIcon = (icon: string) => {
     if (icon === "01d") {
-      return (<img src={clearDay} alt="Clear Day Icon" />)
+     return <img src={clearDay} alt="Clear Day Icon" />;
     } else if (icon === "01n") {
-     return <img src={clearNight} alt="Clear Night Icon" />
+     return <img src={clearNight} alt="Clear Night Icon" />;
     } else if (icon === "02d") {
-     return <img src={cloudyDay} alt="Cloudy Day Icon" />
-    } else if (icon === "02n") {
-     return <img src={cloudyNight} alt="Cloudy Night Icon" />
-    } else if (icon === "03d") {
-     return <img src={lightClouds} alt="Light Clouds Icon" />
+     return <img src={cloudyDay} alt="Cloudy Day Icon" />;
+    } else if (icon === "03n" || icon === "02n") {
+     return <img src={cloudyNight} alt="Cloudy Night Icon" />;
+    } else if (icon === "04n") {
+     return <img src={lightClouds} alt="Light Clouds Icon" />;
     } else if (icon === "04d") {
-     return <img src={doubleCloud} alt="Double Clouds Icon" />
+     return <img src={doubleCloud} alt="Double Clouds Icon" />;
     } else if (icon === "09d") {
-     return <img src={rain} alt="Rain Icon" />
+     return <img src={rain} alt="Rain Icon" />;
     } else if (icon === "10d") {
-     return <img src={daySunnyStorm} alt="Day Storm Icon" />
+     return <img src={daySunnyStorm} alt="Day Storm Icon" />;
     } else if (icon === "10n") {
-     return <img src={sunnyStorms} alt="Night Storm Icon" />
+     return <img src={sunnyStorms} alt="Night Storm Icon" />;
     } else if (icon === "11d") {
-     return <img src={thunderstorm} alt="Thunderstorm Icon" />
+     return <img src={thunderstorm} alt="Thunderstorm Icon" />;
     } else if (icon === "13n") {
-     return <img src={snow} alt="Snow Icon" />
+     return <img src={snow} alt="Snow Icon" />;
     } else if (icon === "50n" || icon === "50d") {
-     return <img src={mist} alt="Mist Icon" />
-    }
+     return <img src={mist} alt="Mist Icon" />;
+    } else if (icon === "11n") {
+     return <img src={thunderRain} alt="Thunderstorm with rain" />;
+    } 
   }
+
 
   return (
    <Link
-    to={`/${props.name}`}
+    to={`/results/${props.name}`}
     className="card-link-wrapper"
     style={{ textDecoration: "none" }}
    >
@@ -162,11 +171,11 @@ const Card: React.FC<CardProps> = (props) => {
      <h2 className="card-header">{props.name}</h2>
      <div className="card-air-temp">
       {temp(props.temp)}
-      <p className="unit">&degF</p>
-      {aqIndex(props.aqi)}
-      <p className="unit">AQI</p>
+      <p className="unit">&deg;F</p>
       {uvIndex(props.uvi)}
       <p className="unit">UVI</p>
+      {/* {aqIndex(props.aqi, props.aqiCat)}
+      <p className="unit">AQI</p> */}
      </div>
      {weatherIcon(props.icon)}
     </article>

@@ -17,7 +17,6 @@ const App: React.FC<DetailsProps> = () => {
   const [ query, setQuery ] = useState<string>()
   const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
   const [ detailsData, setDetailsData ] = useState<DetailsProps>()
-  
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)

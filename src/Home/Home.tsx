@@ -26,16 +26,17 @@ const Home: React.FC = () => {
 		const cardList = data.map(city => {
 			return (
 				<Card
-					temp={city[1].temp}
-					aqi={city[1].aqi}
-					uvi={city[1].uvi}
-					icon={city[1].icon}
-					name={city[0]}
-					key={city[0]}
+				temp={city[1].temp}
+				aqi={city[1].aqi}
+				aqiCat={city[1].aqiCat}
+				uvi={city[1].uvi}
+				icon={city[1].icon}
+				name={city[0]}
+				key={city[0]}
 				/>
-			)
-		})
-		setCardList(cardList)
+				)
+			})
+			setCardList(cardList)
 	}
 
 	useEffect(() => {

@@ -1,6 +1,5 @@
 @import '../styles/_variables.scss';
 
-
 .home {
   @include columnDisplay();
   padding: 2%;
@@ -18,9 +17,9 @@
     @include rowDisplay();
     padding: 0;
     overflow-x: scroll;
-    width: 100%;
     margin-bottom: 10px;
     overflow-y: hidden;
+    width: 75%;
   }
 
    .news-card {

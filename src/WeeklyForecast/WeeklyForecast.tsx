@@ -76,21 +76,19 @@ const WeeklyForecast = (props: any) => {
   };
 
 
-
-
   const renderDailyWeather = props.weeklyWeather.map((day: any) => {
     return (
      <article
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
+      {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}
        <p className="unit">&deg;F high /</p>
        {temp(day.temp.min)}
        <p className="unit">&deg;F low</p>
       </span>
-      {weatherIcon(day.weather[0].icon)}
       {/* <p className="daily-weather-minmax">{time method to check time and return temp off time need to do the same bellow for feels like}</p> */}
       {/* <p className="daily-weather-feelslike">
           add time checker to display feels like

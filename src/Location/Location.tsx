@@ -44,37 +44,36 @@ const Location = (props: any) => {
 
    const weatherIcon = (icon: string) => {
    if (icon === "01d") {
-    return <img src={clearDay} alt="Clear Day Icon" />;
+    return <img src={clearDay} alt="Clear Day Icon" className='large-weather-icon' />;
    } else if (icon === "01n") {
-    return <img src={clearNight} alt="Clear Night Icon" />;
+    return <img src={clearNight} alt="Clear Night Icon" className='large-weather-icon' />;
    } else if (icon === "02d") {
-    return <img src={cloudyDay} alt="Cloudy Day Icon" />;
+    return <img src={cloudyDay} alt="Cloudy Day Icon" className='large-weather-icon' />;
    } else if (icon === "02n") {
-    return <img src={cloudyNight} alt="Cloudy Night Icon" />;
+    return <img src={cloudyNight} alt="Cloudy Night Icon" className='large-weather-icon' />;
    } else if (icon === "03d") {
-    return <img src={lightClouds} alt="Light Clouds Icon" />;
+    return <img src={lightClouds} alt="Light Clouds Icon" className='large-weather-icon' />;
    } else if (icon === "04d") {
-    return <img src={doubleCloud} alt="Double Clouds Icon" />;
+    return <img src={doubleCloud} alt="Double Clouds Icon" className='large-weather-icon' />;
    } else if (icon === "09d") {
-    return <img src={rain} alt="Rain Icon" />;
+    return <img src={rain} alt="Rain Icon" className='large-weather-icon' />;
    } else if (icon === "10d") {
-    return <img src={daySunnyStorm} alt="Day Storm Icon" />;
+    return <img src={daySunnyStorm} alt="Day Storm Icon" className='large-weather-icon' />;
    } else if (icon === "10n") {
-    return <img src={sunnyStorms} alt="Night Storm Icon" />;
+    return <img src={sunnyStorms} alt="Night Storm Icon" className='large-weather-icon' />;
    } else if (icon === "11d") {
-    return <img src={thunderstorm} alt="Thunderstorm Icon" />;
+    return <img src={thunderstorm} alt="Thunderstorm Icon" className='large-weather-icon' />;
    } else if (icon === "13n") {
-    return <img src={snow} alt="Snow Icon" />;
+    return <img src={snow} alt="Snow Icon" className='large-weather-icon' />;
    } else if (icon === "50n" || icon === "50d") {
-    return <img src={mist} alt="Mist Icon" />;
+    return <img src={mist} alt="Mist Icon" className='large-weather-icon' />;
    }
   };
-
 	return (
   <section className="location-section">
    {props.detailsData ? (
     <>
-     <h2 className="current-city">{props.matchDetails[2]}</h2>
+     <h2 className="current-city">{props.matchDetails[2]} className='large-weather-icon'</h2>
      <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
      <div className="info-box">
       <h4 className="info-box-header">HAPPENING NOW</h4>
@@ -84,7 +83,7 @@ const Location = (props: any) => {
         <h5 className="current-temp">
          {kelvinToFahren(props.detailsData.currentWeather.temp)}&deg;
         </h5>
-        {weatherIcon(props.detailsData.currentWeather.icon)}
+        {weatherIcon(props.detailsData.currentWeather.weather[0].icon)}
        </div>
        <div className="current-weather-right">
         <span className="current-weather-right-list">
@@ -140,8 +139,8 @@ const Location = (props: any) => {
      </div>
      <div className="info-box air-quality">
       <h4 className="info-box-header">AIR QUALITY</h4>
-      <AirQuality airQuality={props.detailsData}/>
-     </div> 
+      <AirQuality airQuality={props.detailsData.currentWeather} />
+     </div>
      {/* <div className="info-box hourly-forecast">
             <h4 className="info-box-header">HOURLY FORECAST</h4>
           </div> */}
@@ -156,7 +155,7 @@ const Location = (props: any) => {
       className="gif"
       title="loading-gif"
       src="https://giphy.com/embed/QRhtqYeEywJI4"
-      style={{"border":"none", width: "100"}}
+      style={{ border: "none", width: "100" }}
      />
      <br />
      <h1 className="loading">Gathering your data... </h1>

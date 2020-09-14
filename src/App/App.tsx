@@ -32,8 +32,8 @@ const App: React.FC<DetailsProps> = () => {
   const getAllDetailsData = async (lat: number, long: number) => {
     const data = await getAllData(lat, long)
     setDetailsData(data)
-    // console.log(data)
   }
+  console.log(detailsData)
 
   return (
     <div className="App">

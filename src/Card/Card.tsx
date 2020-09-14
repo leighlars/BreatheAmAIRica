@@ -12,9 +12,10 @@ import daySunnyStorm from '../assets/10d.png'
 import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
 import thunderRain from '../assets/11n.png'
-
 import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
+
+import { weatherIcon } from '../helpers/conversions'
 
 export interface CardProps {
 	temp: number,
@@ -130,35 +131,35 @@ const Card: React.FC<CardProps> = (props) => {
    }
   }
 
-  const weatherIcon = (icon: string) => {
-    if (icon === "01d") {
-     return <img src={clearDay} alt="Clear Day Icon" />;
-    } else if (icon === "01n") {
-     return <img src={clearNight} alt="Clear Night Icon" />;
-    } else if (icon === "02d") {
-     return <img src={cloudyDay} alt="Cloudy Day Icon" />;
-    } else if (icon === "03n" || icon === "02n") {
-     return <img src={cloudyNight} alt="Cloudy Night Icon" />;
-    } else if (icon === "03d") {
-     return <img src={lightClouds} alt="Light Clouds Icon" />;
-    } else if (icon === "04d") {
-     return <img src={doubleCloud} alt="Double Clouds Icon" />;
-    } else if (icon === "09d") {
-     return <img src={rain} alt="Rain Icon" />;
-    } else if (icon === "10d") {
-     return <img src={daySunnyStorm} alt="Day Storm Icon" />;
-    } else if (icon === "10n") {
-     return <img src={sunnyStorms} alt="Night Storm Icon" />;
-    } else if (icon === "11d") {
-     return <img src={thunderstorm} alt="Thunderstorm Icon" />;
-    } else if (icon === "13n") {
-     return <img src={snow} alt="Snow Icon" />;
-    } else if (icon === "50n" || icon === "50d") {
-     return <img src={mist} alt="Mist Icon" />;
-    } else if (icon === "11n") {
-     return <img src={thunderRain} alt="Thunderstorm with rain" />;
-    } 
-  }
+  // const weatherIcon = (icon: string) => {
+  //   if (icon === "01d") {
+  //    return <img src={clearDay} alt="Clear Day Icon" />;
+  //   } else if (icon === "01n") {
+  //    return <img src={clearNight} alt="Clear Night Icon" />;
+  //   } else if (icon === "02d") {
+  //    return <img src={cloudyDay} alt="Cloudy Day Icon" />;
+  //   } else if (icon === "03n" || icon === "02n") {
+  //    return <img src={cloudyNight} alt="Cloudy Night Icon" />;
+  //   } else if (icon === "03d") {
+  //    return <img src={lightClouds} alt="Light Clouds Icon" />;
+  //   } else if (icon === "04d") {
+  //    return <img src={doubleCloud} alt="Double Clouds Icon" />;
+  //   } else if (icon === "09d") {
+  //    return <img src={rain} alt="Rain Icon" />;
+  //   } else if (icon === "10d") {
+  //    return <img src={daySunnyStorm} alt="Day Storm Icon" />;
+  //   } else if (icon === "10n") {
+  //    return <img src={sunnyStorms} alt="Night Storm Icon" />;
+  //   } else if (icon === "11d") {
+  //    return <img src={thunderstorm} alt="Thunderstorm Icon" />;
+  //   } else if (icon === "13n") {
+  //    return <img src={snow} alt="Snow Icon" />;
+  //   } else if (icon === "50n" || icon === "50d") {
+  //    return <img src={mist} alt="Mist Icon" />;
+  //   } else if (icon === "11n") {
+  //    return <img src={thunderRain} alt="Thunderstorm with rain" />;
+  //   } 
+  // }
 
 
   return (

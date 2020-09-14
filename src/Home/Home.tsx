@@ -11,9 +11,10 @@ import roadTrip from '../assets/roadTrip.jpeg'
 import covid from '../assets/covid.png'
 
 interface HomeProps {
-	markLoaded: Function,
-	initialLoad: boolean,
+	markLoaded: Function
+	initialLoad: boolean
 	homePageData: [string, {}[]] | undefined
+	getAllDetailsData: Function
 }
 
 const Home: React.FC<HomeProps> = props => {
@@ -25,9 +26,11 @@ const Home: React.FC<HomeProps> = props => {
 		} else {
 			const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
 				const cityName = city.name
+				const cityLat = city.lat
+				const cityLong = city.long
 				// const data = await getHomeData(city.lat, city.long)
 				const data = await getTestData()
-				return [cityName, data]
+				return [cityName, cityLat, cityLong, data]
 			})
 			const cityData = await Promise.all(getCityData)
 			makeCards(cityData)
@@ -39,15 +42,16 @@ const Home: React.FC<HomeProps> = props => {
 		const cardList = data.map(city => {
 			return (
 				<Card
-					lat={city[1].latitude}
-					long={city[1].longitude}
-					temp={city[1].temp}
-					aqi={city[1].aqi}
-					aqiCat={city[1].aqiCat}
-					uvi={city[1].uvi}
-					icon={city[1].icon}
+					lat={city[1]}
+					long={city[2]}
+					temp={city[3].temp}
+					aqi={city[3].aqi}
+					aqiCat={city[3].aqiCat}
+					uvi={city[3].uvi}
+					icon={city[3].icon}
 					name={city[0]}
 					key={city[0]}
+					getAllDetailsData={props.getAllDetailsData}
 				/>
 				)
 			})

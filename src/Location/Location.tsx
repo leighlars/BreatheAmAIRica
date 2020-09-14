@@ -19,6 +19,8 @@ import sunnyStorms from "../assets/10n.png";
 import thunderstorm from "../assets/11d.png";
 import snow from "../assets/13d.png";
 import mist from "../assets/50d.png";
+import notepad from '../assets/notepad.png'
+import forestFire from '../assets/forest-fire.png'
 
 import { kelvinToFahren, degToDirection } from '../helpers/conversions'
 
@@ -68,7 +70,13 @@ const Location = (props: any) => {
     return <img src={mist} alt="Mist Icon" className='large-weather-icon' />;
    }
   };
-	return (
+
+  const notes = (notes: string) => {
+    
+
+  }
+
+  return (
   <section className="location-section">
    {props.detailsData ? (
     <>
@@ -117,33 +125,60 @@ const Location = (props: any) => {
      <div className="info-box air-quality">
       <h4 className="info-box-header">AIR QUALITY</h4>
       <article className="aq-section">
-     <span className="info-box-aq">
-      <img
-        src={lungs}
-        alt="lungs icon for air quality"
-        className="small-weather-icon"
-      />
-      <p className="type">Air Quality Index</p>
-      {/* <p className="unit">{props.detailsData.aqi}</p>  */}
-      </span>
-      <span className="info-box-aq">
+       <span className="info-box-aq">
         <img
-          src={sun}
-          alt="sun icon for UV index"
-          className="small-weather-icon"
+         src={lungs}
+         alt="lungs icon for air quality"
+         className="small-weather-icon"
+        />
+        <p className="type">AQI</p>
+        <p className="unit">Good</p>
+       </span>
+       <span className="info-box-aq">
+        <img
+         src={sun}
+         alt="sun icon for UV index"
+         className="small-weather-icon"
         />
         <p className="type">UV Index</p>
         <p className="unit">{props.detailsData.currentWeather.uvi}of 10</p>
-      </span>
-      <span className="info-box-aq">
+       </span>
+       <span className="info-box-aq">
         <img
-          src={eye}
-          alt="eye icon for visibility"
-          className="small-weather-icon"
+         src={eye}
+         alt="eye icon for visibility"
+         className="small-weather-icon"
         />
         <p className="type">Visibility</p>
         <p className="unit">{props.detailsData.currentWeather.visibility} mi</p>
-      </span>
+       </span>
+       <span className="info-box-aq">
+        <img
+         src={bee}
+         alt="bee icon for air quality"
+         className="small-weather-icon"
+        />
+        <p className="type">Pollen</p>
+        <p className="unit">Coming Soon!</p>
+       </span>
+       <span className="info-box-aq">
+        <img
+         src={forestFire}
+         alt="smoke icon for air quality"
+         className="small-weather-icon"
+        />
+        <p className="type">Smoke</p>
+        Coming Soon!
+       </span>
+       <span className="info-box-aq">
+        <img
+         src={notepad}
+         alt="checklist icon for air quality"
+         className="small-weather-icon"
+        />
+        <p className="type">Additional Notes</p>
+        {/* <p className="unit">{props.detailsData.aqi}</p>  */}
+       </span>
       </article>
      </div>
      {/* <div className="info-box hourly-forecast">

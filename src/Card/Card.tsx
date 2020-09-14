@@ -18,12 +18,17 @@ import mist from '../assets/50d.png'
 import { weatherIcon } from '../helpers/conversions'
 
 export interface CardProps {
-	temp: number,
-  aqi: any,
-  aqiCat: any,
-	uvi: any,
+	lat: number
+	long: number
+	temp: number
+  aqi: any
+  aqiCat: any
+	uvi: any
 	icon: string
-  name: string
+	locality: string
+	region: string
+	getMatchDetails: Function
+	getAllDetailsData: Function
 }
 
 const Card: React.FC<CardProps> = (props) => {
@@ -161,27 +166,30 @@ const Card: React.FC<CardProps> = (props) => {
   //   } 
   // }
 
-
   return (
-   <Link
-    to={`/results/${props.name}`}
-    className="card-link-wrapper"
-    style={{ textDecoration: "none" }}
-   >
-    <article className="card-container" key={props.name}>
-     <h2 className="card-header">{props.name}</h2>
-     <div className="card-air-temp">
-      {temp(props.temp)}
-      <p className="unit">&deg;F</p>
-      {uvIndex(props.uvi)}
-      <p className="unit">UVI</p>
-      {/* {aqIndex(props.aqi, props.aqiCat)}
-      <p className="unit">AQI</p> */}
-     </div>
-     {weatherIcon(props.icon)}
-    </article>
-   </Link>
-  )
+		<Link
+			to={`/results/${props.locality}`}
+			className="card-link-wrapper"
+			style={{ textDecoration: "none" }}
+			onClick={() => {
+				props.getMatchDetails(props.lat, props.long, props.locality, props.region)
+				props.getAllDetailsData(props.lat, props.long)
+			}}
+		>
+		<article className="card-container" key={props.locality}>
+		<h2 className="card-header">{props.locality}</h2>
+			<div className="card-air-temp">
+			{temp(props.temp)}
+			<p className="unit">&deg;F</p>
+			{uvIndex(props.uvi)}
+			<p className="unit">UVI</p>
+			{/* {aqIndex(props.aqi, props.aqiCat)}
+			<p className="unit">AQI</p> */}
+			</div>
+			{weatherIcon(props.icon)}
+		</article>
+		</Link>
+	)
 }
 
 export default Card

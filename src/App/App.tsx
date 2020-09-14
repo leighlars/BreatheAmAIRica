@@ -32,7 +32,7 @@ const App: React.FC<DetailsProps> = () => {
   }
 
   const getAllDetailsData = async (lat: number, long: number) => {
-    const data = await getAllData(lat, long)
+		const data = await getAllData(lat, long)
 		setDetailsData(data)
   }
 	
@@ -52,6 +52,7 @@ const App: React.FC<DetailsProps> = () => {
 							markLoaded={markLoaded}
 							initialLoad={initialLoad}
 							homePageData={homePageData}
+							getAllDetailsData={getAllDetailsData}
 						/>
           }}
         />

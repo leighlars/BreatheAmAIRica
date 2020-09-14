@@ -1,7 +1,7 @@
 const airQualityKey = 'DACE2187-D810-4B4B-81E4-45AEBAF087A0'
-const weatherDataKey = '02a1de26e83e798e7595a522e8e4e9d9'
+// const weatherDataKey = '02a1de26e83e798e7595a522e8e4e9d9'
 // second weatherDataKey 7b9afd68afe01b32e10130a572c8c564
-// "346025de560bd5d671b73a88bec2fce6"
+const weatherDataKey = "346025de560bd5d671b73a88bec2fce6"
 
 export const getCoordinates = (query: string) => {
 	return fetch(`http://api.positionstack.com/v1/forward?access_key=e17943cbd88c595c58c3c6ae1840fc33&query=${query}`)

@@ -183,7 +183,7 @@ const Location = (props: any) => {
             />
             <p className="type">AQI</p>
             <p className="unit">
-              {aqIndex(props.detailsData.currentWeather.aqi.aqi, props.detailsData.currentWeather.aqi.name)}
+              {/* {aqIndex(props.detailsData.currentAir.aqi, props.detailsData.currentAir.aqi.name)} */}
             </p>
             </span>
             <span className="info-box-aq">
@@ -193,7 +193,7 @@ const Location = (props: any) => {
                 className="small-weather-icon"
               />
               <p className="type">UV Index</p>
-              <p className="unit">{props.detailsData.currentWeather.uvi}of 10</p>
+              <p className="unit">{props.detailsData.currentWeather.uvi} of 10</p>
             </span>
           </span>
           <span className='aq-middle'>
@@ -228,7 +228,7 @@ const Location = (props: any) => {
             <p className="type">Pollen</p>
             <p className="unit">Coming Soon!</p>
             </span>
-            <span className="aq-discussion">
+            <span className="info-box-aq">
               <img
                 src={forestFire}
                 alt="smoke icon for air quality"
@@ -245,7 +245,7 @@ const Location = (props: any) => {
           className="small-weather-icon"
          />
          <p className="type">Additional Notes</p>
-         {jsxNotes(props.detailsData.currentWeather.aqi.discussion)}
+         {jsxNotes(props.detailsData.currentAir.discussion)}
         </span>
        </article>
       </div>

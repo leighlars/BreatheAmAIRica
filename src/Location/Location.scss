@@ -91,20 +91,27 @@
 
   .aq-section {
   @include columnDisplay();
-  
+
     .aq-top, .aq-middle, .aq-bottom {
       @include rowDisplay();
     }
 
     .info-box-aq {
       @include rowDisplay();
-      justify-content: space-evenly;
+      // justify-content: space-evenly;
       width: 250px;
     }
 
   p {
     @include textFont(1.2em);
     color: $darkBlue;
+    margin-left: 5px
+  }
+  .type {
+    font-weight: bold;
+  }
+  .unit {
+    font-weight: 300; 
   }
   
 }

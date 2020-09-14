@@ -112,7 +112,7 @@ const Location = (props: any) => {
           className="small-weather-icon"
         />
         <p className="type">Visibility</p>
-        <p className="unit">{props.detailsData.currentWeather.visibility} mi</p>
+        <p className="unit">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi</p>
       </span>
       </article>
      </div>

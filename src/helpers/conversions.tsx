@@ -31,7 +31,7 @@ export const kelvinToFahren = (k: number): number => {
   return Math.floor((k - 273.15) * 1.8 + 32);
 };
 
-export const weatherDtDisplay = (dt: number) => {
+export const weatherDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>  => {
   const date = new Date(dt * 1000)
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

@@ -17,6 +17,8 @@ import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
 
 export interface CardProps {
+	lat: number,
+	long: number,
 	temp: number,
   aqi: any,
   aqiCat: any,

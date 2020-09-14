@@ -39,6 +39,8 @@ const Home: React.FC<HomeProps> = props => {
 		const cardList = data.map(city => {
 			return (
 				<Card
+					lat={city[1].latitude}
+					long={city[1].longitude}
 					temp={city[1].temp}
 					aqi={city[1].aqi}
 					aqiCat={city[1].aqiCat}

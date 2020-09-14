@@ -1,35 +1,65 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
-import { MemoryRouter } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { act } from 'react-dom/test-utils'
+import App from './App'
+import Home from '../Home/Home'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import { getHomeData } from '../helpers/dataFilter'
+import { mocked } from 'ts-jest/utils'
+jest.mock('../helpers/dataFilter')
 
 describe('App', () => {
- 
-  it('should render a Header', () => {
-    const {getByRole, getByPlaceholderText} = render(<MemoryRouter><App/></MemoryRouter>) 
-    const logo = getByRole('heading', { name: 'Breathe Am' });
-    const searchBar = getByPlaceholderText('Search city, zip, or county')
-    expect(logo).toBeInTheDocument()
-    expect(searchBar).toBeInTheDocument();
-  })
+	let mockHomePageData, data
 
-  it('should show various pages when nav links are clicked', () => {
-    // passed on everything but the return to home link at bottom
-    const {getByRole} = render(<MemoryRouter><App/></MemoryRouter>)
-    // Home view with cards
-    const denverTopCard = getByRole('heading', {name: 'Denver'}) 
-    expect(denverTopCard).toBeInTheDocument()
+	beforeEach(() => {
+		mocked(getHomeData).mockImplementation(() =>
+			Promise.resolve({
+				icon: '01d',
+				temp: 76,
+				uvi: 1
+			})
+		)
+		data = {
+			temp: 87,
+			uvi: 7,
+			icon: '01d',
+			aqi: 10,
+			aqiCat: 'Good'
+		}
+		mockHomePageData = [
+			'Denver',
+			'Colorado',
+			40,
+			-105,
+			data
+		]
+	})
 
-    // click About link and render About view
-    const aboutLink = getByRole('link', {name: 'ABOUT'})
-    fireEvent.click(aboutLink)
-    const aqiImage = screen.getByAltText('table of Air Quality information from EPA.gov')
-    expect(aqiImage).toBeInTheDocument()
+	it('Should render a Header', () => {
+		const { getByRole, getByPlaceholderText } = render(<MemoryRouter><App /></MemoryRouter>)
+		const logo = getByRole('heading', { name: 'Breathe Am' })
+		const searchBar = getByPlaceholderText('Search city, zip, or county')
+		expect(logo).toBeInTheDocument()
+		expect(searchBar).toBeInTheDocument()
+	})
 
-    // click Home link and return to home
-    const homeLink = screen.getByRole('link', {name: 'HOME'})
-    fireEvent.click(homeLink)
+	it('Should show various pages when nav links are clicked', async () => {
+		const { getByRole, findByText } = render(<MemoryRouter><App /></MemoryRouter>)
+		// Home view with cards
+		const denverTopCard = await findByText(/denver/i)
+		expect(denverTopCard).toBeInTheDocument()
+
+		// click About link and render About view
+		const aboutLink = getByRole('link', { name: 'ABOUT' })
+		fireEvent.click(aboutLink)
+		const aqiImage = screen.getByAltText('table of Air Quality information from EPA.gov')
+		expect(aqiImage).toBeInTheDocument()
+
+		// click Home link and return to home
+		const homeLink = screen.getByRole('link', { name: 'HOME' })
+		fireEvent.click(homeLink)
 		expect(getByRole('heading', { name: 'Denver' })).toBeInTheDocument()
 	})
-	
+
 })

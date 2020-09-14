@@ -50,8 +50,9 @@ const WeeklyForecast = (props: any) => {
     }
   };
 
-  const renderDailyWeather = props.weeklyWeather.map((day: any) => {
+  const renderDailyWeather = props.weeklyWeather.map((day: any, index: number) => {
     return (
+      (index !== 0) ?
      <article
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
@@ -89,6 +90,7 @@ const WeeklyForecast = (props: any) => {
 
       {/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
      </article>
+     : null
     );
   });
 

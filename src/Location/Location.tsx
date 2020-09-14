@@ -146,14 +146,14 @@ const Location = (props: any) => {
     </>
    ) : (
     <>
-     <h1 className="loading">Gathering your data... </h1>
-     <br />
      <iframe
       className="gif"
       title="loading-gif"
       src="https://giphy.com/embed/QRhtqYeEywJI4"
       style={{"border":"none", width: "100"}}
      />
+     <br />
+     <h1 className="loading">Gathering your data... </h1>
     </>
    )}
   </section>

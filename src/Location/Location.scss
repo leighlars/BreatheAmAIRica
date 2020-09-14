@@ -88,6 +88,15 @@
       }
     }
   }
+
+  .daily-weather {
+    @include rowDisplay();
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
+
+
 }
 //    .info-box.air-quality {
 //     display: grid;

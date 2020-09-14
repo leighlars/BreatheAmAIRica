@@ -1,0 +1,45 @@
+@import '../styles/_variables.scss';
+
+.weekly-weather {
+  @include rowDisplay();
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.daily-weather {
+  @include columnDisplay();
+  img {
+      margin-top: .5em;
+      width: 4em;
+    }
+  h3 {
+    @include headerFont(1.2em);
+  }
+  p {
+    @include textFont(1em);
+  }
+ 
+  .card-temp {
+        color: $darkBlue;
+        text-shadow: .5px .5px black;
+      }
+      .card-low {
+        color: #41ab5b;
+      }
+  
+      .card-moderate {
+        color: $goldenrod;
+      }
+  
+      .card-high {
+        color: #db6307;
+      }
+  
+      .card-very-high {
+        color: #d12a46;
+      }
+  
+      .card-extreme {
+        color: #7c04bd;
+      }
+}

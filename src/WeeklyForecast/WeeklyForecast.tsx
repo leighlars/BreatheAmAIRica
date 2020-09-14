@@ -81,23 +81,26 @@ const WeeklyForecast = (props: any) => {
   const renderDailyWeather = props.weeklyWeather.map((day: any) => {
     return (
       <article key={Math.floor(Math.random()* Date.now())} className="daily-weather">
+          <span className='temps'>
           {temp(day.temp.max)}
           <p>&deg;F high / </p>
           {temp(day.temp.min)}
           <p>&deg;F low</p>
+          </span>
           {weatherIcon(day.weather[0].icon)}
         {/* <p className="daily-weather-minmax">{time method to check time and return temp off time need to do the same bellow for feels like}</p> */}
         {/* <p className="daily-weather-feelslike">
           add time checker to display feels like
         </p> */}
-        <p className="daily-pressure">{day.pressure} Pressure </p> 
-        <p className="daily-humidity">{day.humidity}% Humidity</p> 
+        {/* <p className="daily-pressure">{day.pressure} Pressure </p>  */}
+        <p className="daily-humidity">{day.humidity}%</p>
+        <p>Humidity</p> 
         <p className="daily-wind">
-          {day.wind_speed}mph {degToDirection(day.wind_deg)}
+          {day.wind_speed} mph / {degToDirection(day.wind_deg)}
         </p>
-        <p>
-          {day.uvi} UVI {day.clouds} Cloud Cover
-        </p>
+        <p>{day.uvi}</p><p>UVI</p> 
+        <p>{day.clouds}</p> <p>Cloud Cover</p> 
+
         {/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
       </article>
     )

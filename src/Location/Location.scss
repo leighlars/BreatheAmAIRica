@@ -89,12 +89,6 @@
     }
   }
 
-  .daily-weather {
-    @include rowDisplay();
-    flex-wrap: wrap;
-    width: 60%;
-  }
-
 
 
 }

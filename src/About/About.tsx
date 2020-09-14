@@ -250,45 +250,49 @@ const About: React.FC = () => {
       </table>
      </div>
     </div>
-    <span className="credits">
-     <p>App Developed by:</p>
-     <a
-      href="https://github.com/ErinUntermeyer"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Erin Untermeyer
-     </a>
-     <a
-      href="https://github.com/JoshSevy"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Josh Sevy
-     </a>
-     <a
-      href="https://github.com/leighlars"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Leigh Larson
-     </a>
-     <p>Sources:</p>
-     <a
-      href="https://www.airnow.gov/"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      AirNow API
-     </a>{" "}
-     <a
-      href="https://openweathermap.org/"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Open Weather Map API
-     </a>
-    </span>
+    <div className="credits">
+      <span className='devs'>
+        <p>App Developed by:</p>
+        <a
+          href="https://github.com/ErinUntermeyer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Erin Untermeyer
+        </a>
+        <a
+          href="https://github.com/JoshSevy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Josh Sevy
+        </a>
+        <a
+          href="https://github.com/leighlars"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Leigh Larson
+        </a>
+      </span>
+        <span className='sources'>
+        <p>Sources:</p>
+        <a
+          href="https://www.airnow.gov/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          AirNow API
+        </a>{" "}
+        <a
+          href="https://openweathermap.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Weather Map API
+        </a>
+        </span>
+      </div>
    </section>
   );
 }

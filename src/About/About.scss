@@ -101,7 +101,7 @@
 
 
 .credits {
-  @include rowDisplay();
+  @include columnDisplay();
   @include textFont(1em);
   background: white;
   border-radius: 14px;
@@ -118,5 +118,8 @@
   }
   p {
     margin: 0 auto;
+  }
+  .sources, .devs {
+    @include rowDisplay();
   }
 }

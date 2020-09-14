@@ -1,5 +1,5 @@
-import { Route } from 'react-router-dom'
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
 import About from '../About/About'
@@ -16,7 +16,9 @@ const App: React.FC<DetailsProps> = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState<string>()
   const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
-  const [ detailsData, setDetailsData ] = useState<DetailsProps>()
+	const [ detailsData, setDetailsData ] = useState<DetailsProps>()
+	const [ initialLoad, setInitialLoad ] = useState(false)
+	const [ homePageData, setHomePageData ] = useState<[string, Array<{}>]>()
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
@@ -31,10 +33,14 @@ const App: React.FC<DetailsProps> = () => {
 
   const getAllDetailsData = async (lat: number, long: number) => {
     const data = await getAllData(lat, long)
-    setDetailsData(data)
+		setDetailsData(data)
   }
-  console.log(detailsData)
-
+	
+	const markLoaded = (data: [string, Array<{}>]) => {
+		setInitialLoad(true)
+		setHomePageData(data)
+	}
+	
   return (
     <div className="App">
       <Header getSearchResults={getSearchResults} />
@@ -42,7 +48,11 @@ const App: React.FC<DetailsProps> = () => {
         <Route
           exact path="/"
           render={() => {
-            return <Home />
+						return <Home
+							markLoaded={markLoaded}
+							initialLoad={initialLoad}
+							homePageData={homePageData}
+						/>
           }}
         />
         <Route

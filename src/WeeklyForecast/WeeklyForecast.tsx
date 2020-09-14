@@ -82,6 +82,7 @@ const WeeklyForecast = (props: any) => {
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
+       <p>{new Date(day.dt * 1000).toUTCString().split(' ').slice(0, 3).join(' ')}</p>
       {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}

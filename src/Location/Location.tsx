@@ -33,7 +33,7 @@ const Location = (props: any) => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      setTime(new Date().toLocaleTimeString());
+      setTime(new Date().toLocaleString());
     }, 998);
 
     return () => {

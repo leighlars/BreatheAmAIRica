@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import WeeklyForecast from '../WeeklyForecast/WeeklyForecast'
 import './Location.scss'
-import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
 import eye from '../assets/eye.png'
 import lungs from '../assets/lungs.png'
@@ -12,7 +11,7 @@ import notepad from '../assets/notepad.png'
 import forestFire from '../assets/forest-fire.png'
 import cough from '../assets/cough.png'
 
-import { kelvinToFahren, degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
+import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
 import { DetailsProps } from '../helpers/detailsdefinitions'
 

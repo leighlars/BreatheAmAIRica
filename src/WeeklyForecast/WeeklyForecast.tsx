@@ -1,9 +1,6 @@
 import React from 'react'
-
 import './WeeklyForecast.scss'
-
-import { kelvinToFahren, degToDirection, forecastDtDisplay, weatherIcon, temp } from '../helpers/conversions'
-
+import { degToDirection, forecastDtDisplay, weatherIcon, temp } from '../helpers/conversions'
 
 
 const WeeklyForecast = (props: any) => {

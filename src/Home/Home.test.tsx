@@ -3,30 +3,58 @@ import Home from './Home';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { mocked } from 'ts-jest/utils'
-import { getHomeData } from '../helpers/apiCalls'
-jest.mock('../helpers/apiCalls')
+import { getHomeData } from '../helpers/dataFilter'
+jest.mock('../helpers/dataFilter')
 
 describe('Home', () => {
+	let mockHomePageData, data
 
-  it('should render 15 cards upon load', async () => {
-		mocked(getHomeData).mockImplementation(() => 
+	beforeEach(() => {
+		data = {
+			temp: 87,
+			uvi: 7,
+			icon: '01d',
+			aqi: 10,
+			aqiCat: 'Good'
+		}
+		mockHomePageData = [
+			'Denver',
+			'Colorado',
+			40,
+			-105,
+			data
+		]
+		mocked(getHomeData).mockImplementation(() =>
 			Promise.resolve({
-				aqi: 1,
 				icon: '01d',
 				temp: 76,
 				uvi: 1
 			})
 		)
-		const { findByText, findAllByText } = render(<MemoryRouter><Home /></MemoryRouter>)
+	})
+
+  it('should render 15 cards upon load', async () => {
+		const { findByText, findAllByText } = render(
+			<MemoryRouter>
+				<Home
+					markLoaded={jest.fn()}
+					initialLoad={true}
+					// homePageData={mockHomePageData}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
+			</MemoryRouter>
+		)
+
 		const title1 = await findByText(/denver/i)
-		const aqi = await findAllByText(/AQI/i)
 		const title6 = await findByText(/anchorage/i)
 		const title11 = await findByText(/hot springs/i)
+		const uvi = await findAllByText(/UVI/i)
 		expect(title1).toBeInTheDocument()
-		expect(aqi[0]).toBeInTheDocument()
-		expect(aqi[14]).toBeInTheDocument()
 		expect(title6).toBeInTheDocument()
 		expect(title11).toBeInTheDocument()
+		expect(uvi[0]).toBeInTheDocument()
+		expect(uvi[14]).toBeInTheDocument()
   })
 
   it('should display location page when card is clicked', () => {
@@ -40,7 +68,17 @@ describe('Home', () => {
 	})
 	
 	it('should display 4 horizontal scrolls with info cards', () => {
-		const { getByRole } = render(<MemoryRouter><Home /></MemoryRouter>)
+		const { getByRole } = render(
+			<MemoryRouter>
+				<Home
+					markLoaded={jest.fn()}
+					initialLoad={true}
+					// homePageData={mockHomePageData}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
+			</MemoryRouter>
+		)
 		const popularDest = getByRole('heading', {name: /popular destinations/i})
 		const lowestOzone = getByRole('heading', {name: /lowest ozone pollution/i})
 		const particlePoll = getByRole('heading', {name: /lowest particle pollution/i})
@@ -50,5 +88,4 @@ describe('Home', () => {
 		expect(particlePoll).toBeInTheDocument()
 		expect(pertinentReadings).toBeInTheDocument()
 	})
-
 })

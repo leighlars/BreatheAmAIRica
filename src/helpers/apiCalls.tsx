@@ -1,8 +1,7 @@
 const airQualityKey = 'DACE2187-D810-4B4B-81E4-45AEBAF087A0'
-const weatherDataKey = "346025de560bd5d671b73a88bec2fce6"
-// second weatherDataKey 7b9afd68afe01b32e10130a572c8c564
-// 
-//'02a1de26e83e798e7595a522e8e4e9d9'
+const weatherDataKey = '02a1de26e83e798e7595a522e8e4e9d9'
+const weatherDataKey2 = '7b9afd68afe01b32e10130a572c8c564'
+const weatherDataKey3 = '346025de560bd5d671b73a88bec2fce6'
 
 export const getCoordinates = (query: string) => {
 	return fetch(`http://api.positionstack.com/v1/forward?access_key=e17943cbd88c595c58c3c6ae1840fc33&query=${query}`)
@@ -20,7 +19,7 @@ export const getCoordinates = (query: string) => {
 
 export const getWeatherData = async (lat: number, long: number) => {
   return await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey3}`
     ).then(parseData => parseData.json()).catch(error => error)
 
   //   const response = await data;

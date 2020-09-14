@@ -22,6 +22,7 @@ export const getHomeData = async (lat: number, long: number) => {
 	// 	data.aqi = aq[0].AQI
 	// 	data.aqiCat = aq[0].Category.Name
 	// console.log(data)
+	// }
 	return data
 }
 

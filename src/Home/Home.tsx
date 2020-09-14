@@ -1,42 +1,65 @@
 import React, { useState, useEffect } from 'react'
 import { homeCities } from '../helpers/cities'
 import { getHomeData } from '../helpers/dataFilter'
+import { getTestData } from '../helpers/apiCalls'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
-import beach from '../assets/beach.jpg';
-import altitude from '../assets/altitude.jpg';
-import roadTrip from '../assets/roadTrip.jpeg';
+import beach from '../assets/beach.jpg'
+import altitude from '../assets/altitude.jpg'
+import roadTrip from '../assets/roadTrip.jpeg'
 import covid from '../assets/covid.png'
 
-const Home: React.FC = () => {
+interface HomeProps {
+	markLoaded: Function
+	initialLoad: boolean
+	homePageData: [string, {}[]] | undefined
+	getMatchDetails: Function
+	getAllDetailsData: Function
+}
+
+const Home: React.FC<HomeProps> = props => {
 	const [ cardList, setCardList ] = useState<Array<any>>([])
 
 	const cityDetails = async () => {
-		const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
-			const cityName = city.name
-			const data = await getHomeData(city.lat, city.long)
-			return [cityName, data]
-		})
-		const cityData = await Promise.all(getCityData)
-		makeCards(cityData)
+		if (props.homePageData) {
+			makeCards(props.homePageData)
+		} else {
+			const getCityData = homeCities.map(async (city: {locality: string, region: string, lat: number, long: number}) => {
+				const cityLocality = city.locality
+				const cityRegion = city.region
+				const cityLat = city.lat
+				const cityLong = city.long
+				const data = await getHomeData(city.lat, city.long)
+				// const data = await getTestData()
+				return [cityLocality, cityRegion, cityLat, cityLong, data]
+			})
+			const cityData = await Promise.all(getCityData)
+			makeCards(cityData)
+			props.markLoaded(cityData)
+		}
 	}
 
 	const makeCards = (data: Array<any>) => {
 		const cardList = data.map(city => {
 			return (
 				<Card
-				temp={city[1].temp}
-				aqi={city[1].aqi}
-				aqiCat={city[1].aqiCat}
-				uvi={city[1].uvi}
-				icon={city[1].icon}
-				name={city[0]}
-				key={city[0]}
+					lat={city[2]}
+					long={city[3]}
+					temp={city[4].temp}
+					aqi={city[4].aqi}
+					aqiCat={city[4].aqiCat}
+					uvi={city[4].uvi}
+					icon={city[4].icon}
+					locality={city[0]}
+					region={city[1]}
+					key={city[0]}
+					getMatchDetails={props.getMatchDetails}
+					getAllDetailsData={props.getAllDetailsData}
 				/>
-				)
-			})
-			setCardList(cardList)
+			)
+		})
+		setCardList(cardList)
 	}
 
 	useEffect(() => {
@@ -121,7 +144,7 @@ const Home: React.FC = () => {
     </div>
    </div>
   </a>,
- ];
+ ]
 
 	return (
 		<section className="home">

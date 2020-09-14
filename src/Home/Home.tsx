@@ -30,8 +30,8 @@ const Home: React.FC<HomeProps> = props => {
 				const cityRegion = city.region
 				const cityLat = city.lat
 				const cityLong = city.long
-				// const data = await getHomeData(city.lat, city.long)
-				const data = await getTestData()
+				const data = await getHomeData(city.lat, city.long)
+				// const data = await getTestData()
 				return [cityLocality, cityRegion, cityLat, cityLong, data]
 			})
 			const cityData = await Promise.all(getCityData)

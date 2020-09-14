@@ -15,7 +15,7 @@ import './Card.scss'
 // import snow from '../assets/13d.png'
 // import mist from '../assets/50d.png'
 
-import { weatherIcon } from '../helpers/conversions'
+import { weatherIcon, temp, aqIndex, uvIndex } from '../helpers/conversions'
 
 export interface CardProps {
 	temp: number,
@@ -28,105 +28,105 @@ export interface CardProps {
 
 const Card: React.FC<CardProps> = (props) => {
 
-  const uvIndex = (uvi: number) => {
-    if (uvi <= 2) {
-     return (
-      <h3 className="card-low">
-       <b>{uvi}</b>{" "}
-      </h3>
-     )
-    } else if (uvi >= 3 && uvi <= 5) {
-     return (
-      <h3 className="card-moderate">
-       <b>{uvi}</b>
-      </h3>
-     )
-    } else if (uvi === 6 || uvi === 7) {
-     return (
-      <h3 className="card-high">
-       <b>{uvi}</b>
-      </h3>
-     )
-    } else if (uvi >= 8 && uvi <= 10) {
-     return (
-      <h3 className="card-very-high">
-       <b>{uvi}</b>
-      </h3>
-     )
-    } else if (uvi >= 11) {
-     return (
-      <h3 className="card-extreme">
-       <b>{uvi}</b>
-      </h3>
-     )
-    } else {
-      return (
-       <h3 className="card-extreme">
-        <b>N/A</b>
-       </h3>
-      )
-    }
-  }
+  // const uvIndex = (uvi: number) => {
+  //   if (uvi <= 2) {
+  //    return (
+  //     <h3 className="card-low">
+  //      <b>{uvi}</b>{" "}
+  //     </h3>
+  //    )
+  //   } else if (uvi >= 3 && uvi <= 5) {
+  //    return (
+  //     <h3 className="card-moderate">
+  //      <b>{uvi}</b>
+  //     </h3>
+  //    )
+  //   } else if (uvi === 6 || uvi === 7) {
+  //    return (
+  //     <h3 className="card-high">
+  //      <b>{uvi}</b>
+  //     </h3>
+  //    )
+  //   } else if (uvi >= 8 && uvi <= 10) {
+  //    return (
+  //     <h3 className="card-very-high">
+  //      <b>{uvi}</b>
+  //     </h3>
+  //    )
+  //   } else if (uvi >= 11) {
+  //    return (
+  //     <h3 className="card-extreme">
+  //      <b>{uvi}</b>
+  //     </h3>
+  //    )
+  //   } else {
+  //     return (
+  //      <h3 className="card-extreme">
+  //       <b>N/A</b>
+  //      </h3>
+  //     )
+  //   }
+  // }
 
 
-  const aqIndex = (aqi: number, aqiCat:string) => {
-    const aqiIndex = aqi === -1 ? aqiCat : aqi;
-    if (aqiIndex <= 50 || aqiIndex === 'Good') {
-     return (
-      <h3 className="card-low">
-       <b>{aqiIndex}</b>
-      </h3>
-     )
-    } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === 'Moderate') {
-     return (
-      <h3 className="card-moderate">
-       <b>{aqiIndex}</b>
-      </h3>
-     )
-    } else if ((aqiIndex >= 151 && aqiIndex <= 200) || aqiIndex === 'Unhealthy') {
-     return (
-      <h3 className="card-high">
-       <b>{aqiIndex}</b>
-      </h3>
-     )
-    } else if ((aqiIndex >= 201 && aqiIndex <= 300) || 'Very Unhealthy') {
-     return (
-      <h3 className="card-very-high">
-       <b>{aqiIndex}</b>
-      </h3>
-     )
-    } else if (aqiIndex >= 301 || 'Hazardous') {
-     return (
-      <h3 className="card-extreme">
-       <b>{aqiIndex}</b>
-      </h3>
-     )
-    }  else {
-      return (<h3 className="card-extreme">
-       <b>N/A</b>
-      </h3>)
-    }
-  }
+  // const aqIndex = (aqi: number, aqiCat:string) => {
+  //   const aqiIndex = aqi === -1 ? aqiCat : aqi;
+  //   if (aqiIndex <= 50 || aqiIndex === 'Good') {
+  //    return (
+  //     <h3 className="card-low">
+  //      <b>{aqiIndex}</b>
+  //     </h3>
+  //    )
+  //   } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === 'Moderate') {
+  //    return (
+  //     <h3 className="card-moderate">
+  //      <b>{aqiIndex}</b>
+  //     </h3>
+  //    )
+  //   } else if ((aqiIndex >= 151 && aqiIndex <= 200) || aqiIndex === 'Unhealthy') {
+  //    return (
+  //     <h3 className="card-high">
+  //      <b>{aqiIndex}</b>
+  //     </h3>
+  //    )
+  //   } else if ((aqiIndex >= 201 && aqiIndex <= 300) || 'Very Unhealthy') {
+  //    return (
+  //     <h3 className="card-very-high">
+  //      <b>{aqiIndex}</b>
+  //     </h3>
+  //    )
+  //   } else if (aqiIndex >= 301 || 'Hazardous') {
+  //    return (
+  //     <h3 className="card-extreme">
+  //      <b>{aqiIndex}</b>
+  //     </h3>
+  //    )
+  //   }  else {
+  //     return (<h3 className="card-extreme">
+  //      <b>N/A</b>
+  //     </h3>)
+  //   }
+  // }
 
-  const temp = (temp: number) => {
-   if (temp <= 32) {
-    return (
-     <h3 className="card-extreme"><b>{temp}</b></h3>
-    )
-   } else if (temp >= 33 && temp <= 59) {
-    return (
-     <h3 className="card-moderate"><b>{temp}</b></h3>
-    )
-   } else if (temp >= 60 && temp <= 80) {
-    return (
-     <h3 className="card-high"><b>{temp}</b></h3>
-    )
-   } else if (temp >= 80) {
-    return (
-     <h3 className="card-very-high"><b>{temp}</b></h3>
-    )
-   }
-  }
+  // const temp = (temp: number) => {
+  //  if (temp <= 32) {
+  //   return (
+  //    <h3 className="card-extreme"><b>{temp}</b></h3>
+  //   )
+  //  } else if (temp >= 33 && temp <= 59) {
+  //   return (
+  //    <h3 className="card-moderate"><b>{temp}</b></h3>
+  //   )
+  //  } else if (temp >= 60 && temp <= 80) {
+  //   return (
+  //    <h3 className="card-high"><b>{temp}</b></h3>
+  //   )
+  //  } else if (temp >= 80) {
+  //   return (
+  //    <h3 className="card-very-high"><b>{temp}</b></h3>
+  //   )
+  //  }
+  // }
 
   // const weatherIcon = (icon: string) => {
   //   if (icon === "01d") {

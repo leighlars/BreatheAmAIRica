@@ -12,7 +12,7 @@ import notepad from '../assets/notepad.png'
 import forestFire from '../assets/forest-fire.png'
 import cough from '../assets/cough.png'
 
-import { kelvinToFahren, degToDirection, forecastDtDisplay, weatherDtDisplay, weatherIcon } from '../helpers/conversions'
+import { kelvinToFahren, degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
 import { DetailsProps } from '../helpers/detailsdefinitions'
 
@@ -28,112 +28,6 @@ const Location = (props: any) => {
       clearTimeout(timerId);
     } 
   }, [time])
-
-  const aqIndex = (aqi: number, aqiCat: string) => {
-   const aqiIndex = aqi === -1 ? aqiCat : aqi;
-   if (aqiIndex <= 50 || aqiIndex === "Good") {
-    return (
-     <p className="card-low">
-      <b>{aqiIndex}</b>
-     </p>
-    )
-   } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === "Moderate") {
-    return (
-     <p className="card-moderate">
-      <b>{aqiIndex}</b>
-     </p>
-    );
-   } else if (
-    (aqiIndex >= 151 && aqiIndex <= 200) ||
-    aqiIndex === "Unhealthy"
-   ) {
-    return (
-     <p className="card-high">
-      <b>{aqiIndex}</b>
-     </p>
-    );
-   } else if ((aqiIndex >= 201 && aqiIndex <= 300) || "Very Unhealthy") {
-    return (
-     <p className="card-very-high">
-      <b>{aqiIndex}</b>
-     </p>
-    );
-   } else if (aqiIndex >= 301 || "Hazardous") {
-    return (
-     <p className="card-extreme">
-      <b>{aqiIndex}</b>
-     </p>
-    );
-   } else {
-    return (
-     <p className="card-extreme">
-      <b>N/A</b>
-     </p>
-    );
-   }
-  };
-
-  const temp = (temp: number) => {
-    const temperature =  kelvinToFahren(temp)
-   if (temperature <= 32) {
-    return (
-     <h3 className="card-extreme current-temp">{temperature}&deg;</h3>
-    )
-   } else if (temperature >= 33 && temperature <= 59) {
-    return (
-     <h3 className="card-moderate current-temp">{temperature}&deg;</h3>
-    )
-   } else if (temperature >= 60 && temperature <= 80) {
-    return (
-     <h3 className="card-high current-temp">{temperature}&deg;</h3>
-    )
-   } else if (temperature >= 80) {
-    return (
-     <h3 className="card-very-high current-temp">{temperature}&deg;</h3>
-    )
-   }
-  }
-
-  const uvIndex = (uvi: number) => {
-   const uviNum = +Math.round(uvi).toFixed(0) 
-   if (uviNum <= 2) {
-    return (
-     <p className="card-low">
-      <b>Low</b>
-     </p>
-    );
-   } else if (uviNum >= 3 && uviNum <= 5) {
-    return (
-     <p className="card-moderate">
-      <b>Moderate</b>
-     </p>
-    );
-   } else if (uviNum === 6 || uviNum === 7) {
-    return (
-     <p className="card-high">
-      <b>High</b>
-     </p>
-    );
-   } else if (uviNum >= 8 && uviNum <= 10) {
-    return (
-     <p className="card-very-high">
-      <b>Very High</b>
-     </p>
-    );
-   } else if (uviNum >= 11) {
-    return (
-     <p className="card-extreme">
-      <b>Hazardous</b>
-     </p>
-    );
-   } else {
-    return (
-     <p className="card-extreme">
-      <b>N/A</b>
-     </p>
-    );
-   }
-  };
 
   const jsxNotes = (notes: string) => {
     console.log(notes)

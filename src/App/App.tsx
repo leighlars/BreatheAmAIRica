@@ -27,8 +27,8 @@ const App: React.FC<DetailsProps> = () => {
 		clearInput()
 	}
 	
-	const getMatchDetails = (latitude: number, longitude: number, locality: string, region: string) => {
-		setMatchDetails([latitude, longitude, locality, region])
+	const getMatchDetails = (lat: number, long: number, locality: string, region: string) => {
+		setMatchDetails([lat, long, locality, region])
   }
 
   const getAllDetailsData = async (lat: number, long: number) => {
@@ -52,6 +52,7 @@ const App: React.FC<DetailsProps> = () => {
 							markLoaded={markLoaded}
 							initialLoad={initialLoad}
 							homePageData={homePageData}
+							getMatchDetails={getMatchDetails}
 							getAllDetailsData={getAllDetailsData}
 						/>
           }}

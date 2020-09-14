@@ -14,9 +14,12 @@ import mist from "../assets/50d.png";
 
 import './WeeklyForecast.scss'
 
-import { kelvinToFahren, degToDirection } from '../helpers/conversions'
+import { kelvinToFahren, degToDirection, weatherDtDisplay, weatherIcon } from '../helpers/conversions'
+
+
 
 const WeeklyForecast = (props: any) => {
+
 
   const temp = (temp: number) => {
     const convertTemp = kelvinToFahren(temp);
@@ -47,42 +50,13 @@ const WeeklyForecast = (props: any) => {
     }
   };
 
-  const weatherIcon = (icon: string) => {
-   if (icon === "01d") {
-    return <img src={clearDay} alt="Clear Day Icon" />;
-   } else if (icon === "01n") {
-    return <img src={clearNight} alt="Clear Night Icon" />;
-   } else if (icon === "02d") {
-    return <img src={cloudyDay} alt="Cloudy Day Icon" />;
-   } else if (icon === "02n") {
-    return <img src={cloudyNight} alt="Cloudy Night Icon" />;
-   } else if (icon === "03d") {
-    return <img src={lightClouds} alt="Light Clouds Icon" />;
-   } else if (icon === "04d") {
-    return <img src={doubleCloud} alt="Double Clouds Icon" />;
-   } else if (icon === "09d") {
-    return <img src={rain} alt="Rain Icon" />;
-   } else if (icon === "10d") {
-    return <img src={daySunnyStorm} alt="Day Storm Icon" />;
-   } else if (icon === "10n") {
-    return <img src={sunnyStorms} alt="Night Storm Icon" />;
-   } else if (icon === "11d") {
-    return <img src={thunderstorm} alt="Thunderstorm Icon" />;
-   } else if (icon === "13n") {
-    return <img src={snow} alt="Snow Icon" />;
-   } else if (icon === "50n" || icon === "50d") {
-    return <img src={mist} alt="Mist Icon" />;
-   }
-  };
-
-
   const renderDailyWeather = props.weeklyWeather.map((day: any) => {
     return (
      <article
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
-       <p>{new Date(day.dt * 1000).toUTCString().split(' ').slice(0, 3).join(' ')}</p>
+       <p>{weatherDtDisplay(day.dt)}</p>
       {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}

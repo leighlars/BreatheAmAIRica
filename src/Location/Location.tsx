@@ -20,20 +20,16 @@ import thunderstorm from "../assets/11d.png";
 import snow from "../assets/13d.png";
 import mist from "../assets/50d.png";
 
-import { kelvinToFahren, degToDirection } from '../helpers/conversions'
-
-
+import { kelvinToFahren, degToDirection, weatherDtDisplay, weatherIcon } from '../helpers/conversions'
 
 import { DetailsProps } from '../helpers/detailsdefinitions'
-
-
 
 const Location = (props: any) => {
   const [ time, setTime ] = useState<string>()
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      setTime(new Date().toLocaleString());
+      setTime(new Date().toLocaleTimeString());
     }, 998);
 
     return () => {
@@ -41,33 +37,7 @@ const Location = (props: any) => {
     } 
   }, [time])
 
-   const weatherIcon = (icon: string) => {
-   if (icon === "01d") {
-    return <img src={clearDay} alt="Clear Day Icon" className='large-weather-icon' />;
-   } else if (icon === "01n") {
-    return <img src={clearNight} alt="Clear Night Icon" className='large-weather-icon' />;
-   } else if (icon === "02d") {
-    return <img src={cloudyDay} alt="Cloudy Day Icon" className='large-weather-icon' />;
-   } else if (icon === "02n") {
-    return <img src={cloudyNight} alt="Cloudy Night Icon" className='large-weather-icon' />;
-   } else if (icon === "03d") {
-    return <img src={lightClouds} alt="Light Clouds Icon" className='large-weather-icon' />;
-   } else if (icon === "04d") {
-    return <img src={doubleCloud} alt="Double Clouds Icon" className='large-weather-icon' />;
-   } else if (icon === "09d") {
-    return <img src={rain} alt="Rain Icon" className='large-weather-icon' />;
-   } else if (icon === "10d") {
-    return <img src={daySunnyStorm} alt="Day Storm Icon" className='large-weather-icon' />;
-   } else if (icon === "10n") {
-    return <img src={sunnyStorms} alt="Night Storm Icon" className='large-weather-icon' />;
-   } else if (icon === "11d") {
-    return <img src={thunderstorm} alt="Thunderstorm Icon" className='large-weather-icon' />;
-   } else if (icon === "13n") {
-    return <img src={snow} alt="Snow Icon" className='large-weather-icon' />;
-   } else if (icon === "50n" || icon === "50d") {
-    return <img src={mist} alt="Mist Icon" className='large-weather-icon' />;
-   }
-  };
+   
 	return (
   <section className="location-section">
    {props.detailsData ? (
@@ -76,7 +46,7 @@ const Location = (props: any) => {
      <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
      <div className="info-box">
       <h4 className="info-box-header">HAPPENING NOW</h4>
-      <p className="current-date">{time}</p>
+      <p className="current-date">{weatherDtDisplay(props.detailsData.currentWeather.dt)}</p>
       <article className="current-weather">
        <div className="current-weather-left">
         <h5 className="current-temp">

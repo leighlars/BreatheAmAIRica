@@ -12,11 +12,10 @@ import daySunnyStorm from '../assets/10d.png'
 import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
 import thunderRain from '../assets/11n.png'
-
 import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
 
-import {weatherIcon} from '../helpers/conversions'
+import { weatherIcon } from '../helpers/conversions'
 
 export interface CardProps {
 	temp: number,

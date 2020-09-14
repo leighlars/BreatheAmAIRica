@@ -12,7 +12,7 @@
     text-shadow: 2px 2px black;
     text-transform: uppercase;
   }
-  
+
   .current-city {
     @include headerFont(4.5em);
     width: 100%;
@@ -79,18 +79,17 @@
             @include textFont(1em);
             margin-left: 5px;
           }
-          .small-weather-icon {
-            width: 1.75vw;
-            margin: 0;
-          }
         }
       }
     }
   }
-
-
-
+    .small-weather-icon {
+      width: 1.75vw;
+      margin: 0;
+    }
 }
+
+//  
 //    .info-box.air-quality {
 //     display: grid;
 //     grid-template-rows: repeat(3, 10vh);
@@ -192,4 +191,4 @@
 //     font-weight: bold;
 //     font-size: 2rem;
 //   }
-// }
+// 

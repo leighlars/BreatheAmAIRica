@@ -4,10 +4,22 @@ import './Location.scss'
 import cloudyNight from '../assets/02n.png'
 import waterdrop from '../assets/water-drop.png'
 import eye from '../assets/eye.png'
+import lungs from '../assets/lungs.png'
 import sun from '../assets/sun.png'
 import bee from "../assets/bee.png"
-import lungs from '../assets/lungs.png'
 import wind from '../assets/wind.png'
+import AirQuality from '../AirQuality/AirQuality'
+import clearDay from "../assets/01d.png";
+import clearNight from "../assets/01n.png";
+import cloudyDay from "../assets/02d.png";
+import lightClouds from "../assets/03d.png";
+import doubleCloud from "../assets/04d.png";
+import rain from "../assets/09d.png";
+import daySunnyStorm from "../assets/10d.png";
+import sunnyStorms from "../assets/10n.png";
+import thunderstorm from "../assets/11d.png";
+import snow from "../assets/13d.png";
+import mist from "../assets/50d.png";
 
 import { kelvinToFahren, degToDirection } from '../helpers/conversions'
 
@@ -15,9 +27,6 @@ import { kelvinToFahren, degToDirection } from '../helpers/conversions'
 
 import { DetailsProps } from '../helpers/detailsdefinitions'
 
-// import raindrop from '../assets/liquid.png'
-// should we break this out into different components?
-// feel free to break up lines of text for readability, i'm getting tired
 
 
 const Location = (props: any) => {
@@ -33,6 +42,34 @@ const Location = (props: any) => {
     } 
   }, [time])
 
+   const weatherIcon = (icon: string) => {
+   if (icon === "01d") {
+    return <img src={clearDay} alt="Clear Day Icon" />;
+   } else if (icon === "01n") {
+    return <img src={clearNight} alt="Clear Night Icon" />;
+   } else if (icon === "02d") {
+    return <img src={cloudyDay} alt="Cloudy Day Icon" />;
+   } else if (icon === "02n") {
+    return <img src={cloudyNight} alt="Cloudy Night Icon" />;
+   } else if (icon === "03d") {
+    return <img src={lightClouds} alt="Light Clouds Icon" />;
+   } else if (icon === "04d") {
+    return <img src={doubleCloud} alt="Double Clouds Icon" />;
+   } else if (icon === "09d") {
+    return <img src={rain} alt="Rain Icon" />;
+   } else if (icon === "10d") {
+    return <img src={daySunnyStorm} alt="Day Storm Icon" />;
+   } else if (icon === "10n") {
+    return <img src={sunnyStorms} alt="Night Storm Icon" />;
+   } else if (icon === "11d") {
+    return <img src={thunderstorm} alt="Thunderstorm Icon" />;
+   } else if (icon === "13n") {
+    return <img src={snow} alt="Snow Icon" />;
+   } else if (icon === "50n" || icon === "50d") {
+    return <img src={mist} alt="Mist Icon" />;
+   }
+  };
+
 	return (
   <section className="location-section">
    {props.detailsData ? (
@@ -47,11 +84,7 @@ const Location = (props: any) => {
         <h5 className="current-temp">
          {kelvinToFahren(props.detailsData.currentWeather.temp)}&deg;
         </h5>
-        <img
-         src={cloudyNight}
-         alt="clouds covering moon for current sky"
-         className="large-weather-icon"
-        />
+        {weatherIcon(props.detailsData.currentWeather.icon)}
        </div>
        <div className="current-weather-right">
         <span className="current-weather-right-list">
@@ -105,37 +138,10 @@ const Location = (props: any) => {
        </div>
       </article>
      </div>
-     {/* <div className="info-box air-quality">
-            <h4 className="info-box-header">AIR QUALITY</h4>
-							<img
-								src={lungs}
-								alt="lungs icon for air quality"
-								className="small-weather-icon"
-							/>
-							<p className="type-aqi">Air Quality Index</p>
-							<p className="unit-aqi">{'AQI'}</p> */}
-     {/* <img
-								src={sun}
-								alt="sun icon for UV index"
-								className="small-weather-icon"
-							/>
-							<p className="type-uvi">UV Index</p>
-							<p className="unit-uvi">{props.detailsData.currentWeather.uvi} of 10</p> */}
-     {/* <img
-								src={bee}
-								alt="bee icon for allergies and pollen"
-								className="small-bee-icon"
-							/>
-							<p className="type-allergy">Allergens</p>
-							<p className="unit-allergy">2.0</p> */}
-     {/* <img
-								src={eye}
-								alt="eye icon for visibility"
-								className="small-weather-icon"
-							/>
-							<p className="type-visibility">Visibility</p>
-							<p className="unit-visibility">{(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi</p> */}
-     {/* </div> */}
+     <div className="info-box air-quality">
+      <h4 className="info-box-header">AIR QUALITY</h4>
+      <AirQuality airQuality={props.detailsData}/>
+     </div> 
      {/* <div className="info-box hourly-forecast">
             <h4 className="info-box-header">HOURLY FORECAST</h4>
           </div> */}

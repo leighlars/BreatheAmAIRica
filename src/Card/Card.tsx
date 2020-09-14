@@ -13,8 +13,6 @@ import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
 import thunderRain from '../assets/11n.png'
 
-// 04n
-// description
 import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
 
@@ -70,13 +68,11 @@ const Card: React.FC<CardProps> = (props) => {
   }
 
   const aqiDeterminer = (aqi:number, aqiCat:string) => {
-    // console.log(aqiCat)
     return aqi === -1 ? aqiCat : aqi
   }
 
   const aqIndex = (aqi: number, aqiCat:string) => {
     const aqiIndex = aqiDeterminer(aqi, aqiCat)
-    // console.log(aqiIndex)
     if (aqiIndex <= 50 || aqiIndex === 'Good') {
      return (
       <h3 className="card-low">
@@ -107,8 +103,7 @@ const Card: React.FC<CardProps> = (props) => {
        <b>{aqiIndex}</b>
       </h3>
      )
-    } 
-    else {
+    }  else {
       return (<h3 className="card-extreme">
        <b>N/A</b>
       </h3>)
@@ -142,7 +137,7 @@ const Card: React.FC<CardProps> = (props) => {
      return <img src={clearNight} alt="Clear Night Icon" />;
     } else if (icon === "02d") {
      return <img src={cloudyDay} alt="Cloudy Day Icon" />;
-    } else if (icon === "03n") {
+    } else if (icon === "03n" || icon === "02n") {
      return <img src={cloudyNight} alt="Cloudy Night Icon" />;
     } else if (icon === "04n") {
      return <img src={lightClouds} alt="Light Clouds Icon" />;
@@ -168,7 +163,7 @@ const Card: React.FC<CardProps> = (props) => {
 
   return (
    <Link
-    to={`/${props.name}`}
+    to={`/results/${props.name}`}
     className="card-link-wrapper"
     style={{ textDecoration: "none" }}
    >
@@ -177,10 +172,10 @@ const Card: React.FC<CardProps> = (props) => {
      <div className="card-air-temp">
       {temp(props.temp)}
       <p className="unit">&deg;F</p>
-      {aqIndex(props.aqi, props.aqiCat)}
-      <p className="unit">AQI</p>
       {uvIndex(props.uvi)}
       <p className="unit">UVI</p>
+      {/* {aqIndex(props.aqi, props.aqiCat)}
+      <p className="unit">AQI</p> */}
      </div>
      {weatherIcon(props.icon)}
     </article>

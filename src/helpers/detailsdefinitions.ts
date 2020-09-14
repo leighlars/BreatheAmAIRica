@@ -65,6 +65,10 @@
     };
     currentAir?: {
       AQI?: number;
+      Category? : {
+        Number?: number;
+        Name?: string;
+      }
     };
   
   

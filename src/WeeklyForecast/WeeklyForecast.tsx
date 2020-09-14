@@ -14,9 +14,12 @@ import mist from "../assets/50d.png";
 
 import './WeeklyForecast.scss'
 
-import { kelvinToFahren, degToDirection } from '../helpers/conversions'
+import { kelvinToFahren, degToDirection, forecastDtDisplay, weatherIcon } from '../helpers/conversions'
+
+
 
 const WeeklyForecast = (props: any) => {
+
 
   const temp = (temp: number) => {
     const convertTemp = kelvinToFahren(temp);
@@ -47,41 +50,14 @@ const WeeklyForecast = (props: any) => {
     }
   };
 
-  const weatherIcon = (icon: string) => {
-   if (icon === "01d") {
-    return <img src={clearDay} alt="Clear Day Icon" />;
-   } else if (icon === "01n") {
-    return <img src={clearNight} alt="Clear Night Icon" />;
-   } else if (icon === "02d") {
-    return <img src={cloudyDay} alt="Cloudy Day Icon" />;
-   } else if (icon === "02n") {
-    return <img src={cloudyNight} alt="Cloudy Night Icon" />;
-   } else if (icon === "03d") {
-    return <img src={lightClouds} alt="Light Clouds Icon" />;
-   } else if (icon === "04d") {
-    return <img src={doubleCloud} alt="Double Clouds Icon" />;
-   } else if (icon === "09d") {
-    return <img src={rain} alt="Rain Icon" />;
-   } else if (icon === "10d") {
-    return <img src={daySunnyStorm} alt="Day Storm Icon" />;
-   } else if (icon === "10n") {
-    return <img src={sunnyStorms} alt="Night Storm Icon" />;
-   } else if (icon === "11d") {
-    return <img src={thunderstorm} alt="Thunderstorm Icon" />;
-   } else if (icon === "13n") {
-    return <img src={snow} alt="Snow Icon" />;
-   } else if (icon === "50n" || icon === "50d") {
-    return <img src={mist} alt="Mist Icon" />;
-   }
-  };
-
-
-  const renderDailyWeather = props.weeklyWeather.map((day: any) => {
+  const renderDailyWeather = props.weeklyWeather.map((day: any, index: number) => {
     return (
+      (index !== 0) ?
      <article
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
+        <p>{forecastDtDisplay(day.dt)}</p>
       {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}
@@ -114,6 +90,7 @@ const WeeklyForecast = (props: any) => {
 
       {/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
      </article>
+     : null
     );
   });
 

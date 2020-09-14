@@ -12,7 +12,7 @@ import daySunnyStorm from '../assets/10d.png'
 import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
 import thunderRain from '../assets/11n.png'
-// thunderstorm w rain 11n
+
 // 04n
 // description
 import snow from '../assets/13d.png'
@@ -69,35 +69,42 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
-  const aqIndex = (aqi: number) => {
-    if (aqi <= 50) {
+  const aqiDeterminer = (aqi:number, aqiCat:string) => {
+    // console.log(aqiCat)
+    return aqi === -1 ? aqiCat : aqi
+  }
+
+  const aqIndex = (aqi: number, aqiCat:string) => {
+    const aqiIndex = aqiDeterminer(aqi, aqiCat)
+    // console.log(aqiIndex)
+    if (aqiIndex <= 50 || aqiIndex === 'Good') {
      return (
       <h3 className="card-low">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 51 && aqi <= 100) {
+    } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === 'Moderate') {
      return (
       <h3 className="card-moderate">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 151 && aqi <= 200) {
+    } else if ((aqiIndex >= 151 && aqiIndex <= 200) || aqiIndex === 'Unhealthy') {
      return (
       <h3 className="card-high">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 201 && aqi <= 300) {
+    } else if ((aqiIndex >= 201 && aqiIndex <= 300) || 'Very Unhealthy') {
      return (
       <h3 className="card-very-high">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
-    } else if (aqi >= 301) {
+    } else if (aqiIndex >= 301 || 'Hazardous') {
      return (
       <h3 className="card-extreme">
-       <b>{aqi}</b>
+       <b>{aqiIndex}</b>
       </h3>
      )
     } 
@@ -135,9 +142,9 @@ const Card: React.FC<CardProps> = (props) => {
      return <img src={clearNight} alt="Clear Night Icon" />;
     } else if (icon === "02d") {
      return <img src={cloudyDay} alt="Cloudy Day Icon" />;
-    } else if (icon === "04n") {
+    } else if (icon === "03n") {
      return <img src={cloudyNight} alt="Cloudy Night Icon" />;
-    } else if (icon === "03d") {
+    } else if (icon === "04n") {
      return <img src={lightClouds} alt="Light Clouds Icon" />;
     } else if (icon === "04d") {
      return <img src={doubleCloud} alt="Double Clouds Icon" />;
@@ -158,6 +165,7 @@ const Card: React.FC<CardProps> = (props) => {
     } 
   }
 
+
   return (
    <Link
     to={`/${props.name}`}
@@ -169,8 +177,8 @@ const Card: React.FC<CardProps> = (props) => {
      <div className="card-air-temp">
       {temp(props.temp)}
       <p className="unit">&deg;F</p>
-      {/* {aqIndex(props.aqi)}
-      <p className="unit">AQI</p> */}
+      {aqIndex(props.aqi, props.aqiCat)}
+      <p className="unit">AQI</p>
       {uvIndex(props.uvi)}
       <p className="unit">UVI</p>
      </div>

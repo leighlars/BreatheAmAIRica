@@ -19,17 +19,18 @@ const Home: React.FC = () => {
 			return [cityName, data]
 		})
 		const cityData = await Promise.all(getCityData)
-		console.log(cityData)
+		// console.log(cityData)
 		makeCards(cityData)
 	}
 
 	const makeCards = (data: Array<any>) => {
+		console.log(data)
 		const cardList = data.map(city => {
 			return (
 				<Card
 					temp={city[1].temp}
-					aqi={city[1].aqi}
-					aqiCat={city[1].aqiCat}
+					aqi={city.aqi}
+					aqiCat={city.aqiCat}
 					uvi={city[1].uvi}
 					icon={city[1].icon}
 					name={city[0]}

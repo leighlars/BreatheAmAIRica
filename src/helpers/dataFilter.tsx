@@ -24,10 +24,9 @@ export const getHomeData = async (lat: number, long: number) => {
 	const aq = await getAirQualityData(lat, long)
 	data.temp = +((weather.current.temp - 273.15) * 1.8 + 32).toFixed(0)
 	data.aqi = aq.aqi
-	// data.aqiCat = aq[0].category.number
+	data.aqiCat = aq.categoryName
 	data.uvi = +(Math.round(weather.current.uvi)).toFixed(0)
 	data.icon = weather.current.weather[0].icon
-	// console.log(aq[0].Category.Number)
 	return data
 }
 

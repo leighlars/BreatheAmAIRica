@@ -73,7 +73,7 @@ const Location = (props: any) => {
   <section className="location-section">
    {props.detailsData ? (
     <>
-     <h2 className="current-city">{props.matchDetails[2]} className='large-weather-icon'</h2>
+     <h2 className="current-city">{props.matchDetails[2]}</h2>
      <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
      <div className="info-box">
       <h4 className="info-box-header">HAPPENING NOW</h4>
@@ -112,7 +112,7 @@ const Location = (props: any) => {
           {degToDirection(props.detailsData.currentWeather.wind_deg)}
          </p>
         </span>
-        <span className="current-weather-right-list">
+        {/* <span className="current-weather-right-list">
          <img
           src={eye}
           alt="eye icon for visibility"
@@ -133,7 +133,7 @@ const Location = (props: any) => {
          <p className="unit-uvi">
           {props.detailsData.currentWeather.uvi} of 10
          </p>
-        </span>
+        </span> */}
        </div>
       </article>
      </div>

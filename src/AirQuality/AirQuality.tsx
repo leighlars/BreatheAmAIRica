@@ -7,15 +7,15 @@ import sun from "../assets/sun.png";
 const AirQuality = (props: any) => {
   return (
    <article className="aq-section">
-    {/* <span className='info-box'>
-        <img
-          src={lungs}
-          alt="lungs icon for air quality"
-          className="small-weather-icon"
-        />
-        <p className="type">Air Quality Index</p>
-        <p className="unit">{props.detailsData.aqi}</p> 
-      </span> */}
+    <span className="info-box-aq">
+     <img
+      src={lungs}
+      alt="lungs icon for air quality"
+      className="small-weather-icon"
+     />
+     <p className="type">Air Quality Index</p>
+     {/* <p className="unit">{props.detailsData.aqi}</p>  */}
+    </span>
     <span className="info-box-aq">
      <img
       src={sun}
@@ -34,7 +34,9 @@ const AirQuality = (props: any) => {
      <p className="type">Visibility</p>
      <p className="unit">5 mi</p>
     </span>
-    {/*  (props.detailsData.currentWeather.visibility / 5280).toFixed(1)}
+    {/* 
+      {props.detailsData.currentWeather.uvi}
+     {props.detailsData.currentWeather.visibility}
      <img
 
 								src={bee}
@@ -42,7 +44,8 @@ const AirQuality = (props: any) => {
 								className="small-bee-icon"
 							/>
 							<p className="type-allergy">Allergens</p>
-							<p className="unit-allergy">2.0</p> */}
+							<p className="unit-allergy">2.0</p> */}{" "}
+   
    </article>
   );
 }

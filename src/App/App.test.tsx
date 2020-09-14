@@ -62,4 +62,18 @@ describe('App', () => {
 		expect(getByRole('heading', { name: 'Denver' })).toBeInTheDocument()
 	})
 
+	it('Should render 15 cards upon page load with temp, uvi and icon', async () => {
+		const { findByText, findAllByText } = render(<MemoryRouter><App /></MemoryRouter>)
+
+		const title1 = await findByText(/denver/i)
+		const title6 = await findByText(/anchorage/i)
+		const title11 = await findByText(/hot springs/i)
+		const uvi = await findAllByText(/UVI/i)
+		expect(title1).toBeInTheDocument()
+		expect(title6).toBeInTheDocument()
+		expect(title11).toBeInTheDocument()
+		expect(uvi[0]).toBeInTheDocument()
+		expect(uvi[14]).toBeInTheDocument()
+	})
+
 })

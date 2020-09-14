@@ -35,14 +35,14 @@ export const kelvinToFahren = (k: number): number => {
 const convertDate = (date: number): string => {
   const dates = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th', '14th', '15th', '16th', '17th', '18th', '19th', '20th', '21st', '22nd', '23rd', '24th', '25th', '26th', '27th', '28th', '29th', '30th', '31st']
 
-  return dates[date + 1];
+  return dates[date - 1];
 }
 
 export const forecastDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> => {
   const date = new Date(dt * 1000);
   const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
 
-  const weekDate = convertDate(date.getDay());
+  const weekDate = convertDate(date.getUTCDate());
   const weekday = days[date.getDay()]
   return <span>{weekday} {weekDate}</span>
 }
@@ -54,7 +54,7 @@ export const weatherDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTML
   
   const currentMonth = months[date.getMonth()]
   const currentDay = days[date.getDay()]
-  const currentDate = convertDate(date.getDay())
+  const currentDate = convertDate(date.getUTCDate())
   return <span>{ currentDay } < br /> { currentMonth } { currentDate } </span>
 }
 

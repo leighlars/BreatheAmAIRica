@@ -14,7 +14,7 @@ import mist from "../assets/50d.png";
 
 import './WeeklyForecast.scss'
 
-import { kelvinToFahren, degToDirection, weatherIcon } from '../helpers/conversions'
+import { kelvinToFahren, degToDirection, forecastDtDisplay, weatherIcon } from '../helpers/conversions'
 
 
 
@@ -57,7 +57,7 @@ const WeeklyForecast = (props: any) => {
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
-        <p>{new Date(day.dt * 1000).toUTCString().split(' ').slice(0, 2).join(' ')}</p>
+        <p>{forecastDtDisplay(day.dt)}</p>
       {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}

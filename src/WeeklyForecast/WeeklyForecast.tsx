@@ -80,30 +80,43 @@ const WeeklyForecast = (props: any) => {
 
   const renderDailyWeather = props.weeklyWeather.map((day: any) => {
     return (
-      <article key={Math.floor(Math.random()* Date.now())} className="daily-weather">
-          <span className='temps'>
-          {temp(day.temp.max)}
-          <p>&deg;F high / </p>
-          {temp(day.temp.min)}
-          <p>&deg;F low</p>
-          </span>
-          {weatherIcon(day.weather[0].icon)}
-        {/* <p className="daily-weather-minmax">{time method to check time and return temp off time need to do the same bellow for feels like}</p> */}
-        {/* <p className="daily-weather-feelslike">
+     <article
+      key={Math.floor(Math.random() * Date.now())}
+      className="daily-weather"
+     >
+      <span className="list">
+       {temp(day.temp.max)}
+       <p className="unit">&deg;F high /</p>
+       {temp(day.temp.min)}
+       <p className="unit">&deg;F low</p>
+      </span>
+      {weatherIcon(day.weather[0].icon)}
+      {/* <p className="daily-weather-minmax">{time method to check time and return temp off time need to do the same bellow for feels like}</p> */}
+      {/* <p className="daily-weather-feelslike">
           add time checker to display feels like
         </p> */}
-        {/* <p className="daily-pressure">{day.pressure} Pressure </p>  */}
-        <p className="daily-humidity">{day.humidity}%</p>
-        <p>Humidity</p> 
-        <p className="daily-wind">
-          {day.wind_speed} mph / {degToDirection(day.wind_deg)}
-        </p>
-        <p>{day.uvi}</p><p>UVI</p> 
-        <p>{day.clouds}</p> <p>Cloud Cover</p> 
+      {/* <p className="daily-pressure">{day.pressure} Pressure </p>  */}
+      <span className="list">
+       <p className="daily-humidity">{day.humidity}%</p>
+       <p className="unit">Humidity</p>
+      </span>
+      <span className="list">
+       <p className="daily-wind">
+        {day.wind_speed} mph / {degToDirection(day.wind_deg)}
+       </p>
+      </span>
+      <span className="list">
+        <p>{day.clouds}%</p>
+        <p className="unit">Cloud Cover</p>
+      </span>
+      <span className="list">
+        <p>{day.uvi}</p>
+        <p className="unit">UVI</p>
+      </span>
 
-        {/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
-      </article>
-    )
+      {/* <p>conditional that checks value of weather.main to give back data if available or return null<p> */}
+     </article>
+    );
   });
 
   return (

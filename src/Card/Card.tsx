@@ -13,7 +13,6 @@ import sunnyStorms from '../assets/10n.png'
 import thunderstorm from '../assets/11d.png'
 import snow from '../assets/13d.png'
 import mist from '../assets/50d.png'
-// data icon names !== file names
 
 export interface CardProps {
 	temp: number,

@@ -76,7 +76,7 @@ const Location = (props: any) => {
          />
          <p className="type">Wind</p>
          <p className="current-wind">
-          {props.detailsData.currentWeather.wind_speed} mph /{" "}
+          {props.detailsData.currentWeather.wind_speed} mph /
           {degToDirection(props.detailsData.currentWeather.wind_deg)}
          </p>
         </span>

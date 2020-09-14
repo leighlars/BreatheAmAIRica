@@ -12,12 +12,12 @@
   flex-wrap: wrap;
   width: 155px;
   margin: 10px;
-  .temps {
+  .list {
     @include rowDisplay();
-    width: 100%;
   }  
     h3 {
-      @include headerFont(1.1em);
+      @include headerFont(1.2em);
+      margin-left: 2px;
     }
 
   img {
@@ -26,6 +26,11 @@
     }
   p {
     @include textFont(1em);
+  }
+  .unit {
+    @include textFont(.9em);
+    color: $darkBlue;
+    margin-left: 2px;
   }
  
   .card-temp {

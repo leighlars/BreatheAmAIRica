@@ -17,7 +17,17 @@ const App: React.FC<DetailsProps> = () => {
   const [ query, setQuery ] = useState<string>()
   const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
   const [ detailsData, setDetailsData ] = useState<DetailsProps>()
-  
+  // const [page, setCurrentPage] 
+
+  //  setCurrentPage = (movies) => {
+  //   const currentPage = props.history.location.pathname;
+  //   this.setState({ movies: this.sortMoviesByTitle(movies) });
+  //   this.checkIfLoggedIn();
+  //   if (currentPage.includes("/movies/")) {
+  //    const movie_id = currentPage.split("/")[2];
+  //    this.getSingleMovie(movie_id);
+  //   }
+  //  };
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)

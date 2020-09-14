@@ -6,6 +6,8 @@
   width: 80vw;
   height: 100vh;
 
+  
+
   .loading {
     @include headerFont(1.25em);
     color: white;
@@ -76,45 +78,80 @@
           @include rowDisplay();
           margin: 0;
           p {
-            @include textFont(1em);
+            @include textFont(1.2em);
+            color: $darkBlue;
+            // font-weight: bold;
             margin-left: 5px;
           }
         }
       }
     }
   }
+  
   .small-weather-icon {
-        width: 1.75vw;
-        margin: 0;
-      }
-
-
+    width: 1.75vw;
+    margin: 0;
+  }
+  
+  
   .aq-section {
-  @include columnDisplay();
-
+    @include columnDisplay();
+    
     .aq-top, .aq-middle, .aq-bottom {
       @include rowDisplay();
     }
-
     .info-box-aq {
       @include rowDisplay();
-      // justify-content: space-evenly;
       width: 250px;
     }
-
-  p {
-    @include textFont(1.2em);
-    color: $darkBlue;
-    margin-left: 5px
+    .info-box-aq-discussion {
+      @include columnDisplay();
+      width: 70%;
+    }
+    .disc-top {
+      @include rowDisplay();
+      width: 100%;
+    }
+    .discussion-text {
+      width: 100%;
+    }
+    p {
+      @include textFont(1.2em);
+      color: $darkBlue;
+      margin-left: 5px
+    }
+    
+    .type {
+      font-weight: bold;
+    }
+    
+    .card-low {
+    color: #41ab5b;
+    text-shadow: .5px .5px black;
+    }
+    
+    .card-moderate {
+    color: $goldenrod;
+    text-shadow: .5px .5px black;
+    }
+    
+    .card-high {
+    color: #db6307;
+    text-shadow: .5px .5px black;
+    }
+    
+    .card-very-high {
+    color: #d12a46;
+    text-shadow: .5px .5px black;
+    }
+    
+    .card-extreme {
+    color: #7c04bd;
+    text-shadow: .5px .5px black;
+    }
+    
+    
   }
-  .type {
-    font-weight: bold;
-  }
-  .unit {
-    font-weight: 300; 
-  }
-  
-}
 }
 
 

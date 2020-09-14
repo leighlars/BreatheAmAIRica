@@ -76,53 +76,113 @@ const Location = (props: any) => {
    const aqiIndex = aqi === -1 ? aqiCat : aqi;
    if (aqiIndex <= 50 || aqiIndex === "Good") {
     return (
-     <h3 className="card-low">
+     <p className="card-low">
       <b>{aqiIndex}</b>
-     </h3>
-    );
+     </p>
+    )
    } else if ((aqiIndex >= 51 && aqiIndex <= 100) || aqiIndex === "Moderate") {
     return (
-     <h3 className="card-moderate">
+     <p className="card-moderate">
       <b>{aqiIndex}</b>
-     </h3>
+     </p>
     );
    } else if (
     (aqiIndex >= 151 && aqiIndex <= 200) ||
     aqiIndex === "Unhealthy"
    ) {
     return (
-     <h3 className="card-high">
+     <p className="card-high">
       <b>{aqiIndex}</b>
-     </h3>
+     </p>
     );
    } else if ((aqiIndex >= 201 && aqiIndex <= 300) || "Very Unhealthy") {
     return (
-     <h3 className="card-very-high">
+     <p className="card-very-high">
       <b>{aqiIndex}</b>
-     </h3>
+     </p>
     );
    } else if (aqiIndex >= 301 || "Hazardous") {
     return (
-     <h3 className="card-extreme">
+     <p className="card-extreme">
       <b>{aqiIndex}</b>
-     </h3>
+     </p>
     );
    } else {
     return (
-     <h3 className="card-extreme">
+     <p className="card-extreme">
       <b>N/A</b>
-     </h3>
+     </p>
+    );
+   }
+  };
+
+  const temp = (temp: number) => {
+    const temperature =  kelvinToFahren(temp)
+   if (temperature <= 32) {
+    return (
+     <h3 className="card-extreme current-temp">{temperature}&deg;</h3>
+    )
+   } else if (temperature >= 33 && temperature <= 59) {
+    return (
+     <h3 className="card-moderate current-temp">{temperature}&deg;</h3>
+    )
+   } else if (temperature >= 60 && temperature <= 80) {
+    return (
+     <h3 className="card-high current-temp">{temperature}&deg;</h3>
+    )
+   } else if (temperature >= 80) {
+    return (
+     <h3 className="card-very-high current-temp">{temperature}&deg;</h3>
+    )
+   }
+  }
+
+  const uvIndex = (uvi: number) => {
+   if (uvi <= 2) {
+    return (
+     <p className="card-low">
+      <b>{uvi} of 10</b>
+     </p>
+    );
+   } else if (uvi >= 3 && uvi <= 5) {
+    return (
+     <p className="card-moderate">
+      <b>{uvi} of 10</b>
+     </p>
+    );
+   } else if (uvi === 6 || uvi === 7) {
+    return (
+     <p className="card-high">
+      <b>{uvi} of 10</b>
+     </p>
+    );
+   } else if (uvi >= 8 && uvi <= 10) {
+    return (
+     <p className="card-very-high">
+      <b>{uvi} of 10</b>
+     </p>
+    );
+   } else if (uvi >= 11) {
+    return (
+     <p className="card-extreme">
+      <b>{uvi} of 10</b>
+     </p>
+    );
+   } else {
+    return (
+     <p className="card-extreme">
+      <b>N/A</b>
+     </p>
     );
    }
   };
 
   const jsxNotes = (notes: string) => {
     if (!notes) {
-      return <p className='unit'>N/A</p>
+      return <p className='discussion-text'>N/A</p>
     } else {
-      return <p className='unit'>{notes}</p>
+      return <p className='discussion-text'>{notes}</p>
     }
-
   }
 
   return (
@@ -136,9 +196,7 @@ const Location = (props: any) => {
        <p className="current-date">{time}</p>
        <article className="current-weather">
         <div className="current-weather-left">
-         <h5 className="current-temp">
-          {kelvinToFahren(props.detailsData.currentWeather.temp)}&deg;
-         </h5>
+          {temp(props.detailsData.currentWeather.temp)}
          {weatherIcon(props.detailsData.currentWeather.weather[0].icon)}
         </div>
         <div className="current-weather-right">
@@ -182,9 +240,7 @@ const Location = (props: any) => {
               className="small-weather-icon"
             />
             <p className="type">AQI</p>
-            <p className="unit">
-              {/* {aqIndex(props.detailsData.currentAir.aqi, props.detailsData.currentAir.aqi.name)} */}
-            </p>
+            {aqIndex(props.detailsData.currentAir.AQI, props.detailsData.currentAir.Category.Name)}            
             </span>
             <span className="info-box-aq">
               <img
@@ -193,7 +249,7 @@ const Location = (props: any) => {
                 className="small-weather-icon"
               />
               <p className="type">UV Index</p>
-              <p className="unit">{props.detailsData.currentWeather.uvi} of 10</p>
+              {uvIndex(props.detailsData.currentWeather.uvi)}
             </span>
           </span>
           <span className='aq-middle'>
@@ -205,7 +261,7 @@ const Location = (props: any) => {
                 />
                 <p className="type">Visibility</p>
                 <p className="unit">
-                {props.detailsData.currentWeather.visibility} mi
+                {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
                 </p>
             </span>
             <span className="info-box-aq">
@@ -239,14 +295,16 @@ const Location = (props: any) => {
             </span>
           </span>
         <span className="info-box-aq-discussion">
-         <img
-          src={notepad}
-          alt="checklist icon for air quality"
-          className="small-weather-icon"
-         />
-         <p className="type">Additional Notes</p>
-         {jsxNotes(props.detailsData.currentAir.discussion)}
-        </span>
+          <span className='disc-top'>
+            <img
+              src={notepad}
+              alt="checklist icon for air quality"
+              className="small-weather-icon"
+            />
+            <p className="type">Additional Notes</p>
+            </span>
+            {jsxNotes(props.detailsData.currentAir.Discussion)}
+          </span>
        </article>
       </div>
       <div className="info-box weekly-forecast">

@@ -66,9 +66,6 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
-  // const aqiDeterminer = (aqi:number, aqiCat:string) => {
-  //   return aqi === -1 ? aqiCat : aqi
-  // }
 
   const aqIndex = (aqi: number, aqiCat:string) => {
     const aqiIndex = aqi === -1 ? aqiCat : aqi;

@@ -14,6 +14,7 @@ interface HomeProps {
 	markLoaded: Function
 	initialLoad: boolean
 	homePageData: [string, {}[]] | undefined
+	getMatchDetails: Function
 	getAllDetailsData: Function
 }
 
@@ -24,13 +25,14 @@ const Home: React.FC<HomeProps> = props => {
 		if (props.homePageData) {
 			makeCards(props.homePageData)
 		} else {
-			const getCityData = homeCities.map(async (city: {name: string, lat: number, long: number}) => {
-				const cityName = city.name
+			const getCityData = homeCities.map(async (city: {locality: string, region: string, lat: number, long: number}) => {
+				const cityLocality = city.locality
+				const cityRegion = city.region
 				const cityLat = city.lat
 				const cityLong = city.long
 				// const data = await getHomeData(city.lat, city.long)
 				const data = await getTestData()
-				return [cityName, cityLat, cityLong, data]
+				return [cityLocality, cityRegion, cityLat, cityLong, data]
 			})
 			const cityData = await Promise.all(getCityData)
 			makeCards(cityData)
@@ -42,20 +44,22 @@ const Home: React.FC<HomeProps> = props => {
 		const cardList = data.map(city => {
 			return (
 				<Card
-					lat={city[1]}
-					long={city[2]}
-					temp={city[3].temp}
-					aqi={city[3].aqi}
-					aqiCat={city[3].aqiCat}
-					uvi={city[3].uvi}
-					icon={city[3].icon}
-					name={city[0]}
+					lat={city[2]}
+					long={city[3]}
+					temp={city[4].temp}
+					aqi={city[4].aqi}
+					aqiCat={city[4].aqiCat}
+					uvi={city[4].uvi}
+					icon={city[4].icon}
+					locality={city[0]}
+					region={city[1]}
 					key={city[0]}
+					getMatchDetails={props.getMatchDetails}
 					getAllDetailsData={props.getAllDetailsData}
 				/>
-				)
-			})
-			setCardList(cardList)
+			)
+		})
+		setCardList(cardList)
 	}
 
 	useEffect(() => {

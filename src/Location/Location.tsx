@@ -138,34 +138,35 @@ const Location = (props: any) => {
   }
 
   const uvIndex = (uvi: number) => {
-   if (uvi <= 2) {
+   const uviNum = +Math.round(uvi).toFixed(0) 
+   if (uviNum <= 2) {
     return (
      <p className="card-low">
-      <b>{uvi} of 10</b>
+      <b>Low</b>
      </p>
     );
-   } else if (uvi >= 3 && uvi <= 5) {
+   } else if (uviNum >= 3 && uviNum <= 5) {
     return (
      <p className="card-moderate">
-      <b>{uvi} of 10</b>
+      <b>Moderate</b>
      </p>
     );
-   } else if (uvi === 6 || uvi === 7) {
+   } else if (uviNum === 6 || uviNum === 7) {
     return (
      <p className="card-high">
-      <b>{uvi} of 10</b>
+      <b>High</b>
      </p>
     );
-   } else if (uvi >= 8 && uvi <= 10) {
+   } else if (uviNum >= 8 && uviNum <= 10) {
     return (
      <p className="card-very-high">
-      <b>{uvi} of 10</b>
+      <b>Very High</b>
      </p>
     );
-   } else if (uvi >= 11) {
+   } else if (uviNum >= 11) {
     return (
      <p className="card-extreme">
-      <b>{uvi} of 10</b>
+      <b>Hazardous</b>
      </p>
     );
    } else {

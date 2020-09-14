@@ -6,8 +6,6 @@
   width: 80vw;
   height: 100vh;
 
-  
-
   .loading {
     @include headerFont(1.25em);
     color: white;
@@ -80,7 +78,6 @@
           p {
             @include textFont(1.2em);
             color: $darkBlue;
-            // font-weight: bold;
             margin-left: 5px;
           }
         }

@@ -22,8 +22,7 @@
         }
       ];
     };
-    weeklyWeather?: {
-      daily?: [
+    weeklyWeather?: [
         {
           dt?: number;
           sunrise?: number;
@@ -62,7 +61,7 @@
           uvi?: number;
         }
       ];
-    };
+  
     currentAir?: {
       AQI?: number;
       Category? : {
@@ -70,6 +69,4 @@
         Name?: string;
       }
     };
-  
-  
   }

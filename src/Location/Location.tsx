@@ -179,6 +179,7 @@ const Location = (props: any) => {
   };
 
   const jsxNotes = (notes: string) => {
+    console.log(notes)
     if (!notes) {
       return <p className='discussion-text'>N/A</p>
     } else {

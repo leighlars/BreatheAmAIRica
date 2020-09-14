@@ -66,12 +66,12 @@ const Card: React.FC<CardProps> = (props) => {
     }
   }
 
-  const aqiDeterminer = (aqi:number, aqiCat:string) => {
-    return aqi === -1 ? aqiCat : aqi
-  }
+  // const aqiDeterminer = (aqi:number, aqiCat:string) => {
+  //   return aqi === -1 ? aqiCat : aqi
+  // }
 
   const aqIndex = (aqi: number, aqiCat:string) => {
-    const aqiIndex = aqiDeterminer(aqi, aqiCat)
+    const aqiIndex = aqi === -1 ? aqiCat : aqi;
     if (aqiIndex <= 50 || aqiIndex === 'Good') {
      return (
       <h3 className="card-low">

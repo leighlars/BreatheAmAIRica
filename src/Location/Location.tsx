@@ -8,7 +8,6 @@ import lungs from '../assets/lungs.png'
 import sun from '../assets/sun.png'
 import bee from "../assets/bee.png"
 import wind from '../assets/wind.png'
-import AirQuality from '../AirQuality/AirQuality'
 import clearDay from "../assets/01d.png";
 import clearNight from "../assets/01n.png";
 import cloudyDay from "../assets/02d.png";
@@ -112,34 +111,40 @@ const Location = (props: any) => {
           {degToDirection(props.detailsData.currentWeather.wind_deg)}
          </p>
         </span>
-        {/* <span className="current-weather-right-list">
-         <img
-          src={eye}
-          alt="eye icon for visibility"
-          className="small-weather-icon"
-         />
-         <p className="type">Visibility</p>
-         <p className="unit-visibility">
-          {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)}mi
-         </p>
-        </span>
-        <span className="current-weather-right-list">
-         <img
-          src={sun}
-          alt="sun icon for UV index"
-          className="small-weather-icon"
-         />
-         <p className="type">UV Index</p>
-         <p className="unit-uvi">
-          {props.detailsData.currentWeather.uvi} of 10
-         </p>
-        </span> */}
        </div>
       </article>
      </div>
      <div className="info-box air-quality">
       <h4 className="info-box-header">AIR QUALITY</h4>
-      <AirQuality airQuality={props.detailsData.currentWeather} />
+      <article className="aq-section">
+     <span className="info-box-aq">
+      <img
+        src={lungs}
+        alt="lungs icon for air quality"
+        className="small-weather-icon"
+      />
+      <p className="type">Air Quality Index</p>
+      {/* <p className="unit">{props.detailsData.aqi}</p>  */}
+      </span>
+      <span className="info-box-aq">
+        <img
+          src={sun}
+          alt="sun icon for UV index"
+          className="small-weather-icon"
+        />
+        <p className="type">UV Index</p>
+        <p className="unit">{props.detailsData.currentWeather.uvi}of 10</p>
+      </span>
+      <span className="info-box-aq">
+        <img
+          src={eye}
+          alt="eye icon for visibility"
+          className="small-weather-icon"
+        />
+        <p className="type">Visibility</p>
+        <p className="unit">{props.detailsData.currentWeather.visibility} mi</p>
+      </span>
+      </article>
      </div>
      {/* <div className="info-box hourly-forecast">
             <h4 className="info-box-header">HOURLY FORECAST</h4>

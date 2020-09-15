@@ -117,11 +117,25 @@ describe('App', () => {
 		expect(uvi[14]).toBeInTheDocument()
 	})
 
+	it('Should render 5 news cards upon load', async () => {
+		const { findByText } = render(<MemoryRouter><App /></MemoryRouter>)
+
+		const covid = await findByText(/covid & us travel/i)
+		const wildfires = await findByText(/wildfires & respiration/i)
+		const altitude = await findByText(/altitude acclimation tips/i)
+		const bestBeaches = await findByText(/best us beaches/i)
+		const roadTrips = await findByText(/usa road trip routes/i)
+		expect(covid).toBeInTheDocument()
+		expect(wildfires).toBeInTheDocument()
+		expect(altitude).toBeInTheDocument()
+		expect(bestBeaches).toBeInTheDocument()
+		expect(roadTrips).toBeInTheDocument()
+	})
+
 	it('Should display details page when card is clicked', async () => {
 		mocked(getAllData).mockImplementation(() =>
 			Promise.resolve(mockLocationPageData)
 		)
-
 		const { findByText, findByRole } = render(<MemoryRouter><App /></MemoryRouter>)
 
 		const title1 = await findByText(/denver/i)

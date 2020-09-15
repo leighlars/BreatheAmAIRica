@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 
 describe('Location', () => {
 
-  let mockedCityResult:any
+  let mockedCityResult: any
   beforeEach(() => {
     mockedCityResult = {
       currentWeather: {
@@ -33,13 +33,14 @@ describe('Location', () => {
         Discussion: "No fire danger today",
       },
       weeklyWeather: [
+        {},
         {
-        dt: 154646464,
-        sunrise: 154646464,
-        sunset: 154646464,
+        dt: 1852444400,
+        sunrise: 0,
+        sunset: 0,
         temp: {
           day: 285,
-          min: 285,
+          min: 222,
           max: 285,
           night: 285,
           eve: 285,
@@ -108,16 +109,19 @@ describe('Location', () => {
 
     const precipIcon = screen.getByAltText('Rain droplet icon for precipitation')
     const precip = screen.getByText('Precipitation')
-    const precipNum = screen.getByText("2.93", { exact: false });
+    const precipNum = screen.getByText("2.93", { exact: false })
+
     const windIcon = screen.getByAltText('Wind icon for wind speed direction')
     const wind = screen.getByText('Wind')
-    const windSpeed = screen.getByText("0.0", { exact: false });
+    const windSpeed = screen.getByText("0.0", { exact: false })
    
     expect(currentHeader).toBeInTheDocument()
     expect(temperature).toBeInTheDocument()
+
     expect(precipNum).toBeInTheDocument()
     expect(precipIcon).toBeInTheDocument()
     expect(precip).toBeInTheDocument()
+
     expect(windIcon).toBeInTheDocument()
     expect(wind).toBeInTheDocument()
     expect(windSpeed).toBeInTheDocument() 
@@ -137,9 +141,10 @@ describe('Location', () => {
     const aqHeader = screen.getByRole("heading", { name: "AIR QUALITY" })
    
     const activIcon1 = screen.getByAltText('Healthy conditions for park icon')
-    const activIcon2 = screen.getByAltText("Healthy conditions for walking icon");
-    const activIcon3 = screen.getByAltText("Healthy conditions for hiking icon");
+    const activIcon2 = screen.getByAltText("Healthy conditions for walking icon")
+    const activIcon3 = screen.getByAltText("Healthy conditions for hiking icon")
     const activity = screen.getByText('Great day to be outside!')
+
     const aqiIcon = screen.getByAltText('lungs icon for air quality')
     const aqi = screen.getByText('AQI')  
     const aqiNum = screen.getByText('40')
@@ -149,6 +154,7 @@ describe('Location', () => {
     const visibIcon = screen.getByAltText('eye icon for visibility')
     const visibility = screen.getByText('Visibility')
     const visibilityNum = screen.getByText('14.3', {exact: false})
+
     const smoke = screen.getByText('Smoke')
     const smokeIcon = screen.getByAltText('smoke icon for air quality')
     const allergies = screen.getByText("Allergies")
@@ -157,14 +163,16 @@ describe('Location', () => {
     const beeIcon = screen.getByAltText('bee icon for pollen')  
     const newFeatures = screen.getAllByText('Coming Soon!')
     const notesIcon = screen.getByAltText('checklist icon for additional notes')
+
     const notes = screen.getByText('Additional Notes')
     const discussion = screen.getByText('No fire danger today')
      
     expect(aqHeader).toBeInTheDocument()
     expect(activIcon1).toBeInTheDocument()
-    expect(activIcon2).toBeInTheDocument();
-    expect(activIcon3).toBeInTheDocument();
+    expect(activIcon2).toBeInTheDocument()
+    expect(activIcon3).toBeInTheDocument()
     expect(activity).toBeInTheDocument()
+
     expect(uviIcon).toBeInTheDocument()
     expect(uvi).toBeInTheDocument()
     expect(uviNum).toBeInTheDocument()
@@ -174,6 +182,7 @@ describe('Location', () => {
     expect(visibIcon).toBeInTheDocument()
     expect(visibility).toBeInTheDocument()
     expect(visibilityNum).toBeInTheDocument()
+
     expect(smoke).toBeInTheDocument()
     expect(smokeIcon).toBeInTheDocument()
     expect(allergies).toBeInTheDocument()
@@ -182,55 +191,38 @@ describe('Location', () => {
     expect(beeIcon).toBeInTheDocument()
     expect(newFeatures).toHaveLength(3)
     expect(notesIcon).toBeInTheDocument()
+
     expect(notes).toBeInTheDocument()
     expect(discussion).toBeInTheDocument()
   })
   
-  xit('should render a section of the weekly forecast', () => {
-    
-    const { getByRole, getByText, getByAltText, getAllByText} = render(
-     <MemoryRouter>
-      <Location
-       query={"Las Vegas"}
-       getMatchDetails={jest.fn()}
-       getAllDetailsData={jest.fn()}
-      />
-     </MemoryRouter>
+  it('should render a section of the weekly forecast', () => {
+    render(
+      <MemoryRouter>
+        <Location
+          query={"Las Vegas"}
+          detailsData={mockedCityResult}
+          matchDetails={[45, 65.12, "Las Vegas", "NV"]}
+        />
+      </MemoryRouter>
     );
-    const weeklyHeader = getByRole("heading", { name: "WEEKLY FORECAST" })
-    
-    const humidity = getAllByText('Humidity')
-    const cloudCover = getAllByText('Cloud Cover')
-    const uvi = getAllByText('UVI')
 
-    const tuesday = getByText('Tues')
-    const tuesdayHighTemp = getByText('78')
-    const tuesdayIcon = getByAltText('Double Clouds icon')
+    const weeklyHeader = screen.getByRole("heading", { name: "WEEKLY FORECAST" })
     
+    const humidity = screen.getByText('Humidity')
+    const cloudCover = screen.getByText('Cloud Cover')
+    const uvi = screen.getByText('UVI')
 
-    const saturday = getByText("Sat");
-    const saturdayHighTemp = getByText("95")
-    const saturdayIcon = getByAltText("Clear Day icon")
-   
+    const wednesday = screen.getByText('Wed', {exact: false})
+    const wednesdayHighTemp = screen.getByText('53', {exact: false})
+    
     expect(weeklyHeader).toBeInTheDocument()
-    expect(humidity).toHaveLength(6)
-    expect(cloudCover).toHaveLength(6)
-    expect(uvi).toHaveLength(6)
 
-    expect(tuesday).toBeInTheDocument()
-    expect(tuesdayHighTemp).toBeInTheDocument()
-    expect(tuesdayIcon).toBeInTheDocument()
-   
-    expect(saturday).toBeInTheDocument()
-    expect(saturdayHighTemp).toBeInTheDocument()
-    expect(saturdayIcon).toBeInTheDocument()
+    expect(humidity).toBeInTheDocument()
+    expect(cloudCover).toBeInTheDocument()
+    expect(uvi).toBeInTheDocument()
+
+    expect(wednesday).toBeInTheDocument()
+    expect(wednesdayHighTemp).toBeInTheDocument()
   })
-
-  // i think we can only get to a location via clicking a card
-  // is there a way the page itself can fetch the data?
-  // also, should we set a state in case someone refreshes the page?
-  // late night thoughts, if too late in the project, we can 
-  // add as extension
-  
-
 })

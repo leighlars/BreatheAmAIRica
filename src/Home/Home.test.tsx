@@ -20,7 +20,7 @@ describe('Home', () => {
 		)
 	})
 
-  it('should render 15 cards upon load', async () => {
+  it('Should render 15 cards upon load', async () => {
 		const { findByText, findAllByText } = render(
 			<MemoryRouter>
 				<Home
@@ -43,18 +43,8 @@ describe('Home', () => {
 		expect(uvi[0]).toBeInTheDocument()
 		expect(uvi[14]).toBeInTheDocument()
   })
-
-  it('should display location page when card is clicked', () => {
-		// mock getHomeData
-		// render Home
-		// locate card
-		// mock fetching the location data
-		// fire click event on card
-		// locate items on the location page
-		// expect them to be in the document
-	})
 	
-	it('should display 4 horizontal scrolls with info cards', () => {
+	it('Should display 4 horizontal scrolls with info cards', () => {
 		const { getByRole } = render(
 			<MemoryRouter>
 				<Home

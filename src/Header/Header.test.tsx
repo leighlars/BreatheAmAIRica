@@ -6,14 +6,6 @@ import { MemoryRouter } from "react-router-dom";
 
 describe('Header', () => {
   
-  // beforeEach(() => {
-  //   render(
-  //   <MemoryRouter>
-  //     <Header 
-  //       getSearchResults={jest.fn()}/>
-  //   </MemoryRouter>)
-  // })
-
   it('should render logo and search bar in Header', () => {
     render(
      <MemoryRouter>
@@ -34,6 +26,20 @@ describe('Header', () => {
     expect(homeLink).toBeInTheDocument()
   })
 
+  it("should reflect change in value when data is input in form", () => {
+   render(
+    <MemoryRouter>
+     <Header getSearchResults={jest.fn()} />
+    </MemoryRouter>
+   );
+   const locationInput = screen.getByPlaceholderText(
+    "Search city, zip, or county"
+   );
+   expect(locationInput.value).toBe("");
+   fireEvent.change(locationInput, { target: { value: "Dallas" } });
+   expect(locationInput.value).toBe("Dallas");
+  });
+
   it('should fire an event when search button is clicked', () => {
     const getSearchResults = jest.fn()
     render(
@@ -45,6 +51,7 @@ describe('Header', () => {
     fireEvent.click(magGlass)
     expect(getSearchResults).toBeCalledTimes(1)
   })
+
 
   
 

@@ -166,7 +166,7 @@ export const uvIndex = (uvi: number) => {
 
 export const temp = (temp: number) => {
   const temperature =  kelvinToFahren(temp)
-   if (temperature <= 32) {
+   if (temperature <= 32 && temperature > -30) {
     return (
      <h3 className="card-extreme current-temp">{temperature}&deg;</h3>
     )

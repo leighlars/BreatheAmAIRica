@@ -13,11 +13,15 @@ import cough from '../assets/cough.png'
 
 import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
-import { LocationProps } from '../helpers/typeDefinitions'
+import { DataTypes } from '../helpers/typeDefinitions'
 
+interface LocationProps {
+  detailsData?: DataTypes
+  query: any
+  matchDetails: [number, number, string, string]
+}
 
-
-const Location = (props: LocationProps) => {
+const Location: React.FC<LocationProps> = (props) => {
   const [ time, setTime ] = useState<string>()
 
   useEffect(() => {

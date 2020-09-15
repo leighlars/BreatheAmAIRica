@@ -38,7 +38,6 @@
     text-decoration: none;
     &:hover {
       color: $lightBlue;
-      // text-shadow: 1px 1px black;
     }
   }
   .compare-link {
@@ -50,6 +49,7 @@
 .legends {
   @include rowDisplay();
   width: 70vw;
+
   .aq-image {
     border-radius: 14px;
     box-shadow: 3px 3px black; 
@@ -68,15 +68,15 @@
     margin: 0 auto;
     color: $darkBlue;
     margin: 10px;
-
   }
     table {
       width: 100%;
     }
     tbody {
-    tr {
-      @include rowDisplay();
-      justify-content: space-between;
+     tr {
+        @include rowDisplay();
+        justify-content: space-between;
+
       td {
        @include rowDisplay();
        @include textFont(.75em);
@@ -113,7 +113,6 @@
     margin: 5px;
     &:hover {
       color: $lightBlue;
-      // text-shadow: 1px 1px black;
     }
   }
   p {

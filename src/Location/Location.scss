@@ -100,39 +100,43 @@
   
   .aq-section {
     @include columnDisplay();
+    width: 100%;
     
     .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
-      width: 70%;
-      margin-left: 20px;
+      justify-content: space-between;
+      width: 80%;
     }
 
     .activity {
-      margin-left: 70px;
+      justify-content: center;
+      p {
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
     }
-    
     .info-box-aq {
       @include rowDisplay();
-      width: 250px;
+     
     }
     .info-box-aq-discussion {
       @include columnDisplay();
-      width: 70%;
-      margin-left: 30px;
-    }
-    .disc-top {
-      @include rowDisplay();
-      width: 100%;
-    }
-    .discussion-text {
-      width: 100%;
+      margin-left: 10px;
+      width: 80%;
+      .disc-top {
+        @include rowDisplay();
+        width: 100%;
+      }
+      .discussion-text {
+        width: 100%;
+      }
     }
     p {
       @include textFont(1.2em);
       color: $darkBlue;
       margin-left: 5px
     }
-    
+
     .type {
       font-weight: bold;
     }

@@ -5,45 +5,44 @@
   margin: 0 auto;
   padding: 0;
   overflow-x: scroll;
-  margin-bottom: 10px;
   overflow-y: hidden;
   width: 85%;
-}
 
-.daily-weather {
-  @include columnDisplay();
-  padding: 0;
-  width: 205px;
-  margin: 10px;
-  .list {
-    @include rowDisplay();
-    align-items: initial;
-  }  
-  .date {
-    font-weight: bold;
-  }
+
+  .daily-weather {
+    @include columnDisplay();
+    padding: 0;
+    margin: 10px;
+
+    .list {
+      @include rowDisplay();
+      justify-content: space-evenly;
+      width: 100px;
+      // margin-left: 5px;
+    }  
+    .date {
+      color: $darkBlue;
+      font-weight: bold;
+      font-size: 1em;
+    }
     h3 {
       @include headerFont(1em);
       margin-left: 2px;
     }
-
-  img {
-      margin-top: .5em;
-      width: 4em;
-    }
-  p {
-    @include textFont(1em);
-  }
-  .unit {
-    @include textFont(.9em);
-    color: $darkBlue;
-    margin-left: 2px;
-  }
- 
-  .card-temp {
-        color: $darkBlue;
-        text-shadow: .5px .5px black;
+    img {
+        margin-top: .5em;
+        margin-bottom: .5em;
+        width: 4em;
       }
+    p {
+      @include textFont(.8em);
+    }
+    .unit {
+      color: $darkBlue;
+      font-weight: bold;
+      margin-left: 3px;
+    }
+ 
       .card-low {
         color: #41ab5b;
       }
@@ -63,4 +62,5 @@
       .card-extreme {
         color: #7c04bd;
       }
+}
 }

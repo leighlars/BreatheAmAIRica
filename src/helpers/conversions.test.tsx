@@ -47,7 +47,7 @@ describe('conversions testing', () => {
 
   it('should check if uvIndex is functioning correctly', () => {
     expect(uvIndex(33))
-      .toEqual(<p className="card-extreme"><b>{'Hazardous'}</b></p>)
+      .toEqual(<p className="card-extreme"><b>{33}</b></p>)
     expect(uvIndex('no data'))
       .toEqual(<p className="card-extreme"><b>{'N/A'}</b></p>)
   })

@@ -92,11 +92,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-[Josh Sevy](https://github.com/JoshSevy) 
-[Leigh Larson](https://github.com/leighlars)
-[Erin Untermeyer](https://github.com/ErinUntermeyer)
+- [Josh Sevy](https://github.com/JoshSevy) 
+- [Leigh Larson](https://github.com/leighlars)
+- [Erin Untermeyer](https://github.com/ErinUntermeyer)
 
-[Project Link](https://github.com/leighlars/WeatherOrNot)
+- [Project Link](https://github.com/leighlars/BreatheAmAIRica)
 
 
 ## Acknowledgements
@@ -106,12 +106,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/leighlars/WeatherOrNot.svg?style=flat-square
-[contributors-url]: https://github.com/leighlars/overlook/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/leighlars/WeatherOrNot.svg?style=flat-square
-[forks-url]: https://github.com/leighlars/overlook/network/members
-[stars-shield]: https://img.shields.io/github/stars/leighlars/WeatherOrNot.svg?style=flat-square
-[stars-url]: https://github.com/leighlars/overlook/stargazers
-[issues-shield]: https://img.shields.io/github/issues/leighlars/WeatherOrNot.svg?style=flat-square
-[issues-url]: https://github.com/leighlars/WeatherOrNot/issues
+[contributors-shield]: https://img.shields.io/github/contributors/leighlars/BreatheAmAIRica.svg?style=flat-square
+[contributors-url]: https://github.com/leighlars/BreatheAmAIRica/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/leighlars/BreatheAmAIRica.svg?style=flat-square
+[forks-url]: https://github.com/leighlars/BreatheAmAIRica/network/members
+[stars-shield]: https://img.shields.io/github/stars/leighlars/BreatheAmAIRica.svg?style=flat-square
+[stars-url]: https://github.com/leighlars/BreatheAmAIRica/stargazers
+[issues-shield]: https://img.shields.io/github/issues/leighlars/BreatheAmAIRica.svg?style=flat-square
+[issues-url]: https://github.com/leighlars/BreatheAmAIRica/issues
 

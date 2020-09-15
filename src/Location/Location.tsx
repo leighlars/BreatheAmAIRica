@@ -13,9 +13,15 @@ import cough from '../assets/cough.png'
 
 import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
-import { DetailsProps } from '../helpers/detailsdefinitions'
+import { DataTypes } from '../helpers/typeDefinitions'
 
-const Location = (props: any) => {
+interface LocationProps {
+  detailsData?: DataTypes
+  query: any
+  matchDetails: [number, number, string, string]
+}
+
+const Location: React.FC<LocationProps> = (props) => {
   const [ time, setTime ] = useState<string>()
 
   useEffect(() => {
@@ -45,6 +51,7 @@ const Location = (props: any) => {
       <div className="info-box">
        <h4 className="info-box-header">HAPPENING NOW</h4>
       <p className="current-date">{weatherDtDisplay(props.detailsData.currentWeather.dt)}</p>
+      <p className="clock">{time}</p>
        <article className="current-weather">
         <div className="current-weather-left">
          {temp(props.detailsData.currentWeather.temp)}
@@ -73,7 +80,7 @@ const Location = (props: any) => {
           />
           <p className="type">Wind</p>
           <p className="current-wind">
-           {props.detailsData.currentWeather.wind_speed} mph /
+            {(props.detailsData.currentWeather.wind_speed * 0.00062137).toFixed(1)} mph /
            {degToDirection(props.detailsData.currentWeather.wind_deg)}
           </p>
          </span>
@@ -112,7 +119,7 @@ const Location = (props: any) => {
                 />
                 <p className="type">Visibility</p>
                 <p className="unit">
-                {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
+                    {(props.detailsData.currentWeather.visibility * 0.00062137).toFixed(1)} mi
                 </p>
             </span>
             <span className="info-box-aq">
@@ -161,7 +168,8 @@ const Location = (props: any) => {
       <div className="info-box weekly-forecast">
        <h4 className="info-box-header">WEEKLY FORECAST</h4>
         <div className='forecast-scroll'>
-          <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
+          <WeeklyForecast 
+            weeklyWeather={props.detailsData.weeklyWeather} />
         </div>
       </div>
      </>

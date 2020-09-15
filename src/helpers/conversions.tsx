@@ -15,7 +15,8 @@ import mist from "../assets/50d.png";
 export const degToDirection = (deg: number): string => {
   const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
-  return directions[index];
+
+  return directions[index]
 };
 
 const kelvinToFahren = (k: number): number => {
@@ -34,6 +35,7 @@ export const forecastDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTM
 
   const weekDate = convertDate(date.getUTCDate());
   const weekday = days[date.getDay()]
+
   return <span>{weekday} {weekDate}</span>
 }
 
@@ -45,6 +47,7 @@ export const weatherDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTML
   const currentMonth = months[date.getMonth()]
   const currentDay = days[date.getDay()]
   const currentDate = convertDate(date.getUTCDate())
+
   return <span>{ currentDay } < br /> { currentMonth } { currentDate } </span>
 }
 
@@ -163,7 +166,7 @@ export const uvIndex = (uvi: number) => {
 
 export const temp = (temp: number) => {
   const temperature =  kelvinToFahren(temp)
-   if (temperature <= 32) {
+   if (temperature <= 32 && temperature > -30) {
     return (
      <h3 className="card-extreme current-temp">{temperature}&deg;</h3>
     )
@@ -175,10 +178,14 @@ export const temp = (temp: number) => {
     return (
      <h3 className="card-high current-temp">{temperature}&deg;</h3>
     )
-   } else if (temperature >= 80) {
+   } else if (temperature >= 80 && temperature < 125) {
     return (
      <h3 className="card-very-high current-temp">{temperature}&deg;</h3>
     )
+   } else {
+     return (
+     <h3 className="card-very-high current-temp">Incorrect Data</h3>
+     )
    }
 }
   

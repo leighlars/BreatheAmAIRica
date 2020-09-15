@@ -2,8 +2,11 @@ import React from 'react'
 import './WeeklyForecast.scss'
 import { degToDirection, forecastDtDisplay, weatherIcon, temp } from '../helpers/conversions'
 
+import { WeeklyProps } from '../helpers/typeDefinitions'
 
-const WeeklyForecast = (props: any) => {
+
+
+const WeeklyForecast: React.FC<WeeklyProps> = (props) => {
 
   const renderDailyWeather = props.weeklyWeather.map((day: any, index: number) => {
     return (

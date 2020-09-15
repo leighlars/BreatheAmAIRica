@@ -54,7 +54,7 @@ describe('Location', () => {
         pressure: 145,
         humidity: 85,
         dew_point: 246,
-        wind_speed: 245,
+        wind_speed: 0.0,
         wind_deg: 320,
         weather: [
           {
@@ -104,41 +104,35 @@ describe('Location', () => {
     );
 
     const currentHeader = screen.getByRole('heading', {name: 'HAPPENING NOW'})
-    const temperature = screen.getBy('68')
+    const temperature = screen.getByText('68', {exact: false})
 
     const precipIcon = screen.getByAltText('Rain droplet icon for precipitation')
     const precip = screen.getByText('Precipitation')
-    const precipNum = screen.getByText('2.93')
+    const precipNum = screen.getByText("2.93", { exact: false });
     const windIcon = screen.getByAltText('Wind icon for wind speed direction')
     const wind = screen.getByText('Wind')
-    const windSpeed = screen.getByText('4.6 mph /')
-   screen.
-
+    const windSpeed = screen.getByText("0.0", { exact: false });
+   
     expect(currentHeader).toBeInTheDocument()
-    // expect(date).toBeInTheDocument()
     expect(temperature).toBeInTheDocument()
-
+    expect(precipNum).toBeInTheDocument()
     expect(precipIcon).toBeInTheDocument()
     expect(precip).toBeInTheDocument()
-
     expect(windIcon).toBeInTheDocument()
     expect(wind).toBeInTheDocument()
     expect(windSpeed).toBeInTheDocument() 
-   
-    
   })
   
   it('should render a section on current air quality and activities', () => {
- 
-    const { getByRole, getByText, getAllByText, getByAltText} = render(
-     <MemoryRouter>
-      <Location
-       query={"Las Vegas"}
-       getMatchDetails={jest.fn()}
-       getAllDetailsData={jest.fn()}
-      />
-     </MemoryRouter>
-    )
+    render(
+      <MemoryRouter>
+        <Location
+          query={"Las Vegas"}
+          detailsData={mockedCityResult}
+          matchDetails={[45, 65.12, "Las Vegas", "NV"]}
+        />
+      </MemoryRouter>
+    );
 
     const aqHeader = getByRole("heading", { name: "AIR QUALITY" })
    

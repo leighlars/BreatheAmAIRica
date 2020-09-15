@@ -55,7 +55,7 @@ const Location = (props: any) => {
       <img src={greenwalking} alt='Healthy conditions for walking icon' className='small-weather-icons'/>
       <img src={greensoccer} alt='Healthy conditions for park icon' className='small-weather-icons'/>
       <img src={greenbackpack} alt='Healthy conditions for hiking icon' className='small-weather-icons'/>
-      <p className='discussion-text'>Great day to be outside!</p>
+      <p className='card-low'>Great day to be outside!</p>
      </span>
     );
    } else if (
@@ -68,7 +68,7 @@ const Location = (props: any) => {
       <img src={orangewalking} alt='Moderate conditions for walking icon' className='small-weather-icons'/>
       <img src={orangesoccer} alt='Moderate conditions for park icon' className='small-weather-icons'/>
       <img src={orangebackpack} alt='Moderate conditions for hiking icon' className='small-weather-icons'/>
-      <p className='discussion-text'>Conditions maybe harmful to some</p>
+      <p className='card-high'>Conditions maybe harmful to some</p>
      </span>
     );
    } else if ((aqiIndex >= 201) || aqiIndex === "Very Unhealthy" || uviNum >= 9) {
@@ -77,7 +77,7 @@ const Location = (props: any) => {
       <img src={redwalking} alt='Unhealthy conditions for walking icon' className='small-weather-icons'/>
       <img src={redsoccer} alt='Unhealthy conditions for park icon' className='small-weather-icons'/>
       <img src={redbackpack} alt='Unhealthy conditions for hiking icon' className='small-weather-icons'/>
-      <p className='discussion-text'>Stay indoors today!</p>
+      <p className='card-very-high'>Stay indoors today!</p>
      </span>
     )
    } else {

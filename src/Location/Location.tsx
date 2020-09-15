@@ -51,6 +51,7 @@ const Location: React.FC<LocationProps> = (props) => {
       <div className="info-box">
        <h4 className="info-box-header">HAPPENING NOW</h4>
       <p className="current-date">{weatherDtDisplay(props.detailsData.currentWeather.dt)}</p>
+      <p className="clock">{time}</p>
        <article className="current-weather">
         <div className="current-weather-left">
          {temp(props.detailsData.currentWeather.temp)}
@@ -79,7 +80,7 @@ const Location: React.FC<LocationProps> = (props) => {
           />
           <p className="type">Wind</p>
           <p className="current-wind">
-           {props.detailsData.currentWeather.wind_speed} mph /
+            {(props.detailsData.currentWeather.wind_speed * 0.00062137).toFixed(1)} mph /
            {degToDirection(props.detailsData.currentWeather.wind_deg)}
           </p>
          </span>
@@ -118,7 +119,7 @@ const Location: React.FC<LocationProps> = (props) => {
                 />
                 <p className="type">Visibility</p>
                 <p className="unit">
-                {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
+                    {(props.detailsData.currentWeather.visibility * 0.00062137).toFixed(1)} mi
                 </p>
             </span>
             <span className="info-box-aq">

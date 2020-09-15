@@ -8,7 +8,7 @@ import { mocked } from 'ts-jest/utils'
 jest.mock('../helpers/dataFilter')
 
 describe('App', () => {
-	let mockHomePageData, data, mockLocationPageData
+	let mockHomePageData: [], data: {}, mockLocationPageData: any
 
 	beforeEach(() => {
 		mocked(getHomeData).mockImplementation(() =>

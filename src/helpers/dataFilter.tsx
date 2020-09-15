@@ -2,13 +2,13 @@ import {getWeatherData, getAirQualityData} from './apiCalls';
 
 
 export const getAllData = async (lat: number, long: number) => {
-  const data: any = {};
-  const weatherData = await getWeatherData(lat, long);
-  const airQualityData = await getAirQualityData(lat, long);
-	data.currentAir = airQualityData[0];
-  data.currentWeather = weatherData.current;
-  data.weeklyWeather = weatherData.daily;  
-  return data;
+  const data: any = {}
+  const weatherData = await getWeatherData(lat, long)
+  const airQualityData = await getAirQualityData(lat, long)
+	data.currentAir = airQualityData[0]
+  data.currentWeather = weatherData.current
+  data.weeklyWeather = weatherData.daily
+  return data
 }
 
 export const getHomeData = async (lat: number, long: number) => {

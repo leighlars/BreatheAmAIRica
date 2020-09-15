@@ -42,7 +42,8 @@
       .unit {
         @include textFont(.75em);
         color: $darkBlue;
-        margin: 0;
+        margin-left: 2px;
+        margin-bottom: 3px;
       }
       .card-temp {
         color: $darkBlue;
@@ -53,6 +54,7 @@
         color: #41ab5b;
         text-shadow: .5px .5px black;
       }
+
       .card-moderate {
         @include textFont(1.25em);
         color: $goldenrod;
@@ -63,6 +65,7 @@
         @include textFont(1.25em);
         color: #db6307;
         text-shadow: .5px .5px black;
+
       }
   
       .card-very-high {

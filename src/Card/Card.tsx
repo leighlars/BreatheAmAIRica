@@ -40,8 +40,10 @@ const Card: React.FC<CardProps> = (props) => {
 				{uvIndex(props.uvi)}
 				<p className="unit">UVI</p>
 			</span>
-			{/* {aqIndex(props.aqi, props.aqiCat)}
-			<p className="unit">AQI</p> */}
+			{props.aqi || props.aqiCat ? (<span className='card-list'>
+				{aqIndex(props.aqi, props.aqiCat)}
+				<p className="unit">AQI</p>
+			</span>) : null}
 			{weatherIcon(props.icon)}
 		</article>
 		</Link>

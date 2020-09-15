@@ -149,7 +149,7 @@ const Location = (props: any) => {
        <article className="aq-section">
         {/* <div className="activity-section"> */}
          {activityIcons(
-          props.detailsData.currentAir.AQI,
+          props.detailsData.currentAir.aqi,
           props.detailsData.currentAir.aqCat,
           props.detailsData.currentWeather.uvi
          )}

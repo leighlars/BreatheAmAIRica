@@ -1,13 +1,13 @@
 import React from 'react'
 import Results from './Results'
-import { render, screen, findByText, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { getCoordinates } from '../helpers/apiCalls'
 import { mocked } from 'ts-jest/utils'
 jest.mock('../helpers/apiCalls')
 
 describe('Results', () => {
-	let mockedSearchResults: Array<{}>, mockedWorldResults: Array<{}>
+	let mockedSearchResults: Array<{}>
 
 	beforeEach(() => {
 		mockedSearchResults = [
@@ -26,24 +26,6 @@ describe('Results', () => {
 				'country': 'United States',
 				'continent': 'North America',
 				'label': 'Miami, FL, USA'
-			}
-		],
-		mockedWorldResults = [
-			{
-				'latitude': 40,
-				'longitude': -110,
-				'name': 'Denver',
-				'country': 'United States',
-				'continent': 'North America',
-				'label': 'Denver, CO, USA'
-			},
-			{
-				'latitude': 48,
-				'longitude': 3,
-				'name': 'Paris',
-				'country': 'France',
-				'continent': 'Europe',
-				'label': 'Paris, France'
 			}
 		]
 	})
@@ -86,13 +68,31 @@ describe('Results', () => {
 	})
 
 	it('Should filter only results from United States', async () => {
+		const mockedWorldResults = [
+			{
+				'latitude': 40,
+				'longitude': -110,
+				'name': 'Denver',
+				'country': 'United States',
+				'continent': 'North America',
+				'label': 'Denver, CO, USA'
+			},
+			{
+				'latitude': 48,
+				'longitude': 3,
+				'name': 'Paris',
+				'country': 'France',
+				'continent': 'Europe',
+				'label': 'Paris, France'
+			}
+		]
 		mocked(getCoordinates).mockImplementation(() =>
-			Promise.resolve(mockedSearchResults)
+			Promise.resolve(mockedWorldResults)
 		)
 		const { findByText } = render(
 			<MemoryRouter>
 				<Results
-					searchResults={mockedSearchResults}
+					searchResults={mockedWorldResults}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>
@@ -106,7 +106,7 @@ describe('Results', () => {
 		expect(heading2).not.toBeInTheDocument()
 	})
 
-	it('Should fire the correct methods when card is clicked', async () => {
+	it('Should fire the correct methods when result card is clicked', async () => {
 		const mockGetMatchDetails = jest.fn()
 		const mockGetAllDetailsData = jest.fn()
 		const { findByText } = render(

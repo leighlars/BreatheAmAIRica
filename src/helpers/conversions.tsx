@@ -16,7 +16,6 @@ export const degToDirection = (deg: number): string => {
   const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
 
-
   return directions[index]
 };
 
@@ -36,6 +35,7 @@ export const forecastDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTM
 
   const weekDate = convertDate(date.getUTCDate());
   const weekday = days[date.getDay()]
+
   return <span>{weekday} {weekDate}</span>
 }
 
@@ -47,6 +47,7 @@ export const weatherDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTML
   const currentMonth = months[date.getMonth()]
   const currentDay = days[date.getDay()]
   const currentDate = convertDate(date.getUTCDate())
+  
   return <span>{ currentDay } < br /> { currentMonth } { currentDate } </span>
 }
 

@@ -1,12 +1,6 @@
 import React from 'react';
 
 import cloudyNight from '../assets/02n.png'
-import waterdrop from '../assets/water-drop.png'
-import eye from '../assets/eye.png'
-import lungs from '../assets/lungs.png'
-import sun from '../assets/sun.png'
-import bee from "../assets/bee.png"
-import wind from '../assets/wind.png'
 import clearDay from "../assets/01d.png";
 import clearNight from "../assets/01n.png";
 import cloudyDay from "../assets/02d.png";

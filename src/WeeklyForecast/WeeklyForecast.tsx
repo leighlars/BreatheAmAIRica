@@ -12,7 +12,7 @@ const WeeklyForecast = (props: any) => {
       key={Math.floor(Math.random() * Date.now())}
       className="daily-weather"
      >
-        <p>{forecastDtDisplay(day.dt)}</p>
+        <p className='date'>{forecastDtDisplay(day.dt)}</p>
       {weatherIcon(day.weather[0].icon)}
       <span className="list">
        {temp(day.temp.max)}

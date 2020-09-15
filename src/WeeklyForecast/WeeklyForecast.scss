@@ -20,6 +20,9 @@
     @include rowDisplay();
     align-items: initial;
   }  
+  .date {
+    font-weight: bold;
+  }
     h3 {
       @include headerFont(1.2em);
       margin-left: 2px;

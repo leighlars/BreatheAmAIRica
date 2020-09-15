@@ -126,7 +126,7 @@ const Location = (props: any) => {
            {props.detailsData.currentWeather.rain
             ? props.detailsData.currentWeather.rain["1h"]
             : 0}
-           %
+           mm/hr
           </p>
          </span>
          <span className="current-weather-right-list">

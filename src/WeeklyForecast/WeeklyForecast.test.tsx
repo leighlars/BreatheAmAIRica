@@ -1,12 +1,7 @@
 import React from "react";
-import {
- render,
- getAllByRole,
- getAllByText,
- getByAltText,
-} from "@testing-library/react";
+import {render} from "@testing-library/react";
 import WeeklyForecast from "./WeeklyForecast";
-import { MemoryRouter } from "react-router-dom";
+// import { MemoryRouter } from "react-router-dom";
 import { mocked } from "ts-jest/utils";
 jest.mock("../helpers/apiCalls.tsx");
 

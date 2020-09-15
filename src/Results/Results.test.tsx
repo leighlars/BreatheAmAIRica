@@ -54,7 +54,11 @@ describe('Results', () => {
 		)
 		const { findByText } = render(
 			<MemoryRouter>
-				<Results searchResults={mockedSearchResults} />
+				<Results
+					searchResults={mockedSearchResults}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
 			</MemoryRouter>
 		)
 		
@@ -68,7 +72,11 @@ describe('Results', () => {
 	it('Should render message if there are no search results', () => {
 		render(
 			<MemoryRouter>
-				<Results searchResults={[]} />
+				<Results
+					searchResults={[]}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
 			</MemoryRouter>
 		)
 
@@ -83,7 +91,11 @@ describe('Results', () => {
 		)
 		const { findByText } = render(
 			<MemoryRouter>
-				<Results searchResults={mockedSearchResults} />
+				<Results
+					searchResults={mockedSearchResults}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
 			</MemoryRouter>
 		)
 

@@ -9,14 +9,14 @@ import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
 import { getAllData } from '../helpers/dataFilter'
-import { DetailsProps } from '../helpers/detailsdefinitions'
 
 
-const App: React.FC<DetailsProps> = () => {
+
+const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState<string>()
   const [ matchDetails, setMatchDetails ] = useState<[number, number, string, string]>()
-	const [ detailsData, setDetailsData ] = useState<DetailsProps>()
+	const [ detailsData, setDetailsData ] = useState<{}>()
 	const [ initialLoad, setInitialLoad ] = useState(false)
 	const [ homePageData, setHomePageData ] = useState<[string, Array<{}>]>()
 

@@ -13,9 +13,9 @@ import cough from '../assets/cough.png'
 
 import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
-import { DetailsProps } from '../helpers/detailsdefinitions'
+import { DetailsProps } from '../helpers/typeDefinitions'
 
-const Location = (props: any) => {
+const Location: React.FC<DetailsProps> = (props) => {
   const [ time, setTime ] = useState<string>()
 
   useEffect(() => {
@@ -161,7 +161,8 @@ const Location = (props: any) => {
       <div className="info-box weekly-forecast">
        <h4 className="info-box-header">WEEKLY FORECAST</h4>
         <div className='forecast-scroll'>
-          <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
+          <WeeklyForecast 
+            weeklyWeather={props.detailsData.weeklyWeather} />
         </div>
       </div>
      </>

@@ -13,9 +13,11 @@ import cough from '../assets/cough.png'
 
 import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
-import { DetailsProps } from '../helpers/typeDefinitions'
+import { LocationProps } from '../helpers/typeDefinitions'
 
-const Location: React.FC<DetailsProps> = (props) => {
+
+
+const Location = (props: LocationProps) => {
   const [ time, setTime ] = useState<string>()
 
   useEffect(() => {

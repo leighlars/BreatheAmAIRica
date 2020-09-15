@@ -104,17 +104,20 @@
     
     .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
+      justify-content: space-between;
+      width: 80%;
+    }
+
+    .activity {
       justify-content: center;
-      width: 100%;
-      text-align: center;
     }
     .info-box-aq {
       @include rowDisplay();
-      width: 250px;
+     
     }
     .info-box-aq-discussion {
       @include columnDisplay();
-      width: 70%;
+      width: 80%;
       .disc-top {
         @include rowDisplay();
         width: 100%;

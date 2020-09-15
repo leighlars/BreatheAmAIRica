@@ -52,8 +52,4 @@ describe('Header', () => {
     expect(getSearchResults).toBeCalledTimes(1)
   })
 
-
-  
-
-
 })

@@ -20,8 +20,6 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [License](#license)
@@ -51,13 +49,10 @@ TDD with Jest
 To interact with the app without cloning down the repo, check out our [deployed page]().
 Otherwise, fork and clone down the repo. 
 
-### Prerequisites
-
 Once you have locally cloned down the repo, within that file, run 
 `npm i`
 Once all dependencies are installed, run
 `npm start`
-
 
 ## Usage
 

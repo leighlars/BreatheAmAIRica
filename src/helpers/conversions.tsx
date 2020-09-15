@@ -47,7 +47,7 @@ export const weatherDtDisplay = (dt: number): React.DetailedHTMLProps<React.HTML
   const currentMonth = months[date.getMonth()]
   const currentDay = days[date.getDay()]
   const currentDate = convertDate(date.getUTCDate())
-  
+
   return <span>{ currentDay } < br /> { currentMonth } { currentDate } </span>
 }
 
@@ -178,10 +178,14 @@ export const temp = (temp: number) => {
     return (
      <h3 className="card-high current-temp">{temperature}&deg;</h3>
     )
-   } else if (temperature >= 80) {
+   } else if (temperature >= 80 && temperature < 125) {
     return (
      <h3 className="card-very-high current-temp">{temperature}&deg;</h3>
     )
+   } else {
+     return (
+     <h3 className="card-very-high current-temp">Incorrect Data</h3>
+     )
    }
 }
   

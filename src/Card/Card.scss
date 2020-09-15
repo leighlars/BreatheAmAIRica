@@ -12,17 +12,12 @@
     margin: 1.5em;
     padding: 2%;
     img {
-      // margin-top: .5em;
+      margin: 0;
       width: 4em;
     }
     &:hover {
       border: 3px solid $goldenrod;
       transform: scale(1.05);
-    }
-    
-      .aqi {
-      @include rowDisplay();
-      margin: 0;
     }
 
     .card-header {
@@ -35,7 +30,7 @@
       margin: 10px;
       text-shadow: .5px .5px black;
     }
-    .card-air-temp {
+    .card-list {
       @include rowDisplay();
       align-items: flex-end;
       h3 {
@@ -44,7 +39,6 @@
         margin-right: 3px;
         text-shadow: 1px 1px black;
       }
-      
       .unit {
         @include textFont(.75em);
         color: $darkBlue;
@@ -56,27 +50,29 @@
       }
       .card-low {
         color: #41ab5b;
-        @include textFont(1.45em);
+        @include textFont(1.25em);
         text-shadow: .5px .5px black;
       }
       .card-moderate {
         color: $goldenrod;
-        @include textFont(1.45em);
+        @include textFont(1.25em);
         text-shadow: .5px .5px black;
       }
   
       .card-high {
         color: #db6307;
-        @include textFont(1.45em);
+        @include textFont(1.25em);
         text-shadow: .5px .5px black;
       }
   
       .card-very-high {
         color: #d12a46;
+        @include textFont(1.25em);
         text-shadow: .5px .5px black;
       }
   
       .card-extreme {
+        @include textFont(1.25em);
         color: #7c04bd;
       }
     }

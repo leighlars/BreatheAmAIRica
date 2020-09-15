@@ -32,14 +32,16 @@ const Card: React.FC<CardProps> = (props) => {
 		>
 		<article className="card-container" key={props.locality}>
 		<h2 className="card-header">{props.locality}</h2>
-			<div className="card-air-temp">
-			{temp(props.temp)}
-			<p className="unit">&deg;F</p>
-			{uvIndex(props.uvi)}
-			<p className="unit">UVI</p>
+			<span className="card-list">
+				{temp(props.temp)}
+				<p className="unit">&deg;F</p>
+			</span>
+			<span className='card-list'>
+				{uvIndex(props.uvi)}
+				<p className="unit">UVI</p>
+			</span>
 			{/* {aqIndex(props.aqi, props.aqiCat)}
 			<p className="unit">AQI</p> */}
-			</div>
 			{weatherIcon(props.icon)}
 		</article>
 		</Link>

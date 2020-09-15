@@ -28,7 +28,7 @@ describe('Location', () => {
       "AQI": 40,
       "Category": {
        "Name": "Low",
-       "Number": 3,
+       "Number": 1,
       },
       "Discussion": 'No fire danger today'
      },
@@ -67,15 +67,18 @@ describe('Location', () => {
        getAllDetailsData={jest.fn()}
        />
      </MemoryRouter>
-    );
+    )
+
     const currentHeader = getByRole('heading', {name: 'HAPPENING NOW'})
     const temperature = getByText('68', {exact: false})
     const precipIcon = getByAltText('Rain droplet icon for precipitation')
     const precip = getByText('Precipitation')
     const windIcon = getByAltText('Wind icon for wind speed direction')
     const wind = getByText('4.6 mph /')
+    // const date = getByText('')
 
     expect(currentHeader).toBeInTheDocument()
+    // expect(date).toBeInTheDocument()
     expect(temperature).toBeInTheDocument()
     expect(precipIcon).toBeInTheDocument()
     expect(precip).toBeInTheDocument()

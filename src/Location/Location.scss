@@ -48,6 +48,14 @@
       font-weight: bold;
     }
 
+    .clock {
+      display: inline-block;
+      @include textFont(1em);
+      color: $darkBlue;
+      font-weight: bold;
+
+    }
+
     .current-weather {
       @include rowDisplay();
       justify-content: space-between;

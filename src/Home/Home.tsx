@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = props => {
 		if (props.homePageData) {
 			makeCards(props.homePageData)
 		} else {
-			const getCityData = homeCities.map(async (city: {locality: string, region: string, lat: number, long: number}) => {
+			const getCityData = homeCities.map(async (city: { locality: string, region: string, lat: number, long: number }) => {
 				const cityLocality = city.locality
 				const cityRegion = city.region
 				const cityLat = city.lat

@@ -1,10 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import App from './App'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, act } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { getHomeData, getAllData } from '../helpers/dataFilter'
 import { mocked } from 'ts-jest/utils'
+
 jest.mock('../helpers/dataFilter')
 
 describe('App', () => {
@@ -78,11 +78,14 @@ describe('App', () => {
 		}
 	})
 
+
+	//keeps throwing a not using act(()=>{}) error i tried wrapping render in act but error still persists 
 	it('Should render a Header', () => {
 		const { getByRole, getByPlaceholderText } = render(<MemoryRouter><App /></MemoryRouter>)
 
 		const logo = getByRole('heading', { name: 'Breathe Am' })
 		const searchBar = getByPlaceholderText('Search city, zip, or county')
+
 		expect(logo).toBeInTheDocument()
 		expect(searchBar).toBeInTheDocument()
 	})
@@ -94,12 +97,16 @@ describe('App', () => {
 		expect(denverTopCard).toBeInTheDocument()
 
 		const aboutLink = getByRole('link', { name: 'ABOUT' })
+
 		fireEvent.click(aboutLink)
+
 		const aqiImage = screen.getByAltText('table of Air Quality information from EPA.gov')
 		expect(aqiImage).toBeInTheDocument()
 
 		const homeLink = screen.getByRole('link', { name: 'HOME' })
+
 		fireEvent.click(homeLink)
+		
 		expect(getByRole('heading', { name: 'Denver' })).toBeInTheDocument()
 	})
 
@@ -136,22 +143,28 @@ describe('App', () => {
 		mocked(getAllData).mockImplementation(() =>
 			Promise.resolve(mockLocationPageData)
 		)
-		const { findByText, findByRole } = render(<MemoryRouter><App /></MemoryRouter>)
 
-		const title1 = await findByText(/denver/i)
+		render(
+			<MemoryRouter>
+				<App />
+			</MemoryRouter>)
+	
+		const title1 = await screen.findByText(/denver/i);
+		
 		fireEvent.click(title1)
-
-		const happeningNowTitle = await findByRole('heading', { name: /happening now/i })
-		const airQualityTitle = await findByRole('heading', { name: /happening now/i })
-		const weeklyForecastTitle = await findByRole('heading', { name: /happening now/i })
+		
+	
+		const happeningNowTitle = await screen.findByRole('heading', { name: /happening now/i })
+		const airQualityTitle = await screen.findByRole('heading', { name: /happening now/i })
+		const weeklyForecastTitle = await screen.findByRole('heading', { name: /happening now/i })
 		expect(happeningNowTitle).toBeInTheDocument()
 		expect(airQualityTitle).toBeInTheDocument()
 		expect(weeklyForecastTitle).toBeInTheDocument()
 
-		const temp = await findByRole('heading', { name: /69/i })
+		const temp = await screen.findByRole('heading', { name: /69/i })
 		expect(temp).toBeInTheDocument()
 		
-		const visibility = await findByText(/1.9 mi/i)
+		const visibility = await screen.findByText(/6.2 mi/i)
 		expect(visibility).toBeInTheDocument()
 	})
 

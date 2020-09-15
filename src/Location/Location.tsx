@@ -68,16 +68,16 @@ const Location = (props: any) => {
       <img src={orangewalking} alt='Moderate conditions for walking icon' className='small-weather-icons'/>
       <img src={orangesoccer} alt='Moderate conditions for park icon' className='small-weather-icons'/>
       <img src={orangebackpack} alt='Moderate conditions for hiking icon' className='small-weather-icons'/>
-      <p className='card-high'>Conditions maybe harmful to some</p>
+      <p className='card-high'>Conditions may be harmful to some</p>
      </span>
     );
-   } else if ((aqiIndex >= 201) || aqiIndex === "Very Unhealthy" || uviNum >= 9) {
+   } else if ((aqiIndex >= 201) || aqiIndex === "Very Unhealthy" || aqiIndex === 'Hazardous' || uviNum >= 9) {
     return (
       <span className='activity'>
       <img src={redwalking} alt='Unhealthy conditions for walking icon' className='small-weather-icons'/>
       <img src={redsoccer} alt='Unhealthy conditions for park icon' className='small-weather-icons'/>
       <img src={redbackpack} alt='Unhealthy conditions for hiking icon' className='small-weather-icons'/>
-      <p className='card-very-high'>Stay indoors today!</p>
+      <p className='card-very-high'>Stay indoors</p>
      </span>
     )
    } else {
@@ -98,7 +98,9 @@ const Location = (props: any) => {
       <h3 className="current-region">{props.matchDetails[3]}, USA</h3>
       <div className="info-box">
        <h4 className="info-box-header">HAPPENING NOW</h4>
-      <p className="current-date">{weatherDtDisplay(props.detailsData.currentWeather.dt)}</p>
+       <p className="current-date">
+        {weatherDtDisplay(props.detailsData.currentWeather.dt)}
+       </p>
        <article className="current-weather">
         <div className="current-weather-left">
          {temp(props.detailsData.currentWeather.temp)}
@@ -137,89 +139,96 @@ const Location = (props: any) => {
       <div className="info-box air-quality">
        <h4 className="info-box-header">AIR QUALITY</h4>
        <article className="aq-section">
-        <div className='activity-section'>
-
-        </div> 
-        <span className='aq-top'>
-          <span className="info-box-aq">
-            <img
-              src={lungs}
-              alt="lungs icon for air quality"
-              className="small-weather-icon"
-            />
-            <p className="type">AQI</p>
-            {aqIndex(props.detailsData.currentAir.AQI, props.detailsData.currentAir.Category.Name)}            
-            </span>
-            <span className="info-box-aq">
-              <img
-                src={sun}
-                alt="sun icon for UV index"
-                className="small-weather-icon"
-              />
-              <p className="type">UV Index</p>
-              {uvIndex(props.detailsData.currentWeather.uvi)}
-            </span>
-          </span>
-          <span className='aq-middle'>
-             <span className="info-box-aq">
-                <img
-                src={eye}
-                alt="eye icon for visibility"
-                className="small-weather-icon"
-                />
-                <p className="type">Visibility</p>
-                <p className="unit">
-                {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
-                </p>
-            </span>
-            <span className="info-box-aq">
-              <img
-                src={cough}
-                alt="bee icon for air quality"
-                className="small-weather-icon"
-              />
-              <p className="type">Allergies</p>
-              <p className="unit">Coming Soon!</p>
-              </span>
-          </span>
-          <span className='aq-bottom'>
-            <span className="info-box-aq">
-            <img
-              src={bee}
-              alt="bee icon for air quality"
-              className="small-weather-icon"
-            />
-            <p className="type">Pollen</p>
-            <p className="unit">Coming Soon!</p>
-            </span>
-            <span className="info-box-aq">
-              <img
-                src={forestFire}
-                alt="smoke icon for air quality"
-                className="small-weather-icon"
-              />
-              <p className="type">Smoke</p>
-              <p className='unit'>Coming Soon!</p>
-            </span>
-          </span>
+        <div className="activity-section">
+         {activityIcons(
+          props.detailsData.currentAir.AQI,
+          props.detailsData.currentAir.aqCat,
+          props.detailsData.currentWeather.uvi
+         )}
+        </div>
+        <span className="aq-top">
+         <span className="info-box-aq">
+          <img
+           src={lungs}
+           alt="lungs icon for air quality"
+           className="small-weather-icon"
+          />
+          <p className="type">AQI</p>
+          {aqIndex(
+           props.detailsData.currentAir.AQI,
+           props.detailsData.currentAir.Category.Name
+          )}
+         </span>
+         <span className="info-box-aq">
+          <img
+           src={sun}
+           alt="sun icon for UV index"
+           className="small-weather-icon"
+          />
+          <p className="type">UV Index</p>
+          {uvIndex(props.detailsData.currentWeather.uvi)}
+         </span>
+        </span>
+        <span className="aq-middle">
+         <span className="info-box-aq">
+          <img
+           src={eye}
+           alt="eye icon for visibility"
+           className="small-weather-icon"
+          />
+          <p className="type">Visibility</p>
+          <p className="unit">
+           {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
+          </p>
+         </span>
+         <span className="info-box-aq">
+          <img
+           src={cough}
+           alt="bee icon for air quality"
+           className="small-weather-icon"
+          />
+          <p className="type">Allergies</p>
+          <p className="unit">Coming Soon!</p>
+         </span>
+        </span>
+        <span className="aq-bottom">
+         <span className="info-box-aq">
+          <img
+           src={bee}
+           alt="bee icon for air quality"
+           className="small-weather-icon"
+          />
+          <p className="type">Pollen</p>
+          <p className="unit">Coming Soon!</p>
+         </span>
+         <span className="info-box-aq">
+          <img
+           src={forestFire}
+           alt="smoke icon for air quality"
+           className="small-weather-icon"
+          />
+          <p className="type">Smoke</p>
+          <p className="unit">Coming Soon!</p>
+         </span>
+        </span>
         <span className="info-box-aq-discussion">
-          <span className='disc-top'>
-            <img
-              src={notepad}
-              alt="checklist icon for air quality"
-              className="small-weather-icon"
-            />
-            <p className="type">Additional Notes</p>
-            </span>
-            {jsxNotes(props.detailsData.currentAir.Discussion)}
-          </span>
+         <span className="disc-top">
+          <img
+           src={notepad}
+           alt="checklist icon for air quality"
+           className="small-weather-icon"
+          />
+          <p className="type">Additional Notes</p>
+         </span>
+         {jsxNotes(props.detailsData.currentAir.Discussion)}
+        </span>
        </article>
       </div>
       <div className="info-box weekly-forecast">
        <h4 className="info-box-header">WEEKLY FORECAST</h4>
-        <div className='forecast-scroll'>
-          <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
-        </div>
+       <div className="forecast-scroll">
+        <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
+       </div>
       </div>
      </>
     ) : (

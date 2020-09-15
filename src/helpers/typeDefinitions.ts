@@ -27,7 +27,7 @@ export interface DataTypes {
     Discussion: string
     Category: {
       Number?: number
-      Name: string
+      Name?: string
     }
   }
   weeklyWeather: [

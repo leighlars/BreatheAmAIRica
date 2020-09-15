@@ -2,22 +2,28 @@
 
 .weekly-weather {
   @include rowDisplay();
-  flex-wrap: wrap;
   margin: 0 auto;
+  padding: 0;
+  overflow-x: scroll;
+  margin-bottom: 10px;
+  overflow-y: hidden;
+  width: 85%;
 }
 
 .daily-weather {
   @include columnDisplay();
   padding: 0;
-  flex-wrap: wrap;
-  width: 155px;
+  width: 205px;
   margin: 10px;
   .list {
     @include rowDisplay();
     align-items: initial;
   }  
+  .date {
+    font-weight: bold;
+  }
     h3 {
-      @include headerFont(1.2em);
+      @include headerFont(1em);
       margin-left: 2px;
     }
 

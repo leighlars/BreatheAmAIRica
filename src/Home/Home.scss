@@ -56,6 +56,13 @@
         transform: scale(1.05);
       }
    } 
+   .loading {
+    @include headerFont(1.25em);
+    color: white;
+    text-shadow: 2px 2px black;
+    height: 100vh;
+    text-transform: uppercase;
+  }
   
 
 }

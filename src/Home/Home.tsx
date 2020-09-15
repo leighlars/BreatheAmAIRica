@@ -143,28 +143,43 @@ const Home: React.FC<HomeProps> = props => {
      <h4>USA Road Trip Routes</h4>
     </div>
    </div>
-  </a>,
+  </a>
  ]
 
 	return (
 		<section className="home">
-			<h2 className="carousel-header">Popular Destinations</h2>
-			<div className="card-carousel">
-        {cardList.slice(0, 5)}
-			</div>
-			<h2 className="carousel-header">Lowest Ozone Pollution</h2>
-			<div className="card-carousel">
-				{cardList.slice(5, 10)}
-			</div>
-			<h2 className="carousel-header">Lowest Particle Pollution</h2>
-			<div className="card-carousel">
-				{cardList.slice(10, 15)}
-			</div>
-			<h2 className="carousel-header">Pertinent Readings</h2>
-			<div className="card-carousel">
-				{newsCards}
-			</div>
-		</section>
+			{props.homePageData ? (
+				<>
+				<h2 className="carousel-header">Popular Destinations</h2>
+				<div className="card-carousel">
+					{cardList.slice(0, 5)}
+				</div>
+				<h2 className="carousel-header">Lowest Ozone Pollution</h2>
+				<div className="card-carousel">
+					{cardList.slice(5, 10)}
+				</div>
+				<h2 className="carousel-header">Lowest Particle Pollution</h2>
+				<div className="card-carousel">
+					{cardList.slice(10, 15)}
+				</div>
+				<h2 className="carousel-header">Pertinent Readings</h2>
+				<div className="card-carousel">
+					{newsCards}
+				</div>
+				</>
+				) : (
+					<> 
+					<iframe
+						className="gif"
+						title="loading-gif"
+						src="https://giphy.com/embed/QRhtqYeEywJI4"
+						style={{ border: "none", width: "100" }}
+					/>
+				<br />
+				<h1 className="loading">Gathering your data... </h1>
+			</>
+		)}
+	</section>
 	)
 }
 

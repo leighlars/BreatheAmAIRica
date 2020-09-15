@@ -101,9 +101,16 @@
   .aq-section {
     @include columnDisplay();
     
-    .aq-top, .aq-middle, .aq-bottom {
+    .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
+      width: 70%;
+      margin-left: 20px;
     }
+
+    .activity {
+      margin-left: 70px;
+    }
+    
     .info-box-aq {
       @include rowDisplay();
       width: 250px;
@@ -111,6 +118,7 @@
     .info-box-aq-discussion {
       @include columnDisplay();
       width: 70%;
+      margin-left: 30px;
     }
     .disc-top {
       @include rowDisplay();
@@ -155,12 +163,4 @@
     }
   }
 
-  .forecast-scroll {
-    @include rowDisplay();
-    padding: 0;
-    overflow-x: scroll;
-    margin-bottom: 10px;
-    overflow-y: hidden;
-    width: 75%;
-  }
 }

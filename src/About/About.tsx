@@ -32,8 +32,8 @@ const About: React.FC = () => {
       loved ones to have accurate weather and air quality information.
       <br />
       <br />
-      Our data is updated every 10-60 minutes, giving you the most up-to-date
-      conditions to plan your local or destination activity.
+      Our data is updated every 10-60 minutes from local reporting, giving you the most up-to-date
+      conditions to plan your local or destination activity. Note: some stations may not report air quality on a given day.
       <br />
       <br />
       Please review the listed charts for optimal site navigation. <br />

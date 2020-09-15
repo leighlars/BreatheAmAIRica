@@ -19,7 +19,7 @@ export const getCoordinates = (query: string) => {
 
 export const getWeatherData = async (lat: number, long: number) => {
   return await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${weatherDataKey3}`
     ).then(parseData => parseData.json()).catch(error => error)
 }
 

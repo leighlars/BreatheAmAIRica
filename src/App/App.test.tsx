@@ -85,6 +85,7 @@ describe('App', () => {
 
 		const logo = getByRole('heading', { name: 'Breathe Am' })
 		const searchBar = getByPlaceholderText('Search city, zip, or county')
+
 		expect(logo).toBeInTheDocument()
 		expect(searchBar).toBeInTheDocument()
 	})
@@ -96,12 +97,16 @@ describe('App', () => {
 		expect(denverTopCard).toBeInTheDocument()
 
 		const aboutLink = getByRole('link', { name: 'ABOUT' })
+
 		fireEvent.click(aboutLink)
+
 		const aqiImage = screen.getByAltText('table of Air Quality information from EPA.gov')
 		expect(aqiImage).toBeInTheDocument()
 
 		const homeLink = screen.getByRole('link', { name: 'HOME' })
+
 		fireEvent.click(homeLink)
+		
 		expect(getByRole('heading', { name: 'Denver' })).toBeInTheDocument()
 	})
 

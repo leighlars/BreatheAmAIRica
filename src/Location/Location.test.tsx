@@ -1,98 +1,118 @@
 import React from "react";
-import { render, getAllByRole, getAllByText, getByAltText} from "@testing-library/react";
+import { render, screen} from "@testing-library/react";
 import Location from './Location'
 import { MemoryRouter } from "react-router-dom";
-import { mocked } from "ts-jest/utils";
-jest.mock('../helpers/apiCalls.tsx')
 
 describe('Location', () => {
-  // not sure how to test for both the fetched data and the weekly
-  // i wrote out the tests and would love to watch someone walk through
-  // this. telling me utils isn't found
-  let mockedCityResult = {}
+
+  let mockedCityResult:any
   beforeEach(() => {
     mockedCityResult = {
-     "currentWeather": {
-       "dt": 1595243443,
-       "temp": 293.28,
-       "rain": {
-         "1h": 2.93
-       },
-       "wind_speed": 4.6,
-       "wind_deg": 310,
-       "uvi": 3.7,
-       "visibility": 23000,
-       "weather": [ {
-         "icon": '03d'
-       }
-       ]
-     },
-     "currentAir": {
-      "AQI": 40,
-      "Category": {
-       "Name": "Low",
-       "Number": 1,
+      currentWeather: {
+        dt: 1595243443,
+        temp: 293.28,
+        rain: {
+          "1h": 2.93,
+        },
+        wind_speed: 4.6,
+        wind_deg: 310,
+        uvi: 3.7,
+        visibility: 23000,
+        weather: [
+          {
+            icon: "03d",
+          },
+        ],
       },
-      "Discussion": 'No fire danger today'
-     },
-     "weeklyWeather": {
-
-     },
+      currentAir: {
+        AQI: 40,
+        Category: {
+          Name: "Low",
+          Number: 1,
+        },
+        Discussion: "No fire danger today",
+      },
+      weeklyWeather: [
+        {
+        dt: 154646464,
+        sunrise: 154646464,
+        sunset: 154646464,
+        temp: {
+          day: 285,
+          min: 285,
+          max: 285,
+          night: 285,
+          eve: 285,
+          morn: 285,
+        },
+        feels_like: {
+          day: 285,
+          night: 285,
+          eve: 285,
+          morn: 285,
+        },
+        pressure: 145,
+        humidity: 85,
+        dew_point: 246,
+        wind_speed: 245,
+        wind_deg: 320,
+        weather: [
+          {
+            id: 22,
+            main: 'terrible',
+            description: 'Its pretty nice out',
+            icon: '14n',
+          },
+        ],
+        clouds: 11,
+        pop: 4,
+        rain: 4,
+        snow: 4,
+        uvi: 5,
+        }
+      ],
     };
   })
 
-
   it('should render a city and region in header', () => {
-    mocked().mockImplementation(() => {
-      Promise.resolve(mockedCityResult)
-    })
-    const {getByRole} = render(
-    <MemoryRouter>
-      <Location 
-      query={'Las Vegas'}
-      getMatchDetails={jest.fn()}
-      getAllDetailsData={jest.fn()}
-      />
-    </MemoryRouter>)
+    render(
+      <MemoryRouter>
+        <Location
+          query={"Las Vegas"}
+          detailsData={mockedCityResult}
+          matchDetails={[45, 65.12, "Las Vegas", "NV"]}
+        />
+      </MemoryRouter>
+    )
+    
+    const cityName = screen.getByRole('heading', {name: /las vegas/i})
+    const regionName = screen.getByRole('heading', {name: /nv/i})
 
-    const cityName = getByRole('heading', {name: 'Seattle'})
-    const region = getByRole('heading', {name: 'Washington, USA'})
     expect(cityName).toBeInTheDocument()
-    expect(region).toBeInTheDocument()
+    expect(regionName).toBeInTheDocument()
   })
 
   it('should render information on current weather', () => {
-    mocked().mockImplementation(() => {
-     Promise.resolve(mockedCityResult);
-    });
-    const { getByRole, getByText, getByAltText } = render(
-     <MemoryRouter>
-      <Location
-       query={"Las Vegas"}
-       getMatchDetails={jest.fn()}
-       getAllDetailsData={jest.fn()}
-       />
-     </MemoryRouter>
-    )
+    render(
+      <MemoryRouter>
+        <Location
+          query={"Las Vegas"}
+          detailsData={mockedCityResult}
+          matchDetails={[45, 65.12, "Las Vegas", "NV"]}
+        />
+      </MemoryRouter>
+    );
 
-    const currentHeader = getByRole('heading', {name: 'HAPPENING NOW'})
-    const temperature = getByText('68')
+    const currentHeader = screen.getByRole('heading', {name: 'HAPPENING NOW'})
+    const temperature = screen.getBy('68')
 
-    const precipIcon = getByAltText('Rain droplet icon for precipitation')
-    const precip = getByText('Precipitation')
-    const precipNum = getByText('2.93')
-    // this number is millimeters in last hour, we need PoP from daily to get daily chance of rain
-    // should we chunk this or get the daily weather for PoP?
-    // we could also replace precip w 'feels like' (i think Erin asked for that)
-  
-
-    const windIcon = getByAltText('Wind icon for wind speed direction')
-    const wind = getByText('Wind')
-    const windSpeed = getByText('4.6 mph /')
-    // wind speed is in meters/second!!!!! 
-
-    // const date = getByText('')
-    // too tired to solve date and dunno what Josh's date wound up looking like
+    const precipIcon = screen.getByAltText('Rain droplet icon for precipitation')
+    const precip = screen.getByText('Precipitation')
+    const precipNum = screen.getByText('2.93')
+    const windIcon = screen.getByAltText('Wind icon for wind speed direction')
+    const wind = screen.getByText('Wind')
+    const windSpeed = screen.getByText('4.6 mph /')
+   screen.
 
     expect(currentHeader).toBeInTheDocument()
     // expect(date).toBeInTheDocument()
@@ -109,9 +129,7 @@ describe('Location', () => {
   })
   
   it('should render a section on current air quality and activities', () => {
-    mocked().mockImplementation(() => {
-     Promise.resolve(mockedCityResult);
-    })
+ 
     const { getByRole, getByText, getAllByText, getByAltText} = render(
      <MemoryRouter>
       <Location

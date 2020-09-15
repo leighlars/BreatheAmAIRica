@@ -234,9 +234,7 @@ const Location = (props: any) => {
       </div>
       <div className="info-box weekly-forecast">
        <h4 className="info-box-header">WEEKLY FORECAST</h4>
-       <div className="forecast-scroll">
         <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
-       </div>
       </div>
      </>
     ) : (

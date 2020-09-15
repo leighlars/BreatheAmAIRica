@@ -7,28 +7,15 @@ import { getHomeData } from '../helpers/dataFilter'
 jest.mock('../helpers/dataFilter')
 
 describe('Home', () => {
-	let mockHomePageData, data
 
 	beforeEach(() => {
-		data = {
-			temp: 87,
-			uvi: 7,
-			icon: '01d',
-			aqi: 10,
-			aqiCat: 'Good'
-		}
-		mockHomePageData = [
-			'Denver',
-			'Colorado',
-			40,
-			-105,
-			data
-		]
 		mocked(getHomeData).mockImplementation(() =>
 			Promise.resolve({
+				temp: 87,
+				uvi: 7,
 				icon: '01d',
-				temp: 76,
-				uvi: 1
+				aqi: 10,
+				aqiCat: 'Good'
 			})
 		)
 	})
@@ -39,7 +26,7 @@ describe('Home', () => {
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					// homePageData={mockHomePageData}
+					homePageData={undefined}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>
@@ -73,7 +60,7 @@ describe('Home', () => {
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					// homePageData={mockHomePageData}
+					homePageData={undefined}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>

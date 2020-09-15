@@ -14,11 +14,9 @@ describe('Location', () => {
   })
 
   it('should render information on current weather and air quality', () => {
-    // this may be not specific enough
     const { getByRole, getByText, getAllByRole } = render(<Location />)
     const currentHeader = getByRole('heading', {name: 'HAPPENING NOW'})
-    const aqHeader = getByRole("heading", { name: "AIR QUALITY" })
-    const hourlyHeader = getByRole("heading", { name: "HOURLY FORECAST" })
+    const aqHeader = getByRole('heading', { name: "AIR QUALITY" })
     const weeklyHeader = getByRole("heading", { name: "WEEKLY FORECAST" })
     const temperature = getByText('35', {exact: false})
     const aqText = getByText('Air Quality Index')
@@ -28,7 +26,6 @@ describe('Location', () => {
     expect(temperature).toBeInTheDocument()
     expect(aqHeader).toBeInTheDocument()
     expect(aqText).toBeInTheDocument();
-    expect(hourlyHeader).toBeInTheDocument()
     expect(weeklyHeader).toBeInTheDocument()
   })
 

@@ -10,7 +10,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Undecided</h3>
+  <h3 align="center">Breathe AmAIRica</h3>
 
   <p align="center">
     <br />
@@ -34,11 +34,9 @@
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-* [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -46,58 +44,33 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+Breathe AmAIRica is a 3-person group project that required the developers to self-teach a non-explicity taught technology and build an API-consuming multi-page site in one week.
+We chose Typescript and React Hooks, and to employ these techs by creating and debugging an Air Quality and Weather app for American cities. We were inspired by this recent summer's wildfires, allergies, and the pertinence of air quality and weather data. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+Users can view the air quality and weather information for American cities either by the search bar, or by perusing the home page for popular destination cities or cities with positive air quality rankings. Users can view a forecast of the coming week, and click the external links to read in-depth health, safety, and travel articles. 
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+Time and free API calls were a hinderance, and our app is simply a proof of concept. If we had more time or access to more API data, we would have implemented allergy, pollen, and wildfire API data, and more information about which activities the user can partake in response to the current conditions.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+React Hooks
+Typescript
+SCSS
+TDD with Jest
 
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To interact with the app without cloning down the repo, check out our [deployed page]().
+Otherwise, fork and clone down the repo. 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+Once you have locally cloned down the repo, within that file, run 
+`npm i`
+Once all dependencies are installed, run
+`npm start`
 
 
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
@@ -106,72 +79,27 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 
-<!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/leighlars/WeatherOrNot/issues) for a list of proposed features (and known issues).
 
 
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
-
-<!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+[Josh Sevy](https://github.com/JoshSevy) 
+[Leigh Larson](https://github.com/leighlars)
+[Erin Untermeyer](https://github.com/ErinUntermeyer)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/leighlars/WeatherOrNot](https://github.com/your_username/repo_name)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
+* [FlatIcon](https://www.flaticon.com/home)
+* [Giphy](https://giphy.com)
 
 
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/leighlars/WeatherOrNot.svg?style=flat-square
-[contributors-url]: https://github.com/leighlars/WeatherOrNot/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/leighlars/WeatherOrNot.svg?style=flat-square
-[forks-url]: https://github.com/leighlars/WeatherOrNot/network/members
-[stars-shield]: https://img.shields.io/github/stars/leighlars/WeatherOrNot.svg?style=flat-square
-[stars-url]: https://github.com/leighlars/WeatherOrNot/stargazers
-[issues-shield]: https://img.shields.io/github/issues/leighlars/WeatherOrNot.svg?style=flat-square
-[issues-url]: https://github.com/leighlars/WeatherOrNot/issues
-[license-shield]: https://img.shields.io/github/license/leighlars/WeatherOrNot.svg?style=flat-square
-[license-url]: https://github.com/leighlars/WeatherOrNot/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/josh-sevy
-[product-screenshot]: images/screenshot.png

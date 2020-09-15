@@ -13,7 +13,7 @@ import covid from '../assets/covid.png'
 interface HomeProps {
 	markLoaded: Function
 	initialLoad: boolean
-	homePageData: [string, {}[]] | undefined
+	homePageData: Array<any> | undefined
 	getMatchDetails: Function
 	getAllDetailsData: Function
 }

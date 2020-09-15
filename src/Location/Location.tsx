@@ -221,6 +221,7 @@ const Location = (props: any) => {
           <p className="unit">Coming Soon!</p>
          </span>
         </div>
+        {props.detailsData.currentAir ? (
          <span className="info-box-aq-discussion">
           <span className="disc-top">
            <img
@@ -230,8 +231,9 @@ const Location = (props: any) => {
            />
            <p className="type">Additional Notes</p>
           </span>
-          {props.detailsData.currentAir.Discussion ? (jsxNotes(props.detailsData.currentAir.Discussion)) : null}
+          jsxNotes(props.detailsData.currentAir.Discussion)
          </span>
+        ) : null}
        </article>
       </div>
       <div className="info-box weekly-forecast">

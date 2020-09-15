@@ -52,8 +52,8 @@ describe('Location', () => {
       />
     </MemoryRouter>)
 
-    const cityName = getByRole('heading', {name: 'Las Vegas'})
-    const region = getByRole('heading', {name: 'Nevada, USA'})
+    const cityName = getByRole('heading', {name: 'Seattle'})
+    const region = getByRole('heading', {name: 'Washington, USA'})
     expect(cityName).toBeInTheDocument()
     expect(region).toBeInTheDocument()
   })
@@ -70,20 +70,31 @@ describe('Location', () => {
     )
 
     const currentHeader = getByRole('heading', {name: 'HAPPENING NOW'})
-    const temperature = getByText('68', {exact: false})
+    const temperature = getByText('68')
+
     const precipIcon = getByAltText('Rain droplet icon for precipitation')
     const precip = getByText('Precipitation')
+    const precipNum = getByText('2.93')
+    // this number is inches in last hour, we need PoP from daily to get daily chance of rain
+    // should we chunk this or get the daily weather for PoP?
+  
+
     const windIcon = getByAltText('Wind icon for wind speed direction')
-    const wind = getByText('4.6 mph /')
+    const wind = getByText('Wind')
+    const windSpeed = getByText('4.6 mph /')
+
     // const date = getByText('')
+    // too tired to solve date and dunno what Josh's date wound up looking like
 
     expect(currentHeader).toBeInTheDocument()
     // expect(date).toBeInTheDocument()
     expect(temperature).toBeInTheDocument()
     expect(precipIcon).toBeInTheDocument()
     expect(precip).toBeInTheDocument()
+
     expect(windIcon).toBeInTheDocument()
-    expect(wind).toBeInTheDocument()  
+    expect(wind).toBeInTheDocument()
+    expect(windSpeed).toBeInTheDocument()  
     
   })
   
@@ -116,6 +127,8 @@ describe('Location', () => {
     const visibIcon = getByAltText('eye icon for visibility')
     const visibility = getByText('Visibility')
     const visibilityNum = getByText('4.4')
+    // lolzzz visibility is given to us in meters, approx is to divide by 1609
+    // i changed it in Location
 
     const smoke = getByText('Smoke')
     const smokeIcon = getByAltText('smoke icon for air quality')

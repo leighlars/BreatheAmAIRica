@@ -186,7 +186,7 @@ const Location = (props: any) => {
           />
           <p className="type">Visibility</p>
           <p className="unit">
-           {(props.detailsData.currentWeather.visibility / 5280).toFixed(1)} mi
+           {(props.detailsData.currentWeather.visibility / 1609).toFixed(1)} mi
           </p>
          </span>
          <span className="info-box-aq">

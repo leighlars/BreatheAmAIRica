@@ -9,13 +9,14 @@ import './App.scss'
 
 import { getCoordinates } from '../helpers/apiCalls'
 import { getAllData } from '../helpers/dataFilter'
+import{ DataTypes } from '../helpers/typeDefinitions'
 
 
 const App: React.FC = () => {
   const [ searchResults, setSearchResults ] = useState([])
   const [ query, setQuery ] = useState<string>()
   const [ matchDetails, setMatchDetails ] = useState<any>()
-	const [ detailsData, setDetailsData ] = useState<any>()
+	const [ detailsData, setDetailsData ] = useState<DataTypes>()
 	const [ initialLoad, setInitialLoad ] = useState(false)
 	const [ homePageData, setHomePageData ] = useState<[string, Array<{}>]>()
 

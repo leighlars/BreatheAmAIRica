@@ -154,8 +154,8 @@ const Location: React.FC<LocationProps> = (props) => {
        <article className="aq-section">
         {props.detailsData.currentAir
          ? activityIcons(
-            props.detailsData.currentAir.aqi,
-            props.detailsData.currentAir.aqCat,
+            props.detailsData.currentAir.AQI,
+            props.detailsData.currentAir.Category.Number,
             props.detailsData.currentWeather.uvi
            )
          : null}

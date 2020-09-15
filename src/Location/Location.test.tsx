@@ -8,7 +8,7 @@ jest.mock('../helpers/apiCalls.tsx')
 describe('Location', () => {
   // not sure how to test for both the fetched data and the weekly
   // i wrote out the tests and would love to watch someone walk through
-  // this
+  // this. telling me utils isn't found
   let mockedCityResult = {}
   beforeEach(() => {
     mockedCityResult = {

@@ -26,8 +26,8 @@ export interface DataTypes {
     AQI: number
     Discussion: string
     Category: {
-      Number?: number
-      Name?: string
+      Number: string
+      Name: string
     }
   }
   weeklyWeather: [

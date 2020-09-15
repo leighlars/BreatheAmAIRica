@@ -109,6 +109,7 @@ beforeEach(() => {
    },
   ];
 })
+
 xit("should render a section of the weekly forecast", () => {
 
  const { getByRole, getByText, getByAltText, getAllByText } = render(

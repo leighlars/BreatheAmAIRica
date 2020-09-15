@@ -8,7 +8,7 @@ describe('Header', () => {
   })
 
   it('should render logo and search bar in Header', () => {
-    const logo = screen.getByRole('heading', {name: 'Weather Or Not'})
+    const logo = screen.getByText('heading', {name: 'Breathe'})
     const globe = screen.getByRole('img')
     const tagline = screen.getByRole('heading', {name: 'Plan. Research. Experience.'})
     const searchBar = screen.getByPlaceholderText('Search city, zip, or county')

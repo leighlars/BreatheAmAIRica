@@ -110,6 +110,10 @@
 
     .activity {
       justify-content: center;
+      p {
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
     }
     .info-box-aq {
       @include rowDisplay();
@@ -117,6 +121,7 @@
     }
     .info-box-aq-discussion {
       @include columnDisplay();
+      margin-left: 10px;
       width: 80%;
       .disc-top {
         @include rowDisplay();

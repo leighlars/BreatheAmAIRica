@@ -39,10 +39,11 @@ Users can view the air quality and weather information for American cities eithe
 Time and free API calls were a hinderance, and our app is simply a proof of concept. If we had more time or more access to API data, we would have implemented allergy, pollen, and wildfire API data, and more information about which activities the user can partake in response to the current conditions. We would have also made the page mobile responsive.
 
 ### Built With
-React Hooks
-Typescript
-SCSS
-TDD with Jest
+
+- React Hooks
+- Typescript
+- SCSS
+- TDD with Jest
 
 ## Getting Started
 
@@ -73,6 +74,9 @@ Once all dependencies are installed, run
 
 ![gif of outside links](./src/assets/outsideLinks.gif)</br>
 *Clicking external links*
+
+![gif of loading screen](./src/assets/loading.gif)</br>
+*Loading Page*
 
 
 ## Roadmap

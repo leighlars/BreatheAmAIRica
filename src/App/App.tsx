@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [ matchDetails, setMatchDetails ] = useState<any>()
 	const [ detailsData, setDetailsData ] = useState<DataTypes>()
 	const [ initialLoad, setInitialLoad ] = useState(false)
-	const [ homePageData, setHomePageData ] = useState<[string, string, number, number, {}]>()
+	const [ homePageData, setHomePageData ] = useState<[]>()
 
 	const getSearchResults = async (query: string, clearInput: Function) => {
 		setQuery(query)
@@ -36,7 +36,7 @@ const App: React.FC = () => {
 		setDetailsData(data)
   }
 	
-	const markLoaded = (data: [string, string, number, number, {}]) => {
+	const markLoaded = (data: []) => {
 		setInitialLoad(true)
 		setHomePageData(data)
 	}

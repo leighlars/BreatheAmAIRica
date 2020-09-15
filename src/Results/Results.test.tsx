@@ -1,6 +1,6 @@
 import React from 'react'
 import Results from './Results'
-import { render, screen } from '@testing-library/react'
+import { render, screen, findByText, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { getCoordinates } from '../helpers/apiCalls'
 import { mocked } from 'ts-jest/utils'
@@ -104,6 +104,27 @@ describe('Results', () => {
 
 		expect(heading1).toBeInTheDocument()
 		expect(heading2).not.toBeInTheDocument()
+	})
+
+	it('Should fire the correct methods when card is clicked', async () => {
+		const mockGetMatchDetails = jest.fn()
+		const mockGetAllDetailsData = jest.fn()
+		const { findByText } = render(
+			<MemoryRouter>
+				<Results
+					searchResults={mockedSearchResults}
+					getMatchDetails={mockGetMatchDetails}
+					getAllDetailsData={mockGetAllDetailsData}
+				/>
+			</MemoryRouter>
+		)
+
+		const resultCard = await findByText(/miami/i)
+		expect(resultCard).toBeInTheDocument()
+
+		fireEvent.click(resultCard)
+		expect(mockGetMatchDetails).toHaveBeenCalledTimes(1)
+		expect(mockGetAllDetailsData).toHaveBeenCalledTimes(1)
 	})
 
 })

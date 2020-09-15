@@ -53,7 +53,7 @@ const Location = (props: any) => {
      aqiIndex <= 100 || 
      aqiIndex === "Good" || 
      aqiIndex === "Moderate" || 
-     uviNum <= 3) {
+     uviNum <= 4) {
     return (
      <span className='activity'>
       <img src={greenwalking} alt='Healthy conditions for walking icon' className='small-weather-icons'/>
@@ -65,7 +65,7 @@ const Location = (props: any) => {
    } else if (
     (aqiIndex >= 151 && aqiIndex <= 200) ||
     aqiIndex === "Unhealthy" || 
-    (uviNum >= 6 || uviNum <= 8)
+    (uviNum >= 5 || uviNum <= 8)
    ) {
     return (
        <span className='activity'>
@@ -118,7 +118,7 @@ const Location = (props: any) => {
          <span className="current-weather-right-list">
           <img
            src={waterdrop}
-           alt="rain droplet icon for precipitation"
+           alt="Rain droplet icon for precipitation"
            className="small-weather-icon"
           />
           <p className="type">Precipitation</p>
@@ -132,7 +132,7 @@ const Location = (props: any) => {
          <span className="current-weather-right-list">
           <img
            src={wind}
-           alt="wind icon for wind speed direction"
+           alt="Wind icon for wind speed direction"
            className="small-weather-icon"
           />
           <p className="type">Wind</p>
@@ -192,7 +192,7 @@ const Location = (props: any) => {
          <span className="info-box-aq">
           <img
            src={cough}
-           alt="bee icon for air quality"
+           alt="sneeze icon for allergies"
            className="small-weather-icon"
           />
           <p className="type">Allergies</p>
@@ -203,7 +203,7 @@ const Location = (props: any) => {
          <span className="info-box-aq">
           <img
            src={bee}
-           alt="bee icon for air quality"
+           alt="bee icon for pollen"
            className="small-weather-icon"
           />
           <p className="type">Pollen</p>
@@ -223,7 +223,7 @@ const Location = (props: any) => {
          <span className="disc-top">
           <img
            src={notepad}
-           alt="checklist icon for air quality"
+           alt="checklist icon for additional notes"
            className="small-weather-icon"
           />
           <p className="type">Additional Notes</p>

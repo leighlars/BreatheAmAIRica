@@ -6,6 +6,9 @@ import { mocked } from "ts-jest/utils";
 jest.mock('../helpers/apiCalls.tsx')
 
 describe('Location', () => {
+  // not sure how to test for both the fetched data and the weekly
+  // i wrote out the tests and would love to watch someone walk through
+  // this
   let mockedCityResult = {}
   beforeEach(() => {
     mockedCityResult = {
@@ -38,7 +41,7 @@ describe('Location', () => {
     };
   })
 
-//  tests will need to change once we have fetched data
+
   it('should render a city and region in header', () => {
     mocked().mockImplementation(() => {
       Promise.resolve(mockedCityResult)
@@ -59,6 +62,9 @@ describe('Location', () => {
   })
 
   it('should render information on current weather', () => {
+    mocked().mockImplementation(() => {
+     Promise.resolve(mockedCityResult);
+    });
     const { getByRole, getByText, getByAltText } = render(
      <MemoryRouter>
       <Location
@@ -75,13 +81,15 @@ describe('Location', () => {
     const precipIcon = getByAltText('Rain droplet icon for precipitation')
     const precip = getByText('Precipitation')
     const precipNum = getByText('2.93')
-    // this number is inches in last hour, we need PoP from daily to get daily chance of rain
+    // this number is millimeters in last hour, we need PoP from daily to get daily chance of rain
     // should we chunk this or get the daily weather for PoP?
+    // we could also replace precip w 'feels like' (i think Erin asked for that)
   
 
     const windIcon = getByAltText('Wind icon for wind speed direction')
     const wind = getByText('Wind')
     const windSpeed = getByText('4.6 mph /')
+    // wind speed is in meters/second!!!!! 
 
     // const date = getByText('')
     // too tired to solve date and dunno what Josh's date wound up looking like
@@ -89,16 +97,21 @@ describe('Location', () => {
     expect(currentHeader).toBeInTheDocument()
     // expect(date).toBeInTheDocument()
     expect(temperature).toBeInTheDocument()
+
     expect(precipIcon).toBeInTheDocument()
     expect(precip).toBeInTheDocument()
 
     expect(windIcon).toBeInTheDocument()
     expect(wind).toBeInTheDocument()
-    expect(windSpeed).toBeInTheDocument()  
+    expect(windSpeed).toBeInTheDocument() 
+   
     
   })
   
   it('should render a section on current air quality and activities', () => {
+    mocked().mockImplementation(() => {
+     Promise.resolve(mockedCityResult);
+    })
     const { getByRole, getByText, getAllByText, getByAltText} = render(
      <MemoryRouter>
       <Location
@@ -175,7 +188,8 @@ describe('Location', () => {
   })
   
   xit('should render a section of the weekly forecast', () => {
-    const { getByRole, getByText, getByAltText} = render(
+    
+    const { getByRole, getByText, getByAltText, getAllByText} = render(
      <MemoryRouter>
       <Location
        query={"Las Vegas"}
@@ -186,30 +200,38 @@ describe('Location', () => {
     );
     const weeklyHeader = getByRole("heading", { name: "WEEKLY FORECAST" })
     
+    const humidity = getAllByText('Humidity')
+    const cloudCover = getAllByText('Cloud Cover')
+    const uvi = getAllByText('UVI')
+
     const tuesday = getByText('Tues')
     const tuesdayHighTemp = getByText('78')
     const tuesdayIcon = getByAltText('Double Clouds icon')
-    const tuesdayHumidity = getByText('Humidity')
-    const tuesdayCloudCover = getByText('Cloud Cover')
+    
 
     const saturday = getByText("Sat");
     const saturdayHighTemp = getByText("95")
     const saturdayIcon = getByAltText("Clear Day icon")
-    const saturdayHumidity = getByText("Humidity")
-    const saturdayCloudCover = getByText("Cloud Cover")
-
+   
     expect(weeklyHeader).toBeInTheDocument()
+    expect(humidity).toHaveLength(6)
+    expect(cloudCover).toHaveLength(6)
+    expect(uvi).toHaveLength(6)
+
     expect(tuesday).toBeInTheDocument()
     expect(tuesdayHighTemp).toBeInTheDocument()
     expect(tuesdayIcon).toBeInTheDocument()
-    expect(tuesdayHumidity).toBeInTheDocument()
-    expect(tuesdayCloudCover).toBeInTheDocument()
+   
     expect(saturday).toBeInTheDocument()
     expect(saturdayHighTemp).toBeInTheDocument()
     expect(saturdayIcon).toBeInTheDocument()
-    expect(saturdayHumidity).toBeInTheDocument()
-    expect(saturdayCloudCover).toBeInTheDocument()
-    
   })
+
+  // i think we can only get to a location via clicking a card
+  // is there a way the page itself can fetch the data?
+  // also, should we set a state in case someone refreshes the page?
+  // late night thoughts, if too late in the project, we can 
+  // add as extension
+  
 
 })

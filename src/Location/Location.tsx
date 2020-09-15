@@ -147,13 +147,13 @@ const Location = (props: any) => {
       <div className="info-box air-quality">
        <h4 className="info-box-header">AIR QUALITY</h4>
        <article className="aq-section">
-        <div className="activity-section">
+        {/* <div className="activity-section"> */}
          {activityIcons(
           props.detailsData.currentAir.AQI,
           props.detailsData.currentAir.aqCat,
           props.detailsData.currentWeather.uvi
          )}
-        </div>
+        {/* </div> */}
         <span className="aq-top">
          <span className="info-box-aq">
           <img

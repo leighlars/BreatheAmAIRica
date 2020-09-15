@@ -96,6 +96,7 @@
     .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
     }
+    
     .info-box-aq {
       @include rowDisplay();
       width: 250px;

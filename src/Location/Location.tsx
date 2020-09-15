@@ -29,7 +29,6 @@ const Location = (props: any) => {
   }, [time])
 
   const jsxNotes = (notes: string) => {
-    console.log(notes)
     if (!notes) {
       return <p className='discussion-text'>N/A</p>
     } else {
@@ -48,7 +47,7 @@ const Location = (props: any) => {
       <p className="current-date">{weatherDtDisplay(props.detailsData.currentWeather.dt)}</p>
        <article className="current-weather">
         <div className="current-weather-left">
-          {temp(props.detailsData.currentWeather.temp)}
+         {temp(props.detailsData.currentWeather.temp)}
          {weatherIcon(props.detailsData.currentWeather.weather[0].icon)}
         </div>
         <div className="current-weather-right">

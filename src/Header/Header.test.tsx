@@ -21,15 +21,17 @@ describe('Header', () => {
      </MemoryRouter>
     );
     const logo = screen.getByRole('heading', {name:'Breathe Am'})
-    const globe = screen.getByRole('img')
+    const icon = screen.getByAltText('Blue map of USA')
     const tagline = screen.getByRole('heading', {name: 'Plan. Go. Breathe.'})
     const searchBar = screen.getByPlaceholderText('Search city, zip, or county')
     const aboutLink = screen.getByRole('link', {name:'ABOUT'} )
+    const homeLink = screen.getByRole("link", { name: "HOME" });
     expect(logo).toBeInTheDocument()
-    expect(globe).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
     expect(tagline).toBeInTheDocument()
     expect(searchBar).toBeInTheDocument()
     expect(aboutLink).toBeInTheDocument()
+    expect(homeLink).toBeInTheDocument()
   })
 
   it('should fire an event when search button is clicked', () => {

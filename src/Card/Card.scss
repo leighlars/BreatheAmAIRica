@@ -35,7 +35,7 @@
       align-items: flex-end;
       h3 {
         @include headerFont(1.45em);
-        margin-left: 10px;
+        // margin-left: 10px;
         margin-right: 3px;
         text-shadow: 1px 1px black;
       }
@@ -49,31 +49,32 @@
         text-shadow: .5px .5px black;
       }
       .card-low {
-        color: #41ab5b;
         @include textFont(1.25em);
+        color: #41ab5b;
         text-shadow: .5px .5px black;
       }
       .card-moderate {
-        color: $goldenrod;
         @include textFont(1.25em);
+        color: $goldenrod;
         text-shadow: .5px .5px black;
       }
   
       .card-high {
-        color: #db6307;
         @include textFont(1.25em);
+        color: #db6307;
         text-shadow: .5px .5px black;
       }
   
       .card-very-high {
-        color: #d12a46;
         @include textFont(1.25em);
+        color: #d12a46;
         text-shadow: .5px .5px black;
       }
   
       .card-extreme {
         @include textFont(1.25em);
         color: #7c04bd;
+        text-shadow: .5px .5px black;
       }
     }
 

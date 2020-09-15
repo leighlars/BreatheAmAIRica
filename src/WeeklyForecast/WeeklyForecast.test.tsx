@@ -1,9 +1,6 @@
 import React from "react";
 import {render} from "@testing-library/react";
 import WeeklyForecast from "./WeeklyForecast";
-// import { MemoryRouter } from "react-router-dom";
-import { mocked } from "ts-jest/utils";
-jest.mock("../helpers/apiCalls.tsx");
 
 describe('Weekly Forecast', () => {
 let weeklyWeather: Array<{}>;
@@ -65,7 +62,7 @@ beforeEach(() => {
 })
 
 it("should render a section of the weekly forecast with multiple days", () => {
-  const { getByRole, getByText, getByAltText, getAllByText } = render(
+  const {getByText, getByAltText, getAllByText } = render(
     <WeeklyForecast 
       weeklyWeather={weeklyWeather}
     />
@@ -116,7 +113,6 @@ it("should render a section of the weekly forecast with multiple days", () => {
   expect(wednesdayHighTemp).toBeInTheDocument()
   expect(wednesdayLowTemp).toBeInTheDocument()
   expect(wednesdayIcon).toBeInTheDocument()
-
 });
 
 

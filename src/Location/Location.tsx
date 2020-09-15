@@ -49,7 +49,11 @@ const Location = (props: any) => {
   const activityIcons = (aqi: number, aqiCat: string, uvi: number) => {
    const aqiIndex = aqi === -1 ? aqiCat : aqi;
    const uviNum = +Math.round(uvi).toFixed(0);
-   if (aqiIndex <= 100 || aqiIndex === "Good" ||aqiIndex === "Moderate" || uviNum <= 3) {
+   if (
+     aqiIndex <= 100 || 
+     aqiIndex === "Good" || 
+     aqiIndex === "Moderate" || 
+     uviNum <= 3) {
     return (
      <span className='activity'>
       <img src={greenwalking} alt='Healthy conditions for walking icon' className='small-weather-icons'/>
@@ -71,7 +75,11 @@ const Location = (props: any) => {
       <p className='card-high'>Conditions may be harmful to some</p>
      </span>
     );
-   } else if ((aqiIndex >= 201) || aqiIndex === "Very Unhealthy" || aqiIndex === 'Hazardous' || uviNum >= 9) {
+   } else if (
+      aqiIndex >= 201 || 
+      aqiIndex === "Very Unhealthy" || 
+      aqiIndex === 'Hazardous' || 
+      uviNum >= 9) {
     return (
       <span className='activity'>
       <img src={redwalking} alt='Unhealthy conditions for walking icon' className='small-weather-icons'/>

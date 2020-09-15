@@ -93,7 +93,7 @@
   .aq-section {
     @include columnDisplay();
     
-    .aq-top, .aq-middle, .aq-bottom {
+    .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
     }
     .info-box-aq {

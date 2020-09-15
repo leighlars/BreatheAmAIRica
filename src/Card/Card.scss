@@ -56,17 +56,24 @@
       }
       .card-low {
         color: #41ab5b;
+        @include textFont(1.45em);
+        text-shadow: .5px .5px black;
       }
       .card-moderate {
         color: $goldenrod;
+        @include textFont(1.45em);
+        text-shadow: .5px .5px black;
       }
   
       .card-high {
         color: #db6307;
+        @include textFont(1.45em);
+        text-shadow: .5px .5px black;
       }
   
       .card-very-high {
         color: #d12a46;
+        text-shadow: .5px .5px black;
       }
   
       .card-extreme {

@@ -15,10 +15,17 @@ describe('App', () => {
 		expect(aqTable).toBeInTheDocument()
 	})
 
-	it('should display a summary of site', () => {
+	it('should display a summary of site with links', () => {
 		const summary = screen.getByText(/to plan your local or destination activity/i)
+		const compareAir = screen.getByRole('link', {name: 'Compare Your Air'})
+		const cdcLink = screen.getByRole("link", { name: "CDC" });
+		const lungAssocLink = screen.getByRole("link", { name: "Lung Association of America" });
 		expect(summary).toBeInTheDocument()
+		expect(compareAir).toBeInTheDocument()
+		expect(cdcLink).toBeInTheDocument()
+		expect(lungAssocLink).toBeInTheDocument()
 	})
+
 
 	it("should display a aqi legend image", () => {
   	const legendImage = screen.getByAltText('table of Air Quality information from EPA.gov');
@@ -42,7 +49,6 @@ describe('App', () => {
 		expect(leigh).toBeInTheDocument();
 		expect(aqi).toBeInTheDocument();
 		expect(weather).toBeInTheDocument();
-
 	})
 	
 })

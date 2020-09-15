@@ -35,6 +35,7 @@ const Location = (props: any) => {
       return <p className='discussion-text'>{notes}</p>
     }
   }
+  
 
   return (
    <section className="location-section">

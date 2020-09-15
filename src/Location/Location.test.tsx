@@ -1,8 +1,14 @@
 import React from "react";
 import { render, getAllByRole} from "@testing-library/react";
 import Location from './Location'
+import { MemoryRouter } from "react-router-dom";
+import { mocked } from "ts-jest/utils";
+
 
 describe('Location', () => {
+  beforeEach(() => {
+
+  })
 
 //  tests will need to change once we have fetched data
   it('should render a city and region in header', () => {

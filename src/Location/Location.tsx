@@ -98,7 +98,7 @@ const Location: React.FC<LocationProps> = (props) => {
               className="small-weather-icon"
             />
             <p className="type">AQI</p>
-            {aqIndex(props.detailsData.currentAir.AQI, props.detailsData.currentAir.Category.Name)}            
+            {(props.detailsData.currentAir) ? aqIndex(props.detailsData.currentAir.AQI, props.detailsData.currentAir.Category.Name) : null}            
             </span>
             <span className="info-box-aq">
               <img
@@ -161,7 +161,7 @@ const Location: React.FC<LocationProps> = (props) => {
             />
             <p className="type">Additional Notes</p>
             </span>
-            {jsxNotes(props.detailsData.currentAir.Discussion)}
+                {(props.detailsData.currentAir) ? jsxNotes(props.detailsData.currentAir.Discussion): null}
           </span>
        </article>
       </div>

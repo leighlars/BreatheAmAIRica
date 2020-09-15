@@ -20,9 +20,8 @@ export const getHomeData = async (lat: number, long: number) => {
 	data.icon = weather.current.weather[0].icon
 	if (aq.length !== 0) {
 			data.aqi = aq[0].AQI
-			data.aqiCat = aq[0].Category.Name
+			data.aqiCat = aq[0].Category.Number
 		}
-	console.log(data)
 	return data
 }
 

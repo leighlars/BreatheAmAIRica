@@ -147,26 +147,28 @@ const Location = (props: any) => {
       <div className="info-box air-quality">
        <h4 className="info-box-header">AIR QUALITY</h4>
        <article className="aq-section">
-        {/* <div className="activity-section"> */}
-         {activityIcons(
-          props.detailsData.currentAir.aqi,
-          props.detailsData.currentAir.aqCat,
-          props.detailsData.currentWeather.uvi
-         )}
-        {/* </div> */}
+        {props.detailsData.currentAir
+         ? activityIcons(
+            props.detailsData.currentAir.aqi,
+            props.detailsData.currentAir.aqCat,
+            props.detailsData.currentWeather.uvi
+           )
+         : null}
         <span className="aq-top">
-         <span className="info-box-aq">
-          <img
-           src={lungs}
-           alt="lungs icon for air quality"
-           className="small-weather-icon"
-          />
-          <p className="type">AQI</p>
-          {aqIndex(
-           props.detailsData.currentAir.AQI,
-           props.detailsData.currentAir.Category.Name
-          )}
-         </span>
+         {props.detailsData.currentAir ? (
+          <span className="info-box-aq">
+           <img
+            src={lungs}
+            alt="lungs icon for air quality"
+            className="small-weather-icon"
+           />
+           <p className="type">AQI</p>
+           {aqIndex(
+            props.detailsData.currentAir.AQI,
+            props.detailsData.currentAir.Category.Name
+           )}
+          </span>
+         ) : null}
          <span className="info-box-aq">
           <img
            src={sun}
@@ -177,7 +179,7 @@ const Location = (props: any) => {
           {uvIndex(props.detailsData.currentWeather.uvi)}
          </span>
         </span>
-        <span className="aq-middle">
+        <div className="aq-middle">
          <span className="info-box-aq">
           <img
            src={eye}
@@ -198,8 +200,8 @@ const Location = (props: any) => {
           <p className="type">Allergies</p>
           <p className="unit">Coming Soon!</p>
          </span>
-        </span>
-        <span className="aq-bottom">
+        </div>
+        <div className="aq-bottom">
          <span className="info-box-aq">
           <img
            src={bee}
@@ -218,23 +220,23 @@ const Location = (props: any) => {
           <p className="type">Smoke</p>
           <p className="unit">Coming Soon!</p>
          </span>
-        </span>
-        <span className="info-box-aq-discussion">
-         <span className="disc-top">
-          <img
-           src={notepad}
-           alt="checklist icon for additional notes"
-           className="small-weather-icon"
-          />
-          <p className="type">Additional Notes</p>
+        </div>
+         <span className="info-box-aq-discussion">
+          <span className="disc-top">
+           <img
+            src={notepad}
+            alt="checklist icon for additional notes"
+            className="small-weather-icon"
+           />
+           <p className="type">Additional Notes</p>
+          </span>
+          {props.detailsData.currentAir.Discussion ? (jsxNotes(props.detailsData.currentAir.Discussion)) : null}
          </span>
-         {jsxNotes(props.detailsData.currentAir.Discussion)}
-        </span>
        </article>
       </div>
       <div className="info-box weekly-forecast">
        <h4 className="info-box-header">WEEKLY FORECAST</h4>
-        <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
+       <WeeklyForecast weeklyWeather={props.detailsData.weeklyWeather} />
       </div>
      </>
     ) : (

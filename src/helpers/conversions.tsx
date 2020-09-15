@@ -126,31 +126,31 @@ export const uvIndex = (uvi: number) => {
    if (uviNum <= 2) {
     return (
      <p className="card-low">
-      <b>Low</b>
+      <b>{uviNum}</b>
      </p>
     );
    } else if (uviNum >= 3 && uviNum <= 5) {
     return (
      <p className="card-moderate">
-      <b>Moderate</b>
+      <b>{uviNum}</b>
      </p>
     );
    } else if (uviNum === 6 || uviNum === 7) {
     return (
      <p className="card-high">
-      <b>High</b>
+      <b>{uviNum}</b>
      </p>
     );
    } else if (uviNum >= 8 && uviNum <= 10) {
     return (
      <p className="card-very-high">
-      <b>Very High</b>
+      <b>{uviNum}</b>
      </p>
     );
    } else if (uviNum >= 11) {
     return (
      <p className="card-extreme">
-      <b>Hazardous</b>
+      <b>{uviNum}</b>
      </p>
     );
    } else {

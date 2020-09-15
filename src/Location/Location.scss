@@ -95,6 +95,12 @@
     
     .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
+      width: 70%;
+      margin-left: 20px;
+    }
+
+    .activity {
+      margin: 0;
     }
     
     .info-box-aq {
@@ -104,6 +110,7 @@
     .info-box-aq-discussion {
       @include columnDisplay();
       width: 70%;
+      margin-left: 10px;
     }
     .disc-top {
       @include rowDisplay();

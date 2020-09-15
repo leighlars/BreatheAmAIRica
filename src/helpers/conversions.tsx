@@ -120,7 +120,7 @@ export const aqIndex = (aqi: number, aqiCat: string) => {
    }
 }
 
- export const uvIndex = (uvi: number) => {
+export const uvIndex = (uvi: number) => {
    const uviNum = +Math.round(uvi).toFixed(0);
    if (uviNum <= 2) {
     return (
@@ -159,9 +159,9 @@ export const aqIndex = (aqi: number, aqiCat: string) => {
      </p>
     );
    }
-  };
+};
 
-  export const temp = (temp: number) => {
+export const temp = (temp: number) => {
   const temperature =  kelvinToFahren(temp)
    if (temperature <= 32) {
     return (
@@ -180,5 +180,5 @@ export const aqIndex = (aqi: number, aqiCat: string) => {
      <h3 className="card-very-high current-temp">{temperature}&deg;</h3>
     )
    }
-  }
+}
   

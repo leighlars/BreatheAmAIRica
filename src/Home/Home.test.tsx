@@ -7,39 +7,26 @@ import { getHomeData } from '../helpers/dataFilter'
 jest.mock('../helpers/dataFilter')
 
 describe('Home', () => {
-	let mockHomePageData, data
 
 	beforeEach(() => {
-		data = {
-			temp: 87,
-			uvi: 7,
-			icon: '01d',
-			aqi: 10,
-			aqiCat: 'Good'
-		}
-		mockHomePageData = [
-			'Denver',
-			'Colorado',
-			40,
-			-105,
-			data
-		]
 		mocked(getHomeData).mockImplementation(() =>
 			Promise.resolve({
+				temp: 87,
+				uvi: 7,
 				icon: '01d',
-				temp: 76,
-				uvi: 1
+				aqi: 10,
+				aqiCat: 'Good'
 			})
 		)
 	})
 
-  it('should render 15 cards upon load', async () => {
+  it('Should render 15 cards upon load', async () => {
 		const { findByText, findAllByText } = render(
 			<MemoryRouter>
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					// homePageData={mockHomePageData}
+					homePageData={undefined}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>
@@ -56,24 +43,14 @@ describe('Home', () => {
 		expect(uvi[0]).toBeInTheDocument()
 		expect(uvi[14]).toBeInTheDocument()
   })
-
-  it('should display location page when card is clicked', () => {
-		// mock getHomeData
-		// render Home
-		// locate card
-		// mock fetching the location data
-		// fire click event on card
-		// locate items on the location page
-		// expect them to be in the document
-	})
 	
-	it('should display 4 horizontal scrolls with info cards', () => {
+	it('Should display 4 horizontal scrolls with info cards', () => {
 		const { getByRole } = render(
 			<MemoryRouter>
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					// homePageData={mockHomePageData}
+					homePageData={undefined}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>

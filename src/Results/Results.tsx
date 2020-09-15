@@ -33,8 +33,6 @@ const Results: React.FC<ResultsProps> = props => {
 				<article className="results-container" key={result.latitude}>
 					<h2 className="card-header">{result.name}</h2>
 					<h3 className="card-label">{noDupCardInfo(result.label)}</h3>
-					{/* <p>Latitude: {result.latitude}</p>
-					<p>Longitude: {result.longitude}</p> */}
 				</article>
 			</Link>
 		)

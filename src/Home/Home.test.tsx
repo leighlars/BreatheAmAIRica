@@ -1,14 +1,55 @@
 import React from 'react';
 import Home from './Home';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom';
 import { mocked } from 'ts-jest/utils'
 import { getHomeData } from '../helpers/dataFilter'
 jest.mock('../helpers/dataFilter')
 
 describe('Home', () => {
+let homePageData: Array<any>
 
 	beforeEach(() => {
+		homePageData = [[
+			"Denver",
+			"Colorado",
+			39.7392,
+			-104.9903,
+			{
+			aqi: -1,
+			aqiCat: "Good",
+			icon: "01d",
+			temp: 302.78,
+			uvi: 8
+			}
+		],
+		[
+			"New York City",
+			"New York",
+			40.7128,
+			-74.0060,
+			{
+				aqi: -1,
+				aqiCat: "Moderate",
+				icon: "01d",
+				temp: 243.24,
+				uvi: 5
+			}
+		],
+		[
+			"Miami",
+			"Florida",
+			25.7617,
+			-80.1918,
+			{
+				aqi: -1,
+				aqiCat: "Bad",
+				icon: "01d",
+				temp: 312.03,
+				uvi: 9
+			}
+		]]
 		mocked(getHomeData).mockImplementation(() =>
 			Promise.resolve({
 				temp: 87,
@@ -26,7 +67,7 @@ describe('Home', () => {
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					homePageData={undefined}
+					homePageData={homePageData}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>
@@ -34,14 +75,15 @@ describe('Home', () => {
 		)
 
 		const title1 = await findByText(/denver/i)
-		const title6 = await findByText(/anchorage/i)
-		const title11 = await findByText(/hot springs/i)
+		const title2 = await findByText(/new york city/i)
+		const title3 = await findByText(/miami/i)
 		const uvi = await findAllByText(/UVI/i)
 		expect(title1).toBeInTheDocument()
-		expect(title6).toBeInTheDocument()
-		expect(title11).toBeInTheDocument()
+		expect(title2).toBeInTheDocument()
+		expect(title3).toBeInTheDocument()
 		expect(uvi[0]).toBeInTheDocument()
-		expect(uvi[14]).toBeInTheDocument()
+		expect(uvi[1]).toBeInTheDocument()
+		expect(uvi[2]).toBeInTheDocument()
   })
 	
 	it('Should display 4 horizontal scrolls with info cards', () => {
@@ -50,7 +92,7 @@ describe('Home', () => {
 				<Home
 					markLoaded={jest.fn()}
 					initialLoad={true}
-					homePageData={undefined}
+					homePageData={homePageData}
 					getMatchDetails={jest.fn()}
 					getAllDetailsData={jest.fn()}
 				/>

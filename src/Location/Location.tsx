@@ -142,8 +142,8 @@ const Location: React.FC<LocationProps> = (props) => {
           />
           <p className="type">Wind</p>
           <p className="current-wind">
-            {(props.detailsData.currentWeather.wind_speed * 0.00062137).toFixed(1)} mph /
-           {degToDirection(props.detailsData.currentWeather.wind_deg)}
+            {(props.detailsData.currentWeather.wind_speed * 0.00062137).toFixed(1)} mph/
+            {degToDirection(props.detailsData.currentWeather.wind_deg)}
           </p>
          </span>
         </div>
@@ -236,7 +236,7 @@ const Location: React.FC<LocationProps> = (props) => {
            />
            <p className="type">Additional Notes</p>
           </span>
-          jsxNotes(props.detailsData.currentAir.Discussion)
+          {jsxNotes(props.detailsData.currentAir.Discussion)}
          </span>
         ) : null}
        </article>

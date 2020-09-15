@@ -100,15 +100,14 @@
   
   .aq-section {
     @include columnDisplay();
+    width: 100%;
+    
     
     .aq-top, .aq-middle, .aq-bottom, .activity {
       @include rowDisplay();
-      width: 70%;
-      margin-left: 20px;
-    }
-
-    .activity {
-      margin-left: 70px;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
     }
     
     .info-box-aq {
@@ -118,7 +117,6 @@
     .info-box-aq-discussion {
       @include columnDisplay();
       width: 70%;
-      margin-left: 30px;
     }
     .disc-top {
       @include rowDisplay();

@@ -1,54 +1,9 @@
 import React from 'react'
-import clearDay from "../assets/01d.png";
-import clearNight from "../assets/01n.png";
-import cloudyDay from "../assets/02d.png";
-import cloudyNight from "../assets/02n.png";
-import lightClouds from "../assets/03d.png";
-import doubleCloud from "../assets/04d.png";
-import rain from "../assets/09d.png";
-import daySunnyStorm from "../assets/10d.png";
-import sunnyStorms from "../assets/10n.png";
-import thunderstorm from "../assets/11d.png";
-import snow from "../assets/13d.png";
-import mist from "../assets/50d.png";
-
 import './WeeklyForecast.scss'
-
-import { kelvinToFahren, degToDirection, forecastDtDisplay, weatherIcon } from '../helpers/conversions'
-
+import { degToDirection, forecastDtDisplay, weatherIcon, temp } from '../helpers/conversions'
 
 
 const WeeklyForecast = (props: any) => {
-
-
-  const temp = (temp: number) => {
-    const convertTemp = kelvinToFahren(temp);
-    if (convertTemp <= 32) {
-      return (
-      <h3 className="card-extreme">
-        <b>{convertTemp}</b>
-      </h3>
-      );
-    } else if (convertTemp >= 33 && convertTemp <= 59) {
-      return (
-      <h3 className="card-moderate">
-        <b>{convertTemp}</b>
-      </h3>
-      );
-    } else if (convertTemp >= 60 && convertTemp <= 80) {
-      return (
-      <h3 className="card-high">
-        <b>{convertTemp}</b>
-      </h3>
-      );
-    } else if (convertTemp >= 80) {
-      return (
-      <h3 className="card-very-high">
-        <b>{convertTemp}</b>
-      </h3>
-      );
-    }
-  };
 
   const renderDailyWeather = props.weeklyWeather.map((day: any, index: number) => {
     return (

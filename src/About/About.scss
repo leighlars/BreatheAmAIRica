@@ -57,30 +57,33 @@
     margin: 20px auto;
   }
   
+  .legend-table {
+    @include headerFont(1.5em);
+    background: white;
+    border-radius: 14px;
+    box-shadow: 3px 3px black; 
+    margin: 20px;
+    width: 35vw;
+    padding: 2%;
+    margin: 0 auto;
+    color: $darkBlue;
+    margin: 10px;
+
+  }
     table {
-      background: white;
-      border-radius: 14px;
-      box-shadow: 3px 3px black; 
-      margin: 20px;
-      width: 35vw;
-      padding: 2%;
-      margin: 0 auto;
-    }  
-    thead {
-      @include headerFont(1.5em);
-      color: $darkBlue;
-      margin: 10px;
+      width: 100%;
     }
+    tbody {
     tr {
       @include rowDisplay();
       justify-content: space-between;
-     td {
+      td {
        @include rowDisplay();
-       p {
-         @include textFont(1em);
-         color: $darkBlue;
-         margin: 0 10px;
-       }
+       @include textFont(.75em);
+       justify-content: space-between;
+       color: $darkBlue;
+       margin: 0 10px;
+       
        .unit {
          text-align: left;
          margin: 0;
@@ -91,12 +94,14 @@
     .small-weather-icon {
         width: 2vw;
         margin: 0;
+        margin-right: 4px;
       }
+    }
   }
 
 
 .credits {
-  @include rowDisplay();
+  @include columnDisplay();
   @include textFont(1em);
   background: white;
   border-radius: 14px;
@@ -113,5 +118,8 @@
   }
   p {
     margin: 0 auto;
+  }
+  .sources, .devs {
+    @include rowDisplay();
   }
 }

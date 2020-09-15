@@ -18,7 +18,9 @@ import mist from "../assets/50d.png";
 export const degToDirection = (deg: number): string => {
   const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 45) % 8;
-  return directions[index];
+
+
+  return directions[index]
 };
 
 export const kelvinToFahren = (k: number): number => {

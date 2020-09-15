@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './Home';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom';
 import { mocked } from 'ts-jest/utils'
 import { getHomeData } from '../helpers/dataFilter'
@@ -106,5 +105,21 @@ let homePageData: Array<any>
 		expect(lowestOzone).toBeInTheDocument()
 		expect(particlePoll).toBeInTheDocument()
 		expect(pertinentReadings).toBeInTheDocument()
+	})
+
+	it('Should display message while data is being fetched', () => {
+		const { getByText } = render(
+			<MemoryRouter>
+				<Home
+					markLoaded={jest.fn()}
+					initialLoad={true}
+					homePageData={undefined}
+					getMatchDetails={jest.fn()}
+					getAllDetailsData={jest.fn()}
+				/>
+			</MemoryRouter>
+		)
+		const waitingMessage = getByText(/gathering your data.../i)
+		expect(waitingMessage).toBeInTheDocument()
 	})
 })

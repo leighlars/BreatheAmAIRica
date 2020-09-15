@@ -10,6 +10,16 @@ import wind from '../assets/wind.png'
 import notepad from '../assets/notepad.png'
 import forestFire from '../assets/forest-fire.png'
 import cough from '../assets/cough.png'
+import greenbackpack from '../assets/greenbackpack.png'
+import greensoccer from "../assets/greensoccer.png"
+import greenwalking from "../assets/greenwalking.png"
+import orangebackpack from "../assets/orangebackpack.png";
+import orangesoccer from "../assets/orangesoccer.png";
+import orangewalking from "../assets/orangewalking.png";
+import redbackpack from "../assets/redbackpack.png";
+import redsoccer from "../assets/redsoccer.png";
+import redwalking from "../assets/redwalking.png";
+
 
 import { degToDirection, weatherDtDisplay, weatherIcon, aqIndex, uvIndex, temp } from '../helpers/conversions'
 
@@ -35,7 +45,50 @@ const Location = (props: any) => {
       return <p className='discussion-text'>{notes}</p>
     }
   }
-  
+
+  const activityIcons = (aqi: number, aqiCat: string, uvi: number) => {
+   const aqiIndex = aqi === -1 ? aqiCat : aqi;
+   const uviNum = +Math.round(uvi).toFixed(0);
+   if (aqiIndex <= 100 || aqiIndex === "Good" ||aqiIndex === "Moderate" || uviNum <= 3) {
+    return (
+     <span className='activity'>
+      <img src={greenwalking} alt='Healthy conditions for walking icon' className='small-weather-icons'/>
+      <img src={greensoccer} alt='Healthy conditions for park icon' className='small-weather-icons'/>
+      <img src={greenbackpack} alt='Healthy conditions for hiking icon' className='small-weather-icons'/>
+      <p className='discussion-text'>Great day to be outside!</p>
+     </span>
+    );
+   } else if (
+    (aqiIndex >= 151 && aqiIndex <= 200) ||
+    aqiIndex === "Unhealthy" || 
+    (uviNum >= 6 || uviNum <= 8)
+   ) {
+    return (
+       <span className='activity'>
+      <img src={orangewalking} alt='Moderate conditions for walking icon' className='small-weather-icons'/>
+      <img src={orangesoccer} alt='Moderate conditions for park icon' className='small-weather-icons'/>
+      <img src={orangebackpack} alt='Moderate conditions for hiking icon' className='small-weather-icons'/>
+      <p className='discussion-text'>Conditions maybe harmful to some</p>
+     </span>
+    );
+   } else if ((aqiIndex >= 201) || aqiIndex === "Very Unhealthy" || uviNum >= 9) {
+    return (
+      <span className='activity'>
+      <img src={redwalking} alt='Unhealthy conditions for walking icon' className='small-weather-icons'/>
+      <img src={redsoccer} alt='Unhealthy conditions for park icon' className='small-weather-icons'/>
+      <img src={redbackpack} alt='Unhealthy conditions for hiking icon' className='small-weather-icons'/>
+      <p className='discussion-text'>Stay indoors today!</p>
+     </span>
+    )
+   } else {
+    return (
+     <p className="card-extreme">
+      <b>Activity Data Not Available</b>
+     </p>
+    );
+   }
+  }
+
 
   return (
    <section className="location-section">
@@ -84,6 +137,9 @@ const Location = (props: any) => {
       <div className="info-box air-quality">
        <h4 className="info-box-header">AIR QUALITY</h4>
        <article className="aq-section">
+        <div className='activity-section'>
+
+        </div> 
         <span className='aq-top'>
           <span className="info-box-aq">
             <img

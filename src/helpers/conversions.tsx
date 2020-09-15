@@ -99,13 +99,13 @@ export const aqIndex = (aqi: number, aqiCat: string) => {
       <b>{aqiIndex}</b>
      </p>
     );
-   } else if ((aqiIndex >= 201 && aqiIndex <= 300) || "Very Unhealthy") {
+   } else if ((aqiIndex >= 201 && aqiIndex <= 300) || aqiIndex === "Very Unhealthy") {
     return (
      <p className="card-very-high">
       <b>{aqiIndex}</b>
      </p>
     );
-   } else if (aqiIndex >= 301 || "Hazardous") {
+   } else if (aqiIndex >= 301 || aqiIndex === "Hazardous") {
     return (
      <p className="card-extreme">
       <b>{aqiIndex}</b>

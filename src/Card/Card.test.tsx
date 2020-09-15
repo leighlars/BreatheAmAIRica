@@ -5,7 +5,7 @@ import Card from './Card'
 
 describe('Card Component', () => {
 
-  it('should render with all the correct data', () => {
+  it('Should render with all the correct data', () => {
 		const mockGetMatchDetails = jest.fn()
 		const mockGetAllDetailsData = jest.fn()
 		render(

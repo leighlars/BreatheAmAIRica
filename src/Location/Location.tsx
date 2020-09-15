@@ -152,7 +152,7 @@ const Location: React.FC<LocationProps> = (props) => {
       <div className="info-box air-quality">
        <h4 className="info-box-header">AIR QUALITY</h4>
        <article className="aq-section">
-        {props.detailsData.currentAir
+        {(props.detailsData.currentAir)
          ? activityIcons(
             props.detailsData.currentAir.AQI,
             props.detailsData.currentAir.Category.Number,
@@ -160,7 +160,7 @@ const Location: React.FC<LocationProps> = (props) => {
            )
          : null}
         <span className="aq-top">
-         {props.detailsData.currentAir ? (
+         {(props.detailsData.currentAir) ? (
           <span className="info-box-aq">
            <img
             src={lungs}
@@ -236,7 +236,7 @@ const Location: React.FC<LocationProps> = (props) => {
            />
            <p className="type">Additional Notes</p>
           </span>
-          jsxNotes(props.detailsData.currentAir.Discussion)
+          {jsxNotes(props.detailsData.currentAir.Discussion)}
          </span>
         ) : null}
        </article>

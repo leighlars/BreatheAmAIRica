@@ -134,58 +134,46 @@ describe('Location', () => {
       </MemoryRouter>
     );
 
-    const aqHeader = getByRole("heading", { name: "AIR QUALITY" })
+    const aqHeader = screen.getByRole("heading", { name: "AIR QUALITY" })
    
-    const activIcon1 = getByAltText('Healthy conditions for park icon')
-    const activIcon2 = getByAltText("Healthy conditions for walking icon");
-    const activIcon3 = getByAltText("Healthy conditions for hiking icon");
-    const activity = getByText('Great day to be outside!')
-    
-    const aqiIcon = getByAltText('lungs icon for air quality')
-    const aqi = getByText('AQI')  
-    const aqiNum = getByText('40')
-    
-    const uviIcon = getByAltText('sun icon for UV index')
-    const uvi = getByText('UVI')
-    const uviNum = getByText('4')
-
-    const visibIcon = getByAltText('eye icon for visibility')
-    const visibility = getByText('Visibility')
-    const visibilityNum = getByText('4.4')
-    // lolzzz visibility is given to us in meters, approx is to divide by 1609
-    // i changed it in Location
-
-    const smoke = getByText('Smoke')
-    const smokeIcon = getByAltText('smoke icon for air quality')
-    const allergies = getByText("Allergies")
-    const sneezeIcon = getByAltText('sneeze icon for allergies')
-    const pollen = getByText("Pollen") 
-    const beeIcon = getByAltText('bee icon for pollen')  
-    const newFeatures = getAllByText('Coming Soon!')
-
-    const notesIcon = getByAltText('checklist icon for additional notes')
-    const notes = getByText('Additional Notes')
-    const discussion = getByText('No fire danger today')
+    const activIcon1 = screen.getByAltText('Healthy conditions for park icon')
+    const activIcon2 = screen.getByAltText("Healthy conditions for walking icon");
+    const activIcon3 = screen.getByAltText("Healthy conditions for hiking icon");
+    const activity = screen.getByText('Great day to be outside!')
+    const aqiIcon = screen.getByAltText('lungs icon for air quality')
+    const aqi = screen.getByText('AQI')  
+    const aqiNum = screen.getByText('40')
+    const uviIcon = screen.getByAltText('sun icon for UV index')
+    const uvi = screen.getByText(/uv index/i)
+    const uviNum = screen.getByText('4')
+    const visibIcon = screen.getByAltText('eye icon for visibility')
+    const visibility = screen.getByText('Visibility')
+    const visibilityNum = screen.getByText('14.3', {exact: false})
+    const smoke = screen.getByText('Smoke')
+    const smokeIcon = screen.getByAltText('smoke icon for air quality')
+    const allergies = screen.getByText("Allergies")
+    const sneezeIcon = screen.getByAltText('sneeze icon for allergies')
+    const pollen = screen.getByText("Pollen") 
+    const beeIcon = screen.getByAltText('bee icon for pollen')  
+    const newFeatures = screen.getAllByText('Coming Soon!')
+    const notesIcon = screen.getByAltText('checklist icon for additional notes')
+    const notes = screen.getByText('Additional Notes')
+    const discussion = screen.getByText('No fire danger today')
      
     expect(aqHeader).toBeInTheDocument()
-
     expect(activIcon1).toBeInTheDocument()
     expect(activIcon2).toBeInTheDocument();
     expect(activIcon3).toBeInTheDocument();
     expect(activity).toBeInTheDocument()
-
     expect(uviIcon).toBeInTheDocument()
     expect(uvi).toBeInTheDocument()
     expect(uviNum).toBeInTheDocument()
-
     expect(aqiIcon).toBeInTheDocument()
     expect(aqi).toBeInTheDocument()
     expect(aqiNum).toBeInTheDocument()
-
     expect(visibIcon).toBeInTheDocument()
     expect(visibility).toBeInTheDocument()
     expect(visibilityNum).toBeInTheDocument()
-
     expect(smoke).toBeInTheDocument()
     expect(smokeIcon).toBeInTheDocument()
     expect(allergies).toBeInTheDocument()
@@ -193,7 +181,6 @@ describe('Location', () => {
     expect(pollen)
     expect(beeIcon).toBeInTheDocument()
     expect(newFeatures).toHaveLength(3)
-
     expect(notesIcon).toBeInTheDocument()
     expect(notes).toBeInTheDocument()
     expect(discussion).toBeInTheDocument()

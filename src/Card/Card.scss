@@ -30,19 +30,21 @@
       margin: 10px;
       text-shadow: .5px .5px black;
     }
+    .data-numbers {
+      @include rowDisplay();
+    }
     .card-list {
       @include rowDisplay();
       align-items: flex-end;
       h3 {
         @include headerFont(1.45em);
-        // margin-left: 10px;
-        margin-right: 3px;
         text-shadow: 1px 1px black;
       }
       .unit {
         @include textFont(.75em);
         color: $darkBlue;
-        margin-left: 2px;
+        margin-left: 3px;
+        margin-right: 5px;
         margin-bottom: 3px;
       }
       .card-temp {

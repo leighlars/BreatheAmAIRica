@@ -4,6 +4,8 @@ import { degToDirection, forecastDtDisplay, weatherIcon, temp } from '../helpers
 
 import { WeeklyProps } from '../helpers/typeDefinitions'
 
+
+
 const WeeklyForecast: React.FC<WeeklyProps> = (props) => {
 
   const renderDailyWeather = props.weeklyWeather.map((day: any, index: number) => {

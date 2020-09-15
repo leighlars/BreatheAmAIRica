@@ -27,7 +27,7 @@ describe('conversions testing', () => {
 
   it('should check if weatherIcon is functioning correctly', () => {
 
-    
+    expect(weatherIcon('04d')).toEqual(<img alt="Double Clouds Icon" className="large-weather-icon" src={"04d.png"} />)
     expect(weatherIcon('wrongValue')).toBeUndefined()
     expect(weatherIcon(2355)).toBeUndefined()
   })

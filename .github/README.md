@@ -1,4 +1,7 @@
-
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
   <h3 align="center">Breathe AmAIRica</h3>
 
@@ -57,25 +60,25 @@ Once all dependencies are installed, run
 
 ## Usage
 
-![gif of home](./src/assets/homeload.gif)</br>
+![gif of home](../src/assets/homeload.gif)</br>
 *Home Page*
 
-![gif of location page](./src/assets/locationPage.gif)</br>
+![gif of location page](../src/assets/locationPage.gif)</br>
 *Location Page*
 
-![gif of about page](./src/assets/about.gif)</br>
+![gif of about page](../src/assets/about.gif)</br>
 *About Page*
 
-![gif of search functionality](./src/assets/search.gif)</br>
+![gif of search functionality](../src/assets/search.gif)</br>
 *Search functionality of American cities*
 
-![gif of searching from Home](./src/assets/searchFromHome.gif)</br>
+![gif of searching from Home](../src/assets/searchFromHome.gif)</br>
 *Searching from Home Page*
 
-![gif of outside links](./src/assets/outsideLinks.gif)</br>
+![gif of outside links](../src/assets/outsideLinks.gif)</br>
 *Clicking external links*
 
-![gif of loading screen](./src/assets/loading.gif)</br>
+![gif of loading screen](../src/assets/loading.gif)</br>
 *Loading Page*
 
 
@@ -89,15 +92,26 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-[Josh Sevy](https://github.com/JoshSevy) 
-[Leigh Larson](https://github.com/leighlars)
-[Erin Untermeyer](https://github.com/ErinUntermeyer)
+- [Josh Sevy](https://github.com/JoshSevy) 
+- [Leigh Larson](https://github.com/leighlars)
+- [Erin Untermeyer](https://github.com/ErinUntermeyer)
 
-[Project Link](https://github.com/leighlars/WeatherOrNot)
+- [Project Link](https://github.com/leighlars/BreatheAmAIRica)
 
 
 ## Acknowledgements
 * [FlatIcon](https://www.flaticon.com/home)
 * [Giphy](https://giphy.com)
 
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/leighlars/BreatheAmAIRica.svg?style=flat-square
+[contributors-url]: https://github.com/leighlars/BreatheAmAIRica/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/leighlars/BreatheAmAIRica.svg?style=flat-square
+[forks-url]: https://github.com/leighlars/BreatheAmAIRica/network/members
+[stars-shield]: https://img.shields.io/github/stars/leighlars/BreatheAmAIRica.svg?style=flat-square
+[stars-url]: https://github.com/leighlars/BreatheAmAIRica/stargazers
+[issues-shield]: https://img.shields.io/github/issues/leighlars/BreatheAmAIRica.svg?style=flat-square
+[issues-url]: https://github.com/leighlars/BreatheAmAIRica/issues
 

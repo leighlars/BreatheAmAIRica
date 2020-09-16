@@ -50,8 +50,7 @@ Time and free API calls were a hinderance, and our app is simply a proof of conc
 
 ## Getting Started
 
-To interact with the app without cloning down the repo, check out our [deployed page]().
-Otherwise, fork and clone down the repo. 
+Fork and clone down the repo. 
 
 Once you have locally cloned down the repo, within that directory, run 
 `npm i`

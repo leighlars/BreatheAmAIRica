@@ -46,9 +46,8 @@
         h4 {
           @include headerFont(1em);
           color: white;
-          text-shadow: 1px 1px black;
+          text-shadow: 1.5px 1.5px black;
         }
-        
       }
 
       &:hover {

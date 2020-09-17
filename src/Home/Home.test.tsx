@@ -107,8 +107,8 @@ let homePageData: Array<any>
 		expect(pertinentReadings).toBeInTheDocument()
 	})
 
-	it('Should display message while data is being fetched', () => {
-		const { getByText } = render(
+	it('Should display message while data is being fetched', async () => {
+		const { findByText } = render(
 			<MemoryRouter>
 				<Home
 					markLoaded={jest.fn()}
@@ -119,7 +119,7 @@ let homePageData: Array<any>
 				/>
 			</MemoryRouter>
 		)
-		const waitingMessage = getByText(/gathering your data.../i)
+		const waitingMessage = await findByText(/gathering your data.../i)
 		expect(waitingMessage).toBeInTheDocument()
 	})
 })

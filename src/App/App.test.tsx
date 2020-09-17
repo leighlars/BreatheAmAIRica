@@ -78,8 +78,6 @@ describe('App', () => {
 		}
 	})
 
-
-	//keeps throwing a not using act(()=>{}) error i tried wrapping render in act but error still persists 
 	it('Should render a Header', async () => {
 		const { findByRole, findByPlaceholderText } = render(<MemoryRouter><App /></MemoryRouter>)
 

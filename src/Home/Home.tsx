@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { homeCities } from '../helpers/cities'
 import { getHomeData } from '../helpers/dataFilter'
-import { getTestData } from '../helpers/apiCalls'
 import './Home.scss'
 import Card from '../Card/Card'
 import wildfire from '../assets/wildfire.jpg'
@@ -31,7 +30,6 @@ const Home: React.FC<HomeProps> = props => {
 				const cityLat = city.lat
 				const cityLong = city.long
 				const data = await getHomeData(city.lat, city.long)
-				// const data = await getTestData()
 				return [cityLocality, cityRegion, cityLat, cityLong, data]
 			})
 			const cityData = await Promise.all(getCityData)

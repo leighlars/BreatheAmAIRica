@@ -22,7 +22,7 @@ const Results: React.FC<ResultsProps> = props => {
 	const resultsList = americanResults.map(result => {
 		return (
 			<Link
-				to={`/results/${result.name}`}
+				to={`/results/${result.label}`}
 				style={{ textDecoration: "none" }}
 				key={result.latitude}
 				onClick={() => {

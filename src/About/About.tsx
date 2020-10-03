@@ -15,7 +15,6 @@ import lightClouds from "../assets/03d.png";
 import doubleCloud from "../assets/04d.png";
 import rain from "../assets/09d.png";
 import daySunnyStorm from "../assets/10d.png";
-import sunnyStorms from "../assets/10n.png";
 import thunderstorm from "../assets/11d.png";
 import thunderRain from "../assets/11n.png";
 import snow from "../assets/13d.png";

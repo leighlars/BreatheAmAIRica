@@ -26,6 +26,8 @@ const App: React.FC = () => {
 		setSearchResults(returnedResults)
 		clearInput()
 	}
+
+	console.log(process.env)
 	
 	const getMatchDetails = (lat: number, long: number, locality: string, region: string) => {
 		setMatchDetails([lat, long, locality, region])

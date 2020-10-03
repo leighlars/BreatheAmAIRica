@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './App'
-import { render, screen, fireEvent, act } from '@testing-library/react'
+import { render, screen, fireEvent, act, findAllByPlaceholderText } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { getHomeData, getAllData } from '../helpers/dataFilter'
 import { mocked } from 'ts-jest/utils'
@@ -78,13 +78,11 @@ describe('App', () => {
 		}
 	})
 
+	it('Should render a Header', async () => {
+		const { findByRole, findByPlaceholderText } = render(<MemoryRouter><App /></MemoryRouter>)
 
-	//keeps throwing a not using act(()=>{}) error i tried wrapping render in act but error still persists 
-	it('Should render a Header', () => {
-		const { getByRole, getByPlaceholderText } = render(<MemoryRouter><App /></MemoryRouter>)
-
-		const logo = getByRole('heading', { name: 'Breathe Am' })
-		const searchBar = getByPlaceholderText('Search city, zip, or county')
+		const logo = await findByRole('heading', { name: 'Breathe Am' })
+		const searchBar = await findByPlaceholderText('Search city, zip, or county')
 
 		expect(logo).toBeInTheDocument()
 		expect(searchBar).toBeInTheDocument()

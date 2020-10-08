@@ -16,7 +16,7 @@ export const getCoordinates = (query: string) => {
 
 export const getWeatherData = async (lat: number, long: number) => {
   return await fetch(
-		`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_KEY3}`
+		`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_KEY}`
     ).then(parseData => parseData.json()).catch(error => error)
 }
 
@@ -24,7 +24,7 @@ export const getAirQualityData = (lat: number, long: number) => {
    return fetch('https://fe-cors-proxy.herokuapp.com', {
     headers: {
       'Target-URL':
-				`http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=${lat}&longitude=${long}&API_KEY=${process.env.REACT_APP_AIR}`,
+				`https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=${lat}&longitude=${long}&API_KEY=${process.env.REACT_APP_AIR2}`,
     },
   })
     .then((response) => response.json())
